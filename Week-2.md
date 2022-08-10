@@ -1,7 +1,7 @@
-## Week 2.1
+# Week 2.1
 Straks gaan we werken met data-bestanden. Je werkt namelijk meestal niet met losse getallen, letters of woorden, maar met een hele bak aan data. Denk aan meetwaarden of lappen tekst, of als je een app bouwt aan alle gebruikers of posts. Daarvoor zijn eerst nog wat andere onderdelen handig.
 
-### Werken met tekst
+## Werken met tekst
 We gaan aan de slag met strings: stukken tekst. Het eerste voorbeeld was `"Hello world"`. Maar er zijn ook veel langere stukken tekst. De standaard opvultekst die eigenlijk nergens op slaat is *Lorem ipsum*:
 ```python
 lorem = """Lorem ipsum dolor sit amet. Non itaque architecto qui expedita voluptas eum natus totam. Est mollitia voluptatem aut deleniti labore hic dolore vero aut suscipit vitae aut animi officiis aut possimus nobis. Rem dignissimos repellat id internos quis et voluptatem cupiditate non rerum nulla qui tenetur quaerat et officiis molestiae.
@@ -43,8 +43,6 @@ Print `gesplitst`. Wat is `gesplitst` voor iets (welk *datatype* heeft het)? Maa
 
 ---
 
----
-
 <details>
 <summary>Opdracht</summary>
 
@@ -70,7 +68,7 @@ Tip: achter `.replace()` kun je gewoon nog een keer `.replace()` zetten om ook e
 
 Maak gebruik van de volgende tekst:
 ```python
-tekst = "HET VAK INFORMATICA IS HET LEUKSTE VAK DAT OP HET ICHTHUS GEGEVEN WORDT (DAT IS EEN MENING). DAT KOMT NATUURLIJK OOK DOOR DE LEERLINGEN: ZE ZIJN IJVERIG AAN HET PROGRAMMEREN EN MAKEN HET ALTIJD GEZELLIG."
+tekst = "HET VAK INFORMATICA IS HET LEUKSTE VAK DAT OP HET ICHTHUS GEGEVEN WORDT (DAT IS EEN FEIT). DAT KOMT NATUURLIJK OOK DOOR DE LEERLINGEN: ZE ZIJN IJVERIG AAN HET PROGRAMMEREN EN MAKEN HET ALTIJD GEZELLIG."
 ```
 Vervang zoveel mogelijk letters door cijfers, waarna de tekst toch nog te lezen is (gebruik minimaal de 1, 2, 3 en 4). Of je schrijft zelf een tekst die je aan je buren laat lezen nadat je letters vervangen hebt door cijfers.
 
@@ -96,7 +94,7 @@ Pak de tekst waarbij je gesplitst hebt op het teken `\n` (dat is een *newline*) 
 
 ---
 
-### Verder werken met tekst
+## Verder werken met tekst
 
 Je kunt ook tellen hoe vaak een letter voorkomt in een string:
 ```python
@@ -211,14 +209,12 @@ Bereken ook de frequentie als je de hoofdletter `E` meetelt samen met `e`. Komt 
 
 ---
 
----
-
 <details>
 <summary>Bonusopdracht</summary>
 
 Pak de tekst van Genesis 1 er weer bij. Maak gebruik van een `for`-loop over alle letters van het alfabet, om zo de frequentie voor elke letter te berekenen. Print elke keer de letter die je bekijkt, en welk percentage er bij hoort.
 
-Maar: let op. Als je het percentage berekent, worden bij `len()` ook de spaties en Enters meegerekend. Die moet je dan wel eerst verwijderen. Ter controle: als het goed is vind je daarmee een percentage van 19.4% voor de letter e/E. (Een stuk beter dus dan het percentage bij de vorige opdracht!)
+Maar: let op. Bij het berekenen van het percentage gebruik je `len()`, maar `len()` rekent ook het aantal spaties en Enters mee. Dat zijn echter geen letters, dus moet je die moet je dan wel eerst verwijderen. Ter controle: als het goed is vind je daarmee een percentage van 19.4% voor de letter e/E. (Een stuk beter dus dan het percentage bij de vorige opdracht!)
 
 Tip: als je voor een willekeurige kleine letter ook de hoofdletter wilt weten, kun je gebruik maken van dit voorbeeld:
 ```python
@@ -226,12 +222,18 @@ letter = 'a'    # voorbeeldletter
 hoofdletter = letter.upper()    # de 'uppercase' van 'a' oftewel 'A'
 ```
 
+(Dat kan ook andersom:)
+```python
+letter = 'B'    # voorbeeldletter
+kleineletter = letter.lower()   # de 'lowercase' van 'B' oftewel 'b'
+```
+
 </details>
 
 ---
 
-## Week 2.2
-### Bestanden importeren (tekst)
+# Week 2.2
+## Bestanden importeren (tekst)
 Teksten zoals Genesis 1 van de vorige opdrachten zijn erg onhandig om middenin een pagina te zetten en te kopiëren/plakken in je script. Het werkt veel fijner als het in een los bestand staat dat je kunt importeren. Dat kan op de volgende manier: download het bestand 
 
 BESTANDBESTANDBESTANDBESTAND (never gonna give you up, decrypted2.txt)
@@ -249,10 +251,11 @@ file = open("voorbeeldbestand.txt")     # een bestand openen
 file.close()                            # het bestand sluiten
 ```
 
-Om uit te lezen wat er in het bestand staat, zijn er twee voor de hand liggende opties:
+Om uit te lezen wat er in het bestand staat, zijn er twee voor de hand liggende opties `readline()` en `readlines()` (een subtiel verschil):
 ```python
 regel1 = file.readline()        # lees de eerstvolgende regel (de eerste)
 regel2 = file.readline()        # lees de eerstvolgende regel (de tweede dus)
+
 alleregels = file.readlines()   # lees alle regels die nog niet gelezen zijn (derde tot en met laatste)
 ```
 
@@ -284,21 +287,15 @@ Importeer het tweede voorbeeldbestand, en lees alle regels die er in staan met `
 
 ---
 
----
-
-<details>
-<summary>Opdracht</summary>
-
-Zorg dat je van de lijst van de vorige opdracht een hele tekst maakt. Plak alle regels uit de lijst dus aan elkaar, door gebruik te maken van een Enter.
-
-</details>
-
----
-
 Om te werken met grote hoeveelheden getallen zijn er betere manieren dan bestanden te lezen met `readline()`. We gaan gebruik maken van een externe *library* die goed overweg kan met getallen: `numpy` (numerical python).
 
-### Bestanden importeren (getallen) / NumPy
-In Python kun je naast gewone bestanden inlezen ook Python bestanden importeren. Zo'n *library* moet je eerst installeren, en kun je vervolgens in al je scripts gebruiken. Is dat gelukt, dan kun je NumPy importeren als volgt:
+## Bestanden importeren (getallen) / NumPy
+In Python kun je naast gewone bestanden inlezen ook Python bestanden importeren. Zo'n *library* moet je eerst installeren, en kun je vervolgens in al je scripts gebruiken. Daarvoor moet je het volgende commando invoeren in de *terminal* onderin je scherm:
+```powershell
+py -m pip install numpy
+```
+
+Is dat gelukt, dan kun je NumPy importeren als volgt:
 
 ```python
 import numpy
@@ -309,12 +306,9 @@ import numpy
 <details>
 <summary>Opdracht</summary>
 
-Installeer NumPy. Daarvoor moet je het volgende commando invoeren in de *terminal* onderin je scherm:
-```powershell
-py -m pip install numpy
-```
+Installeer NumPy. 
 
-Test of de installatie is gelukt door in een (leeg) script NumPy te importeren op de manier die hierboven staat.
+Test of de installatie is gelukt door in een (leeg) script NumPy te importeren met behulp van de regel hierboven, en het script uit te voeren. Bij succes gebeurt er 'niets'; anders komt er een error in de Terminal.
 
 </details>
 
@@ -328,7 +322,7 @@ NumPy brengt allemaal extra functies met zich mee. Als je daarvan gebruik wilt m
 x = numpy.sin(1.57)
 ```
 
-De hele tijd `numpy` typen is redelijk wat werk, dus maken we graag gebruik van een afkorting:
+De hele tijd `numpy` typen is redelijk wat werk, dus maken we graag gebruik van een afkorting: we vervangen de regel `import numpy` door
 ```python
 import numpy as np
 ```
@@ -369,8 +363,8 @@ Zoals je waarschijnlijk opgevallen zal zijn: `genfromtxt()` negeert de regels me
 
 ---
 
-## Week 2.3
-### Werken met NumPy
+# Week 2.3
+## Werken met NumPy
 
 `genfromtxt` maakt niet echt een lijst zoals we tot nu toe gewend zijn. Bekijk het volgende voorbeeld maar eens:
 ```python
@@ -430,12 +424,10 @@ Maak een array `a` van 0 tot en met 5 en een array `b` van 0 tot en met 10. Tel 
 
 ---
 
----
-
 <details>
 <summary>Opdracht</summary>
 
-Maak een array `c` van 0 tot en met 10 en een array `b` van 0 tot en met 10. Bereken het resultaat van $c^c$. Wat gebeurt er? Zoek op internet een oplossing op en/of vraag het aan de docent.
+Maak een array `c` van 0 tot en met 10. Bereken het resultaat van $c^c$. Wat gebeurt er? Zoek op internet een oplossing op en/of vraag het aan de docent.
 
 </details>
 
@@ -454,16 +446,16 @@ print(l)
 <details>
 <summary>Opdracht</summary>
 
-Maak een array van 0 tot 2 $\pi$ met stapjes van 0.1. Bereken de sinus, cosinus en tangens van de array.
+Maak een array van 0 tot 2 $\pi$ met stapjes van 0.1. Bereken de sinus, cosinus en tangens van de array. Print uiteraard elke keer het resultaat.
 
 </details>
 
 ---
 
-### NumPy in twee dimensies
+## NumPy in twee dimensies
 Het gebeurt eigenlijk nooit dat je maar een enkele kolom met gegevens hebt. Als je bijvoorbeeld de temperatuur meet, meet je vaak ook de luchtdruk, luchtvochtigheid of andere gerelateerde zaken. Je hebt dus heel vaak meer dan een kolom. 
 
-Tussen verschillende kolommen staat natuurlijk ook een *scheidingsteken*. Vaak is dat een komma (`','`), tab (`'\t'`) of spatie (`' '`). Natuurlijk niet de punt, want die wordt gebruikt voor decimalen. Bij het uitlezen van een bestand met `np.genfromtxt()` kun je ook aangeven welk scheidingsteken of *delimiter* er nodig is:
+Tussen verschillende kolommen staat een *scheidingsteken* om de kolommen uit elkaar te houden. Vaak is dat een komma (`','`), tab (`'\t'`) of spatie (`' '`). Natuurlijk niet de punt, want die wordt gebruikt voor decimalen. Bij het uitlezen van een bestand met `np.genfromtxt()` kun je ook aangeven welk scheidingsteken of *delimiter* er nodig is:
 ```python
 data = np.genfromtxt("voorbeeldgetallen_2d.txt", delimiter = ",")
 ```
@@ -511,13 +503,13 @@ Print de lengte van de x-as (aantal regels) en de y-as (aantal kolommen) van de 
 
 ---
 
-Met `data[0]` selecteer je de eerste rij, hebben we gezien. Om de eerste (of andere) kolom te selecteren kun je het volgende gebruiken:
+Met `data[0]` selecteer je de eerste *rij*, hebben we gezien. Om de eerste (of andere) *kolom* te selecteren kun je het volgende gebruiken:
 ```python
 data = np.genfromtxt("voorbeeldgetallen_2d.txt", delimiter = ',')
 kolom0 = data[:, 0]
 kolom1 = data[:, 1]
 ```
-De <kbd>:</kbd> betekent hier dat je de hele x-as selecteert. 
+De <kbd>:</kbd> betekent hier dat je de *hele x-as* selecteert. 
 
 ---
 
@@ -525,6 +517,39 @@ De <kbd>:</kbd> betekent hier dat je de hele x-as selecteert.
 <summary>Opdracht</summary>
 
 Print nogmaals de lengte van de x-as en y-as, maar nu door gebruik te maken van bovenstaand voorbeeld.
+
+</details>
+
+---
+
+<details>
+<summary>Opdracht</summary>
+
+Print de temperatuur, luchtdruk en luchtvochtigheid uit het voorbeeldbestand.
+
+</details>
+
+---
+
+## `print()` revisited
+Nog een enkele tip voor het printen van meerdere dingen tegelijkertijd. Je kunt meerdere variabelen of stukken tekst aan elkaar plakken met behulp van de <kbd>+</kbd> of met een spatie ertussen door <kbd>,</kbd> te gebruiken:
+```python
+print("a", "b")     # resultaat: a b
+print("a" + "b")    # resultaat: ab
+
+print(3, 5)         # resultaat: 3 5
+print (3 + 5)       # resultaat: 8 (want getallen worden bij elkaar opgeteld!)
+
+i = 1
+print(x[i, 0], x[i, 1], x[i, 2])    # als 'x' een 2d-array is kun je zo de eerste drie kolommen printen
+```
+
+---
+
+<details>
+<summary>Opdracht</summary>
+
+Print de GPS coordinaten uit het bestand. GPS bestaat uit een NoorderBreedte-getal en OosterLengte-getal. Zorg ervoor dat je ze dus per tweetal print door naar bovenstaand voorbeeld te kijken.
 
 </details>
 
