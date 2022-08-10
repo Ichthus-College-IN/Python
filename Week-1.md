@@ -1,4 +1,4 @@
-## Week 1.1
+# Week 1.1
 Dit blok gaan we aan de slag met de programmeertaal Python. Het is een van de meest populaire programmeertalen. Niet per se omdat het de snelste of de beste is, maar vooral omdat het zo makkelijk is om heel erg veel verschillende dingen ermee te doen. Een grafiekje maken, een bestand verwerken, een robot aansturen of een app maken zijn een paar voorbeelden.
 
 We gaan hiermee aan de slag in het programma Visual Studio Code. Dat is een programma waarin je standaard alleen teksten kan maken/bewerken, maar door de eindeloze hoeveelheid *extensies* ook heel veel programmeertalen kunt gebruiken. Om te werken met Python moet er dan ook een extensie voor Python geinstalleerd worden. Zie hiervoor de opdracht.
@@ -15,7 +15,7 @@ Open Visual Studio Code. Je kunt hier gewoon op zoeken in het startmenu, of naar
 
 Een Python-document wordt eigenlijk altijd (en dus ook in de lessen) een *script* genoemd. Een script wordt standaard van boven naar beneden, regel voor regel uitgevoerd tot de laatste is bereikt.
 
-### `print()` met Python
+## `print()` met Python
 Het makkelijkste Python script dat een zichtbaar resultaat geeft is het volgende:
 ```python
 print("Hello world!")
@@ -54,7 +54,7 @@ Kopieer bovenstaande code en plak het onder (of in plaats van) de vorige opdrach
 
 ---
 
-### Rekenen met Python
+## Rekenen met Python
 Om te rekenen met Python zijn er (onder andere) de volgende opties:
 ```python
 1 + 1
@@ -110,7 +110,7 @@ Vermenigvuldig $\pi$ met vierenhalf miljoen door alle drie de notaties te prober
 
 ---
 
-### Commentaar in Python
+## Commentaar in Python
 Als je zelf een script schrijft weet je vaak best goed wat er gebeurt. Maar het kan zijn dat je soms je script naar een ander stuurt, of kopieert vanaf internet. Daarbij komt commentaar heel erg van pas: tekst in je script die aangeeft wat er bedoeld wordt. Een voorbeeld:
 ```python
 print(1 - 2 + 3*4**5) # dit is 3071
@@ -165,7 +165,7 @@ Maak met bovenstaande tactiek al de code in je script tot nu toe commentaar. Dan
 
 ---
 
-### Variabelen
+## Variabelen
 Uiteraard werkt het niet om alle getallen in Python te typen als je het net zo snel of sneller kunt invoeren in je rekenmachine. Daarom gaan we het aanpakken op de manier die in de wiskunde gebruikt wordt: met *variabelen*. Een voorbeeld:
 ```python
 a = 3
@@ -197,9 +197,9 @@ oppervlak = pi * straal**2
 
 Je ziet dat een naam dus ook bijvoorbeeld een heel woord kan zijn. En we kunnen variabelen gebruiken om nieuwe variabelen uit te rekenen. Zie opdracht 9. Je ziet ook dat hier een beetje afgeweken wordt van de stijlregel om geen spaties voor en na een vermenigvuldigingsteken te zetten. Het is in dit geval namelijk een stuk beter leesbaar met de spaties erbij. De uitzondering maakt de regel ;)
 
-## Week 1.2
+# Week 1.2
 
-### Vergelijkingen
+## Vergelijkingen
 Je kunt in Python variabelen (en getallen) vergelijken. Een vergelijking heeft slechts twee mogelijke uitkomsten: `True` of `False`.
 ```python
 a = 5
@@ -249,7 +249,7 @@ E = m * g * h
 
 ---
 
-### `if`-statement
+## `if`-statement
 Vaak zijn er stukken van je script die je alleen wilt uitvoeren als er aan een bepaalde voorwaarde wordt voldaan. Denk aan bijvoorbeeld worteltrekken: je kunt niet de wortel trekken van een negatief getal. Voordat je dus worteltrekt, moet je controleren of je getal positief of negatief is. Bekijk het voorbeeld:
 ```python
 getal = 3
@@ -279,7 +279,7 @@ Als je `T` een getal kleiner dan 15 maakt, moet je script `"Het is koud!"` print
 ---
 
 
-### `if-else`-statement
+## `if-else`-statement
 Vaak is een if alleen niet genoeg, en wil je ook iets doen als er *niet* aan de voorwaarde wordt voldaan. In het geval van worteltrekken bijvoorbeeld een waarschuwing printen: "let op, negatief getal!". Dat kan zo:
 ```python
 getal = -3
@@ -300,7 +300,7 @@ Breidt het script van de vorige opdracht uit: als `T` gelijk aan of groter is da
 
 ---
 
-### `if-elif-else` statement
+## `if-elif-else` statement
 Je kunt heel veel extra voorwaarden toevoegen. In het geval van worteltrekken hoef je bijvoorbeeld geen wortel te trekken als het getal gelijk is aan 0, want wortel(0) = 0. Check de uitbreiding:
 ```python
 getal = 0
@@ -325,7 +325,7 @@ Breidt het script van de afgelopen twee opdrachten nog verder uit: als `T` klein
 
 ---
 
-### integers, floats en strings
+## integers, floats en strings
 Voordat we door kunnen gaan naar het volgende onderdeel kijken we naar het verschil tussen tekst en getallen.
 
 Getallen zijn er in twee soorten: <kbd>int</kbd>, de afkorting van integer, en <kbd>float</kbd>, wat meestal gewoon een float wordt genoemd. Een integer is een geheel getal; een float een kommagetal.
@@ -360,7 +360,7 @@ geheelgetal2 = int(kommagetal2) # resultaat: 3
 
 **Let op**! Als je een float omzet in een int, wordt alles na de punt **weggegooid**. Dat is dus niet hetzelfde als afronden!
 
-### `input()` van een gebruiker
+## `input()` van een gebruiker
 Soms wil je de gebruiker van je programma om input vragen. Of je wilt makkelijk een paar dingen testen. Daarvoor is invoer van een gebruiker best praktisch. Hoe werkt dat?
 ```python
 invoer = input("Voer iets in:" )
@@ -387,9 +387,9 @@ Test bovenstaand voorbeeld. Probeer hele getallen, kommagetallen, letters en com
 
 ---
 
-## Week 1.3
+# Week 1.3
 
-### `While`-loop
+## `While`-loop
 Eerder is de `if-else`-constructie aan de orde geweest. Daarbij wordt eenmalig gekeken of er aan een voorwaarde voldaan wordt. Andere keren doe je het liefst iets *zolang* een voorwaarde geldt. Je kunt bijvoorbeeld alle getallen van 0 tot en met 10 printen met de volgende code:
 ```python
 x = 0           # startwaarde 0
@@ -408,7 +408,7 @@ Test de code hierboven uit. Als je goed kijkt, zie je dat het getal 10 helaas to
 
 ---
 
-### Combineren van statements
+## Combineren van statements
 
 Uiteraard is het mogelijk om `while` en `if(-else)` ook door elkaar heen te gebruiken / te combineren. Bekijk het volgende voorbeeld:
 ```python
@@ -446,7 +446,7 @@ Waarom gaat dit mis? Los het probleem op!
 ---
 
 
-### `list`: een lijst
+## `list`: een lijst
 Wat we voor de basis van Python ook zeker nodig hebben is een `list`. Die is niet zo spannend: het is een lijst van waarden (of variabelen). Voorbeeld:
 ```python
 x = [1, 2, 3, 4, 5]
@@ -489,7 +489,7 @@ Denk goed na: hoe gebruik je `i` en `len(x)` zo goed mogelijk? Je mag het getal 
 
 ---
 
-### `for`-loop
+## `for`-loop
 Als een-na-laatste ingrediënt: de `for`-loop. Een `for`-loop lijkt soms best veel op een `while`-loop, maar is vaak een stuk netter. Kijk maar naar dit voorbeeld:
 ```python
 for element in x:
@@ -512,7 +512,7 @@ Print de inhoud van de lijsten `x`, `y` en `z` van een paar voorbeelden terug do
 
 ---
 
-### `range()`: makkelijk een lijst maken
+## `range()`: makkelijk een lijst maken
 Het kan best veel werk zijn om een lijst van getallen te maken van bijvoorbeeld 1 t/m 100. Daarvoor is een handige `range()`-functie. Tussen de haakjes kun je een paar dingen invullen: **op volgorde** de startwaarde, stopwaarde en eventueel de stapgrootte, die standaard +1 is. De stapgrootte moet een integer zijn. Voorbeelden:
 ```python
 a = range(start = 0, stop = 10) # [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
