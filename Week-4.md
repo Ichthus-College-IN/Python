@@ -1,4 +1,4 @@
-## Week 4.1
+# Week 4.1
 We laten de grafieken achter ons! Volgende halte: Turtle; we gaan een schildpad laten tekenen door te programmeren!
 
 Installatie:
@@ -12,20 +12,20 @@ import turtle
 ```
 Deze keer geen afkorting: we hebben de naam `turtle` weinig nodig.
 
-### REPL
-Waar we tot nu toe elke keer scripts hebben gebruikt, gaan we dit keer aan de slag in de REPL. REPL staat voor *Read-Eval-Print Loop*, oftewel: elk regeltje wordt gelezen, uitgevoerd en het resultaat (als dat er is) direct geprint. 
+## REPL
+Waar we tot nu toe elke keer scripts hebben gebruikt, gaan we dit keer grotendeels aan de slag in de REPL. REPL staat voor *Read-Eval-Print Loop*, oftewel: elk regeltje wordt gelezen, uitgevoerd en het resultaat (als dat er is) direct geprint. 
 
 ---
 
 <details>
 <summary>Opdracht</summary>
 
-Open de REPL: ga naar de Terminal en typ:
+Ga naar de Terminal en typ:
 ```powershell
 py
 ```
 
-Er komen twee regeltjes tekst in beeld en vervolgens staat eronder:
+Hiermee open je de REPL. Er komen twee regeltjes tekst in beeld en vervolgens staat eronder:
 ```powershell
 >>> 
 ```
@@ -48,13 +48,13 @@ Dit print ook een resultaat, zonder dat `print()` is gebruikt! Dat komt vanwege 
 
 ---
 
-### De basisomgeving
+## De basisomgeving
 Werken met `turtle` is eigenlijk tekenen met een pen op papier. Met de volgende regel komen we aan 'papier':
 ```python
 >>> s = turtle.getscreen()
 ```
 
-Het papier zit opgeslagen onder de variabele `s` van *screen*.
+Het papier zit opgeslagen onder de variabele `s` van *screen*. Let op: er opent een extra scherm (in de achtergrond).
 
 Met de volgende regel komen we aan een pen:
 ```python
@@ -78,7 +78,7 @@ Tip: gebruik splitscreen om VS Code, de opdrachten en het Turtle scherm allemaal
 
 Nu kunnen we gaan tekenen!
 
-### Simpele tekenfuncties
+## Simpele tekenfuncties: lijnen
 Een lijstje van eenvoudige commando's om te gaan tekenen:
 ```python
 t.forward(100)  # 100 units vooruit
@@ -108,6 +108,15 @@ Maak een rechthoek van het formaat 100 bij 250 units. Probeer daarbij ook negati
 
 ---
 
+<details>
+<summary>Opdracht</summary>
+
+Maak een huisje zoals je die als kind altijd tekent: een rechthoek of vierkant met een driehoek er bovenop. Maak ook een deur midden onderin.
+
+</details>
+
+---
+
 Om naar een specifieke plek op het scherm te gaan, is de volgende functie beschikbaar:
 ```python
 t.goto(x, y)        # ga naar het punt (x, y)
@@ -130,10 +139,21 @@ t.clear()           # alle strepen verwijderen
 t.reset()           # helemaal opnieuw beginnen
 t.hideturtle()      # turtle onzichtbaar maken
 t.showturtle()      # turtle zichtbaar maken
+t.stamp()           # een stempel op de huidige plek van de turtle
 
 turtle.hideturtle()     # de start-turtle onzichtbaar maken
 turtle.title(title)     # de titel in de balk bovenin instellen
 turtle.bgcolor(color)   # de achtergrondkleur van het scherm instellen
+```
+
+En een verzameling aan verschillende looks voor je turtle:
+```python
+t.shape("turtle")
+t.shape("arrow")
+t.shape("circle")
+t.shape("square")
+t.shape("triangle")
+t.shape("classic")
 ```
 
 ---
@@ -141,13 +161,13 @@ turtle.bgcolor(color)   # de achtergrondkleur van het scherm instellen
 <details>
 <summary>Opdracht</summary>
 
-Test bovenstaande commando's uit. Probeer vooral een titel en achtergrondkleur aan te brengen!
+Test bovenstaande commando's uit; ga ze allemaal langs.
 
 </details>
 
 ---
 
-### Punten en cirkels
+## Punten en cirkels
 Een punt maak je zo:
 ```python
 t.dot(radius, color)
@@ -172,14 +192,34 @@ t.circle(40, 270, 50)       # driekwart cirkel met r = 40 en 50 lijnstukken
 <details>
 <summary>Opdracht</summary>
 
+Maak het logo van Audi.
+
+Tip: maak gebruik van `.up()`, `.down()` en `.goto()` om naar andere plekken op het scherm te gaan zonder lijnen te tekenen.
+
+</details>
+
+---
+
+<details>
+<summary>Opdracht</summary>
+
 Maak een hartje! De makkelijkste manier: begin met de turtle op 45 graden, dan een lijnstuk, vervolgens twee halve cirkels, en dan weer een lijnstuk. Vogel zelf uit hoe het precies moet! (Maak zo nodig gebruik van `t.undo()`.)
 
 </details>
 
 ---
 
-## Week 4.2
-### Lijndiktes
+<details>
+<summary>Opdracht</summary>
+
+Maak een klok: begin met een stip in het midden; vervolgens een (grote) cirkel er omheen. Zet vervolgens op elk 'uur' een stempel van je turtle. Zorg dat de turtle naar buiten wijst, en ook echt de vorm van een schildpad heeft.
+
+</details>
+
+---
+
+# Week 4.2
+## Lijndiktes
 Voor het wijzigen van de lijndikte kan de `pensize` (officieel is het een pen, geen pen) aangepast worden:
 ```python
 t.pensize(width)        # default is 1
@@ -188,7 +228,18 @@ t.width(width)          # alias van .pensize()
 
 Je kunt de pendikte wijzigen tussen elk lijnstuk.
 
-### Kleuren met de schildpad
+---
+
+<details>
+<summary>Opdracht</summary>
+
+Maak een vierkant met een dikke buitenrand. Voeg vervolgens de twee diagonalen toe, maar maak die lijnen veel dunner. Zet vervolgens vier verschillend gekleurde stippen in de vier delen tussen de diagonalen.
+
+</details>
+
+---
+
+## Kleuren met de schildpad
 Het tekenen van een punt kon al met een kleur, maar tot nu toe is de rest saai zwart. Maar natuurlijk kan dat zwart ook veranderd worden.
 
 Om de penkleur te wijzigen, kan het volgende gebruikt worden:
@@ -208,6 +259,15 @@ Ook de penkleur kun je tussen elk lijnstuk wijzigen, en zo dus elke volgende lij
 <summary>Opdracht</summary>
 
 Maak een regenboog. Gebruik wisselende pendiktes en -kleuren. Het liefst gebeurt dat natuurlijk door allemaal kleine stukken cirkels te gebruiken zodat de regenboog mooi rondloopt.
+
+</details>
+
+---
+
+<details>
+<summary>Opdracht</summary>
+
+Maak het logo van de Olympische spelen.
 
 </details>
 
@@ -233,16 +293,23 @@ t.color(pencolor, fillcolor)    # pen- en vulkleur apart instellen
 <details>
 <summary>Opdracht</summary>
 
-Maak een smiley! Start met een gele cirkel met daarin twee zwarte of andersgekleurde ogen, en maak een mond of ander soort smiley.
-
-Tip: maak gebruik van `.up()`, `.down()` en `.goto()` om naar andere plekken op het scherm te gaan zonder lijnen te tekenen.
+Maak het logo van Mitsubishi maar vul de drie ruiten met verschillende kleuren en maak een gouden rand om het logo. Tip: gebruik hoeken van 45 graden en 135 graden.
 
 </details>
 
 ---
 
-## Week 4.3
-### `turtle` en loops
+<details>
+<summary>Opdracht</summary>
+
+Maak een smiley! Start met een gele cirkel met zwarte rand met daarin twee zwarte of andersgekleurde ogen, en maak een mond of ander soort smiley.
+
+</details>
+
+---
+
+# Week 4.3
+## `turtle` en loops
 Waar er tot nu toe veel handwerk nodig was om iets moois te maken, kunnen we uiteraard ook hier weer automatisering toepassen.
 
 Vergelijk de volgende twee methoden om een vierkant te maken:
@@ -274,6 +341,24 @@ for i in range(10, 250, 5): # i = 10, 15, 20 .. 240, 245
     t.fd(i)
     t.lt(90)
 ```
+
+---
+
+<details>
+<summary>Opdracht</summary>
+
+Maak met behulp van een aantal `for`-loops een driehoek, vierhoek, vijfhoek, zeshoek en achthoek.
+
+</details>
+
+---
+
+<details>
+<summary>Opdracht</summary>
+
+Maak een vijfpuntige ster uit één lijn door een `for`-loop te gebruiken.
+
+</details>
 
 ---
 
