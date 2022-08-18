@@ -1,0 +1,10 @@
+# voorbeeld bestand met getallen Python week 2
+5
+3.1415
+6
+9
+0
+-1
+53
+-8.25
+4.0

@@ -31,10 +31,10 @@ Het vorige hoofdstuk is geeindigd met een 2d-array met temperatuur, luchtdruk en
 
 We beginnen met het importeren van de data:
 ```python
-data = np.genfromtxt("voorbeeldgetallen_2d.txt", delimiter = ',')
+data = np.genfromtxt("voorbeeld_getallen_2d.txt", delimiter = ',')
 temperatuur = data[:, 0]
-luchtdruk = data[:, 1]
-vochtigheid = data[:, 2]
+vochtigheid = data[:, 1]
+luchtdruk = data[:, 2]
 ```
 
 Vervolgens maken we een kaal figuur aan:

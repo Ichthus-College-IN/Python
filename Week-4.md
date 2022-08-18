@@ -142,8 +142,6 @@ t.showturtle()      # turtle zichtbaar maken
 t.stamp()           # een stempel op de huidige plek van de turtle
 
 turtle.hideturtle()     # de start-turtle onzichtbaar maken
-turtle.title(title)     # de titel in de balk bovenin instellen
-turtle.bgcolor(color)   # de achtergrondkleur van het scherm instellen
 ```
 
 En een verzameling aan verschillende looks voor je turtle:
@@ -156,12 +154,23 @@ t.shape("triangle")
 t.shape("classic")
 ```
 
+Een aantal opties voor kleuren en titels:
+```python
+turtle.title(title)     # de titel in de balk bovenin instellen
+turtle.title("Test")
+turtle.title("Mijn tekening")
+
+turtle.bgcolor(color)   # de achtergrondkleur van het scherm instellen
+turtle.bgcolor("red")
+turtle.bgcolor("green")
+turtle.bgcolor("magenta")
+```
 ---
 
 <details>
 <summary>Opdracht</summary>
 
-Test bovenstaande commando's uit; ga ze allemaal langs.
+Test bovenstaande commando's uit; ga ze allemaal langs!
 
 </details>
 

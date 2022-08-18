@@ -234,19 +234,9 @@ kleineletter = letter.lower()   # de 'lowercase' van 'B' oftewel 'b'
 
 # Week 2.2
 ## Bestanden importeren (tekst)
-Teksten zoals Genesis 1 van de vorige opdrachten zijn erg onhandig om middenin een pagina te zetten en te kopiëren/plakken in je script. Het werkt veel fijner als het in een los bestand staat dat je kunt importeren. Dat kan op de volgende manier: download het bestand 
-
-BESTANDBESTANDBESTANDBESTAND (never gonna give you up, decrypted2.txt)
-
-BESTANDBESTANDBESTANDBESTAND
-
-BESTANDBESTANDBESTANDBESTAND
-
-BESTANDBESTANDBESTANDBESTAND 
-
-en sla het op in dezelfde map als waar je script staat opgeslagen. Gebruik vervolgens dit voorbeeld om het te importeren:
+Teksten zoals Genesis 1 van de vorige opdrachten zijn erg onhandig om middenin een pagina te zetten en te kopiëren/plakken in je script. Het werkt veel fijner als het in een los bestand staat dat je kunt importeren. Dat kan op de volgende manier: download het bestand `voorbeeld_tekst.txt` en sla het op in dezelfde map als waar je script staat opgeslagen. Gebruik vervolgens dit voorbeeld om het te importeren:
 ```python
-file = open("voorbeeldbestand.txt")     # een bestand openen
+file = open("voorbeeld_tekst.txt")     # een bestand openen
 # je kunt dan dingen doen met dit bestand
 file.close()                            # het bestand sluiten
 ```
@@ -345,7 +335,7 @@ Doe een gok of zoek op internet op hoe je de waarde van $\pi$ kunt printen. Tip:
 
 Rekenen met NumPy bewaren we voor straks; voor nu kijken we naar het uitlezen van bestanden met getallen. Daarvoor komt de volgende functie erg goed van pas:
 ```python
-data = np.genfromtxt("voorbeeldgetallen_1d.txt")
+data = np.genfromtxt("voorbeeld_getallen_1d.txt")
 ```
 
 Het resultaat van deze functie is een (soort van) lijst met alle getallen in het bestand. 
@@ -368,9 +358,9 @@ Zoals je waarschijnlijk opgevallen zal zijn: `genfromtxt()` negeert de regels me
 
 `genfromtxt` maakt niet echt een lijst zoals we tot nu toe gewend zijn. Bekijk het volgende voorbeeld maar eens:
 ```python
-test = [1, 2, 3, 4, 5]
+test = [1, 2, 3, 4, 5]  # 'normaal'
 print(type(test))       # list
-data = np.genfromtxt("voorbeeldgetallen_1d.txt")
+data = np.genfromtxt("voorbeeld_getallen_1d.txt")
 print(type(data))       # numpy.ndarray
 ```
 
@@ -435,7 +425,7 @@ Maak een array `c` van 0 tot en met 10. Bereken het resultaat van $c^c$. Wat geb
 
 Je kunt ook in een keer bijvoorbeeld de sinus of cosinus van een heel array berekenen:
 ```python
-data = np.genfromtxt("voorbeeldgetallen_1d.txt")
+data = np.genfromtxt("voorbeeld_getallen_1d.txt")
 l = np.sin(data)
 print(l)
 ```
@@ -457,7 +447,7 @@ Het gebeurt eigenlijk nooit dat je maar een enkele kolom met gegevens hebt. Als 
 
 Tussen verschillende kolommen staat een *scheidingsteken* om de kolommen uit elkaar te houden. Vaak is dat een komma (`','`), tab (`'\t'`) of spatie (`' '`). Natuurlijk niet de punt, want die wordt gebruikt voor decimalen. Bij het uitlezen van een bestand met `np.genfromtxt()` kun je ook aangeven welk scheidingsteken of *delimiter* er nodig is:
 ```python
-data = np.genfromtxt("voorbeeldgetallen_2d.txt", delimiter = ",")
+data = np.genfromtxt("voorbeeld_getallen_2d.txt", delimiter = ",")
 ```
 
 ---
@@ -480,8 +470,8 @@ Je kunt een los getal opvragen op de volgende twee manieren:
 getal1 = data[0, 0]     # regel 0, getal 0
 getal1 = data[0][0]
 
-getal2 = data[14, 2]    # regel 14, getal 2
-getal2 = data[14][2]
+getal2 = data[10, 2]    # regel 10, getal 2
+getal2 = data[10][2]
 ```
 
 Je kunt alle items in een 2d-array bijvoorbeeld op de volgende manier printen:
@@ -505,7 +495,7 @@ Print de lengte van de x-as (aantal regels) en de y-as (aantal kolommen) van de 
 
 Met `data[0]` selecteer je de eerste *rij*, hebben we gezien. Om de eerste (of andere) *kolom* te selecteren kun je het volgende gebruiken:
 ```python
-data = np.genfromtxt("voorbeeldgetallen_2d.txt", delimiter = ',')
+data = np.genfromtxt("voorbeeld_getallen_2d.txt", delimiter = ',')
 kolom0 = data[:, 0]
 kolom1 = data[:, 1]
 ```
@@ -549,21 +539,37 @@ print(x[i, 0], x[i, 1], x[i, 2])    # als 'x' een 2d-array is kun je zo de eerst
 <details>
 <summary>Opdracht</summary>
 
-Print de GPS coordinaten uit het bestand. GPS bestaat uit een NoorderBreedte-getal en OosterLengte-getal. Zorg ervoor dat je ze dus per tweetal print door naar bovenstaand voorbeeld te kijken.
+Print de GPS coordinaten uit het bestand (elke regel afzonderlijk). GPS bestaat uit een noorderbreedte-getal (NB) en oosterlengte-getal (OL). Zorg ervoor dat het er als volgt uitziet:  
+`NB 52.027631, OL 5.526631`
 
 </details>
 
 ---
 
+Je kunt uiteraard ook een bestand zelf maken vanuit Python. Een voorbeeld:
+```python
+file = open("test.txt", "w")    # open het bestand 'test.txt' met 'w'rite permissions
+file.write("Hello world!")      # schrijf een regel in het bestand
+file.write("")                  # schrijf een lege regel
+file.write("Dit is\neen test")  # schrijf twee regels in één keer
+file.close()                    # sluit het bestand
+```
+
+---
+
 <details>
+
 <summary>Bonusopdracht</summary>
 
-Importeer het bestand `"bonus_getallen.txt"`. Let op: dit is een flink groot bestand. Ga vervolgens de volgende stappen af:
+Werk het volgende stappenplan af:
 
-* Zoek op internet hoe je de hele array kunt *afronden*. Dat is dus niet hetzelfde als overal een integer van maken. (Want: `int(0.9) = 0`.) Als het goed is houd je alleen -1, 0 en 1 over in de array.
+* Importeer het bestand `"bonus_getallen.txt"`. Let op: dit is een vrij groot bestand.
+* Zoek op internet hoe je de hele array kunt *afronden*. Dat is dus niet hetzelfde als overal een integer van maken. (Want: `int(0.9) = 0`.) Als het goed is houd je alleen 0 en 1 over in de array.
+* Maak van de hele array nu een integer: zoek op internet hoe dat kan.
 * Maak van de hele array een string: `str(data)`.
-* Vervang elke -1 door een Enter en verwijder de `[`, `]` en spaties.
-* Print de hele string. Wat zie je?
+* Verwijder de `[` en `]`.
+* Maak een bestand, schrijf de string naar het bestand, en sluit het bestand.
+* Open het bestand en geniet van de creatie (tip: zoom een stuk uit)!
 
 </details>
 
