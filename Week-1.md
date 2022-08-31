@@ -514,18 +514,20 @@ Print de inhoud van de lijsten `x`, `y` en `z` van een paar voorbeelden terug do
 
 ## `range()`: makkelijk een lijst maken
 Het kan best veel werk zijn om een lijst van getallen te maken van bijvoorbeeld 1 t/m 100. Daarvoor is een handige `range()`-functie. Tussen de haakjes kun je een paar dingen invullen: **op volgorde** de startwaarde, stopwaarde en eventueel de stapgrootte, die standaard +1 is. De stapgrootte moet een integer zijn. Voorbeelden:
+
+
 ```python
-a = range(start = 0, stop = 10) # [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
-b = range(3, 11)                # [3, 4, 5, 6, 7, 8, 9, 10]
-c = range(0, 100, 10)           # [0, 10, 20, 30, 40, 50, 60, 70, 80, 90]
-d = range(5, 0)                 # [] (leeg, want met stapgrootte +1 kun je niet van 5 naar 0)
-e = range(8, -2, -1)            # [8, 7, 6, 5, 4, 3, 2, 1, 0, -1]
-f = range(start = 8, stop = -4, step = -2)  # [8, 6, 4, 2, 0, -2]
+range(start, stop, step)
+
+a = range(0, 10)            # [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+b = range(3, 11)            # [3, 4, 5, 6, 7, 8, 9, 10]
+c = range(0, 100, 10)       # [0, 10, 20, 30, 40, 50, 60, 70, 80, 90]
+d = range(5, 0)             # [] (leeg, want met stapgrootte +1 kun je niet van 5 naar 0)
+e = range(8, -2, -1)        # [8, 7, 6, 5, 4, 3, 2, 1, 0, -1]
+f = range(8, -4, -2)        # [8, 6, 4, 2, 0, -2]
 ```
 
 Zoals je ziet wordt het laatste getal niet meegenomen in de lijst. Daarnaast kun je ook achteruit tellen, maar dan moet je wel specifiek zeggen dat de stapgrootte -1 is. Anders is de lijst gewoon leeg.
-
-Je mag ook de namen `start`, `stop`, en `step` specifiek aangeven, maar dat is niet verplicht. Het kan het wel makkelijker maken om te lezen, al wordt het er ook een stuk langer van.
 
 ---
 
