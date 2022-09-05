@@ -390,6 +390,8 @@ for i in range(len(colors)):    # i = 0, 1, 2 (want len(colors) = 3)
 
 Maak het Ichthuslogo zo goed mogelijk na. Een website zal gebruikt worden om de plaatjes te vergelijken: hoe beter de match, hoe hoger het cijfer. Maak je script zo netjes mogelijk met alle dingen die je geleerd hebt (of online kunt vinden)! Denk hierbij ook zeker aan de lijst functies in het eerste deel van het hoofdstuk.
 
+**Beoordeling:**
+* Cijfer tussen de 0 en 1pt: hoe beter de match, hoe hoger het cijfer.
 </details>
 
 ---

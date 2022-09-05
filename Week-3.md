@@ -269,6 +269,11 @@ Maak gebruik van het bestand (komt nog online). Hierin is voor elke sensor in he
 
 Maak voor elke sensor een mooi opgemaakte figuur. De x-as loopt van 0 tot 24 uur, dus dat betekent dat je voor elke figuur twee lijnen moet plotten: dag 1 en dag 2. Zorg uiteraard ook dat duidelijk is welke lijn bij welke dag hoort.
 
+**Beoordeling:**
+* 0.0pt: niet ingeleverd / werkt totaal niet
+* 0.5pt: ingeleverd maar geen correct resultaat / simpele oplossing om werkend te krijgen
+* 1.0pt: ingeleverd en (zo goed als) correct op minder goede manier
+* 1.55pt: ingeleverd en helemaal correct op de manier zoals geleerd in het hoofdstuk
 </details>
 
 ---
@@ -280,6 +285,10 @@ Zorg dat alle grafieken niet in losse figuren staan, maar in een heel erg grote 
 
 **Let op**: dit is een pittige opdracht om netjes te maken.
 
+**Beoordeling:**
+* 0.0pt: niet ingeleverd / werkt totaal niet
+* 0.5pt: ingeleverd maar geen correct resultaat / simpele oplossing om werkend te krijgen
+* 1.0pt: ingeleverd en (zo goed als) correct
 </details>
 
 ---

@@ -280,6 +280,10 @@ De levens zijn nog nergens zichtbaar.. dat maakt het een saai spelletje. Zorg da
 
 Zorg als laatste nog dat er iets gebeurt als het aantal levens 0 of minder dan 0 is. Dat mag iets printen zijn, of iets op het scherm doen!
 
+**Beoordeling:**
+* 0.00pt: niet ingeleverd / werkt totaal niet
+* 0.25pt: ingeleverd maar geen correct resultaat / simpele oplossing om werkend te krijgen
+* 0.50pt: ingeleverd en (zo goed als) correct
 </details>
 
 ---
@@ -297,6 +301,11 @@ Maak een werkend, leuk speelbaar spel! Het liefst is daarbij alleen het scherm m
 
 P.S. kopieer geen spel van internet om dat in te leveren. Gebruik het eventueel als basis die je zelf flink aanpast, maar bedenk het liefst zoveel mogelijk zelf. Er wordt gecontroleerd!
 
+**Beoordeling:**
+* 0.0pt: niet ingeleverd / werkt totaal niet
+* 0.5pt: ingeleverd en simpele oplossing om werkend te krijgen / klein beetje aangepast van kopie
+* 1.0pt: ingeleverd, werkend en zelfgemaakte clone van bestaand spel
+* 1.5pt: ingeleverd, werkend en helemaal origineel
 </details>
 
 ---

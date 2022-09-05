@@ -228,6 +228,10 @@ letter = 'B'    # voorbeeldletter
 kleineletter = letter.lower()   # de 'lowercase' van 'B' oftewel 'b'
 ```
 
+**Beoordeling:**
+* 0.00pt: niet ingeleverd / werkt totaal niet
+* 0.25pt: ingeleverd maar geen correct resultaat / simpele oplossing om werkend te krijgen
+* 0.50pt: ingeleverd en (zo goed als) correct
 </details>
 
 ---
@@ -571,6 +575,10 @@ Werk het volgende stappenplan af:
 * Maak een bestand, schrijf de string naar het bestand, en sluit het bestand.
 * Open het bestand en geniet van de creatie (tip: zoom een stuk uit)!
 
+**Beoordeling:**
+* 0.00pt: niet ingeleverd / werkt totaal niet
+* 0.25pt: ingeleverd maar geen correct resultaat / simpele oplossing om werkend te krijgen
+* 0.50pt: ingeleverd en (zo goed als) correct
 </details>
 
 ---

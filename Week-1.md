@@ -545,6 +545,12 @@ Maak een lijst `l` die elk 7e getal bevat van 0 tot en **met** 70. Print elk get
 Schrijf een script dat aan jou als gebruiker om input vraagt en vervolgens wel of niet een wortel trekt. Dat herhaalt zich tot je het getal nul invoert: dan stopt het script.
 
 Vraag hiervoor als eerste om input van de gebruiker. Gebruik vervolgens een `while`-loop. Je moet dan testen of de invoer gelijk is aan 0 (dan stopt de loop), en daarna controleren of het getal positief of negatief is. Als het getal negatief is, print dan `"Dombo, geen negatief getal"`. Print anders de wortel van het getal. Vraag als laatste weer opnieuw om input, waarna je weer vooraan in de loop komt.
+
+**Beoordeling:**
+* 0.00pt: niet ingeleverd / werkt totaal niet
+* 0.25pt: ingeleverd maar geen correct resultaat / simpele oplossing om werkend te krijgen
+* 0.50pt: ingeleverd en (zo goed als) correct op minder goede manier
+* 0.75pt: ingeleverd en helemaal correct op de manier zoals geleerd in het hoofdstuk
 </details>
 
 ---
@@ -563,6 +569,12 @@ Print voor elke stap
 (Hint: controleer dus of de temperatuur in graden Celsius kleiner of groter is dan 0!)
 
 De formule om Fahrenheit om te rekenen naar Celsius: $C=\frac{5}{9}(F-32)$.
+
+**Beoordeling:**
+* 0.00pt: niet ingeleverd / werkt totaal niet
+* 0.25pt: ingeleverd maar geen correct resultaat / simpele oplossing om werkend te krijgen
+* 0.50pt: ingeleverd en (zo goed als) correct op minder goede manier
+* 0.75pt: ingeleverd en helemaal correct op de manier zoals geleerd in het hoofdstuk
 </details>
 
 ---

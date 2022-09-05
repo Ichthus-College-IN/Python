@@ -336,6 +336,11 @@ Maak een app die de BMI van een gebruiker kan berekenen. Daarvoor zijn de volgen
 * Een button waarmee de BMI berekent wordt en label waarin de berekende BMI weergegeven wordt.
 * Een label waar na het berekenen in komt te staan of dat ondergewicht, goed gewicht of overgewicht betekent. Geef deze label eventueel afhankelijk van het type gewicht een oranje of groene achtergrondkleur.
 
+**Beoordeling:**
+* 0.00pt: niet ingeleverd / werkt totaal niet
+* 0.5pt: ingeleverd maar geen correct resultaat / simpele oplossing om werkend te krijgen
+* 1.0pt: ingeleverd en (zo goed als) correct op minder goede manier
+* 1.5pt: ingeleverd en helemaal correct op de manier zoals geleerd in het hoofdstuk
 </details>
 
 ---
