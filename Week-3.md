@@ -51,7 +51,7 @@ ax.plot(temperatuur)
 
 De temperatuur is nu een lijn in de grafiek `ax` in het plaatje `fig`. Om het plaatje te bekijken, is het volgende nodig:
 ```python
-fig.show()
+plt.show(block = True)
 ```
 
 ---
@@ -74,7 +74,7 @@ In plaats van drie losse figuren te maken kun je ze ook combineren in één *plo
 
 ---
 
-Als je nog eens kijkt naar het plaatje, zie je dat de y-as automatisch een goede schaal krijgt. De x-as is echter nog wel onhandig. Als er 20 punten in je temperatuurmeting zitten, loopt de x-as ook van 1 tot 20. Maar als je elke 6 minuten gemeten hebt, dan is het veel beter om de x-as van 0 tot 2 uur (of 120 minuten) te laten lopen.
+Als je nog eens kijkt naar het plaatje, zie je dat de y-as automatisch een goede schaal krijgt. De x-as is echter nog wel onhandig. Als er 20 punten in je temperatuurmeting zitten, loopt de x-as van 0 tot 20. Maar als je elke 6 minuten gemeten hebt, dan is het veel beter om de x-as van 0 tot 2 uur (of 120 minuten) te laten lopen.
 
 ## Nog een klein beetje NumPy
 Eerder hebben we al gekeken naar `np.arange(start, stop, step)`. Als je een x-as wilt maken van 0 tot en met 2 met 20 punten (want je hebt 20 metingwaarden), dan is dat best moeilijk te maken. Want hoe groot zijn de stappen? Een makkelijkere optie is de volgende:
@@ -113,11 +113,15 @@ Maak een grafiek van de temperatuur, waarbij je de x-as van 12 tot 18 uur laat l
 <details>
 <summary>Opdracht</summary>
 
-Maak een array van $0$ tot $2\pi$ door `np.linspace()` te gebruiken; zorg dat er minimaal 50 elementen gebruikt worden. Plot vervolgens de volgende $x$ en $y$ tegen elkaar:
+Maak een array van $0$ tot $2\pi$ door `np.linspace()` te gebruiken; zorg dat er minimaal 50 elementen gebruikt worden. Maak vervolgens de volgende `x` en `y`:
 
 $x = 16sin(t)^3$  
 $y = 13cos(t) - 5cos(2t) - 2cos(3t) - cos(4t)$
 
+Plot ze vervolgens (op parametrische manier):
+```python
+ax.plot(x, y)
+```
 Wat is het resultaat?
 
 </details>
@@ -137,8 +141,7 @@ Op een rijtje zijn hier een aantal veelvoorkomende opties voor het opmaken van e
 * `ax.set_ylim(y_min, y_max)`: pas het bereik van de y-as aan van `y_min` tot `y_max` (bijvoorbeeld `set_ylim(19.5, 24.8)`).
 * `ax.grid()`: voeg een raster toe aan de grafiek om beter af te kunnen lezen.
 * `ax.plot(x, y, label = "meting")`: voeg een label toe aan de lijn.
-* `ax.legend()`: voeg een legenda toe die alle labels toont.
-* `ax.set_aspect(aspect)`: stel de verhouding van de assen in (bijvoorbeeld `set_aspect(1)` betekent dat allebei de assen dezelfde verhouding hebben).
+* `ax.legend()`: voeg een legenda toe die alle labels toont (let op: *eerst* iets plotten mét een label, anders is de legenda leeg!).
 
 ---
 
@@ -147,7 +150,7 @@ Op een rijtje zijn hier een aantal veelvoorkomende opties voor het opmaken van e
 
 Geef alle drie de grafieken van de vorige opdracht een mooie opmaak. Gebruik minimaal aslabels, een titel, legenda en grid.
 
-Probeer ook het domein en bereik van de assen in te stellen, net als de asverhouding (ook al maken die je grafiek niet altijd mooier).
+Probeer ook het domein en bereik van de assen van één grafiek in te stellen.
 
 </details>
 
@@ -183,7 +186,7 @@ ax.plot(x, y, 'w--')    # witte gestreepte lijn
 <details>
 <summary>Opdracht</summary>
 
-Maak de drie grafieken tot nu toe op met verschillende combinaties zoals je hierboven kunt vinden. Het hoeft niet per se mooi te worden, zolang je maar een aantal dingen probeert.
+Maak één de drie grafieken tot nu toe op met verschillende combinaties zoals je hierboven kunt vinden. Het hoeft niet per se mooi te worden, zolang je maar een aantal dingen probeert.
 
 </details>
 
@@ -198,12 +201,12 @@ Zie het volgende script:
 import numpy as np
 import matplotlib.pyplot as plt
 
-jaren = np.arange(1981, 2022)                         # bereik x-as
-temp = np.sqrt(jaren) - 2*np.random.rand(len(jaren))  # meetpunten maken
+jaren = np.arange(1981, 2022)                         # bereik x-as in jaren
+temp = np.sqrt(jaren) - 2*np.random.rand(len(jaren))  # temperatuur meetpunten maken
 trend = np.sqrt(jaren) - 1                            # trendlijn maken
 
 fig, ax = plt.subplots()              # figuur maken
-ax.plot(jaren, temp, 'k.')            # meetpunten plotten
+ax.plot(jaren, temp, 'k.')            # temperatuur plotten
 ax.plot(jaren, trend, 'r-')           # trendlijn plotten
 ```
 
@@ -254,18 +257,19 @@ Verander je plots zodat je
 
 Nog twee extra trucs wat betreft het selecteren van elementen:
 ```python
-deel4 = start[:-3]  # selecteer alles behalve de laatste drie
-deel5 = start[:int(len(start) / 3)] # selecteer alles tot een derde van de totale lengte
+deel4 = start[:-3]          # selecteer alles behalve de laatste drie
+kwart = int(len(start) / 4) # bereken de lengte van een kwart (als integer)
+eerstekwart = start[:kwart] # selecteer alles tot een kwart van de totale lengte
 ```
 
-Bij de laatste truc moet je heel erg opletten: als bijvoorbeeld de totale lengte 10 is, en je selecteert tot element $\frac{10}{3}$, komt er een error, want het element 3.333 bestaat niet. Daarom moet er een `int` van gemaakt worden.
+Bij de laatste truc moet je heel erg opletten: als bijvoorbeeld de totale lengte 18 is, en je selecteert tot element $\frac{18}{4}$, komt er een error, want het element 4.5 bestaat niet. Daarom moet er een `int` van gemaakt worden.
 
 ---
 
 <details>
 <summary>Slotopdracht</summary>
 
-Maak gebruik van het bestand (komt nog online). Hierin is voor elke sensor in het Meet je leefomgeving-kastje een kolom aanwezig met alle meetwaarden gedurende twee dagen.
+Maak gebruik van het bestand `mjlo-15_0.txt`. Hierin is voor elke sensor in een Meet je leefomgeving-kastje een kolom aanwezig met alle meetwaarden gedurende twee dagen.
 
 Maak voor elke sensor een mooi opgemaakte figuur. De x-as loopt van 0 tot 24 uur, dus dat betekent dat je voor elke figuur twee lijnen moet plotten: dag 1 en dag 2. Zorg uiteraard ook dat duidelijk is welke lijn bij welke dag hoort.
 

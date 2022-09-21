@@ -567,6 +567,7 @@ file.close()                    # sluit het bestand
 
 Werk het volgende stappenplan af:
 
+* Voeg bovenaan je bestand de volgende regel in: `np.set_printoptions(threshold = np.inf, linewidth = np.inf)`
 * Importeer het bestand `"bonus_getallen.txt"`. Let op: dit is een vrij groot bestand.
 * Zoek op internet hoe je de hele array kunt *afronden*. Dat is dus niet hetzelfde als overal een integer van maken. (Want: `int(0.9) = 0`.) Als het goed is houd je alleen 0 en 1 over in de array.
 * Maak van de hele array nu een integer: zoek op internet hoe dat kan.

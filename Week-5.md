@@ -13,6 +13,8 @@ from tkinter import ttk
 ```
 Die tweede regel zullen we ook nodig hebben!
 
+We gaan dit hoofdstuk weer met gewone scripts werken in plaats van in de REPL.
+
 ### Een window maken
 We starten met een kale *window*; praktisch een soort canvas waar allemaal dingen op geplaatst kunnen worden.
 ```python
@@ -33,7 +35,7 @@ root.attributes('-alpha', 0.7)  # de window is 30% doorzichtig
 <details>
 <summary>Opdracht</summary>
 
-Maak een window en test een aantal instellingen uit! Zoek eventueel op internet naar andere opties.
+Maak een window en test bovenstaande instellingen uit! Op internet zijn er trouwens nog wel meer te vinden.
 
 </details>
 
@@ -127,13 +129,13 @@ print("Hoi")
 voorbeeldfunctie()
 ```
 
-Pas het script (maar niet de voorbeeldfunctie) vervolgens zo aan dat je in de console het volgende te zien krijgt:
+Pas het script (maar niet de voorbeeldfunctie) door te kopiëren / plakken zo aan dat je in de console het volgende te zien krijgt:
 ```powershell
->>> De voorbeeldfunctie zegt hallo
->>> Hoi
->>> De voorbeeldfunctie zegt hallo
->>> De voorbeeldfunctie zegt hallo
->>> Hoi
+De voorbeeldfunctie zegt hallo
+Hoi
+De voorbeeldfunctie zegt hallo
+De voorbeeldfunctie zegt hallo
+Hoi
 ```
 
 </details>
@@ -155,7 +157,7 @@ De functie wordt aangeroepen met een stuk tekst tussen de haakjes. Die tekst wor
 <details>
 <summary>Opdracht</summary>
 
-Gebruik de printfunctie om het volgende resultaat te produceren:
+Gebruik `printfunctie` om het volgende resultaat te produceren:
 ```powershell
 >>> Test 1
 >>> Test 2
@@ -191,11 +193,17 @@ printuitgebreid("Dit", "is", "een", "test")
 ```
 Waarom werkt de laatste functie niet?
 
+Test ook nog de volgende regel:
+```python
+printuitgebreid("Ik ben", 16, "jaar oud")
+```
+Waarom gaat één van de twee `print()`s mis?
+
 </details>
 
 ---
 
-Normaal gesproken komen de variabelen gewoon op volgorde binnen, zoals je in de vorige opdracht hebt gezien. Maar je kunt ook specifiek een andere volgorde opgeven:
+Normaal gesproken komen de variabelen gewoon op volgorde binnen, zoals je in de opdrachten tot nu toe hebt gezien. Maar je kunt ook specifiek een andere volgorde opgeven:
 ```python
 printuitgebreid(var3 = 7, var1 = 5, var2 = 6)
 ```
@@ -220,6 +228,11 @@ Bekijk het resultaat. Van wie zou de laatste regel afkomstig kunnen zijn? ;)
 
 ---
 
+<details>
+<summary>Opdracht</summary>
+
+*Maak deze opdracht als je het leuk vindt; sla hem over als je achterloopt.*
+
 Soms weet je niet hoeveel variabelen je kunt verwachten. Dan kun je gebruik maken van het volgende trucje:
 ```python
 def printeindeloos(*args):
@@ -230,11 +243,6 @@ def printeindeloos(*args):
     print("Eindresultaat: " + str(som))
 ```
 `*args` kan een willekeurig aantal *argumenten* of variabelen zijn: alles van nul tot en met praktisch oneindig. Vervolgens wordt in dit voorbeeld een `for`-loop gebruikt om al die argumenten te printen en bij elkaar op te tellen, en het eindresultaat wordt geprint.
-
----
-
-<details>
-<summary>Opdracht</summary>
 
 Test `printeindeloos` met de volgende regels:
 ```python
@@ -257,6 +265,9 @@ Je mag als uitdaging op internet een methode opzoeken waarmee je zowel getallen 
 We kijken nu opnieuw naar knoppen: we kunnen ze nu een actie laten uitvoeren.
 ```python
 btn = ttk.Button(root, text = "Klik op mij", command = lambda : printfunctie())
+
+# onderstaande methode mag ook (en hoor officieel), maar kan soms snel fout gaan:
+btn = ttk.Button(root, text = "Klik op mij", command = printfunctie)    # let op: er staan geen haakjes () achter printfunctie
 ```
 
 **Let op**: je ziet hier het vreemde woord `lambda` staan dat je niet kent en ook niet altijd bij voorbeelden op internet ziet staan. Het is echter om bepaalde redenen wel erg handig om te gebruiken! Je hoeft niet te weten wat het doet, maar je mag er altijd naar zoeken of om vragen.

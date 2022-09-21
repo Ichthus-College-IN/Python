@@ -13,7 +13,7 @@ import turtle
 Deze keer geen afkorting: we hebben de naam `turtle` weinig nodig.
 
 ## REPL
-Waar we tot nu toe elke keer scripts hebben gebruikt, gaan we dit keer grotendeels aan de slag in de REPL. REPL staat voor *Read-Eval-Print Loop*, oftewel: elk regeltje wordt gelezen, uitgevoerd en het resultaat (als dat er is) direct geprint. 
+Waar we tot nu toe elke keer scripts hebben gebruikt, gaan we dit hoofdstuk grotendeels aan de slag in de REPL. REPL staat voor *Read-Evaluate-Print Loop*, oftewel: elk regeltje wordt gelezen, uitgevoerd en het resultaat (als dat er is) direct geprint. 
 
 ---
 
@@ -35,7 +35,7 @@ Test de werking van de REPL:
 >>> print(5 + 3)
 ```
 
-**Let op**: de `>>>` moet je niet mee-kopieren; ze geven aan dat het in de REPL uitgevoerd wordt. De symbolen staan er nog een paar keer voor de duidelijkheid bij, daarna wordt het normaal geacht.
+**Let op**: de `>>>` moet je niet mee-kopieren; ze geven aan dat het in de REPL uitgevoerd wordt. De symbolen staan er nog een paar keer voor de duidelijkheid bij, daarna worden ze voor het gemak weggelaten.
 
 Test vervolgens deze regel:
 ```python
@@ -68,7 +68,7 @@ De pen zit nu opgeslagen onder de variabele `t` van *turtle*.
 <details>
 <summary>Opdracht</summary>
 
-Ga aan de slag in de REPL: importeert Turtle en open een scherm onder de variabele `s`. Maak vervolgens een pen met de naam `t`.
+Ga aan de slag in de REPL: importeer turtle en open een scherm onder de variabele `s`. Maak vervolgens een pen met de naam `t`.
 
 Tip: gebruik splitscreen om VS Code, de opdrachten en het Turtle scherm allemaal in beeld te houden.
 
@@ -95,6 +95,13 @@ t.fd()
 t.bk()
 t.lt()
 t.rt()
+```
+
+Als je fouten hebt gemaakt kun je de volgende commando's gebruiken:
+```python
+t.undo()        # laatste actie ongedaan maken
+t.clear()       # alle strepen verwijderen
+t.reset()       # helemaal opnieuw beginnen
 ```
 
 ---
@@ -130,18 +137,15 @@ t.up()
 t.down()
 ```
 
-En dan is er nog een verzameling aan handige functies:
+En dan is er nog een verzameling aan (minder) handige functies:
 ```python
-t.undo()            # laatste actie ongedaan maken
 t.position()        # huidige (x, y)-coordinaten weergeven
 t.pos()             # korte alias van .position()
-t.clear()           # alle strepen verwijderen
-t.reset()           # helemaal opnieuw beginnen
 t.hideturtle()      # turtle onzichtbaar maken
 t.showturtle()      # turtle zichtbaar maken
 t.stamp()           # een stempel op de huidige plek van de turtle
 
-turtle.hideturtle()     # de start-turtle onzichtbaar maken
+turtle.hideturtle() # de start-turtle onzichtbaar maken
 ```
 
 En een verzameling aan verschillende looks voor je turtle:
@@ -165,12 +169,18 @@ turtle.bgcolor("red")
 turtle.bgcolor("green")
 turtle.bgcolor("magenta")
 ```
+
+**Let op**: als je `turtle` in een script wilt gebruiken in plaats van via de REPL, moet je altijd aan het einde van je script zetten:
+```python
+turtle.mainloop()
+```
+
 ---
 
 <details>
 <summary>Opdracht</summary>
 
-Test bovenstaande commando's uit; ga ze allemaal langs!
+Test bovenstaande commando's uit; ga alle verschillende langs!
 
 </details>
 
@@ -194,7 +204,7 @@ t.circle(100, steps = 5)    # cirkel met r = 100 en 5 lijnstukken
 t.circle(40, 270, 50)       # driekwart cirkel met r = 40 en 50 lijnstukken
 ```
 
-**Let op**! Het startpunt van de cirkel is de huidige positie, waarna het pen linksom de cirkel maakt. Je kunt de cirkel ook rechtsom maken door een negatieve straal in te vullen, bijvoorbeeld `t.circle(-20)`.
+**Let op**! Het startpunt van de cirkel is de huidige positie, waarna de pen linksom de cirkel maakt. Je kunt de cirkel ook rechtsom maken door een negatieve straal in te vullen, bijvoorbeeld `t.circle(-20)`.
 
 ---
 
@@ -218,18 +228,10 @@ Maak een hartje! De makkelijkste manier: begin met de turtle op 45 graden, dan e
 
 ---
 
-<details>
-<summary>Opdracht</summary>
-
-Maak een klok: begin met een stip in het midden; vervolgens een (grote) cirkel er omheen. Zet vervolgens op elk 'uur' een stempel van je turtle. Zorg dat de turtle naar buiten wijst, en ook echt de vorm van een schildpad heeft.
-
-</details>
-
----
 
 # Week 4.2
 ## Lijndiktes
-Voor het wijzigen van de lijndikte kan de `pensize` (officieel is het een pen, geen pen) aangepast worden:
+Voor het wijzigen van de lijndikte kan de `pensize` aangepast worden:
 ```python
 t.pensize(width)        # default is 1
 t.width(width)          # alias van .pensize()
@@ -267,15 +269,6 @@ Ook de penkleur kun je tussen elk lijnstuk wijzigen, en zo dus elke volgende lij
 <details>
 <summary>Opdracht</summary>
 
-Maak een regenboog. Gebruik wisselende pendiktes en -kleuren. Het liefst gebeurt dat natuurlijk door allemaal kleine stukken cirkels te gebruiken zodat de regenboog mooi rondloopt.
-
-</details>
-
----
-
-<details>
-<summary>Opdracht</summary>
-
 Maak het logo van de Olympische spelen.
 
 </details>
@@ -302,16 +295,10 @@ t.color(pencolor, fillcolor)    # pen- en vulkleur apart instellen
 <details>
 <summary>Opdracht</summary>
 
-Maak het logo van Mitsubishi maar vul de drie ruiten met verschillende kleuren en maak een gouden rand om het logo. Tip: gebruik hoeken van 45 graden en 135 graden.
+Kies een van de twee (of allebei):
 
-</details>
-
----
-
-<details>
-<summary>Opdracht</summary>
-
-Maak een smiley! Start met een gele cirkel met zwarte rand met daarin twee zwarte of andersgekleurde ogen, en maak een mond of ander soort smiley.
+* Maak een smiley. Start met een gele cirkel met zwarte rand met daarin twee zwarte of andersgekleurde ogen, en maak een mond of ander soort smiley.
+* Maak het logo van Mitsubishi maar gebruik een gouden rand en vul de drie ruiten met verschillende kleuren. Tip: gebruik hoeken van 45 graden en 135 graden.
 
 </details>
 
@@ -351,12 +338,17 @@ for i in range(10, 250, 5): # i = 10, 15, 20 .. 240, 245
     t.lt(90)
 ```
 
+**Herinnering**: als je `turtle` in een script wilt gebruiken in plaats van via de REPL, moet je altijd aan het einde van je script zetten:
+```python
+turtle.mainloop()
+```
+
 ---
 
 <details>
 <summary>Opdracht</summary>
 
-Maak met behulp van een aantal `for`-loops een driehoek, vierhoek, vijfhoek, zeshoek en achthoek.
+Maak met behulp van een aantal `for`-loops een driehoek, vierhoek, zeshoek en achthoek. Hint: als je *n* hoeken gebruikt, moet je de turtle met *360/n* graden draaien.
 
 </details>
 
@@ -373,6 +365,8 @@ Maak een vijfpuntige ster uit één lijn door een `for`-loop te gebruiken.
 
 <details>
 <summary>Opdracht</summary>
+
+*Maak deze opdracht als je het leuk vindt; sla hem over als je achterloopt.*
 
 Maak met behulp van een `for`-loop een dartbord na. Een dartbord heeft ringen in bepaalde kleuren: die horen er natuurlijk ook bij! Een kleine hint daarvoor:
 ```python

@@ -105,7 +105,7 @@ Grote getallen *mag* je opsplitsen met underscores; onderstaand zijn twee goede 
 <details>
 <summary>Opdracht</summary>
 
-Vermenigvuldig $\pi$ met vierenhalf miljoen door alle drie de notaties te proberen.
+Vermenigvuldig $\pi$ met vierenhalf miljoen door alle drie de notaties te proberen. (Let op: je mag de variabele `pi` zelf maken. Later komt er een methode langs waarbij je dat niet hoeft te doen.)
 </details>
 
 ---
@@ -235,14 +235,17 @@ Zorg dat de vergelijking werkt.
 <details>
 <summary>Opdracht</summary>
 
-Een beetje natuurkunde: als je bovenaan een enorme waterglijbaan staat heb je de potentiële energie $E=mgh$. Kies voor $m$ je eigen gewicht, $g=10$, en de hoogte $h$ van de glijbaan 80 meter. Als er geen wrijving is, wordt alle potentiële energie omgezet in kinetische energie: $E = \frac{1}{2}mv^2$. Vul hier weer je eigen gewicht in, en test welke van de volgende snelheden de juiste eindsnelheid is: $v = \{30, 40, 50, 60\} m/s^2$. Doe dit door gebruik te maken van de vergelijkingen hierboven.
+Een beetje natuurkunde: als je bovenaan een enorme waterglijbaan staat heb je de potentiële energie $E=mgh$. Kies $m=70$, $g=10$, en de hoogte $h$ van de glijbaan 80 meter. Als er geen wrijving is, wordt alle potentiële energie omgezet in kinetische energie: $E = \frac{1}{2}mv^2$. Vul hier weer $m=70$ in, en test welke van de volgende snelheden de juiste eindsnelheid is: $v = \{20, 30, 40, 50, 60\} m/s^2$. Doe dit door gebruik te maken van de vergelijkingen hierboven.
 
 Een aanzet:
 ```python
 m = 70  # gewicht in kg
 g = 10  # zwaartekracht in m/s^2
 h = 80  # hoogte van de glijbaan in m
-E = m * g * h
+E1 = m * g * h
+
+v = 
+E2 = 
 ```
 
 </details>
@@ -295,7 +298,7 @@ Een `else` heeft geen voorwaarde: het wordt uitgevoerd in alle andere gevallen (
 <details>
 <summary>Opdracht</summary>
 
-Breidt het script van de vorige opdracht uit: als `T` gelijk aan of groter is dan 15 moet er geprint worden: `"Het is warm."`.
+Breid het script van de vorige opdracht uit: als `T` gelijk aan of groter is dan 15 moet er geprint worden: `"Het is warm."`.
 </details>
 
 ---
@@ -320,7 +323,7 @@ Je kunt er in principe eindeloos veel onder elkaar zetten: `if-elif-elif-elif-el
 <details>
 <summary>Opdracht</summary>
 
-Breidt het script van de afgelopen twee opdrachten nog verder uit: als `T` kleiner is dan 0 graden moet het script printen: `"Het vriest!"`. Zorg dat je gebruik maakt van de `if-elif-else`-constructie.
+Breid het script van de afgelopen twee opdrachten nog verder uit: als `T` kleiner is dan 0 graden moet het script printen: `"Het vriest!"`. Zorg dat je gebruik maakt van de `if-elif-else`-constructie. Let goed op dat het juiste resultaat wordt geprint voor temperaturen onder nul!
 </details>
 
 ---
@@ -429,7 +432,7 @@ while y > 0:
 <details>
 <summary>Opdracht</summary>
 
-Bedenk wat er zou moeten gebeuren als je bovenstaande code uitvoert en controleer dat ook. Test daarna eens het volgende script:
+Het volgende script moet de getallen 0 tot 20 printen. Daarbij moet bij de getallen kleiner of gelijk aan 10 een extra regel geprint worden. Er is echter een fout waardoor het niet goed gaat. Voer het script uit en bedenk wat er fout gaat.
 ```python
 z = 0
 while z != 20:
@@ -444,7 +447,6 @@ Waarom gaat dit mis? Los het probleem op!
 </details>
 
 ---
-
 
 ## `list`: een lijst
 Wat we voor de basis van Python ook zeker nodig hebben is een `list`. Die is niet zo spannend: het is een lijst van waarden (of variabelen). Voorbeeld:
