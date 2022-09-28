@@ -237,59 +237,15 @@ kleineletter = letter.lower()   # de 'lowercase' van 'B' oftewel 'b'
 ---
 
 # Week 2.2
-## Bestanden importeren (tekst)
-Teksten zoals Genesis 1 van de vorige opdrachten zijn erg onhandig om middenin een pagina te zetten en te kopiëren/plakken in je script. Het werkt veel fijner als het in een los bestand staat dat je kunt importeren. Dat kan op de volgende manier: download het bestand `voorbeeld_tekst.txt` en sla het op in dezelfde map als waar je script staat opgeslagen. Gebruik vervolgens dit voorbeeld om het te importeren:
-```python
-file = open("voorbeeld_tekst.txt")     # een bestand openen
-# je kunt dan dingen doen met dit bestand
-file.close()                            # het bestand sluiten
-```
-
-Om uit te lezen wat er in het bestand staat, zijn er twee voor de hand liggende opties `readline()` en `readlines()` (een subtiel verschil):
-```python
-regel1 = file.readline()        # lees de eerstvolgende regel (de eerste)
-regel2 = file.readline()        # lees de eerstvolgende regel (de tweede dus)
-
-alleregels = file.readlines()   # lees alle regels die nog niet gelezen zijn (derde tot en met laatste)
-```
-
-`readlines()` geeft als resultaat een lijst van alle (overige) regels in het bestand. Als je nog geen regel gelezen hebt zijn dat alle regels; als je al een paar regels hebt gelezen zoals in het voorbeeld, dan worden die regels niet meegeteld.
-
----
-
-<details>
-<summary>Opdracht</summary>
-
-Importeer het voorbeeldbestand, en lees alle regels die er in staan met `readlines()`. Gebruik vervolgens een `for`-loop om elke regel los te printen. Vergeet niet het bestand te sluiten, want anders krijg je soms problemen.
-
-Zoek vervolgens op internet een methode om het bestand regel voor regel te lezen met een `while`-loop en `readline()`.
-
-</details>
-
----
-
-Een nadeel van `readline()` en `readlines()`, is dat alles altijd als string wordt gelezen. Ook al bestaat je bestand alleen uit getallen, zal het altijd in string-vorm gelezen worden en moet je dus alles omzetten naar integer of float als je ermee wilt rekenen.
-
----
-
-<details>
-<summary>Opdracht</summary>
-
-Importeer het tweede voorbeeldbestand, en lees alle regels die er in staan met `readlines()`. Gebruik vervolgens een `for`-loop om voor elke regel het kwadraat van het getal uit te rekenen. Houd uiteraard rekening met de opmerking hierboven!
-
-</details>
-
----
-
-Om te werken met grote hoeveelheden getallen zijn er betere manieren dan bestanden te lezen met `readline()`. We gaan gebruik maken van een externe *library* die goed overweg kan met getallen: `numpy` (numerical python).
+Om te werken met grote hoeveelheden getallen gaan we kijken naar het werken met losse bestanden. We gaan ook gebruik maken van een *library* die goed overweg kan met getallen: `numpy` (numerical python).
 
 ## Bestanden importeren (getallen) / NumPy
-In Python kun je naast gewone bestanden inlezen ook Python bestanden importeren. Zo'n *library* moet je eerst installeren, en kun je vervolgens in al je scripts gebruiken. Daarvoor moet je het volgende commando invoeren in de *terminal* onderin je scherm:
+In Python kun je naast gewone bestanden importeren ook Python bestanden importeren die je helpen. Zo'n *library* moet je eerst installeren, en kun je vervolgens in al je scripts gebruiken. Daarvoor moet je het volgende commando invoeren in de *terminal* onderin je scherm:
 ```powershell
 py -m pip install numpy
 ```
 
-Is dat gelukt, dan kun je NumPy importeren als volgt:
+Is dat gelukt, dan kun je in je script NumPy importeren als volgt:
 
 ```python
 import numpy
@@ -478,25 +434,6 @@ getal2 = data[10, 2]    # regel 10, getal 2
 getal2 = data[10][2]
 ```
 
-Je kunt alle items in een 2d-array bijvoorbeeld op de volgende manier printen:
-```python
-for rij in data:        # rij is dan bijvoorbeeld [23.1, 1020.2, 45.6]
-    for getal in rij:
-        print(getal)
-```
-
-
----
-
-<details>
-<summary>Opdracht</summary>
-
-Print de lengte van de x-as (aantal regels) en de y-as (aantal kolommen) van de data in het 2d-voorbeeldbestand.
-
-</details>
-
----
-
 Met `data[0]` selecteer je de eerste *rij*, hebben we gezien. Om de eerste (of andere) *kolom* te selecteren kun je het volgende gebruiken:
 ```python
 data = np.genfromtxt("voorbeeld_getallen_2d.txt", delimiter = ',')
@@ -520,31 +457,6 @@ Print nogmaals de lengte van de x-as en y-as, maar nu door gebruik te maken van 
 <summary>Opdracht</summary>
 
 Print de temperatuur, luchtdruk en luchtvochtigheid uit het voorbeeldbestand.
-
-</details>
-
----
-
-## `print()` revisited
-Nog een enkele tip voor het printen van meerdere dingen tegelijkertijd. Je kunt meerdere variabelen of stukken tekst aan elkaar plakken met behulp van de <kbd>+</kbd> of met een spatie ertussen door <kbd>,</kbd> te gebruiken:
-```python
-print("a", "b")     # resultaat: a b
-print("a" + "b")    # resultaat: ab
-
-print(3, 5)         # resultaat: 3 5
-print (3 + 5)       # resultaat: 8 (want getallen worden bij elkaar opgeteld!)
-
-i = 1
-print(x[i, 0], x[i, 1], x[i, 2])    # als 'x' een 2d-array is kun je zo de eerste drie kolommen printen
-```
-
----
-
-<details>
-<summary>Opdracht</summary>
-
-Print de GPS coordinaten uit het bestand (elke regel afzonderlijk). GPS bestaat uit een noorderbreedte-getal (NB) en oosterlengte-getal (OL). Zorg ervoor dat het er als volgt uitziet:  
-`NB 52.027631, OL 5.526631`
 
 </details>
 

@@ -27,7 +27,7 @@ root.title("Test")          # de titel in de bovenbalk
 root.geometry("800x600")    # de breedte en hoogte van de window in pixels
 root.resizable(0, 0)        # de breedte en hoogte zijn nu niet schaalbaar
 root.resizable(1, 0)        # alleen de breedte is schaalbaar
-root.attributes('-alpha', 0.7)  # de window is 30% doorzichtig
+root.attributes('-alpha', 0.7)  # de window is 70% opaque oftewel 30% doorzichtig
 ```
 
 ---
@@ -284,9 +284,12 @@ Zorg dat je een printfunctie in je script hebt, plaats de knop met `btn.place()`
 ---
 
 ### Invoervelden
-Vaak heb je gegevens of informatie van gebruikers nodig. Die kunnen ze invullen in een `Entry`: een invoerveld. Er bestaat geen officiele of officieuze afkorting voor een entry zoals dat bij een label en button is, maar we gebruiken hier `ety`. Bekijk het volgende voorbeeld:
+Vaak heb je gegevens of informatie van gebruikers nodig. Die kunnen ze invullen in een `Entry`: een invoerveld. Een entry heeft een bijzonder type string nodig: een `tk.StringVar()`. Die helpt erbij om de tekst van een entry uit te lezen.
+
+Er bestaat geen officiele of officieuze afkorting voor een entry zoals dat bij een label en button is, maar we gebruiken hier `ety`. Bekijk het volgende voorbeeld voor het maken van een `StringVar` en `Entry`:
 ```python
-ety = ttk.Entry(root)
+tekst = tk.StringVar()
+ety = ttk.Entry(root, textvariable = tekst)
 ety.place(x = 0, y = 300, width = 400, height = 200)
 ```
 
@@ -295,7 +298,7 @@ ety.place(x = 0, y = 300, width = 400, height = 200)
 <details>
 <summary>Opdracht</summary>
 
-Voeg het invoerveld toe aan je script en test het. Je kunt de invoer nog niet verwerken, maar dat komt als volgende onderdeel.
+Voeg het invoerveld toe aan je script en test of je invoerveld te gebruiken is. Je kunt de invoer nog niet verwerken, maar dat komt als volgende onderdeel.
 
 </details>
 
@@ -303,24 +306,26 @@ Voeg het invoerveld toe aan je script en test het. Je kunt de invoer nog niet ve
 
 ### Items aanpassen
 
-Je kunt van alle TKinter items (labels, buttons, entries e.d.) opvragen wat er in aanwezig is via `.cget(..)` en via een index `[..]`. Het meest nuttige is de tekst:
+Je kunt van veel TKinter items (labels, buttons, entries e.d.) opvragen wat er in aanwezig is via `.cget(..)` en via een index `[..]`. Het meest nuttige is de tekst:
 ```python
 labeltekst = lbl['text']
 labeltekst = lbl.cget('text')
-entrytekst = ety['text']
-entrytekst = ety.cget('text')
+buttontekst = btn['text']
+buttontekst = btn.cget('text')
 ```
 
-Je kunt alle TKinter items ook aanpassen via `.configure(..)`. Een paar voorbeelden:
+Het opvragen van de invoer in een entry gaat zo:
+```
+entrytekst = ety.get()
+```
+
+Mocht je het fijn vinden: je kunt veel TKinter items ook aanpassen via `.configure(..)`. Je hoeft daar nu verder niets mee te doen. Een paar voorbeelden:
 ```python
 lbl.configure(text = "Dit is nieuwe tekst")
 btn.configure(text = "Knop v2")
 btn.configure(command = lambda : nieuwefunctie())
 btn.configure(text = "Knop v3", command = lambda : functie3())
-ety.configure(text = "Voor- en achternaam invullen")
 ```
-
-Beide manieren geven exact hetzelfde resultaat.
 
 ---
 
@@ -346,6 +351,8 @@ Maak een app die de BMI van een gebruiker kan berekenen. Daarvoor zijn de volgen
 * Een label met de tekst "Lengte (cm)" en entry waar de gebruiker de lengte kan invullen.
 * Een button waarmee de BMI berekent wordt en label waarin de berekende BMI weergegeven wordt.
 * Een label waar na het berekenen in komt te staan of dat ondergewicht, goed gewicht of overgewicht betekent. Geef deze label eventueel afhankelijk van het type gewicht een oranje of groene achtergrondkleur.
+
+*Tip*: de tekst uit een invoerveld is van het type `str`. Om ermee te kunnen rekenen heb je een `int` nodig, dus zorg ervoor dat je daar wat mee doet! Zie eventueel week 1.
 
 **Beoordeling:**
 * 0.00pt: niet ingeleverd / werkt totaal niet
