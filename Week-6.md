@@ -27,17 +27,17 @@ Test eerst bovenstaand voorbeeld. Maak vervolgens een persoon met jouw leeftijd,
 
 ---
 
-Als je verschillende personen wilt maken, gaat het bovenstaande niet veel helpen. Je zou handmatig voor elke persoon een nieuwe class moeten maken om te voorkomen dat iedereen dezelfde leeftijd heeft bijvoorbeeld (17 in het voorbeeld). We gaan gebruik maken van ```__init__()```: dat is een functie die *altijd* uitgevoerd wordt bij het maken van een nieuw *object* (zoals `p1` en `p2`).
+Als je verschillende personen wilt maken, gaat het bovenstaande niet veel helpen. Je zou handmatig voor elke persoon een nieuwe class moeten maken om te voorkomen dat iedereen dezelfde leeftijd heeft bijvoorbeeld (17 in het voorbeeld). We gaan gebruik maken van ```__init__()``` functie: dat is een functie die *altijd* uitgevoerd wordt bij het maken van een nieuw *object* - een variabele die de class aanroept (zoals `p1` en `p2`).
 ```python
 class person:
     def __init__(self, name, age):
         self.name = name
         self.age = age
 
-p1 = person("Boonstoppel", 20)
+p1 = person("Boonstoppel", 20)      # nieuw persoon met naam Boonstoppel en leeftijd 20
 print(p1.name)
 print(p1.age)
-p2 = person("Kieskamp", 63)
+p2 = person("Kieskamp", 64)         # nieuw persoon met naam Kieskamp en leeftijd 64
 print(p2.name)
 print(p2.age)
 ```
@@ -54,49 +54,28 @@ Test eerst bovenstaand voorbeeld. Maak vervolgens een persoon met jouw leeftijd,
 
 ---
 
-Een class kan behalve 'eigenschappen' ook functies implementeren:
+Een class kan behalve 'eigenschappen' ook functies implementeren ('bezitten'):
 ```python
 class person:
     def __init__(self, name):
         self.name = name
     
     def print_name(self):
-        print("Mijn naam is " + self.name)
+        print("Mijn naam is", self.name)
 
 p1 = person("Boonstoppel")
 p1.print_name()
 ```
-Hier wordt het nut van `self` iets duidelijker. In de functie `print_name()` hebben we de eigen naam nodig van de persoon. Door `self` aan de functie mee te geven, komt automatisch ook alles wat bij `self` hoort mee, zoals `name`. 
+Hier wordt het nut van `self` iets duidelijker. In de functie `print_name()` hebben we de eigen naam nodig van de persoon. Door `self` aan de functie mee te geven, komt automatisch ook alles wat bij `self` hoort mee, zoals `name`. Je hoeft het niet als argument mee te geven aan de functie.
 
-**Let op**: je hoeft (mag) `self` niet als *argument* meegeven als je de functie aanroept. Misschien zou je verwachten dat de laatste regel `p1.print_name(self)` moet zijn, maar dat hoort niet. Python voegt automatisch `self` toe.
-
----
-
-<details>
-<summary>Opdracht</summary>
-
-Test eerst bovenstaand voorbeeld. Maak vervolgens een persoon met jouw leeftijd, naam en haarkleur door het voorbeeld uit te breiden. Zorg ervoor dat de functie `print_name()` al de eigenschappen van de persoon in een keer print.
-
-</details>
+**Let op**: je hoeft (mag) `self` niet als *argument* meegeven als je de functie aanroept. Misschien zou je verwachten dat de laatste regel `p1.print_name(self)` moet zijn, maar dat hoort niet. Python voegt automatisch `self` in.
 
 ---
 
 <details>
 <summary>Opdracht</summary>
 
-Maak een class waarbij je naast de naam ook drie andere dingen meegeeft: de geboortedag, -maand en -jaar.
-
-Voeg vervolgens een functie toe aan de class die de leeftijd van de persoon berekent en opslaat. Daarvoor moet je uiteraard ook aangeven wat de huidige datum is. Je kunt daarvoor gebruik maken van de volgende regels, waarbij je zelf onder andere de berekening toe moet voegen:
-
-```python
-    def calculate_age(self, day, month, year):
-        # bereken de leeftijd
-        # age = ....
-        self.age = age
-
-p1.calculate_age(day, month, year)  # datum zelf invullen
-print(p1.age)
-```
+Test eerst bovenstaand voorbeeld. Voeg weer jouw leeftijd, naam en haarkleur toe. Zorg ervoor dat de functie `print_name()` al de eigenschappen van de persoon print.
 
 </details>
 
@@ -104,7 +83,7 @@ print(p1.age)
 
 ## Week 6.2
 ### Een `turtle` class
-We komen weer terug bij de schildpadden! Dit keer om er een spelletje mee te maken nu we extra kennis hebben verzameld.
+We komen weer terug bij de schildpadden! Dit keer om er een spelletje mee te maken nu we extra dingen hebben geleerd.
 
 Een spelletje is veel leuker met twee spelers. Daarom maken we een class die voor beide spelers gebruikt kan worden. Een basis daarvoor is als volgt:
 ```python
@@ -138,7 +117,8 @@ turtle.mainloop()
 
 Test bovenstaand voorbeeld. Voeg vervolgens een functie toe aan de `player` class om linksom te draaien en om rechtsom te draaien.
 
-Controleer ook of de functies om te bewegen werken!
+Controleer ook of alle vier de functies om te bewegen werken!
+
 </details>
 
 ---
@@ -156,9 +136,9 @@ Je ziet ook hier weer de `lambda` tevoorschijn komen, terwijl dat niet altijd no
 <details>
 <summary>Opdracht</summary>
 
-Test bovenstaand voorbeeld. Wat gebeurt er als het scherm wel of niet 'actief' is? (Gebruik splitscreen en controleer of de turtle beweegt als je wel de toets indrukt maar het turtle-scherm niet actief is.)
+Test bovenstaand voorbeeld. Wat gebeurt er als het scherm wel of niet 'actief' is? Je kunt dit testen door in split-screen te werken en juist een _ander_ scherm aan te klikken dan het turtle scherm. Druk vervolgens op de toetsen ('w' en 's').
 
-Voeg vervolgens de functies toe die nodig zijn voor naar links en naar rechts bewegen. Maak daarbij de keuze: draai je de turtle alleen, beweeg je ook in die richting, en draai je daarna misschien weer terug? Zorg in ieder geval dat je er makkelijk mee kan 'spelen' als in een spelletje.
+Voeg vervolgens de functies toe die nodig zijn voor naar links en naar rechts bewegen. Maak daarbij de keuze: draai je de turtle alleen met 90 graden, beweeg je ook een stukje in die richting, en draai je daarna misschien weer terug? Zorg in ieder geval dat je er makkelijk mee kan 'spelen' als in een spelletje.
 
 </details>
 
@@ -199,7 +179,9 @@ print(C)
 
 ---
 
-### Een spelletje maken
+## Week 6.3
+
+### Een spel maken
 Onderdeel van een spel is vaak het gebruik van 'collisions': je kunt ergens wel of niet mee botsen en verliest dan best wel eens spel-levens.
 
 Hieronder is een uitgewerkt voorbeeld waarbij gekeken wordt of twee spelers met elkaar botsen. Een botsing vindt plaats als de afstand tussen de twee turtles kleiner is dan 50 units (best groot, maar makkelijker te testen).
@@ -221,7 +203,7 @@ class player:
             self.levens = self.levens - 1   # bij botsing: -1 leven
             print(p1.levens, p2.levens)
 
-    def bk(self, other):           # functie om achteruit te gaan
+    def bk(self, other):            # functie om achteruit te gaan
         self.t.backward(10)
         if collision(self, other) == True:  # controlleer botsing
             self.levens = self.levens - 1   # bij botsing: -1 leven
@@ -231,15 +213,15 @@ class player:
         return self.t.pos()         # geef de huidige positie van de turtle
 
 def collision(player1, player2):
-    pos1 = player1.pos()        # positie van turtle van speler 1
-    pos2 = player2.pos()        # positie van turtle van speler 2
-    a = (pos1[0] - pos2[0])**2  # (verschil in x-richting)^2
-    b = (pos1[1] - pos2[1])**2  # (verschil in y-richting)^2
-    diff = (a + b)**0.5         # Pythagoras: c = wortel(a^2 + b^2)
-    if diff < 20:
-        return True             # als afstand < 20, dan is er een botsing
+    pos1 = player1.pos()            # positie van turtle van speler 1
+    pos2 = player2.pos()            # positie van turtle van speler 2
+    a = (pos1[0] - pos2[0])**2      # (verschil in x-richting)^2
+    b = (pos1[1] - pos2[1])**2      # (verschil in y-richting)^2
+    diff = (a + b)**0.5             # Pythagoras: c = wortel(a^2 + b^2)
+    if diff < 50:
+        return True                 # als afstand < 20, dan is er een botsing
     else:
-        return False            # als afstand >= 20, dan is er geen botsing
+        return False                # als afstand >= 20, dan is er geen botsing
 
 s = turtle.getscreen()
 turtle.hideturtle()
@@ -250,8 +232,8 @@ p2 = player(200, 0, "red")
 s.onkey(lambda : p1.fd(p2), "w")     # p1 vooruit bij 'w'
 s.onkey(lambda : p1.bk(p2), "s")     # p1 achteruit bij 's'
 
-s.onkey(lambda : p2.fd(p1), "Up")    # p2 vooruit bij 'Up'
-s.onkey(lambda : p2.bk(p1), "Down")  # p2 achteruit bij 'Down'
+s.onkey(lambda : p2.fd(p1), "Up")    # p2 vooruit bij pijltje omhoog 'Up'
+s.onkey(lambda : p2.bk(p1), "Down")  # p2 achteruit bij pijltje naar beneden 'Down'
 
 s.listen()              # het scherm laten 'luisteren' naar toetsaanslagen
 
@@ -285,10 +267,6 @@ Zorg als laatste nog dat er iets gebeurt als het aantal levens 0 of minder dan 0
 * 0.25pt: ingeleverd maar geen correct resultaat / simpele oplossing om werkend te krijgen
 * 0.50pt: ingeleverd en (zo goed als) correct
 </details>
-
----
-
-## Week 6.3
 
 ---
 

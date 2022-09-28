@@ -30,6 +30,11 @@ root.resizable(1, 0)        # alleen de breedte is schaalbaar
 root.attributes('-alpha', 0.7)  # de window is 70% opaque oftewel 30% doorzichtig
 ```
 
+**Let op**: de laatste regel in je script moet (net als bij turtle) altijd zijn:
+```python
+root.mainloop()
+```
+
 ---
 
 <details>
@@ -336,6 +341,12 @@ Maak een functie die het volgende doet:
 * Opvragen welke tekst er in de entry is ingevoerd
 * De tekst in de label aanpassen naar de nieuwe tekst
 
+De structuur ziet er dan als volgt uit (vul op de ___ zelf de benodigde dingen/namen in):
+```python
+def ___():
+    invoer = ___
+    ___.configure(text = invoer)
+```
 Geef vervolgens een button het commando om bovenstaande functie uit te voeren.
 
 </details>
@@ -353,6 +364,10 @@ Maak een app die de BMI van een gebruiker kan berekenen. Daarvoor zijn de volgen
 * Een label waar na het berekenen in komt te staan of dat ondergewicht, goed gewicht of overgewicht betekent. Geef deze label eventueel afhankelijk van het type gewicht een oranje of groene achtergrondkleur.
 
 *Tip*: de tekst uit een invoerveld is van het type `str`. Om ermee te kunnen rekenen heb je een `int` nodig, dus zorg ervoor dat je daar wat mee doet! Zie eventueel week 1.
+
+*Tip*: vergeet niet `root.mainloop()` onderaan je script te zetten.
+
+*Tip*: zoek op internet de formule op om de BMI te berekenen.
 
 **Beoordeling:**
 * 0.00pt: niet ingeleverd / werkt totaal niet

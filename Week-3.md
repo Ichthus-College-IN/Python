@@ -113,7 +113,7 @@ Maak een grafiek van de temperatuur, waarbij je de x-as van 12 tot 18 uur laat l
 <details>
 <summary>Opdracht</summary>
 
-Maak een array van $0$ tot $2\pi$ door `np.linspace()` te gebruiken; zorg dat er minimaal 50 elementen gebruikt worden. Maak vervolgens de volgende `x` en `y`:
+Maak een array met de naam `t` die loopt van $0$ tot $2\pi$ door `np.linspace()` te gebruiken; zorg dat er 50 elementen gebruikt worden. Maak vervolgens de volgende `x` en `y`:
 
 $x = 16sin(t)^3$  
 $y = 13cos(t) - 5cos(2t) - 2cos(3t) - cos(4t)$
@@ -148,9 +148,11 @@ Op een rijtje zijn hier een aantal veelvoorkomende opties voor het opmaken van e
 <details>
 <summary>Opdracht</summary>
 
-Geef alle drie de grafieken van de vorige opdracht een mooie opmaak. Gebruik minimaal aslabels, een titel, legenda en grid.
+Geef een van de drie de grafieken van de vorige opdracht een mooie opmaak. Gebruik minimaal aslabels, een titel, legenda en grid.
 
 Probeer ook het domein en bereik van de assen van één grafiek in te stellen.
+
+**Let op**: voeg deze opmaak toe vóór de regel `plt.show(block = True)`. Want zodra je grafiekje zichtbaar wordt kun je de opmaak er niet meer van aanpassen.
 
 </details>
 
@@ -186,7 +188,7 @@ ax.plot(x, y, 'w--')    # witte gestreepte lijn
 <details>
 <summary>Opdracht</summary>
 
-Maak één de drie grafieken tot nu toe op met verschillende combinaties zoals je hierboven kunt vinden. Het hoeft niet per se mooi te worden, zolang je maar een aantal dingen probeert.
+Maak één de drie grafieken van de vorige opdrachten op met verschillende combinaties zoals je hierboven kunt vinden. Het hoeft niet per se mooi te worden, zolang je maar een aantal dingen probeert.
 
 </details>
 
@@ -208,6 +210,7 @@ trend = np.sqrt(jaren) - 1                            # trendlijn maken
 fig, ax = plt.subplots()              # figuur maken
 ax.plot(jaren, temp, 'k.')            # temperatuur plotten
 ax.plot(jaren, trend, 'r-')           # trendlijn plotten
+plt.show(block = True)
 ```
 
 Maak de grafiek goed op.
@@ -240,20 +243,6 @@ Maak een variabele waarin je je eigen voornaam en achternaam als string opslaat 
 Print los je voornaam en je achternaam door bovenstaande methode te gebruiken.
 
 </details>
-
----
-
-<details>
-<summary>Opdracht</summary>
-
-Verander je plots zodat je 
-* bij de temperatuur de eerste tien meetpunten niet meeneemt. Let op: je moet dan ook op de x-as (de eerste) tien punten weglaten!
-* bij de luchtdruk de laatste vijf punten niet meeneemt.
-* bij de luchtvochtigheid de eerste twee en de laatste twee meetpunten niet meeneemt.
-
-</details>
-
----
 
 Nog twee extra trucs wat betreft het selecteren van elementen:
 ```python
