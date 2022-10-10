@@ -1,12 +1,7 @@
 ## Week 5.1
 Het tekenen met een schildpad zit er voor nu op. Volgende halte: TKinter; we gaan een simpele 'app' bouwen!
 
-Installatie:
-```powershell
-py -m pip install tkinter
-```
-
-Importeren:
+Tkinter is ook standaard geïnstalleerd, dus kun je het direct importeren:
 ```python
 import tkinter as tk
 from tkinter import ttk
@@ -360,14 +355,16 @@ Maak een app die de BMI van een gebruiker kan berekenen. Daarvoor zijn de volgen
 
 * Een label met de tekst "Gewicht (kg)" en entry waar de gebruiker het gewicht kan invoeren.
 * Een label met de tekst "Lengte (cm)" en entry waar de gebruiker de lengte kan invullen.
-* Een button waarmee de BMI berekent wordt en label waarin de berekende BMI weergegeven wordt.
-* Een label waar na het berekenen in komt te staan of dat ondergewicht, goed gewicht of overgewicht betekent. Geef deze label eventueel afhankelijk van het type gewicht een oranje of groene achtergrondkleur.
+* Een button waarmee de BMI berekent wordt en een label waarin de berekende BMI weergegeven wordt.
+* Een label waar na het berekenen in komt te staan of dat ondergewicht, goed gewicht of overgewicht betekent. Geef deze label eventueel afhankelijk van het type gewicht een oranje of groene achtergrondkleur, maar dat is niet verplicht.
 
 *Tip*: de tekst uit een invoerveld is van het type `str`. Om ermee te kunnen rekenen heb je een `int` nodig, dus zorg ervoor dat je daar wat mee doet! Zie eventueel week 1.
 
-*Tip*: vergeet niet `root.mainloop()` onderaan je script te zetten.
-
 *Tip*: zoek op internet de formule op om de BMI te berekenen.
+
+*Tip*: als commando bij de knop gebruik je een functie. Voor die functie kun je het voorbeeld uit de bovenstaande opdracht gebruiken, behalve dat je nu _twee_ invoeren moet uitlezen en in de functie ook de BMI moet uitrekenen.
+
+*Tip*: vergeet niet `root.mainloop()` onderaan je script te zetten.
 
 **Beoordeling:**
 * 0.00pt: niet ingeleverd / werkt totaal niet

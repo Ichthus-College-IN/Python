@@ -1,10 +1,7 @@
 # Week 4.1
 We laten de grafieken achter ons! Volgende halte: Turtle; we gaan een schildpad laten tekenen door te programmeren!
 
-Installatie:
-```powershell
-py -m pip install turtle
-```
+Turtle is standaard geïnstalleerd, dus hoef je dat niet te doen zoals bij de andere packages tot nu toe. 
 
 Importeren:
 ```python

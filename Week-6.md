@@ -197,15 +197,15 @@ class player:
         self.t.pencolor(color)      # penkleur instellen
         self.levens = 3             # je start met drie levens
 
-    def fd(self, p1, p2):           # functie om vooruit te gaan
+    def fd(self, other):            # functie om vooruit te gaan
         self.t.forward(10)
-        if collision(p1, p2) == True:       # controlleer botsing
+        if collision(self, other) == True:  # controleer botsing
             self.levens = self.levens - 1   # bij botsing: -1 leven
-            print(p1.levens, p2.levens)
+            print(self.levens, other.levens)
 
     def bk(self, other):            # functie om achteruit te gaan
         self.t.backward(10)
-        if collision(self, other) == True:  # controlleer botsing
+        if collision(self, other) == True:  # controleer botsing
             self.levens = self.levens - 1   # bij botsing: -1 leven
             print(self.levens, other.levens)
 
