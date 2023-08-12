@@ -23,7 +23,7 @@ De drie pijltjes (`>>>`) geven een regel aan waarin jij kunt typen.
 <details>
 <summary>Opdracht</summary>
 
-Reken de volgende som uit: `137 * 6`. Wat is het resultaat?
+Reken de volgende som uit: `137 * 6` door op de regel met de `>>>` te gaan typen en vervolgens op <kbd>Enter</kbd> te drukken. Wat is het resultaat?
 
 </details>
 
@@ -36,7 +36,7 @@ Net als bij wiskunde kun je een _variabele_ gebruiken, bijvoorbeeld `x`. We kunn
 4110
 ```
 
-*Let op!* De eerste regel (`x = 137 * 6 * 5`) geeft geen 'tussenresultaat': je ziet niet direct wat de uitkomst van de som is. Die zit opgeslagen in de variabele `x`. Als je `x` typt, dan vertelt de computer je welke waarde daarbij hoort.
+*Let op!* De eerste regel (`x = 137 * 6 * 5`) geeft geen 'tussenresultaat': je ziet niet direct wat de uitkomst van de som is. Die zit opgeslagen in de variabele `x`. Als je `x` typt en vervolgens op <kbd>Enter</kbd> drukt, dan vertelt de computer je welke waarde daarbij hoort.
 
 (Je bent niet verplicht om de spaties te typen voor tekens als `=` en `*`, maar dat maakt het wel beter leesbaar.)
 
@@ -58,6 +58,8 @@ Je moet in Python specifiek alle _operators_ (+, -, *, /) aangeven. Kijk maar:
     5y
     ^
 SyntaxError: invalid decimal literal
+>>> 5*y
+61725
 ```
 
 Je moet het keer-teken er echt tussenzetten, anders snapt Python niet wat je bedoelt. En Python is ook hoofdletter-gevoelig:
@@ -89,9 +91,10 @@ Als het goed is hebben `x` en `y` nog steeds de waarden 4110 en 12345. Bereken d
 
 
 ## Rekenen met kommagetallen
-Om te werken met kommagetallen, wordt het helaas wennen: ongeveer elke programmeertaal gebruikt de 'normale' Engelse notatie: een <kbd>.</kbd> in plaats van de <kbd>,</kbd>. Als je naar het resultaat kijkt van de vorige opdracht zie je al dat er een punt staat in plaats van een komma. Hieronder ook een werkend voorbeeld:
+Om te werken met kommagetallen, wordt het helaas wennen: ongeveer elke programmeertaal gebruikt de 'normale' Engelse notatie: een `.` in plaats van de `,`. Hieronder een voorbeeld:
 ```python
-3*0.5
+>>> 3*0.5
+1.5
 ```
 
 ---
