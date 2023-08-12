@@ -1,66 +1,44 @@
-# Week 3.1
-Na een tijd lang alleen maar dingen te printen wordt het tijd dat er ook andere dingen op het scherm tevoorschijn getoverd worden. De eerste manier waarop we dat gaan doen is het maken van grafiekjes: we hebben al heel wat voorkennis in huis om daarmee aan de slag te gaan.
+# Week 2.1
+Straks gaan we werken met data-bestanden. Je werkt namelijk meestal niet met losse getallen, letters of woorden, maar met een hele bak aan data. Denk aan meetwaarden of lappen tekst, of als je een app bouwt aan alle gebruikers of posts. Daarvoor zijn eerst nog wat andere onderdelen handig.
 
-Daarvoor moeten we eerst MATplotlib installeren en importeren, net zoals we dat bij NumPy doen.
-
-In de terminal:
-```powershell
-py -m pip install matplotlib
-```
-
-En bovenaan in het script:
+## Werken met tekst
+We gaan aan de slag met strings: stukken tekst. Het eerste voorbeeld was `"Hello world"`. Maar er zijn ook veel langere stukken tekst. De standaard opvultekst die eigenlijk nergens op slaat is *Lorem ipsum*:
 ```python
-import matplotlib.pyplot as plt
+lorem = """Lorem ipsum dolor sit amet. Non itaque architecto qui expedita voluptas eum natus totam. Est mollitia voluptatem aut deleniti labore hic dolore vero aut suscipit vitae aut animi officiis aut possimus nobis. Rem dignissimos repellat id internos quis et voluptatem cupiditate non rerum nulla qui tenetur quaerat et officiis molestiae.
+Et dolores temporibus a voluptatum autem ut autem impedit. Eum iste assumenda in reprehenderit consequatur est minima iusto aut quod perferendis aut dolorum culpa.
+Vel atque dicta est exercitationem recusandae et dolor voluptatibus. Ea alias placeat non sint molestias est amet dolores  adipisci sunt et quis veniam et voluptatibus pariatur non voluptas quia."""
 ```
 
-We gebruiken specifiek de `pyplot` package uit MATplotlib, maar daar hoef je verder geen aandacht aan te besteden. De gebruikelijke afkorting is `plt`.
+**Let op**: tot nu toe ken je de driedubbele apostrof als commentaar. Dat is inderdaad hoe je meerdere regels commentaar kunt maken, maar je kunt het ook opslaan in een variabele!
 
 ---
 
 <details>
 <summary>Opdracht</summary>
 
-Installeer MATplotlib via de terminal en test of de installatie geslaagd is door de `import` regel in een script te zetten en uit te voeren.
-
+Print `lorem`.
 </details>
 
 ---
 
-## Grafiekjes maken met MATplotlib
-Het vorige hoofdstuk is geeindigd met een 2d-array met temperatuur, luchtdruk en luchtvochtigheid. Het mooiste is natuurlijk om dat in grafiekvorm te zetten.
-
-We beginnen met het importeren van de data:
+Je kunt de lengte van een string opvragen: Python telt dan hoeveel karakters (letters / spaties / cijfers / symbolen) er in je string zitten.
 ```python
-data = np.genfromtxt("voorbeeld_getallen_2d.txt", delimiter = ',')
-temperatuur = data[:, 0]
-vochtigheid = data[:, 1]
-luchtdruk = data[:, 2]
+print(len(lorem))       # lorem is 692 karakters lang
 ```
 
-Vervolgens maken we een kaal figuur aan:
+Er zijn een aantal handige dingen die je kunt doen met strings. Een daarvan is het splitsen op bepaalde karakters:
 ```python
-fig, ax = plt.subplots()
+gesplitst = lorem.split(' ')
 ```
 
-`plt.subplots()` is een functie die twee dingen maakt: een heel plaatje en een grafiek in het plaatje. Het gehele plaatje slaan we op in de variabele `fig`, en de grafiek in de variabele `ax`.
-
-In de grafiek `ax` kunnen we een lijn gaan *plotten*. De simpelste vorm is zo:
-```python
-ax.plot(temperatuur)
-```
-
-De temperatuur is nu een lijn in de grafiek `ax` in het plaatje `fig`. Om het plaatje te bekijken, is het volgende nodig:
-```python
-plt.show(block = True)
-```
+De tekst wordt gesplitst op het karakter `' '`: een spatie.
 
 ---
 
 <details>
 <summary>Opdracht</summary>
 
-Maak een grafiek van de temperatuur, door alle bovenstaande stappen te combineren. Kopieer en plak alle benodigdheden om ook een tweede en derde grafiek te maken van de luchtdruk en luchtvochtigheid.
-
+Print `gesplitst`. Wat is `gesplitst` voor iets (welk *datatype* heeft het)? Maak gebruik van een `for`-loop om elk element in `gesplitst` te printen.
 </details>
 
 ---
@@ -68,35 +46,60 @@ Maak een grafiek van de temperatuur, door alle bovenstaande stappen te combinere
 <details>
 <summary>Opdracht</summary>
 
-In plaats van drie losse figuren te maken kun je ze ook combineren in één *plot*. Maak dit keer maar een figuur en gebruik drie keer `ax.plot()` om alle drie de lijnen bij elkaar te stoppen. Uiteraard ziet dit er wel minder handig uit.
+Splits `lorem` op het karakter `'\n'`. Print het resultaat van het splitsen en kijk goed: waarop is er gesplitst? Wat betekent `\n` dus?
+</details>
+
+---
+
+Een ander geintje is `replace()`:
+```python
+vervangen = lorem.replace('o', '0') # vervang alle letters o door het cijfer 0
+vervangen2 = lorem.replace(' ', '') # vervang alle spaties door niets (verwijder dus alle spaties)
+```
+
+De eerste regel laat zien hoe je losse karakters kunt vervangen. De tweede regel is eigenlijk een soort verwijderen: we vervangen de spatie door een leeg karakter. 
+
+Tip: achter `.replace()` kun je gewoon nog een keer `.replace()` zetten om ook een ander karakter te vervangen.
+
+---
+
+<details>
+<summary>Opdracht</summary>
+
+Maak gebruik van de volgende tekst:
+```python
+tekst = "HET VAK INFORMATICA IS HET LEUKSTE VAK DAT OP HET ICHTHUS GEGEVEN WORDT (DAT IS EEN FEIT). DAT KOMT NATUURLIJK OOK DOOR DE LEERLINGEN: ZE ZIJN IJVERIG AAN HET PROGRAMMEREN EN MAKEN HET ALTIJD GEZELLIG."
+```
+Vervang zoveel mogelijk letters door cijfers, waarna de tekst toch nog te lezen is (gebruik minimaal de 1, 2, 3 en 4). Of je schrijft zelf een tekst die je aan je buren laat lezen nadat je letters vervangen hebt door cijfers.
 
 </details>
 
 ---
 
-Als je nog eens kijkt naar het plaatje, zie je dat de y-as automatisch een goede schaal krijgt. De x-as is echter nog wel onhandig. Als er 20 punten in je temperatuurmeting zitten, loopt de x-as van 0 tot 20. Maar als je elke 6 minuten gemeten hebt, dan is het veel beter om de x-as van 0 tot 2 uur (of 120 minuten) te laten lopen.
-
-## Nog een klein beetje NumPy
-Eerder hebben we al gekeken naar `np.arange(start, stop, step)`. Als je een x-as wilt maken van 0 tot en met 2 met 20 punten (want je hebt 20 metingwaarden), dan is dat best moeilijk te maken. Want hoe groot zijn de stappen? Een makkelijkere optie is de volgende:
+Je kunt ook stukken tekst 'aan elkaar lijmen'. Een stukje terug werd `lorem` gesplitst op de spaties. Je kunt dat vervolgens weer op deze manier weer een normale tekst maken:
 ```python
-t1 = np.linspace(start = 0, stop = 2, num = 20)  # 20 getallen verdeeld tussen 0 en 2 uur
-t2 = np.linspace(0, 120, 20) # 20 getallen verdeeld tussen 0 en 120 minuten
+gelijmd = ' '.join(gesplitst)
 ```
 
-Het derde *argument* tussen de haakjes `num` is het aantal getallen dat je wilt tussen `start` en `stop`.
+Alle elementen in `gesplitst` worden ge`join`ed met een spatie (`' '`).
 
-Je mag de woorden `start`, `stop` en `num` gebruiken, maar ze ook weglaten zoals in het voorbeeld voor `t2`.
+---
 
-Het kan echter zijn dat je een tweede meting doet met opeens 30 meetwaarden. Je moet dan handmatig de `num = 20` veranderen naar `num = 30`. Dat kan beter:
+<details>
+<summary>Opdracht</summary>
+
+Pak de tekst waarbij je gesplitst hebt op het teken `\n` (dat is een *newline*) van een enkele opdracht terug. `join` de losse zinnen met een dubbele Enter zodat het echt losse alinea's worden. (Hint: je kunt `\n\n` gebruiken om twee Enters te maken.)
+
+</details>
+
+---
+
+## Verder werken met tekst
+
+Je kunt ook tellen hoe vaak een letter voorkomt in een string:
 ```python
-t3 = np.linspace(0, 2, len(temperatuur))
-```
-
-Het aantal elementen in `t3` is dan automatisch evenveel als het aantal elementen in de meting!
-
-Hoe plotten we dit vervolgens?
-```python
-ax.plot(t3, temperatuur)    # eerst de waarden voor de x-as, dan de y-as
+L = lorem.count('L')    # als het goed is maar 1: de hoofdletter 'L' is alleen als eerste letter aanwezig
+e = lorem.count('e')    # de 'e' komt 61 keer voor
 ```
 
 ---
@@ -104,169 +107,104 @@ ax.plot(t3, temperatuur)    # eerst de waarden voor de x-as, dan de y-as
 <details>
 <summary>Opdracht</summary>
 
-Maak een grafiek van de temperatuur, waarbij je de x-as van 12 tot 18 uur laat lopen. Gebruik precies evenveel punten als er metingen zijn, op de manier zoals hierboven voor `t3` beschreven is.
-
-</details>
-
----
-
-<details>
-<summary>Opdracht</summary>
-
-Maak een array met de naam `t` die loopt van $0$ tot $2\pi$ door `np.linspace()` te gebruiken; zorg dat er 50 elementen gebruikt worden. Maak vervolgens de volgende `x` en `y`:
-
-$x = 16sin(t)^3$  
-$y = 13cos(t) - 5cos(2t) - 2cos(3t) - cos(4t)$
-
-Plot ze vervolgens (op parametrische manier):
+Kopieer de volgende tekst en sla die op in een variabele:
 ```python
-ax.plot(x, y)
+"""In het begin schiep God de hemel en de aarde.
+De aarde nu was woest en leeg, en duisternis lag over de watervloed; en de Geest van God zweefde boven het water.
+En God zei: Laat er licht zijn! En er was licht.
+En God zag het licht dat het goed was; en God maakte scheiding tussen het licht en de duisternis.
+En God noemde het licht dag en de duisternis noemde Hij nacht. Toen was het avond geweest en het was morgen geweest.
+En God zei: Laat er een gewelf zijn in het midden van het water, en laat dat scheiding maken tussen water en water!
+En God maakte dat gewelf en maakte scheiding tussen het water dat onder het gewelf is, en het water dat boven het gewelf is. En het was zo.
+En God noemde het gewelf hemel. Toen was het avond geweest en het was morgen geweest: de tweede dag.
+En God zei: Laat het water dat onder de hemel is, in één plaats samenvloeien en laat het droge zichtbaar worden! En het was zo.
+En God noemde het droge aarde en het samengevloeide water noemde Hij zeeën; en God zag dat het goed was.
+En God zei: Laat de aarde groen doen opkomen, zaaddragend gewas, vruchtbomen, die naar hun soort vrucht dragen, waarin hun zaad is op de aarde! En het was zo.
+En de aarde bracht groen voort, zaaddragend gewas naar zijn soort en bomen die vrucht dragen waarin hun zaad is, naar hun soort. En God zag dat het goed was.
+Toen was het avond geweest en het was morgen geweest: de derde dag.
+En God zei: Laten er lichten zijn aan het hemelgewelf om scheiding te maken tussen de dag en de nacht; en laten zij zijn tot tekenen, en tot aanduiding van vaste tijden en van dagen en jaren!
+En laten zij tot lichten zijn aan het hemelgewelf om licht te geven op de aarde! En het was zo.
+En God maakte de twee grote lichten: het grote licht om de dag te beheersen en het kleine licht om de nacht te beheersen; en ook de sterren.
+En God plaatste ze aan het hemelgewelf om licht te geven op de aarde,
+om de dag en de nacht te beheersen en om scheiding te maken tussen het licht en de duisternis. En God zag dat het goed was.
+Toen was het avond geweest en het was morgen geweest: de vierde dag.
+En God zei: Laat het water wemelen van wemelende levende wezens; en laten er vogels boven de aarde vliegen, langs het hemelgewelf!
+En God schiep de grote zeedieren en alle krioelende levende wezens waarvan het water wemelt, naar hun soort, en alle gevleugelde vogels naar hun soort. En God zag dat het goed was.
+En God zegende ze en zei: Wees vruchtbaar, word talrijk, en vervul het water van de zeeen; en laten de vogels talrijk worden op de aarde!
+Toen was het avond geweest en het was morgen geweest: de vijfde dag.
+En God zei: Laat de aarde levende wezens naar hun soort voortbrengen: vee, kruipende dieren en wilde dieren van de aarde, naar zijn soort! En het was zo.
+En God maakte de wilde dieren van de aarde naar hun soort, het vee naar hun soort, en alle kruipende dieren van de aardbodem naar hun soort. En God zag dat het goed was.
+En God zei: Laten Wij mensen maken naar Ons beeld, naar Onze gelijkenis; en laten zij heersen over de vissen van de zee, over de vogels in de lucht, over het vee, over heel de aarde en over al de kruipende dieren die over de aarde kruipen!
+En God schiep de mens naar Zijn beeld; naar het beeld van God schiep Hij hem; mannelijk en vrouwelijk schiep Hij hen.
+En God zegende hen en God zei tegen hen: Wees vruchtbaar, word talrijk, vervul de aarde en onderwerp haar, en heers over de vissen van de zee, over de vogels in de lucht en over al de dieren die over de aarde kruipen!
+En God zei: Ik geef u al het zaaddragende gewas dat op heel de aarde is, en alle bomen waaraan zaaddragende boomvruchten zijn; dat zal u tot voedsel dienen.
+Maar aan al de dieren van de aarde, aan alle vogels in de lucht en aan al wat over de aarde kruipt, waarin leven is, heb Ik al het groene gewas tot voedsel gegeven. En het was zo.
+En God zag al wat Hij gemaakt had, en zie, het was zeer goed. Toen was het avond geweest en het was morgen geweest: de zesde dag.
+
+Zo zijn de hemel en de aarde voltooid, en heel hun legermacht.
+Toen God op de zevende dag Zijn werk, dat Hij gemaakt had, voltooid had, rustte Hij op de zevende dag van al Zijn werk, dat Hij gemaakt had.
+En God zegende de zevende dag en heiligde die, want daarop rustte Hij van al Zijn werk, dat God schiep door het te maken.
+Dit is wat uit de hemel en de aarde voortkwam, toen zij geschapen werden. Op de dag dat de HEERE God aarde en hemel maakte –
+er was nog geen enkele veldstruik op de aarde en er was nog geen enkel veldgewas opgekomen, want de HEERE God had het niet laten regenen op de aarde; en er was geen mens om de aardbodem te bewerken,
+maar een damp steeg uit de aarde op en bevochtigde heel de aardbodem –
+toen vormde de HEERE God de mens uit het stof van de aardbodem en blies de levensadem in zijn neusgaten; zo werd de mens tot een levend wezen.
+Ook plantte de HEERE God een hof in Eden, in het oosten, en Hij plaatste daar de mens, die Hij gevormd had.
+En de HEERE God liet allerlei bomen uit de aardbodem opkomen, begerenswaardig om te zien en goed om van te eten; ook de boom des levens, in het midden van de hof, en de boom van de kennis van goed en kwaad.
+Een rivier kwam voort uit Eden om de hof te bevochtigen. En vandaar splitste hij zich en vormde vier hoofdstromen.
+De naam van de eerste rivier is Pison; die is het die rond heel het land van Havila stroomt, waar het goud is.
+En het goud van dit land is goed; ook is er balsemhars en de edelsteen onyx.
+En de naam van de tweede rivier is Gihon; die is het die rond heel het land Cusj stroomt.
+En de naam van de derde rivier is Tigris; die loopt ten oosten van Assur. En de vierde rivier is de Eufraat.
+De HEERE God nam de mens, en zette hem in de hof van Eden om die te bewerken en te onderhouden.
+En de HEERE God gebood de mens: Van alle bomen van de hof mag u vrij eten,
+maar van de boom van de kennis van goed en kwaad, daarvan mag u niet eten, want op de dag dat u daarvan eet, zult u zeker sterven.
+Ook zei de HEERE God: Het is niet goed dat de mens alleen is; Ik zal een hulp voor hem maken als iemand tegenover hem.
+De HEERE God vormde uit de aardbodem alle dieren van het veld en alle vogels in de lucht, en bracht die bij Adam om te zien hoe hij ze noemen zou; en zoals Adam elk levend wezen noemen zou, zo zou zijn naam zijn.
+Zo gaf Adam namen aan al het vee en aan de vogels in de lucht en aan alle dieren van het veld; maar voor de mens vond hij geen hulp als iemand tegenover hem.
+Toen liet de HEERE God een diepe slaap op Adam vallen, zodat hij in slaap viel; en Hij nam een van zijn ribben en sloot de plaats ervan toe met vlees.
+En de HEERE God bouwde de rib die Hij uit Adam genomen had, tot een vrouw en Hij bracht haar bij Adam.
+Toen zei Adam:
+Deze is ditmaal	been van mijn beenderen, en vlees van mijn vlees!
+Deze zal mannin genoemd worden,	want uit de man	is zij genomen.
+Daarom zal een man zijn vader en zijn moeder verlaten en zich aan zijn vrouw hechten; en zij zullen tot één vlees zijn.
+En zij waren beiden naakt, Adam en zijn vrouw, maar zij schaamden zich niet.
+
+De slang nu was de listigste onder alle dieren van het veld, die de HEERE God gemaakt had; en hij zei tegen de vrouw: Is het echt zo dat God gezegd heeft: U mag niet eten van alle bomen in de hof?
+En de vrouw zei tegen de slang: Van de vrucht van de bomen in de hof mogen wij eten,
+maar van de vrucht van de boom die in het midden van de hof staat, heeft God gezegd: U mag daarvan niet eten en hem niet aanraken, anders sterft u.
+Toen zei de slang tegen de vrouw: U zult zeker niet sterven.
+Maar God weet dat, op de dag dat u daarvan eet, uw ogen geopend zullen worden en dat u als God zult zijn, goed en kwaad kennend.
+En de vrouw zag dat die boom goed was om ervan te eten en dat hij een lust was voor het oog, ja, een boom die begerenswaardig was om er verstandig door te worden; en zij nam van zijn vrucht en at; en zij gaf ook wat aan haar man, die bij haar was, en hij at ervan.
+Toen werden de ogen van beiden geopend en zij merkten dat zij naakt waren. Zij vlochten vijgenbladeren samen en maakten voor zichzelf schorten.
+En zij hoorden de stem van de HEERE God, Die in de hof wandelde, bij de wind in de namiddag. Toen verborgen Adam en zijn vrouw zich voor het aangezicht van de HEERE God te midden van de bomen in de hof.
+En de HEERE God riep Adam en zei tegen hem: Waar bent u?
+En hij zei: Ik hoorde Uw stem in de hof en ik werd bevreesd, want ik ben naakt; daarom verborg ik mij.
+En Hij zei: Wie heeft u verteld dat u naakt bent? Hebt u van die boom gegeten waarvan Ik u geboden had daar niet van te eten?
+Toen zei Adam: De vrouw die U gaf om bij mij te zijn, die heeft mij van die boom gegeven en ik heb ervan gegeten.
+En de HEERE God zei tegen de vrouw: Wat hebt u daar gedaan! En de vrouw zei: De slang heeft mij bedrogen en ik heb ervan gegeten.
+Toen zei de HEERE God tegen de slang:
+Omdat u dit gedaan hebt, bent u vervloekt onder al het vee en onder alle dieren van het veld!
+Op uw buik zult u gaan en stof zult u eten, al de dagen van uw leven.
+En Ik zal vijandschap teweegbrengen tussen u en de vrouw, en tussen uw nageslacht en haar Nageslacht;
+Dat zal u de kop vermorzelen, en u zult Het de hiel vermorzelen.
+Tegen de vrouw zei Hij: Ik zal uw moeite in uw zwangerschap zeer groot maken; met pijn zult u kinderen baren. 
+maar uw man zal uw begeerte uitgaan, maar hij zal over u heersen.
+En tegen Adam zei Hij: Omdat u geluisterd hebt naar de stem van uw vrouw en van die boom gegeten hebt waarvan Ik u geboden had: U mag daarvan niet eten,
+is de aardbodem omwille van u vervloekt; met zwoegen zult u daarvan eten, al de dagen van uw leven;
+dorens en distels zal hij voor u laten opkomen en u zult het gewas van het veld eten.
+In het zweet van uw gezicht zult u brood eten, totdat u tot de aardbodem terugkeert, omdat u daaruit genomen bent;
+want stof bent u en u zult tot stof terugkeren.
+En Adam gaf zijn vrouw de naam Eva, omdat zij moeder van alle levenden is.
+En de HEERE God maakte voor Adam en voor zijn vrouw kleren van huiden en kleedde hen daarmee.
+Toen zei de HEERE God: Zie, de mens is geworden als een van Ons, omdat hij goed en kwaad kent. Nu dan, laat hij zijn hand niet uitsteken en ook van de boom des levens nemen en eten, zodat hij eeuwig zou leven!
+Daarom zond de HEERE God hem weg uit de hof van Eden, om de aardbodem te bewerken, waaruit hij genomen was.
+Hij verdreef de mens, en plaatste ten oosten van de hof van Eden de cherubs met een vlammend zwaard, dat heen en weer bewoog, om de weg naar de boom des levens te bewaken."""
 ```
-Wat is het resultaat?
+Zoals je waarschijnlijk wel gemerkt hebt is dit Genesis 1.
 
-</details>
+Bereken de frequentie van de letter `e`. Druk die uit in een percentage: het aantal keer dat `e` voorkomt gedeeld door de totale lengte van de tekst. Zoek op internet op hoe vaak de `e` gemiddeld voorkomt in een Nederlandse tekst.
 
----
-
-# Week 3.2
-Het grafiekje tot nu toe is compleet kaal: we zien alleen een lijn en getallen op de x-as en y-as. Er is echter veel meer opmaak mogelijk.
-
-## Opmaak met MATplotlib
-Op een rijtje zijn hier een aantal veelvoorkomende opties voor het opmaken van een grafiek:
-
-* `ax.set_title("titel")`: voeg een titel toe aan de grafiek.
-* `ax.set_xlabel("x-label")`: voeg een titel toe aan de x-as.
-* `ax.set_ylabel("y-label")`: voeg een titel toe aan de y-as.
-* `ax.set_xlim(x_min, x_max)`: pas het domein van de x-as aan van `x_min` tot `x_max` (bijvoorbeeld `set_xlim(0, 10)`).
-* `ax.set_ylim(y_min, y_max)`: pas het bereik van de y-as aan van `y_min` tot `y_max` (bijvoorbeeld `set_ylim(19.5, 24.8)`).
-* `ax.grid()`: voeg een raster toe aan de grafiek om beter af te kunnen lezen.
-* `ax.plot(x, y, label = "meting")`: voeg een label toe aan de lijn.
-* `ax.legend()`: voeg een legenda toe die alle labels toont (let op: *eerst* iets plotten mét een label, anders is de legenda leeg!).
-
----
-
-<details>
-<summary>Opdracht</summary>
-
-Geef een van de drie de grafieken van de vorige opdracht een mooie opmaak. Gebruik minimaal aslabels, een titel, legenda en grid.
-
-Probeer ook het domein en bereik van de assen van één grafiek in te stellen.
-
-**Let op**: voeg deze opmaak toe vóór de regel `plt.show(block = True)`. Want zodra je grafiekje zichtbaar wordt kun je de opmaak er niet meer van aanpassen.
-
-</details>
-
----
-
-Daarnaast kun je ook de punten of lijnen in je grafiek opmaken:
-* je kunt de kleur kiezen door tijdens het plotten een letter in te vullen; als je dat niet doet maakt MATplotlib automatisch een ander kleurtje. 
-* je kunt de stijl kiezen door een of twee tekens toe te voegen; als je dat niet doet maakt MATplotlib automatisch een lijn tussen de punten.
-
-De standaardkleuren zijn:
-```python
-# b: blauw         # m: magenta      # c: cyaan
-# g: groen         # y: geel         # w: wit
-# r: rood          # k: zwart
-```
-
-De standaardstijlen zijn:
-```python
-#--: gestreepte lijn                # .: punten
-# o: stippen                        # -:  lijn
-#-.: afwisselend lijn/punt
-```
-
-Deze stijlen zijn op de volgende manier te gebruiken:
-```python
-ax.plot(x, y, 'r.')     # rode punten
-ax.plot(x, y, 'go')     # groene stippen
-ax.plot(x, y, 'w--')    # witte gestreepte lijn
-```
-
----
-
-<details>
-<summary>Opdracht</summary>
-
-Maak één de drie grafieken van de vorige opdrachten op met verschillende combinaties zoals je hierboven kunt vinden. Het hoeft niet per se mooi te worden, zolang je maar een aantal dingen probeert.
-
-</details>
-
----
-
-<details>
-<summary>Opdracht</summary>
-
-Zie het volgende script:
-
-```python
-import numpy as np
-import matplotlib.pyplot as plt
-
-jaren = np.arange(1981, 2022)                         # bereik x-as in jaren
-temp = np.sqrt(jaren) - 2*np.random.rand(len(jaren))  # temperatuur meetpunten maken
-trend = np.sqrt(jaren) - 1                            # trendlijn maken
-
-fig, ax = plt.subplots()              # figuur maken
-ax.plot(jaren, temp, 'k.')            # temperatuur plotten
-ax.plot(jaren, trend, 'r-')           # trendlijn plotten
-plt.show(block = True)
-```
-
-Maak de grafiek goed op.
-
-</details>
-
----
-
-# Week 3.3
-## Arrays (en lijsten) revisited
-Zometeen gaan we naar een databestand waarin twee volledige dagen aan metingen zitten. Het doel wordt om beide dagen te plotten in een grafiek van 0 tot 24 uur, maar dan moeten we wel de data kunnen splitsen in dag 1 en dag 2. Daarvoor kijken we weer kort naar arrays (en het werkt hetzelfde voor een gewone Python lijst).
-
-Het selecteren van een deel van een array kan als volgt:
-```python
-start = np.arange(3, 13, step = 1)  # [3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
-deel1 = start[2:]                   # [5, 6, 7, 8, 9, 10, 11, 12]
-deel2 = start[:4]                   # [3, 4, 5, 6]
-deel3 = start[3:6]                  # [6, 7, 8]
-```
-
-De dubbele punt geeft aan dat het om 'alle elementen tot', 'alle elementen vanaf', of 'alle elementen van .. tot ..' gaat. `deel1` selecteert alle elementen vanaf het derde (dat is dus vanaf index 2); `deel2` selecteert alle elementen *tot* de vijfde (dat is dus tot index 4); `deel3` selecteert alle elementen vanaf de vierde tot de zevende (dus van index 3 tot 6).
-
----
-
-<details>
-<summary>Opdracht</summary>
-
-Maak een variabele waarin je je eigen voornaam en achternaam als string opslaat (bijvoorbeeld `naam = "Mark Rutte"`).
-
-Print los je voornaam en je achternaam door bovenstaande methode te gebruiken.
-
-</details>
-
-Nog twee extra trucs wat betreft het selecteren van elementen:
-```python
-deel4 = start[:-3]          # selecteer alles behalve de laatste drie
-kwart = int(len(start) / 4) # bereken de lengte van een kwart (als integer)
-eerstekwart = start[:kwart] # selecteer alles tot een kwart van de totale lengte
-```
-
-Bij de laatste truc moet je heel erg opletten: als bijvoorbeeld de totale lengte 18 is, en je selecteert tot element $\frac{18}{4}$, komt er een error, want het element 4.5 bestaat niet. Daarom moet er een `int` van gemaakt worden.
-
----
-
-<details>
-<summary>Slotopdracht</summary>
-
-Maak gebruik van het bestand `mjlo-15_0.txt`. Hierin is voor elke sensor in een Meet je leefomgeving-kastje een kolom aanwezig met alle meetwaarden gedurende twee dagen.
-
-Maak voor elke sensor een mooi opgemaakte figuur. De x-as loopt van 0 tot 24 uur, dus dat betekent dat je voor elke figuur twee lijnen moet plotten: dag 1 en dag 2. Zorg uiteraard ook dat duidelijk is welke lijn bij welke dag hoort.
-
-**Beoordeling:**
-* 0.0pt: niet ingeleverd / werkt totaal niet
-* 0.5pt: ingeleverd maar geen correct resultaat / simpele oplossing om werkend te krijgen
-* 1.0pt: ingeleverd en (zo goed als) correct op minder goede manier
-* 1.55pt: ingeleverd en helemaal correct op de manier zoals geleerd in het hoofdstuk
+Bereken ook de frequentie als je de hoofdletter `E` meetelt samen met `e`. Komt het een beetje in de buurt?
 </details>
 
 ---
@@ -274,14 +212,286 @@ Maak voor elke sensor een mooi opgemaakte figuur. De x-as loopt van 0 tot 24 uur
 <details>
 <summary>Bonusopdracht</summary>
 
-Zorg dat alle grafieken niet in losse figuren staan, maar in een heel erg grote figuur door meerdere plots in één `plt.subplots()` te maken. Zoek op internet op hoe je daarmee aan de slag kunt! Regel dat de grafieken goed leesbaar zijn: groot genoeg met onderlinge ruimte, legenda's etc.
+Pak de tekst van Genesis 1 er weer bij. Maak gebruik van een `for`-loop over alle letters van het alfabet, om zo de frequentie voor elke letter te berekenen. Print elke keer de letter die je bekijkt, en welk percentage er bij hoort.
 
-**Let op**: dit is een pittige opdracht om netjes te maken.
+Maar: let op. Bij het berekenen van het percentage gebruik je `len()`, maar `len()` rekent ook het aantal spaties en Enters mee. Dat zijn echter geen letters, dus moet je die moet je dan wel eerst verwijderen. Ter controle: als het goed is vind je daarmee een percentage van 19.4% voor de letter e/E. (Een stuk beter dus dan het percentage bij de vorige opdracht!)
+
+Tip: als je voor een willekeurige kleine letter ook de hoofdletter wilt weten, kun je gebruik maken van dit voorbeeld:
+```python
+letter = 'a'    # voorbeeldletter
+hoofdletter = letter.upper()    # de 'uppercase' van 'a' oftewel 'A'
+```
+
+(Dat kan ook andersom:)
+```python
+letter = 'B'    # voorbeeldletter
+kleineletter = letter.lower()   # de 'lowercase' van 'B' oftewel 'b'
+```
 
 **Beoordeling:**
-* 0.0pt: niet ingeleverd / werkt totaal niet
-* 0.5pt: ingeleverd maar geen correct resultaat / simpele oplossing om werkend te krijgen
-* 1.0pt: ingeleverd en (zo goed als) correct
+* 0.00pt: niet ingeleverd / werkt totaal niet
+* 0.25pt: ingeleverd maar geen correct resultaat / simpele oplossing om werkend te krijgen
+* 0.50pt: ingeleverd en (zo goed als) correct
+</details>
+
+---
+
+# Week 2.2
+Om te werken met grote hoeveelheden getallen gaan we kijken naar het werken met losse bestanden. We gaan ook gebruik maken van een *library* die goed overweg kan met getallen: `numpy` (numerical python).
+
+## Bestanden importeren (getallen) / NumPy
+In Python kun je naast gewone bestanden importeren ook Python bestanden importeren die je helpen. Zo'n *library* moet je eerst installeren, en kun je vervolgens in al je scripts gebruiken. Daarvoor moet je het volgende commando invoeren in de *terminal* onderin je scherm:
+```powershell
+py -m pip install numpy
+```
+
+Is dat gelukt, dan kun je in je script NumPy importeren als volgt:
+
+```python
+import numpy
+```
+
+---
+
+<details>
+<summary>Opdracht</summary>
+
+Installeer NumPy. 
+
+Test of de installatie is gelukt door in een (leeg) script NumPy te importeren met behulp van de regel hierboven, en het script uit te voeren. Bij succes gebeurt er 'niets'; anders komt er een error in de Terminal.
+
+</details>
+
+---
+
+**Let op**: het importeren van een library doe je altijd bovenaan een script, op de eerste regels. Zo is het altijd duidelijk welke libraries er nodig zijn om jouw script te draaien.
+
+NumPy brengt allemaal extra functies met zich mee. Als je daarvan gebruik wilt maken, moet je de naam `numpy` ervoor zetten. Wil je bijvoorbeeld een sinus berekenen, kan dat als volgt:
+
+```python
+x = numpy.sin(1.57)
+```
+
+De hele tijd `numpy` typen is redelijk wat werk, dus maken we graag gebruik van een afkorting: we vervangen de regel `import numpy` door
+```python
+import numpy as np
+```
+
+Nu kunnen we de sinus op deze manier berekenen:
+```python
+x = np.sin(1.57)
+```
+
+---
+
+<details>
+<summary>Opdracht</summary>
+
+Doe een gok of zoek op internet op hoe je de waarde van $\pi$ kunt printen. Tip: $\pi$ is een onderdeel van NumPy.
+
+</details>
+
+---
+
+Rekenen met NumPy bewaren we voor straks; voor nu kijken we naar het uitlezen van bestanden met getallen. Daarvoor komt de volgende functie erg goed van pas:
+```python
+data = np.genfromtxt("voorbeeld_getallen_1d.txt")
+```
+
+Het resultaat van deze functie is een (soort van) lijst met alle getallen in het bestand. 
+
+---
+
+<details>
+<summary>Opdracht</summary>
+
+Download het voorbeeldbestand en sla deze weer op in dezelfde map als je script. Maak gebruik van `np.genfromtxt()` om het bestand uit te lezen. Print vervolgens met een `for`-loop alle getallen die in het bestand staan. Controleer natuurlijk of het resultaat klopt door het bestand te openen en te vergelijken.
+
+Zoals je waarschijnlijk opgevallen zal zijn: `genfromtxt()` negeert de regels met een <kbd>#</kbd> ervoor, net zoals Python de tekst na <kbd>#</kbd> als commentaar beschouwt. Ideaal!
+
+</details>
+
+---
+
+# Week 2.3
+## Werken met NumPy
+
+`genfromtxt` maakt niet echt een lijst zoals we tot nu toe gewend zijn. Bekijk het volgende voorbeeld maar eens:
+```python
+test = [1, 2, 3, 4, 5]  # 'normaal'
+print(type(test))       # list
+data = np.genfromtxt("voorbeeld_getallen_1d.txt")
+print(type(data))       # numpy.ndarray
+```
+
+Het resultaat is een `np.ndarray`. Het komt eigenlijk neer op een `numpy`-lijst, die gemaakt is om te werken met getallen en NumPy. Je kunt van een Python lijst makkelijk een NumPy *array* (de officiele naam) maken:
+```python
+python_lijst = [1, 2, 3, 4, 5, 6]
+numpy_array = np.array(python_lijst)
+```
+
+Uiteraard is dat hetzelfde als dit:
+```python
+python_lijst = range(1, 7)
+numpy_array = np.array(python_lijst)
+```
+
+Maar NumPy kan dat zelf ook:
+```python
+numpy_array = np.arange(1, 7)
+```
+
+---
+
+<details>
+<summary>Opdracht</summary>
+
+Maak een NumPy array van 0 tot 100 in stapjes van 5 (dus 0, 5, 10, .., 95). Controleer of je het goed gedaan hebt door de array te printen.
+
+Maak vervolgens ook een array van 5 tot en *met* -5. Controleer ook hier natuurlijk of je het goed hebt gedaan.
+
+</details>
+
+---
+
+Met NumPy-arrays kun je heel erg makkelijk rekenen. Zie het volgende voorbeeld:
+```python
+a = np.arange(1, 11)
+k = a + a
+print(k)            # array([2, 4, 6, 8, ..., 20])
+```
+
+Het eerste getal uit `a` wordt opgeteld bij het eerste getal uit `a`, het tweede getal bij het tweede getal, etc.
+
+---
+
+<details>
+<summary>Opdracht</summary>
+
+Maak een array `a` van 0 tot en met 5 en een array `b` van 0 tot en met 10. Tel deze bij elkaar op. Wat gebeurt er?
+
+</details>
+
+---
+
+<details>
+<summary>Opdracht</summary>
+
+Maak een array `c` van 0 tot en met 10. Bereken het resultaat van $c^c$. Wat gebeurt er? Zoek op internet een oplossing op en/of vraag het aan de docent.
+
+</details>
+
+---
+
+Je kunt ook in een keer bijvoorbeeld de sinus of cosinus van een heel array berekenen:
+```python
+data = np.genfromtxt("voorbeeld_getallen_1d.txt")
+l = np.sin(data)
+print(l)
+```
+
+
+---
+
+<details>
+<summary>Opdracht</summary>
+
+Maak een array van 0 tot 2 $\pi$ met stapjes van 0.1. Bereken de sinus, cosinus en tangens van de array. Print uiteraard elke keer het resultaat.
+
+</details>
+
+---
+
+## NumPy in twee dimensies
+Het gebeurt eigenlijk nooit dat je maar een enkele kolom met gegevens hebt. Als je bijvoorbeeld de temperatuur meet, meet je vaak ook de luchtdruk, luchtvochtigheid of andere gerelateerde zaken. Je hebt dus heel vaak meer dan een kolom. 
+
+Tussen verschillende kolommen staat een *scheidingsteken* om de kolommen uit elkaar te houden. Vaak is dat een komma (`','`), tab (`'\t'`) of spatie (`' '`). Natuurlijk niet de punt, want die wordt gebruikt voor decimalen. Bij het uitlezen van een bestand met `np.genfromtxt()` kun je ook aangeven welk scheidingsteken of *delimiter* er nodig is:
+```python
+data = np.genfromtxt("voorbeeld_getallen_2d.txt", delimiter = ",")
+```
+
+---
+
+<details>
+<summary>Opdracht</summary>
+
+Importeer het tweede voorbeeldbestand zoals hierboven. Print de data. Wat valt je op?
+
+Print vervolgens `data[0]`, `data[1]` en `data[2]` en let op wat er geprint wordt.
+
+</details>
+
+---
+
+Een NumPy array kan dus ook twee-dimensionaal zijn. **Let op**: de x-as en y-as zijn tegengesteld aan wat je gewend bent.
+
+Je kunt een los getal opvragen op de volgende twee manieren:
+```python
+getal1 = data[0, 0]     # regel 0, getal 0
+getal1 = data[0][0]
+
+getal2 = data[10, 2]    # regel 10, getal 2
+getal2 = data[10][2]
+```
+
+Met `data[0]` selecteer je de eerste *rij*, hebben we gezien. Om de eerste (of andere) *kolom* te selecteren kun je het volgende gebruiken:
+```python
+data = np.genfromtxt("voorbeeld_getallen_2d.txt", delimiter = ',')
+kolom0 = data[:, 0]
+kolom1 = data[:, 1]
+```
+De <kbd>:</kbd> betekent hier dat je de *hele x-as* selecteert. 
+
+---
+
+<details>
+<summary>Opdracht</summary>
+
+Print nogmaals de lengte van de x-as en y-as, maar nu door gebruik te maken van bovenstaand voorbeeld.
+
+</details>
+
+---
+
+<details>
+<summary>Opdracht</summary>
+
+Print de temperatuur, luchtdruk en luchtvochtigheid uit het voorbeeldbestand.
+
+</details>
+
+---
+
+Je kunt uiteraard ook een bestand zelf maken vanuit Python. Een voorbeeld:
+```python
+file = open("test.txt", "w")    # open het bestand 'test.txt' met 'w'rite permissions
+file.write("Hello world!")      # schrijf een regel in het bestand
+file.write("")                  # schrijf een lege regel
+file.write("Dit is\neen test")  # schrijf twee regels in één keer
+file.close()                    # sluit het bestand
+```
+
+---
+
+<details>
+
+<summary>Bonusopdracht</summary>
+
+Werk het volgende stappenplan af:
+
+* Voeg bovenaan je bestand de volgende regel in: `np.set_printoptions(threshold = np.inf, linewidth = np.inf)`
+* Importeer het bestand `"bonus_getallen.txt"`. Let op: dit is een vrij groot bestand.
+* Zoek op internet hoe je de hele array kunt *afronden*. Dat is dus niet hetzelfde als overal een integer van maken. (Want: `int(0.9) = 0`.) Als het goed is houd je alleen 0 en 1 over in de array.
+* Maak van de hele array nu een integer: zoek op internet hoe dat kan.
+* Maak van de hele array een string: `str(data)`.
+* Verwijder de `[` en `]`.
+* Maak een bestand, schrijf de string naar het bestand, en sluit het bestand.
+* Open het bestand en geniet van de creatie (tip: zoom een stuk uit)!
+
+**Beoordeling:**
+* 0.00pt: niet ingeleverd / werkt totaal niet
+* 0.25pt: ingeleverd maar geen correct resultaat / simpele oplossing om werkend te krijgen
+* 0.50pt: ingeleverd en (zo goed als) correct
 </details>
 
 ---

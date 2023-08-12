@@ -1,77 +1,113 @@
-# Week 7.1
-Een introductie van Python kan bijna niet zonder het volgende onderdeel. Aangezien Python erg goed is in werken met data, is het ook bijzonder goed in dit onderdeel: Machine Learning
+## Week 6.1
+Als laatste nieuwe onderwerp gaan we aan de slag met iets wat standaard ingebouwd is in Python: een `class`. Een `class` kan het programmeerleven heel wat simpeler maken!
 
-## Introductie op Machine Learning
-Machine Learning (ML) is een vorm of onderdeel van kunstmatige intelligentie. ML is wel een vrij 'domme' vorm van intelligentie: ook al lijkt het veel te kunnen, is het iets wat in de basis erg eenvoudig kan zijn (al kan het ook wel erg complex worden). We gaan kijken naar de 'Hello world' van ML in Python: de iris-bloemetjes.
+### `class`: introductie
+Een voorbeeld van een 'class' is bijvoorbeeld 'persoon'. Een persoon heeft een naam, leeftijd, haarkleur etc. Er zijn heel veel verschillende mensen, maar iedereen heeft die eigenschappen.
 
-In de natuur zijn drie leuke varianten van de iris-bloem:
-* Iris Setosa
-* Iris Versicolor
-* Iris Virginica
-
-Er is een vrij duidelijk onderscheid tussen de verschillende soorten wat betreft de volgende eigenschappen:
-* Kelkblad-lengte
-* Kelkblad-breedte
-* Kroonblad-lengte
-* Kroonblad-breedte
-
-Vrij goed te begrijpen is de KNN-classificatie: een van de mogelijke manieren om ML toe te passen. KNN staat voor *K-nearest-neighbor*: er wordt gekeken naar de beste dichtstbijzijnde oplossing.
-
-Een voorbeeld:  
-|Kelkblad-breedte|Bloemtype|
-|:--|:--|
-|1|A|
-|2|B|
-|1|A|
-|2|B|
-|3|C|
-|4|C|
-|3|C|
-|2|B|
-|5|A|
-
-Hiervan is een histogram te maken: een breedte van 1 cm komt 2 keer voor, 2 cm komt 3 keer voor, 3 cm komt 2 keer voor, 4 cm komt 1 keer voor en 5 cm komt een keer voor.
-
-Stel dat we een bloem pakken van onbekend type. De kelkblad-breedte is 2.5 cm. Dan is de vraag: wat matcht het beste? We kunnen dan kijken naar alle mogelijke getallen in de histogram, of ons beperken tot een klein aantal *buren*. Vaak kiezen we het laatste: we beperken ons tot bijvoorbeeld 3 buren (K = 3). Deze *K-nearest-neighbors* zijn dan kelkblad-breedte 1, 2 en 3 cm (4 cm is ook een optie maar komt minder vaak voor dan 1).
-
-Het antwoord op de vraag welk type deze bloem dan is, is: 'de meest voorkomende van de *K-nearest-neighbors*. Aangezien 2 cm het meeste voorkomt, en die van type B is, voorspellen we dat de onbekende bloem ook van type B is.
-
-## Machine Learning in Python
-In de library `scikit-learn` is een bestand aanwezig met data voor 50 bloemen van elke soort Iris. Zie de volgende link voor een visualizatie: [link](https://python-course.eu/images/machine-learning/data-representation-and-visualization-data_3.webp).
-
-
-We installeren de nodige packages:
-```powershell
-py -m pip install scipy scikit-learn
-```
-
-En we hebben de volgende imports nodig:
+Het simpelste voorbeeld van een class:
 ```python
-import numpy as np
-from sklearn.datasets import load_iris
-from sklearn.neighbors import KNeighborsClassifier
-from sklearn.model_selection import train_test_split
+class person:
+    age = 17
+
+p1 = person()   # p1 is een nieuw persoon
+print(p1.age)
+p2 = person()   # p2 is ander persoon
+print(p2.age)
 ```
+`age` is een eigenschap van elk persoon dat er gemaakt wordt. Maar dat heeft nu nog wel voor elk persoon altijd de waarde 17.
 
-Om de gegevens van de bloemen te openen, hebben we de volgende regel nodig:
+---
+
+<details>
+<summary>Opdracht</summary>
+
+Test eerst bovenstaand voorbeeld. Maak vervolgens een persoon met jouw leeftijd, naam en haarkleur door het voorbeeld uit te breiden. Print ook al die eigenschappen. Tip: voeg niet teveel dingen extra toe, want we gaan het zometeen op een betere manier doen.
+
+</details>
+
+---
+
+Als je verschillende personen wilt maken, gaat het bovenstaande niet veel helpen. Je zou handmatig voor elke persoon een nieuwe class moeten maken om te voorkomen dat iedereen dezelfde leeftijd heeft bijvoorbeeld (17 in het voorbeeld). We gaan gebruik maken van ```__init__()``` functie: dat is een functie die *altijd* uitgevoerd wordt bij het maken van een nieuw *object* - een variabele die de class aanroept (zoals `p1` en `p2`).
 ```python
-iris_dataset = load_iris()
+class person:
+    def __init__(self, name, age):
+        self.name = name
+        self.age = age
+
+p1 = person("Boonstoppel", 20)      # nieuw persoon met naam Boonstoppel en leeftijd 20
+print(p1.name)
+print(p1.age)
+p2 = person("Kieskamp", 64)         # nieuw persoon met naam Kieskamp en leeftijd 64
+print(p2.name)
+print(p2.age)
 ```
-In deze dataset zitten van de eerdergenoemde vier categorieen alle gemeten lengtes en breedtes, en staat er genoemd welk type bloem het is.
+Je ziet hier ook het woordje `self` tevoorschijn komen. Dat gaat later meer nut hebben, maar geeft alvast extra duidelijk aan dat `name` en `age` specifiek bij `self` oftewel `person` horen.
 
-Vervolgens gaan we alle 150 *samples* (metingen) opdelen in twee delen: trainingdata en testdata. De trainingdata wordt gebruikt om categorieen te maken zoals in het kleine voorbeeld; testdata wordt gebruikt om te kijken 'of het ergens op slaat'. Bij de tests wordt voorspeld welke bloem een meting is, en daarna gecontroleerd wat de echte soort is.
+---
 
-Hoe meer trainigdata, hoe beter de voorspelling, maar er moet ook wat getest worden. Zonder tests weet je namelijk niet echt of het goed gaat. Als voorbeeld gebruiken we een 50/50 verdeling:
+<details>
+<summary>Opdracht</summary>
+
+Test eerst bovenstaand voorbeeld. Maak vervolgens een persoon met jouw leeftijd, naam en haarkleur en eventuele andere eigenschappen door het voorbeeld uit te breiden.
+
+</details>
+
+---
+
+Een class kan behalve 'eigenschappen' ook functies implementeren ('bezitten'):
 ```python
-X_train, X_test, y_train, y_test = train_test_split(iris_dataset["data"], iris_dataset["target"], train_size = 0.5, random_state = 4)
+class person:
+    def __init__(self, name):
+        self.name = name
+    
+    def print_name(self):
+        print("Mijn naam is", self.name)
+
+p1 = person("Boonstoppel")
+p1.print_name()
 ```
-Je hoeft niet precies te begrijpen wat hier staat, maar het is handig om te zien dat `train_size = 0.5` (50%), en `test_size` is automatisch dan de andere helft.
+Hier wordt het nut van `self` iets duidelijker. In de functie `print_name()` hebben we de eigen naam nodig van de persoon. Door `self` aan de functie mee te geven, komt automatisch ook alles wat bij `self` hoort mee, zoals `name`. Je hoeft het niet als argument mee te geven aan de functie.
 
-Vervolgens starten en trainen we het algoritme. Dat gebeurt helemaal automatisch en duurt een seconde of iets dergelijks, afhankelijk van je computer:
+**Let op**: je hoeft (mag) `self` niet als *argument* meegeven als je de functie aanroept. Misschien zou je verwachten dat de laatste regel `p1.print_name(self)` moet zijn, maar dat hoort niet. Python voegt automatisch `self` in.
+
+---
+
+<details>
+<summary>Opdracht</summary>
+
+Test eerst bovenstaand voorbeeld. Voeg weer jouw leeftijd, naam en haarkleur toe. Zorg ervoor dat de functie `print_name()` al de eigenschappen van de persoon print.
+
+</details>
+
+---
+
+## Week 6.2
+### Een `turtle` class
+We komen weer terug bij de schildpadden! Dit keer om er een spelletje mee te maken nu we extra dingen hebben geleerd.
+
+Een spelletje is veel leuker met twee spelers. Daarom maken we een class die voor beide spelers gebruikt kan worden. Een basis daarvoor is als volgt:
 ```python
-kn = KNeighborsClassifier(n_neighbors=1)
-kn.fit(X_train, y_train)
-print("Test score: {:.2f}".format(kn.score(X_test, y_test)))
+import turtle
+
+class player:
+    def __init__(self, x, y, color):
+        self.t = turtle.Turtle()    # nieuwe turtle
+        self.t.up()                 # pen van papier halen
+        self.t.goto(x, y)           # naar startpositie gaan
+        self.t.down()               # pen weer op papier zetten
+        self.t.pencolor(color)      # penkleur instellen
+
+    def fd(self):                   # functie om vooruit te gaan
+        self.t.forward(10)
+
+    def bk(self):                   # functie om achteruit te gaan
+        self.t.backward(10)
+
+s = turtle.getscreen()
+
+p1 = player(-200, 0, "blue")
+
+turtle.mainloop()
 ```
 
 ---
@@ -79,135 +115,175 @@ print("Test score: {:.2f}".format(kn.score(X_test, y_test)))
 <details>
 <summary>Opdracht</summary>
 
-Kopieer alle bovenstaande onderdelen en zet ze onder elkaar. De test score geeft aan hoe goed het algoritme heeft voorspeld van welke soort een bloem is. Wat is de test-score bij een 50/50 verdeling? Experimenteer hoeveel procent `train_size` er nodig is om de overige bloemen helemaal goed te voorspellen (alles goed betekent test score = 1). Lukt dat?
+Test bovenstaand voorbeeld. Voeg vervolgens een functie toe aan de `player` class om linksom te draaien en om rechtsom te draaien.
+
+Controleer ook of alle vier de functies om te bewegen werken!
+
 </details>
 
 ---
 
-Het doel is natuurlijk om te proberen te voorspellen van welk type een nieuwe bloem is:
+Een spel is eigenlijk altijd afhankelijk van het toetsenbord en/of de muis. Via het volgende voorbeeld kunnen we daar gebruik van maken:
 ```python
-iris_new = np.array([[5, 2.9, 1, 0.2]]) # meting van een nieuwe bloem
-prediction = kn.predict(iris_new)       # voorspelling van type bloem
-
-print("Voorspelde soort: " + str(iris_dataset["target_names"][prediction]))   # printen welk type bloem er voorspeld wordt
+s.onkey(lambda : p1.fd(), "w")     # player 1 vooruit bij 'w'
+s.onkey(lambda : p1.bk(), "s")     # player 1 achteruit bij 's'
+s.listen()              # het scherm laten 'luisteren' naar toetsaanslagen
 ```
+Je ziet ook hier weer de `lambda` tevoorschijn komen, terwijl dat niet altijd nodig is of op internet bij voorbeelden staat, net als bij TKinter. Maar voor de handigheid wordt het alvast gebruikt.
 
 ---
 
 <details>
 <summary>Opdracht</summary>
 
-Welk type is de onbekende bloem waarschijnlijk? Door een grotere `train_size` te gebruiken kun je meestal zekerder zijn van de voorspelling. Hoe klein moet de `train_size` zijn om op een waarschijnlijk foute voorspelling uit te komen?
+Test bovenstaand voorbeeld. Wat gebeurt er als het scherm wel of niet 'actief' is? Je kunt dit testen door in split-screen te werken en juist een _ander_ scherm aan te klikken dan het turtle scherm. Druk vervolgens op de toetsen ('w' en 's').
+
+Voeg vervolgens de functies toe die nodig zijn voor naar links en naar rechts bewegen. Maak daarbij de keuze: draai je de turtle alleen met 90 graden, beweeg je ook een stukje in die richting, en draai je daarna misschien weer terug? Zorg in ieder geval dat je er makkelijk mee kan 'spelen' als in een spelletje.
 
 </details>
 
 ---
 
-# Week 7.2
-## Machine Learning en plaatjes
-Machine Learning gaat heel vaak samen met plaatjes. Denk bijvoorbeeld aan het verwerken van kentekens, of het automatisch blokkeren van gevoelige of ongepaste beelden op social media. Zonder machine learning is daar geen beginnen aan.
-
-Het is best moeilijk om echt een betrouwbaar programma te maken, maar als je onderscheid wilt maken tussen twee heel erg verschillende categorieën gaat het al wel snel goed. Hiervoor hoef je niet zelf een programma te schrijven, maar kun je gebruik maken van een bestaand script waar je zelf mee kunt experimenteren.
-
-Eerst moet je een paar dingen installeren:
+### Functies revisited
+We keren kort terug naar functies (`def`). Bekijk het volgende voorbeeld:
 ```python
-py -m pip install duckduckgo_search fastdownload fastai
-```
-Let op: dit kan wel een minuutje duren.
+def Pythagoras(a, b):
+    c = (a**2 + b**2)**0.5  # bereken de lange zijde
+    return c
 
-(*Tip*: als je het thuis wilt installeren moet je waarschijnlijk `python` invoeren in plaats van `py`!)
-
-Als het installeren voltooid is, kun je het bestand `fastai_voorbeeld.py` openen en downloaden.
-
-## Opzet
-Het bestand heeft een aantal *parameters* op regel 36 t/m 41. Het meeste kun je daar aanpassen.
-
-Het kan best veel werk kosten om zelf heel veel plaatjes te downloaden. Als eerste kun je invoeren waarop je wilt zoeken (fun fact: als zoekmachine wordt DuckDuckGo gebruikt, niet Google!). Als tweede kun je invoeren wat de naam van de map moet zijn waarin je de plaatjes wilt hebben. Als derde kun je invoeren hoeveel plaatjes je wilt downloaden per zoekterm. Het duurt wel een seconde of twee per plaatje om te downloaden, dus maak het getal niet veel groter dan 20 of 30 (al zou dat waarschijnlijk wel een beter resultaat opleveren!).
-
-Kies je twee categorieën die erg veel op elkaar lijken (bijvoorbeeld `tiger` en `lion`), dan zal je programma natuurlijk slecht kunnen voorspellen. Het voorbeeld kiest voor `forest` en `bird`: twee dingen die niet snel op elkaar lijken.
-
-De gedownloade bestanden kun je terugvinden in de map die aangegeven staat; zo kun je controleren of de plaatjes die gedownload zijn inderdaad kloppen.
-
-Als vierde argument vul je de `train_size` in. Net zoals in de vorige opdracht met de bloemen geeft dit aan hoeveel procent je gebruikt om te trainen, en hoeveel om te controleren of je training klopt. Meestal is circa 80% een goed percentage, zoals je waarschijnlijk in de vorige opdracht hebt geconstateerd.
-
-Als vijfde argument kun je invullen hoeveel `epochs` je wilt gebruiken. Een `epoch` is eigenlijk een trainingsronde. Hoe meer rondes je traint, hoe beter je resultaat meestal wordt maar hoe langer je moet wachten. Er zit nog een klein ander nadeel aan het gebruik van veel epochs. Denk bijvoorbeeld aan als je altijd zou trainen tegen dezelfde persoon: je weet precies hoe die persoon te werk gaat, maar als je tegenover een ander staat dan heb je bijna voor niets getraind omdat de tegenstander heel andere tactieken gebruikt. 
-
-Als laatste argument geef je aan voor welk bestand je de uitkomst wilt voorspellen. In dit geval heet dat bestand `bird.jpg`, maar dat kun je zelf natuurlijk altijd aanpassen als je iets anders wilt proberen.
-
----
-
-<details>
-<summary>Opdracht</summary>
-
-Installeer de benodige packages, download het voorbeeldbestand en zoek op internet naar een doorsnee plaatje van een vogel. Download dat plaatje als `bird.jpg` in dezelfde map als het voorbeeldbestand.
-
-Voer vervolgens het voorbeeldbestand uit met de standaard ingevulde waarden. Let op: het duurt wel een minuutje voordat het script klaar is. In de terminal zie je dingen voorbij komen die aangeven dat er wel wat gebeurt, dus maak je geen zorgen zolang daar elke paar seconden wat gebeurt.
-
-</details>
-
----
-
-<details>
-<summary>Opdracht</summary>
-
-Kies in plaats van de zoektermen `forest` en `bird` voor twee andere items. Pas uiteraard ook de naam van de map aan waar ze in moeten komen. Zoek op internet een plaatje dat bij één van de twee categorieën hoort en kijk of je script goed (genoeg) kan voorspellen waar het bij hoort.
-
-</details>
-
----
-
-<details>
-<summary>Opdracht</summary>
-
-De voorspellingen kloppen lang niet altijd. We gaan dat eens bekijken: download een heel ander plaatje dan de twee categorieën die je ingevuld hebt. Voer de naam van dat bestand in bij `test_image`. Maak vervolgens van regels 44 en 45 even commentaar: je hoeft dezelfde plaatjes niet opnieuw te downloaden. Voer je script daarna uit en kijk wat er voorspeld wordt bij dit heel andere plaatje.
-
-</details>
-
----
-
-<details>
-<summary>Opdracht</summary>
-
-De grote vraag is vaak: hoeveel epochs is een goed aantal? Daarvoor zijn enorme formules opgesteld die allemaal op hun eigen manier berekenen hoe ver je van je doel af bent. Daarvoor mag je naar wiskunde; bij informatica geven we iets minder om de exacte formules en meer om het resultaat. Waarschijnlijk is je al wel opgevallen dat er dingen worden geprint bij de verschillende epochs ofwel trainingsrondes. Je kunt daarbij kijken naar de `train_loss`, `valid_loss` en `error_rate`. Deze geven alle drie weer hoe goed de training gaat. Zie bijvoorbeeld:
-```
-epoch     train_loss  valid_loss  error_rate  time
-0         1.417494    1.177329    0.571429    00:08
-epoch     train_loss  valid_loss  error_rate  time
-0         0.830921    0.958205    0.285714    00:08
-1         0.726589    0.823547    0.142857    00:08
-2         0.496408    0.725432    0.142857    00:08
+x = 3
+y = 4
+z = Pythagoras(x, y)
+print(z)
 ```
 
-Hoeveel epochs is dan genoeg? Een niet-bestaande maar voor nu oké vuistregel is dat je genoeg epochs gebruikt als geen van drie kolommen bij een extra epoch meer dan ongeveer 10% zakt. In het bovenstaande voorbeeld zie je dat de derde epoch (getal 2) nog stevig gezakt is ten opzichte van de tweede epoch. Dan kan een extra ronde het nog wel waard zijn dus!
+Hier komt opeens het woord `return` om de hoek kijken. Wat er gebeurt: in de regel `z = Pythagoras(x, y)` staat dat `z` de waarde van `Pythagoras(x, y)` krijgt; dit betekent dat de functie `Pythagoras` een waarde heeft. De waarde van `z` is dan wat de functie 'teruggeeft', namelijk de waarde van `c`.
 
-Test voor jouw programma zoals die nu ingesteld is, hoeveel epochs je zou moeten gebruiken. Je kunt altijd wat teveel epochs instellen en je script stoppen via <kbd>Ctrl</kbd>+<kbd>C</kbd> als je ziet dat er weinig winst meer behaald wordt, en dat getal vervolgens aanhouden.
+---
+
+<details>
+<summary>Opdracht</summary>
+
+In de slotopdracht van hoofdstuk 1 maakte je een berekening van Fahrenheit naar graden Celsius. De formule daarvoor is:
+```python
+C = 5/9 * (F - 32)
+```
+Schrijf een functie met de naam `Celsius`, die de temperatuur omrekent van Fahrenheit naar Celsius met bovenstaande regel. De functie moet zo werken dat je onderstaande regels kunt kopieren en plakken in je script:
+```python
+F = 50
+C = Celsius(F)
+print(C)
+```
 
 </details>
 
 ---
 
-# Week 7.3
+## Week 6.3
+
+### Een spel maken
+Onderdeel van een spel is vaak het gebruik van 'collisions': je kunt ergens wel of niet mee botsen en verliest dan best wel eens spel-levens.
+
+Hieronder is een uitgewerkt voorbeeld waarbij gekeken wordt of twee spelers met elkaar botsen. Een botsing vindt plaats als de afstand tussen de twee turtles kleiner is dan 50 units (best groot, maar makkelijker te testen).
+```python
+import turtle
+
+class player:
+    def __init__(self, x, y, color):
+        self.t = turtle.Turtle()    # nieuwe turtle
+        self.t.up()                 # pen van papier halen
+        self.t.goto(x, y)           # naar startpositie gaan
+        self.t.down()               # pen weer op papier zetten
+        self.t.pencolor(color)      # penkleur instellen
+        self.levens = 3             # je start met drie levens
+
+    def fd(self, other):            # functie om vooruit te gaan
+        self.t.forward(10)
+        if collision(self, other) == True:  # controleer botsing
+            self.levens = self.levens - 1   # bij botsing: -1 leven
+            print(self.levens, other.levens)
+
+    def bk(self, other):            # functie om achteruit te gaan
+        self.t.backward(10)
+        if collision(self, other) == True:  # controleer botsing
+            self.levens = self.levens - 1   # bij botsing: -1 leven
+            print(self.levens, other.levens)
+
+    def pos(self):
+        return self.t.pos()         # geef de huidige positie van de turtle
+
+def collision(player1, player2):
+    pos1 = player1.pos()            # positie van turtle van speler 1
+    pos2 = player2.pos()            # positie van turtle van speler 2
+    a = (pos1[0] - pos2[0])**2      # (verschil in x-richting)^2
+    b = (pos1[1] - pos2[1])**2      # (verschil in y-richting)^2
+    diff = (a + b)**0.5             # Pythagoras: c = wortel(a^2 + b^2)
+    if diff < 50:
+        return True                 # als afstand < 20, dan is er een botsing
+    else:
+        return False                # als afstand >= 20, dan is er geen botsing
+
+s = turtle.getscreen()
+turtle.hideturtle()
+
+p1 = player(-200, 0, "blue")
+p2 = player(200, 0, "red")
+
+s.onkey(lambda : p1.fd(p2), "w")     # p1 vooruit bij 'w'
+s.onkey(lambda : p1.bk(p2), "s")     # p1 achteruit bij 's'
+
+s.onkey(lambda : p2.fd(p1), "Up")    # p2 vooruit bij pijltje omhoog 'Up'
+s.onkey(lambda : p2.bk(p1), "Down")  # p2 achteruit bij pijltje naar beneden 'Down'
+
+s.listen()              # het scherm laten 'luisteren' naar toetsaanslagen
+
+turtle.mainloop()
+```
 
 ---
 
 <details>
-<summary>Slotopdracht</summary>
+<summary>Opdracht</summary>
 
-In de algemene repository zijn drie plaatjes te vinden, `muse_1.jpg`, `muse_2.jpg` en `muse_3.jpg`. Deze komen uit het spel 'Muse' waarbij je als speler op basis van een woord, gebaar of geluidje van een medespeler de bijbehorende foto moet raden. De meeste plaatjes zijn nogal trippy en vreemd; deze zeker ook. De opdracht is als volgt:
+Test bovenstaand voorbeeld.
 
-* Kies één van de drie afbeeldingen om mee te werken.
-* Bedenk twee of meerdere zoekopdrachten waar jouw plaatje op lijkt; bijvoorbeeld 'boat', 'crab' of 'girl' om per plaatje een idee te geven.
-* Zorg ervoor dat er per categorie een aantal plaatjes gedownload worden; kies zelf hoeveel je er wilt. Je hoeft de plaatjes maar één keer te downloaden, en de regels met downloaden daarna weer commentaar maken als je tevreden bent met de gedownloade plaatjes.
-* Ga experimenteren met de variabelen `num_images`, `train_size` en `epochs` om het meest betrouwbare resultaat te halen: wat staat er op jouw plaatje?
-* Houd bij in comments aan het einde van je script welke resultaten je krijgt bij welke instellingen (bijvoorbeeld `# 30 plaatjes, 0.7 training, 5 epochs -> 90% boot`)
+Zorg dat de turtle weer naar links en naar rechts kan bewegen! Je kunt daarvoor onderdelen uit de vorige opdracht(en) hergebruiken, en dingen kopieren en plakken uit het huidige voorbeeld. Test uiteraard of het werkt!
 
-**Beoordeling**
-* Je kunt 0.3 pt krijgen voor de categorieën die je uitgekozen hebt: zijn dat twee vage, of misschien meerdere goede kanshebbers?
-* Je kunt 0.5 pt krijgen voor het uitzoeken van een goede waarde voor de drie genoemde variabelen. Uiteraard wordt krijg je meestal betere resultaten als je de computer een uur laat werken in plaats van een minuut, maar is dat niet de bedoeling.
-* Je kunt 0.7 pt krijgen voor het bijhouden van de gebruikte instellingen voor de variabelen en de bijbehorende resultaten.
+</details>
 
-*Let op*: het gaat bij deze opdracht er niet om dat je 100% betrouwbaarheid haalt, want zoals je in een van de opdrachten hebt kunnen zien kan je resultaat best onzinnig zijn bij kleine aantallen afbeeldingen. Het gaat er met name om dat je de invloed test van de mogelijke instellingen!
+---
 
+<details>
+<summary>(Bonus)opdracht</summary>
+
+De levens zijn nog nergens zichtbaar.. dat maakt het een saai spelletje. Zorg dat je op een of andere manier de levens in beeld krijgt!
+* Standaard opdracht: print de levens (altijd, of alleen bij een werkelijke collision) in de Terminal
+* Bonusopdracht: gebruik een derde (onzichtbare) turtle en `t.write` om de levens als tekst in het scherm te schrijven. Zorg ook dat deze levens aangepast worden als er een leven verwijderd wordt!
+
+Zorg als laatste nog dat er iets gebeurt als het aantal levens 0 of minder dan 0 is. Dat mag iets printen zijn, of iets op het scherm doen!
+
+**Beoordeling:**
+* 0.00pt: niet ingeleverd / werkt totaal niet
+* 0.25pt: ingeleverd maar geen correct resultaat / simpele oplossing om werkend te krijgen
+* 0.50pt: ingeleverd en (zo goed als) correct
+</details>
+
+---
+
+<details>
+<summary>Bonusopdracht</summary>
+
+Let op: om echt wat moois van deze opdracht te maken zul je flink wat moeten rondneuzen op internet; het is zeker geen makkelijke opdracht.
+
+Maak een werkend, leuk speelbaar spel! Het liefst is daarbij alleen het scherm met de turtles nodig, maar voor iets minder bonuspunten mag je ook de Terminal gebruiken om dingen te printen. Je kunt ook om input vragen via de Terminal. Het liefst maak je een spelletje dat je met twee spelers kunt spelen!
+
+P.S. kopieer geen spel van internet om dat in te leveren. Gebruik het eventueel als basis die je zelf flink aanpast, maar bedenk het liefst zoveel mogelijk zelf. Er wordt gecontroleerd!
+
+**Beoordeling:**
+* 0.0pt: niet ingeleverd / werkt totaal niet
+* 0.5pt: ingeleverd en simpele oplossing om werkend te krijgen / klein beetje aangepast van kopie
+* 1.0pt: ingeleverd, werkend en zelfgemaakte clone van bestaand spel
+* 1.5pt: ingeleverd, werkend en helemaal origineel
 </details>
 
 ---

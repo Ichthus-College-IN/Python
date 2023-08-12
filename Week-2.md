@@ -1,105 +1,238 @@
-# Week 2.1
-Straks gaan we werken met data-bestanden. Je werkt namelijk meestal niet met losse getallen, letters of woorden, maar met een hele bak aan data. Denk aan meetwaarden of lappen tekst, of als je een app bouwt aan alle gebruikers of posts. Daarvoor zijn eerst nog wat andere onderdelen handig.
+# Week 2
 
-## Werken met tekst
-We gaan aan de slag met strings: stukken tekst. Het eerste voorbeeld was `"Hello world"`. Maar er zijn ook veel langere stukken tekst. De standaard opvultekst die eigenlijk nergens op slaat is *Lorem ipsum*:
-```python
-lorem = """Lorem ipsum dolor sit amet. Non itaque architecto qui expedita voluptas eum natus totam. Est mollitia voluptatem aut deleniti labore hic dolore vero aut suscipit vitae aut animi officiis aut possimus nobis. Rem dignissimos repellat id internos quis et voluptatem cupiditate non rerum nulla qui tenetur quaerat et officiis molestiae.
-Et dolores temporibus a voluptatum autem ut autem impedit. Eum iste assumenda in reprehenderit consequatur est minima iusto aut quod perferendis aut dolorum culpa.
-Vel atque dicta est exercitationem recusandae et dolor voluptatibus. Ea alias placeat non sint molestias est amet dolores  adipisci sunt et quis veniam et voluptatibus pariatur non voluptas quia."""
-```
+Tijdens week 1 hebben we rechtstreeks in de Python terminal geprogrammeerd: één regeltje per keer. Maar vaak wil je meer dingen in één keer doen, of vaker opnieuw uitvoeren. Dan is het fijner om een heel bestand in één keer uit te voeren.
 
-**Let op**: tot nu toe ken je de driedubbele apostrof als commentaar. Dat is inderdaad hoe je meerdere regels commentaar kunt maken, maar je kunt het ook opslaan in een variabele!
+We gaan hiermee aan de slag in het programma Visual Studio Code. Dat is een programma waarin je standaard alleen teksten kan maken/bewerken, maar door de eindeloze hoeveelheid *extensies* ook heel veel programmeertalen kunt gebruiken. Om te werken met Python moet er dan ook een extensie voor Python geinstalleerd worden. Zie hiervoor de opdracht.
 
 ---
 
 <details>
 <summary>Opdracht</summary>
 
-Print `lorem`.
+Open Visual Studio Code. Je kunt hier gewoon op zoeken in het startmenu, of naartoe klikken via `Alle vakken > Informatica > Programmeren > Visual Studio Code`. Ga zodra het geopend is naar `View > Extensions` of gebruik de shortcut <kbd>Ctrl</kbd> <kbd>Shift</kbd> <kbd>X</kbd>. Zoek vervolgens naar de extensie Python en installeer die. **Let op**: waarschijnlijk moet je dit elke keer dat je inlogt op een schoolcomputer opnieuw uitvoeren; daar is helaas niets aan te doen.
 </details>
 
 ---
 
-Je kunt de lengte van een string opvragen: Python telt dan hoeveel karakters (letters / spaties / cijfers / symbolen) er in je string zitten.
-```python
-print(len(lorem))       # lorem is 692 karakters lang
+
+## Werken met een script
+Een Python-document wordt eigenlijk altijd (en dus ook in de lessen) een *script* genoemd. Een script wordt standaard van boven naar beneden, regel voor regel uitgevoerd tot de laatste is bereikt.
+
+Een groot verschil tussen de terminal en een script, is dat je bij een script niet zomaar een antwoord of resultaat ziet. Tot nu toe zag het er bijvoorbeeld zo uit:
+```
+>>> 5 + 3
+8
+>>> naam = "bns"
+>>> naam
+'bns'
 ```
 
-Er zijn een aantal handige dingen die je kunt doen met strings. Een daarvan is het splitsen op bepaalde karakters:
+De regels met een 'antwoord' zie je niet als je een script 'uitvoert'. Je moet dan specifiek het resultaat _printen_.
+
+Het makkelijkste Python script dat een zichtbaar resultaat geeft is het volgende:
 ```python
-gesplitst = lorem.split(' ')
+print("Hello world!")
 ```
 
-De tekst wordt gesplitst op het karakter `' '`: een spatie.
+`print()` betekent hier dat in de *console* een waarde wordt geprint. Zie de opdracht. Wat in dit voorbeeld tussen de ()-haakjes staat is datgene wat je wilt zien (zoals `5 + 3`, `naam`). 
 
 ---
 
 <details>
 <summary>Opdracht</summary>
 
-Print `gesplitst`. Wat is `gesplitst` voor iets (welk *datatype* heeft het)? Maak gebruik van een `for`-loop om elk element in `gesplitst` te printen.
+Kopieer bovenstaande code (dat kan heel erg makkelijk door met de muis op het vak te staan en dan op het kopieersymbool rechtsbovenin het vak te klikken). Plak het in een nieuw Pythonbestand in VSCode. Klik vervolgens rechtsboven op het pijltje (Run Python file). Als het goed is zie je in de terminal onderin het scherm het resultaat van je script tevoorschijn komen.
+
+Pas `"Hello world!"` aan naar bijvoorbeeld je eigen naam en controleer of het werkt.
+
 </details>
+
+---
+
+
+## Commentaar in Python
+Als je zelf een script schrijft weet je vaak best goed wat er gebeurt. Maar het kan zijn dat je soms je script naar een ander stuurt, of kopieert vanaf internet. Daarbij komt commentaar heel erg van pas: tekst in je script die aangeeft wat er bedoeld wordt. Een voorbeeld:
+```python
+print(1 - 2 + 3*4**5) # dit is 3071
+```
+
+Je ziet dat de tekst vanaf het `#`-teken automatisch een donkere of onopvallende kleur krijgt (afhankelijk van je thema-instellingen). Dat is namelijk commentaar: Python doet er niks mee en negeert het gewoon.
+
+Stijlpuntje: als je onder elkaar regels hebt van verschillende lengtes, gebruik dan <kbd>Tab</kbd> om het commentaar netjes uit te lijnen. Dat maakt het wel zo makkelijk om te lezen. Vergelijk:
+```python
+1 + 1 # = 2
+3*4 + (0.5**6 - 5) # = 7.015625
+5*(1 + 4**(0.5 + 6.37)) # = 35026131.0081...
+3.141592 / 2 # = 1.570796
+```
+```python
+1 + 1                       # = 2
+3*4 + (0.5**6 - 5)          # = 7.015625
+5*(1 + 4**(0.5 + 6.37))     # = 35026131.0081...
+3.141592 / 2                # = 1.570796
+```
+
+
+## Vergelijkingen
+Je kunt in Python variabelen (en getallen) vergelijken. Een vergelijking heeft slechts twee mogelijke uitkomsten: `True` of `False`.
+```python
+a = 5
+b = 3
+print(a < b)  # False
+print(a > b)  # True
+c = 3.0
+print(b < c)  # False
+print(b >= c) # True
+print(b != c) # False
+print(b == c) # True
+```
+Kleiner dan (<) en groter dan (>) spreken voor zich; bij kleiner dan of gelijk aan (<=), of groter dan of gelijk aan (>=) **moet** het `=`-teken **achter** het vergelijkingsteken, op dezelfde volgorde als dat je het uitspreekt. Om te controleren of iets aan elkaar ongelijk is, gebruik je `!=`. Om te checken of iets aan elkaar gelijk is, **moet** je een dubbel `=`-teken gebruiken: `==`.
 
 ---
 
 <details>
 <summary>Opdracht</summary>
 
-Splits `lorem` op het karakter `'\n'`. Print het resultaat van het splitsen en kijk goed: waarop is er gesplitst? Wat betekent `\n` dus?
+Test de volgende code:
+```python
+k = 34
+l = 27
+print(k = l)
+```
+Wat is het resultaat? 
+
+Zorg dat de vergelijking werkt.
 </details>
 
 ---
 
-Een ander geintje is `replace()`:
+
+## `if`-statement
+Vaak zijn er stukken van je script die je alleen wilt uitvoeren als er aan een bepaalde voorwaarde wordt voldaan. Denk aan bijvoorbeeld worteltrekken: je kunt niet de wortel trekken van een negatief getal. Voordat je dus worteltrekt, moet je controleren of je getal positief of negatief is. Bekijk het voorbeeld:
 ```python
-vervangen = lorem.replace('o', '0') # vervang alle letters o door het cijfer 0
-vervangen2 = lorem.replace(' ', '') # vervang alle spaties door niets (verwijder dus alle spaties)
+getal = 3
+if getal >= 0:
+    print(getal**0.5) # getal is groter dan 0, dus wordt 1.7... geprint
 ```
+We maken hier gebruik van een `if`-statement: *als* de voorwaarde `True` is, *dan* wordt de code uitgevoerd. Let op: na de voorwaarde **moet** een `:`, en alles wat bij de if-statement hoort **moet** vervolgens een tab aan het begin van de regel krijgen. Vaak gebeurt dat automatisch zodra je op Enter drukt na de dubbele punt. Ben je klaar met de regels die bij de if-statement horen, moet de tab ook weer weg. Zie bijvoorbeeld:
+```python
+getal = 3
+if getal >= 0:
+    print(getal**0.5)
 
-De eerste regel laat zien hoe je losse karakters kunt vervangen. De tweede regel is eigenlijk een soort verwijderen: we vervangen de spatie door een leeg karakter. 
-
-Tip: achter `.replace()` kun je gewoon nog een keer `.replace()` zetten om ook een ander karakter te vervangen.
+print("Hoi")
+```
+Voor de netheid staat er vaak een extra Enter om de scheiding te benadrukken.
 
 ---
 
 <details>
 <summary>Opdracht</summary>
 
-Maak gebruik van de volgende tekst:
-```python
-tekst = "HET VAK INFORMATICA IS HET LEUKSTE VAK DAT OP HET ICHTHUS GEGEVEN WORDT (DAT IS EEN FEIT). DAT KOMT NATUURLIJK OOK DOOR DE LEERLINGEN: ZE ZIJN IJVERIG AAN HET PROGRAMMEREN EN MAKEN HET ALTIJD GEZELLIG."
-```
-Vervang zoveel mogelijk letters door cijfers, waarna de tekst toch nog te lezen is (gebruik minimaal de 1, 2, 3 en 4). Of je schrijft zelf een tekst die je aan je buren laat lezen nadat je letters vervangen hebt door cijfers.
+Maak een variabele `T` en geef die een bepaalde waarde (temperatuur in graden Celsius).
 
+Als je `T` een getal kleiner dan 15 maakt, moet je script `"Het is koud!"` printen, maar als `T` groter is dan 15, hoeft er niets te gebeuren.
 </details>
 
 ---
 
-Je kunt ook stukken tekst 'aan elkaar lijmen'. Een stukje terug werd `lorem` gesplitst op de spaties. Je kunt dat vervolgens weer op deze manier weer een normale tekst maken:
-```python
-gelijmd = ' '.join(gesplitst)
-```
 
-Alle elementen in `gesplitst` worden ge`join`ed met een spatie (`' '`).
+## `if-else`-statement
+Vaak is een if alleen niet genoeg, en wil je ook iets doen als er *niet* aan de voorwaarde wordt voldaan. In het geval van worteltrekken bijvoorbeeld een waarschuwing printen: "let op, negatief getal!". Dat kan zo:
+```python
+getal = -3
+if getal >= 0:
+    print(getal**0.5)   # getal >= 0 is niet waar, dus dit gebeurt niet
+else:
+    print("Let op, negatief getal!")    # dit wordt dus wel uitgevoerd
+```
+Een `else` heeft geen voorwaarde: het wordt uitgevoerd in alle andere gevallen (als het getal dus kleiner is dan 0). Vergeet uiteraard de dubbele punt en tab niet.
 
 ---
 
 <details>
 <summary>Opdracht</summary>
 
-Pak de tekst waarbij je gesplitst hebt op het teken `\n` (dat is een *newline*) van een enkele opdracht terug. `join` de losse zinnen met een dubbele Enter zodat het echt losse alinea's worden. (Hint: je kunt `\n\n` gebruiken om twee Enters te maken.)
-
+Breid het script van de vorige opdracht uit: als `T` gelijk aan of groter is dan 15 moet er geprint worden: `"Het is warm."`.
 </details>
 
 ---
 
-## Verder werken met tekst
-
-Je kunt ook tellen hoe vaak een letter voorkomt in een string:
+## `if-elif-else` statement
+Je kunt heel veel extra voorwaarden toevoegen. In het geval van worteltrekken hoef je bijvoorbeeld geen wortel te trekken als het getal gelijk is aan 0, want wortel(0) = 0. Check de uitbreiding:
 ```python
-L = lorem.count('L')    # als het goed is maar 1: de hoofdletter 'L' is alleen als eerste letter aanwezig
-e = lorem.count('e')    # de 'e' komt 61 keer voor
+getal = 0
+if getal > 0:
+    print(getal**0.5)   # getal > 0 is niet waar, dus dit gebeurt niet
+elif getal == 0:
+    print(0)            # dit is waar, dus kunnen we gewoon 0 printen
+else:
+    print("Let op, negatief getal!")    # dit wordt niet meer uitgevoerd
+```
+De `elif` staat eigenlijk voor `else if`, en heeft uiteraard ook een voorwaarde nodig: "als .. dan ..". Ook hier is de dubbele punt natuurlijk weer nodig, net als de tab.
+
+Je kunt er in principe eindeloos veel onder elkaar zetten: `if-elif-elif-elif-elif-elif-elif....else`. Je kunt ook de `else` achterwege laten en het gewoon houden bij `if-elif` (en eventueel extra `elif`'s).
+
+---
+
+<details>
+<summary>Opdracht</summary>
+
+Breid het script van de afgelopen twee opdrachten nog verder uit: als `T` kleiner is dan 0 graden moet het script printen: `"Het vriest!"`. Zorg dat je gebruik maakt van de `if-elif-else`-constructie. Let goed op dat het juiste resultaat wordt geprint voor temperaturen onder nul!
+</details>
+
+---
+
+## integers, floats en strings
+Voordat we door kunnen gaan naar het volgende onderdeel kijken we naar het verschil tussen tekst en getallen.
+
+Getallen zijn er in twee soorten: `int`, de afkorting van integer, en `float`, wat meestal gewoon een float wordt genoemd. Een integer is een geheel getal; een float een kommagetal.
+
+Een string is een stuk tekst zoals we eerder gezien hebben bij `"Hello world"`, en daar staan **altijd** apostrofs voor en achter. Je kunt uiteraard ook getallen in een stuk tekst tegenkomen: `"Ik ben 20 jaar"`. De 20 die hier staat is niet echt een getal, maar een string, omdat er apostrofs voor en achter staan. `"20"` is dus **niet** hetzelfde als `20`! Of, als je het echt op de Python manier bekijkt:
+```python
+print("20" == 20)       # dit print False!
+```
+
+Het is wel mogelijk om een getal dat in een string staat om te zetten in een officiele integer of float:
+```python
+tekst = "20"
+getal = int(tekst)      # resultaat: 20 omdat int een geheel getal is
+getal = float(tekst)    # resultaat: 20.0 omdat float een kommagetal is
+```
+
+Eventueel kan het ook andersom:
+```python
+getal = 14
+tekst = str(getal)      # resultaat: "14"
+getal2 = 14.8
+tekst2 = str(getal2)    # resultaat: "14.8"
+```
+
+Je kunt ook een float naar een integer omzetten en andersom:
+```python
+geheelgetal = 14
+kommagetal = float(geheelgetal) # resultaat: 14.0
+kommagetal2 = 3.9
+geheelgetal2 = int(kommagetal2) # resultaat: 3
+```
+
+**Let op**! Als je een float omzet in een int, wordt alles na de punt **weggegooid**. Dat is dus niet hetzelfde als afronden!
+
+## `input()` van een gebruiker
+Soms wil je de gebruiker van je programma om input vragen. Of je wilt makkelijk een paar dingen testen. Daarvoor is invoer van een gebruiker best praktisch. Hoe werkt dat?
+```python
+invoer = input("Voer iets in:" )
+print(invoer)
+```
+
+In de console komt dan een mogelijkheid om te typen. Zodra je op Enter drukt eindigt de invoer, en wordt de input opgeslagen in de variabele `invoer`. 
+
+**Let op**: `input()` maakt van je invoer een `string`, dus als je een getal invoert moet je die nog omzetten naar een integer of float! Voorbeeld:
+
+```python
+invoer = input("Voer een getal in: ")
+x = int(invoer) / 2
+print(x)
 ```
 
 ---
@@ -107,391 +240,198 @@ e = lorem.count('e')    # de 'e' komt 61 keer voor
 <details>
 <summary>Opdracht</summary>
 
-Kopieer de volgende tekst en sla die op in een variabele:
+Test bovenstaand voorbeeld. Probeer hele getallen, kommagetallen, letters en combinaties van cijfers en letters. Wat gaat wel goed, en wat gaat niet goed?
+</details>
+
+---
+
+# Week 1.3
+
+## `While`-loop
+Eerder is de `if-else`-constructie aan de orde geweest. Daarbij wordt eenmalig gekeken of er aan een voorwaarde voldaan wordt. Andere keren doe je het liefst iets *zolang* een voorwaarde geldt. Je kunt bijvoorbeeld alle getallen van 0 tot en met 10 printen met de volgende code:
 ```python
-"""In het begin schiep God de hemel en de aarde.
-De aarde nu was woest en leeg, en duisternis lag over de watervloed; en de Geest van God zweefde boven het water.
-En God zei: Laat er licht zijn! En er was licht.
-En God zag het licht dat het goed was; en God maakte scheiding tussen het licht en de duisternis.
-En God noemde het licht dag en de duisternis noemde Hij nacht. Toen was het avond geweest en het was morgen geweest.
-En God zei: Laat er een gewelf zijn in het midden van het water, en laat dat scheiding maken tussen water en water!
-En God maakte dat gewelf en maakte scheiding tussen het water dat onder het gewelf is, en het water dat boven het gewelf is. En het was zo.
-En God noemde het gewelf hemel. Toen was het avond geweest en het was morgen geweest: de tweede dag.
-En God zei: Laat het water dat onder de hemel is, in één plaats samenvloeien en laat het droge zichtbaar worden! En het was zo.
-En God noemde het droge aarde en het samengevloeide water noemde Hij zeeën; en God zag dat het goed was.
-En God zei: Laat de aarde groen doen opkomen, zaaddragend gewas, vruchtbomen, die naar hun soort vrucht dragen, waarin hun zaad is op de aarde! En het was zo.
-En de aarde bracht groen voort, zaaddragend gewas naar zijn soort en bomen die vrucht dragen waarin hun zaad is, naar hun soort. En God zag dat het goed was.
-Toen was het avond geweest en het was morgen geweest: de derde dag.
-En God zei: Laten er lichten zijn aan het hemelgewelf om scheiding te maken tussen de dag en de nacht; en laten zij zijn tot tekenen, en tot aanduiding van vaste tijden en van dagen en jaren!
-En laten zij tot lichten zijn aan het hemelgewelf om licht te geven op de aarde! En het was zo.
-En God maakte de twee grote lichten: het grote licht om de dag te beheersen en het kleine licht om de nacht te beheersen; en ook de sterren.
-En God plaatste ze aan het hemelgewelf om licht te geven op de aarde,
-om de dag en de nacht te beheersen en om scheiding te maken tussen het licht en de duisternis. En God zag dat het goed was.
-Toen was het avond geweest en het was morgen geweest: de vierde dag.
-En God zei: Laat het water wemelen van wemelende levende wezens; en laten er vogels boven de aarde vliegen, langs het hemelgewelf!
-En God schiep de grote zeedieren en alle krioelende levende wezens waarvan het water wemelt, naar hun soort, en alle gevleugelde vogels naar hun soort. En God zag dat het goed was.
-En God zegende ze en zei: Wees vruchtbaar, word talrijk, en vervul het water van de zeeen; en laten de vogels talrijk worden op de aarde!
-Toen was het avond geweest en het was morgen geweest: de vijfde dag.
-En God zei: Laat de aarde levende wezens naar hun soort voortbrengen: vee, kruipende dieren en wilde dieren van de aarde, naar zijn soort! En het was zo.
-En God maakte de wilde dieren van de aarde naar hun soort, het vee naar hun soort, en alle kruipende dieren van de aardbodem naar hun soort. En God zag dat het goed was.
-En God zei: Laten Wij mensen maken naar Ons beeld, naar Onze gelijkenis; en laten zij heersen over de vissen van de zee, over de vogels in de lucht, over het vee, over heel de aarde en over al de kruipende dieren die over de aarde kruipen!
-En God schiep de mens naar Zijn beeld; naar het beeld van God schiep Hij hem; mannelijk en vrouwelijk schiep Hij hen.
-En God zegende hen en God zei tegen hen: Wees vruchtbaar, word talrijk, vervul de aarde en onderwerp haar, en heers over de vissen van de zee, over de vogels in de lucht en over al de dieren die over de aarde kruipen!
-En God zei: Ik geef u al het zaaddragende gewas dat op heel de aarde is, en alle bomen waaraan zaaddragende boomvruchten zijn; dat zal u tot voedsel dienen.
-Maar aan al de dieren van de aarde, aan alle vogels in de lucht en aan al wat over de aarde kruipt, waarin leven is, heb Ik al het groene gewas tot voedsel gegeven. En het was zo.
-En God zag al wat Hij gemaakt had, en zie, het was zeer goed. Toen was het avond geweest en het was morgen geweest: de zesde dag.
-
-Zo zijn de hemel en de aarde voltooid, en heel hun legermacht.
-Toen God op de zevende dag Zijn werk, dat Hij gemaakt had, voltooid had, rustte Hij op de zevende dag van al Zijn werk, dat Hij gemaakt had.
-En God zegende de zevende dag en heiligde die, want daarop rustte Hij van al Zijn werk, dat God schiep door het te maken.
-Dit is wat uit de hemel en de aarde voortkwam, toen zij geschapen werden. Op de dag dat de HEERE God aarde en hemel maakte –
-er was nog geen enkele veldstruik op de aarde en er was nog geen enkel veldgewas opgekomen, want de HEERE God had het niet laten regenen op de aarde; en er was geen mens om de aardbodem te bewerken,
-maar een damp steeg uit de aarde op en bevochtigde heel de aardbodem –
-toen vormde de HEERE God de mens uit het stof van de aardbodem en blies de levensadem in zijn neusgaten; zo werd de mens tot een levend wezen.
-Ook plantte de HEERE God een hof in Eden, in het oosten, en Hij plaatste daar de mens, die Hij gevormd had.
-En de HEERE God liet allerlei bomen uit de aardbodem opkomen, begerenswaardig om te zien en goed om van te eten; ook de boom des levens, in het midden van de hof, en de boom van de kennis van goed en kwaad.
-Een rivier kwam voort uit Eden om de hof te bevochtigen. En vandaar splitste hij zich en vormde vier hoofdstromen.
-De naam van de eerste rivier is Pison; die is het die rond heel het land van Havila stroomt, waar het goud is.
-En het goud van dit land is goed; ook is er balsemhars en de edelsteen onyx.
-En de naam van de tweede rivier is Gihon; die is het die rond heel het land Cusj stroomt.
-En de naam van de derde rivier is Tigris; die loopt ten oosten van Assur. En de vierde rivier is de Eufraat.
-De HEERE God nam de mens, en zette hem in de hof van Eden om die te bewerken en te onderhouden.
-En de HEERE God gebood de mens: Van alle bomen van de hof mag u vrij eten,
-maar van de boom van de kennis van goed en kwaad, daarvan mag u niet eten, want op de dag dat u daarvan eet, zult u zeker sterven.
-Ook zei de HEERE God: Het is niet goed dat de mens alleen is; Ik zal een hulp voor hem maken als iemand tegenover hem.
-De HEERE God vormde uit de aardbodem alle dieren van het veld en alle vogels in de lucht, en bracht die bij Adam om te zien hoe hij ze noemen zou; en zoals Adam elk levend wezen noemen zou, zo zou zijn naam zijn.
-Zo gaf Adam namen aan al het vee en aan de vogels in de lucht en aan alle dieren van het veld; maar voor de mens vond hij geen hulp als iemand tegenover hem.
-Toen liet de HEERE God een diepe slaap op Adam vallen, zodat hij in slaap viel; en Hij nam een van zijn ribben en sloot de plaats ervan toe met vlees.
-En de HEERE God bouwde de rib die Hij uit Adam genomen had, tot een vrouw en Hij bracht haar bij Adam.
-Toen zei Adam:
-Deze is ditmaal	been van mijn beenderen, en vlees van mijn vlees!
-Deze zal mannin genoemd worden,	want uit de man	is zij genomen.
-Daarom zal een man zijn vader en zijn moeder verlaten en zich aan zijn vrouw hechten; en zij zullen tot één vlees zijn.
-En zij waren beiden naakt, Adam en zijn vrouw, maar zij schaamden zich niet.
-
-De slang nu was de listigste onder alle dieren van het veld, die de HEERE God gemaakt had; en hij zei tegen de vrouw: Is het echt zo dat God gezegd heeft: U mag niet eten van alle bomen in de hof?
-En de vrouw zei tegen de slang: Van de vrucht van de bomen in de hof mogen wij eten,
-maar van de vrucht van de boom die in het midden van de hof staat, heeft God gezegd: U mag daarvan niet eten en hem niet aanraken, anders sterft u.
-Toen zei de slang tegen de vrouw: U zult zeker niet sterven.
-Maar God weet dat, op de dag dat u daarvan eet, uw ogen geopend zullen worden en dat u als God zult zijn, goed en kwaad kennend.
-En de vrouw zag dat die boom goed was om ervan te eten en dat hij een lust was voor het oog, ja, een boom die begerenswaardig was om er verstandig door te worden; en zij nam van zijn vrucht en at; en zij gaf ook wat aan haar man, die bij haar was, en hij at ervan.
-Toen werden de ogen van beiden geopend en zij merkten dat zij naakt waren. Zij vlochten vijgenbladeren samen en maakten voor zichzelf schorten.
-En zij hoorden de stem van de HEERE God, Die in de hof wandelde, bij de wind in de namiddag. Toen verborgen Adam en zijn vrouw zich voor het aangezicht van de HEERE God te midden van de bomen in de hof.
-En de HEERE God riep Adam en zei tegen hem: Waar bent u?
-En hij zei: Ik hoorde Uw stem in de hof en ik werd bevreesd, want ik ben naakt; daarom verborg ik mij.
-En Hij zei: Wie heeft u verteld dat u naakt bent? Hebt u van die boom gegeten waarvan Ik u geboden had daar niet van te eten?
-Toen zei Adam: De vrouw die U gaf om bij mij te zijn, die heeft mij van die boom gegeven en ik heb ervan gegeten.
-En de HEERE God zei tegen de vrouw: Wat hebt u daar gedaan! En de vrouw zei: De slang heeft mij bedrogen en ik heb ervan gegeten.
-Toen zei de HEERE God tegen de slang:
-Omdat u dit gedaan hebt, bent u vervloekt onder al het vee en onder alle dieren van het veld!
-Op uw buik zult u gaan en stof zult u eten, al de dagen van uw leven.
-En Ik zal vijandschap teweegbrengen tussen u en de vrouw, en tussen uw nageslacht en haar Nageslacht;
-Dat zal u de kop vermorzelen, en u zult Het de hiel vermorzelen.
-Tegen de vrouw zei Hij: Ik zal uw moeite in uw zwangerschap zeer groot maken; met pijn zult u kinderen baren. 
-maar uw man zal uw begeerte uitgaan, maar hij zal over u heersen.
-En tegen Adam zei Hij: Omdat u geluisterd hebt naar de stem van uw vrouw en van die boom gegeten hebt waarvan Ik u geboden had: U mag daarvan niet eten,
-is de aardbodem omwille van u vervloekt; met zwoegen zult u daarvan eten, al de dagen van uw leven;
-dorens en distels zal hij voor u laten opkomen en u zult het gewas van het veld eten.
-In het zweet van uw gezicht zult u brood eten, totdat u tot de aardbodem terugkeert, omdat u daaruit genomen bent;
-want stof bent u en u zult tot stof terugkeren.
-En Adam gaf zijn vrouw de naam Eva, omdat zij moeder van alle levenden is.
-En de HEERE God maakte voor Adam en voor zijn vrouw kleren van huiden en kleedde hen daarmee.
-Toen zei de HEERE God: Zie, de mens is geworden als een van Ons, omdat hij goed en kwaad kent. Nu dan, laat hij zijn hand niet uitsteken en ook van de boom des levens nemen en eten, zodat hij eeuwig zou leven!
-Daarom zond de HEERE God hem weg uit de hof van Eden, om de aardbodem te bewerken, waaruit hij genomen was.
-Hij verdreef de mens, en plaatste ten oosten van de hof van Eden de cherubs met een vlammend zwaard, dat heen en weer bewoog, om de weg naar de boom des levens te bewaken."""
+x = 0           # startwaarde 0
+while x < 10:   # zolang x kleiner is dan 10...
+    print(x)    # print de waarde van x
+    x = x + 1   # en tel 1 op bij x
 ```
-Zoals je waarschijnlijk wel gemerkt hebt is dit Genesis 1.
 
-Bereken de frequentie van de letter `e`. Druk die uit in een percentage: het aantal keer dat `e` voorkomt gedeeld door de totale lengte van de tekst. Zoek op internet op hoe vaak de `e` gemiddeld voorkomt in een Nederlandse tekst.
+---
 
-Bereken ook de frequentie als je de hoofdletter `E` meetelt samen met `e`. Komt het een beetje in de buurt?
+<details>
+<summary>Opdracht</summary>
+
+Test de code hierboven uit. Als je goed kijkt, zie je dat het getal 10 helaas toch niet geprint wordt. Vind twee (of met een beetje creativiteit drie of vier) manieren om alle getallen van 0 tot en **met** 10 te printen waarbij je gebruik maakt van (een variant van) bovenstaande `while`-loop.
+</details>
+
+---
+
+## Combineren van statements
+
+Uiteraard is het mogelijk om `while` en `if(-else)` ook door elkaar heen te gebruiken / te combineren. Bekijk het volgende voorbeeld:
+```python
+y = 20
+while y > 0:
+    print(y)
+    if y <= 10:
+        print("Doei")
+    else:
+        print("Hoi")
+    y = y - 1
+```
+
+**Let op**! Kijk goed naar de tabs voor de regels: die moeten wel matchen met de statement waar ze bij horen. 
+
+---
+
+<details>
+<summary>Opdracht</summary>
+
+Het volgende script moet de getallen 0 tot 20 printen. Daarbij moet bij de getallen kleiner of gelijk aan 10 een extra regel geprint worden. Er is echter een fout waardoor het niet goed gaat. Voer het script uit en bedenk wat er fout gaat.
+```python
+z = 0
+while z != 20:
+    print(z)
+    if z <= 10:
+        print("Kleiner of gelijk aan 10")
+        z = z + 1
+```
+Tip: klik in de terminal onderin en druk op <kbd>Ctrl</kbd> <kbd>C</kbd> als het script te lang duurt en je wilt het stoppen.
+
+Waarom gaat dit mis? Los het probleem op!
+</details>
+
+---
+
+## `list`: een lijst
+Wat we voor de basis van Python ook zeker nodig hebben is een `list`. Die is niet zo spannend: het is een lijst van waarden (of variabelen). Voorbeeld:
+```python
+x = [1, 2, 3, 4, 5]
+y = ["a", "b", "c", "d"]
+
+k = 3
+l = "hoi"
+m = 2.78
+z = [k, l, m]
+```
+
+Een handig trucje met een lijst is dat je de lengte van een lijst op kunt vragen:
+```python
+len(x)  # 5
+len(y)  # 4
+len(z)  # 3
+```
+
+Je kunt de elementen van een lijst ook los bekijken. Daarvoor maken we gebruik van een *index*, een getal dat gebruikt wordt om de waarde op een plek in een lijst te bekijken:
+```python
+print(x[0])
+print(y[2])
+```
+
+Ja.. een computer begint bij index 0. Als voorbeelden: `x[0]` heeft als waarde `1`, `x[1]` heeft als waarde `2`, `y[2]` heeft als waarde `"c"`, en `z[1]` heeft als waarde `"hoi"`.
+
+---
+
+<details>
+<summary>Opdracht</summary>
+
+Gebruik een `while`-loop om alle elementen uit `x` te printen. Maak gebruik van het volgende opstapje:
+```python
+i = 0
+print(x[i])
+```
+
+Denk goed na: hoe gebruik je `i` en `len(x)` zo goed mogelijk? Je mag het getal 5 niet gebruiken! 
+</details>
+
+---
+
+## `for`-loop
+Als een-na-laatste ingrediënt: de `for`-loop. Een `for`-loop lijkt soms best veel op een `while`-loop, maar is vaak een stuk netter. Kijk maar naar dit voorbeeld:
+```python
+for element in x:
+    print(element)
+```
+
+Hoewel het er heel anders ziet dan een `while`-loop, gebeurt er hetzelfde. Snap je niet helemaal wat er gebeurt? Vertaal dan de twee regels die er staan en maak er een Nederlandse zin van. Als geheugensteuntje kun je `for` ook zien als `foreach` (sommige programmeertalen gebruiken dat ook in plaats van `for`). 
+
+Een `for`-loop is een van de meest nuttige dingen om te gebruiken tijdens het programmeren: je weet eigenlijk altijd zeker dat je elk getal, letter of tekst langsgaat.
+
+*Tip: je mag zelf de namen van de variabelen bepalen. Je bent dus helemaal niet verplicht om `element` te gebruiken als naam; het mag net zo goed de naam `Hoi` of `abcd95` krijgen.*
+
+---
+
+<details>
+<summary>Opdracht</summary>
+
+Print de inhoud van de lijsten `x`, `y` en `z` van een paar voorbeelden terug door middel van een `for`-loop voor elke lijst.
+</details>
+
+---
+
+## `range()`: makkelijk een lijst maken
+Het kan best veel werk zijn om een lijst van getallen te maken van bijvoorbeeld 1 t/m 100. Daarvoor is een handige `range()`-functie. Tussen de haakjes kun je een paar dingen invullen: **op volgorde** de startwaarde, stopwaarde en eventueel de stapgrootte, die standaard +1 is. De stapgrootte moet een integer zijn. Voorbeelden:
+
+
+```python
+range(start, stop, step)
+
+a = range(0, 10)            # [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+b = range(3, 11)            # [3, 4, 5, 6, 7, 8, 9, 10]
+c = range(0, 100, 10)       # [0, 10, 20, 30, 40, 50, 60, 70, 80, 90]
+d = range(5, 0)             # [] (leeg, want met stapgrootte +1 kun je niet van 5 naar 0)
+e = range(8, -2, -1)        # [8, 7, 6, 5, 4, 3, 2, 1, 0, -1]
+f = range(8, -4, -2)        # [8, 6, 4, 2, 0, -2]
+```
+
+Zoals je ziet wordt het laatste getal niet meegenomen in de lijst. Daarnaast kun je ook achteruit tellen, maar dan moet je wel specifiek zeggen dat de stapgrootte -1 is. Anders is de lijst gewoon leeg.
+
+---
+
+<details>
+<summary>Opdracht</summary>
+
+Maak een lijst `l` die elk 7e getal bevat van 0 tot en **met** 70. Print elk getal in `l` door middel van een `for`-loop om het te controleren.
 </details>
 
 ---
 
 <details>
-<summary>Bonusopdracht</summary>
+<summary>Slotopdracht 1</summary>
 
-Pak de tekst van Genesis 1 er weer bij. Maak gebruik van een `for`-loop over alle letters van het alfabet, om zo de frequentie voor elke letter te berekenen. Print elke keer de letter die je bekijkt, en welk percentage er bij hoort.
+Schrijf een script dat aan jou als gebruiker om input vraagt en vervolgens wel of niet een wortel trekt. Dat herhaalt zich tot je het getal nul invoert: dan stopt het script.
 
-Maar: let op. Bij het berekenen van het percentage gebruik je `len()`, maar `len()` rekent ook het aantal spaties en Enters mee. Dat zijn echter geen letters, dus moet je die moet je dan wel eerst verwijderen. Ter controle: als het goed is vind je daarmee een percentage van 19.4% voor de letter e/E. (Een stuk beter dus dan het percentage bij de vorige opdracht!)
-
-Tip: als je voor een willekeurige kleine letter ook de hoofdletter wilt weten, kun je gebruik maken van dit voorbeeld:
-```python
-letter = 'a'    # voorbeeldletter
-hoofdletter = letter.upper()    # de 'uppercase' van 'a' oftewel 'A'
-```
-
-(Dat kan ook andersom:)
-```python
-letter = 'B'    # voorbeeldletter
-kleineletter = letter.lower()   # de 'lowercase' van 'B' oftewel 'b'
-```
+Vraag hiervoor als eerste om input van de gebruiker. Gebruik vervolgens een `while`-loop. Je moet dan testen of de invoer gelijk is aan 0 (dan stopt de loop), en daarna controleren of het getal positief of negatief is. Als het getal negatief is, print dan `"Dombo, geen negatief getal"`. Print anders de wortel van het getal. Vraag als laatste weer opnieuw om input, waarna je weer vooraan in de loop komt.
 
 **Beoordeling:**
 * 0.00pt: niet ingeleverd / werkt totaal niet
 * 0.25pt: ingeleverd maar geen correct resultaat / simpele oplossing om werkend te krijgen
-* 0.50pt: ingeleverd en (zo goed als) correct
-</details>
-
----
-
-# Week 2.2
-Om te werken met grote hoeveelheden getallen gaan we kijken naar het werken met losse bestanden. We gaan ook gebruik maken van een *library* die goed overweg kan met getallen: `numpy` (numerical python).
-
-## Bestanden importeren (getallen) / NumPy
-In Python kun je naast gewone bestanden importeren ook Python bestanden importeren die je helpen. Zo'n *library* moet je eerst installeren, en kun je vervolgens in al je scripts gebruiken. Daarvoor moet je het volgende commando invoeren in de *terminal* onderin je scherm:
-```powershell
-py -m pip install numpy
-```
-
-Is dat gelukt, dan kun je in je script NumPy importeren als volgt:
-
-```python
-import numpy
-```
-
----
-
-<details>
-<summary>Opdracht</summary>
-
-Installeer NumPy. 
-
-Test of de installatie is gelukt door in een (leeg) script NumPy te importeren met behulp van de regel hierboven, en het script uit te voeren. Bij succes gebeurt er 'niets'; anders komt er een error in de Terminal.
-
-</details>
-
----
-
-**Let op**: het importeren van een library doe je altijd bovenaan een script, op de eerste regels. Zo is het altijd duidelijk welke libraries er nodig zijn om jouw script te draaien.
-
-NumPy brengt allemaal extra functies met zich mee. Als je daarvan gebruik wilt maken, moet je de naam `numpy` ervoor zetten. Wil je bijvoorbeeld een sinus berekenen, kan dat als volgt:
-
-```python
-x = numpy.sin(1.57)
-```
-
-De hele tijd `numpy` typen is redelijk wat werk, dus maken we graag gebruik van een afkorting: we vervangen de regel `import numpy` door
-```python
-import numpy as np
-```
-
-Nu kunnen we de sinus op deze manier berekenen:
-```python
-x = np.sin(1.57)
-```
-
----
-
-<details>
-<summary>Opdracht</summary>
-
-Doe een gok of zoek op internet op hoe je de waarde van $\pi$ kunt printen. Tip: $\pi$ is een onderdeel van NumPy.
-
-</details>
-
----
-
-Rekenen met NumPy bewaren we voor straks; voor nu kijken we naar het uitlezen van bestanden met getallen. Daarvoor komt de volgende functie erg goed van pas:
-```python
-data = np.genfromtxt("voorbeeld_getallen_1d.txt")
-```
-
-Het resultaat van deze functie is een (soort van) lijst met alle getallen in het bestand. 
-
----
-
-<details>
-<summary>Opdracht</summary>
-
-Download het voorbeeldbestand en sla deze weer op in dezelfde map als je script. Maak gebruik van `np.genfromtxt()` om het bestand uit te lezen. Print vervolgens met een `for`-loop alle getallen die in het bestand staan. Controleer natuurlijk of het resultaat klopt door het bestand te openen en te vergelijken.
-
-Zoals je waarschijnlijk opgevallen zal zijn: `genfromtxt()` negeert de regels met een <kbd>#</kbd> ervoor, net zoals Python de tekst na <kbd>#</kbd> als commentaar beschouwt. Ideaal!
-
-</details>
-
----
-
-# Week 2.3
-## Werken met NumPy
-
-`genfromtxt` maakt niet echt een lijst zoals we tot nu toe gewend zijn. Bekijk het volgende voorbeeld maar eens:
-```python
-test = [1, 2, 3, 4, 5]  # 'normaal'
-print(type(test))       # list
-data = np.genfromtxt("voorbeeld_getallen_1d.txt")
-print(type(data))       # numpy.ndarray
-```
-
-Het resultaat is een `np.ndarray`. Het komt eigenlijk neer op een `numpy`-lijst, die gemaakt is om te werken met getallen en NumPy. Je kunt van een Python lijst makkelijk een NumPy *array* (de officiele naam) maken:
-```python
-python_lijst = [1, 2, 3, 4, 5, 6]
-numpy_array = np.array(python_lijst)
-```
-
-Uiteraard is dat hetzelfde als dit:
-```python
-python_lijst = range(1, 7)
-numpy_array = np.array(python_lijst)
-```
-
-Maar NumPy kan dat zelf ook:
-```python
-numpy_array = np.arange(1, 7)
-```
-
----
-
-<details>
-<summary>Opdracht</summary>
-
-Maak een NumPy array van 0 tot 100 in stapjes van 5 (dus 0, 5, 10, .., 95). Controleer of je het goed gedaan hebt door de array te printen.
-
-Maak vervolgens ook een array van 5 tot en *met* -5. Controleer ook hier natuurlijk of je het goed hebt gedaan.
-
-</details>
-
----
-
-Met NumPy-arrays kun je heel erg makkelijk rekenen. Zie het volgende voorbeeld:
-```python
-a = np.arange(1, 11)
-k = a + a
-print(k)            # array([2, 4, 6, 8, ..., 20])
-```
-
-Het eerste getal uit `a` wordt opgeteld bij het eerste getal uit `a`, het tweede getal bij het tweede getal, etc.
-
----
-
-<details>
-<summary>Opdracht</summary>
-
-Maak een array `a` van 0 tot en met 5 en een array `b` van 0 tot en met 10. Tel deze bij elkaar op. Wat gebeurt er?
-
+* 0.50pt: ingeleverd en (zo goed als) correct op minder goede manier
+* 0.75pt: ingeleverd en helemaal correct op de manier zoals geleerd in het hoofdstuk
 </details>
 
 ---
 
 <details>
-<summary>Opdracht</summary>
+<summary>Slotopdracht 2</summary>
 
-Maak een array `c` van 0 tot en met 10. Bereken het resultaat van $c^c$. Wat gebeurt er? Zoek op internet een oplossing op en/of vraag het aan de docent.
+Schrijf een script dat voor de temperaturen van -10 tot en **met** 100 Fahrenheit met stappen van 5 Fahrenheit de temperatuur in graden Celsius berekent. 
 
-</details>
+Print voor elke stap
 
----
+* de temperatuur in Fahrenheit, 
+* de berekende temperatuur in Celsius, 
+* en de conclusie of het wel of niet vriest. 
 
-Je kunt ook in een keer bijvoorbeeld de sinus of cosinus van een heel array berekenen:
-```python
-data = np.genfromtxt("voorbeeld_getallen_1d.txt")
-l = np.sin(data)
-print(l)
-```
+(Hint: controleer dus of de temperatuur in graden Celsius kleiner of groter is dan 0!)
 
-
----
-
-<details>
-<summary>Opdracht</summary>
-
-Maak een array van 0 tot 2 $\pi$ met stapjes van 0.1. Bereken de sinus, cosinus en tangens van de array. Print uiteraard elke keer het resultaat.
-
-</details>
-
----
-
-## NumPy in twee dimensies
-Het gebeurt eigenlijk nooit dat je maar een enkele kolom met gegevens hebt. Als je bijvoorbeeld de temperatuur meet, meet je vaak ook de luchtdruk, luchtvochtigheid of andere gerelateerde zaken. Je hebt dus heel vaak meer dan een kolom. 
-
-Tussen verschillende kolommen staat een *scheidingsteken* om de kolommen uit elkaar te houden. Vaak is dat een komma (`','`), tab (`'\t'`) of spatie (`' '`). Natuurlijk niet de punt, want die wordt gebruikt voor decimalen. Bij het uitlezen van een bestand met `np.genfromtxt()` kun je ook aangeven welk scheidingsteken of *delimiter* er nodig is:
-```python
-data = np.genfromtxt("voorbeeld_getallen_2d.txt", delimiter = ",")
-```
-
----
-
-<details>
-<summary>Opdracht</summary>
-
-Importeer het tweede voorbeeldbestand zoals hierboven. Print de data. Wat valt je op?
-
-Print vervolgens `data[0]`, `data[1]` en `data[2]` en let op wat er geprint wordt.
-
-</details>
-
----
-
-Een NumPy array kan dus ook twee-dimensionaal zijn. **Let op**: de x-as en y-as zijn tegengesteld aan wat je gewend bent.
-
-Je kunt een los getal opvragen op de volgende twee manieren:
-```python
-getal1 = data[0, 0]     # regel 0, getal 0
-getal1 = data[0][0]
-
-getal2 = data[10, 2]    # regel 10, getal 2
-getal2 = data[10][2]
-```
-
-Met `data[0]` selecteer je de eerste *rij*, hebben we gezien. Om de eerste (of andere) *kolom* te selecteren kun je het volgende gebruiken:
-```python
-data = np.genfromtxt("voorbeeld_getallen_2d.txt", delimiter = ',')
-kolom0 = data[:, 0]
-kolom1 = data[:, 1]
-```
-De <kbd>:</kbd> betekent hier dat je de *hele x-as* selecteert. 
-
----
-
-<details>
-<summary>Opdracht</summary>
-
-Print nogmaals de lengte van de x-as en y-as, maar nu door gebruik te maken van bovenstaand voorbeeld.
-
-</details>
-
----
-
-<details>
-<summary>Opdracht</summary>
-
-Print de temperatuur, luchtdruk en luchtvochtigheid uit het voorbeeldbestand.
-
-</details>
-
----
-
-Je kunt uiteraard ook een bestand zelf maken vanuit Python. Een voorbeeld:
-```python
-file = open("test.txt", "w")    # open het bestand 'test.txt' met 'w'rite permissions
-file.write("Hello world!")      # schrijf een regel in het bestand
-file.write("")                  # schrijf een lege regel
-file.write("Dit is\neen test")  # schrijf twee regels in één keer
-file.close()                    # sluit het bestand
-```
-
----
-
-<details>
-
-<summary>Bonusopdracht</summary>
-
-Werk het volgende stappenplan af:
-
-* Voeg bovenaan je bestand de volgende regel in: `np.set_printoptions(threshold = np.inf, linewidth = np.inf)`
-* Importeer het bestand `"bonus_getallen.txt"`. Let op: dit is een vrij groot bestand.
-* Zoek op internet hoe je de hele array kunt *afronden*. Dat is dus niet hetzelfde als overal een integer van maken. (Want: `int(0.9) = 0`.) Als het goed is houd je alleen 0 en 1 over in de array.
-* Maak van de hele array nu een integer: zoek op internet hoe dat kan.
-* Maak van de hele array een string: `str(data)`.
-* Verwijder de `[` en `]`.
-* Maak een bestand, schrijf de string naar het bestand, en sluit het bestand.
-* Open het bestand en geniet van de creatie (tip: zoom een stuk uit)!
+De formule om Fahrenheit om te rekenen naar Celsius: $C=\frac{5}{9}(F-32)$.
 
 **Beoordeling:**
 * 0.00pt: niet ingeleverd / werkt totaal niet
 * 0.25pt: ingeleverd maar geen correct resultaat / simpele oplossing om werkend te krijgen
-* 0.50pt: ingeleverd en (zo goed als) correct
+* 0.50pt: ingeleverd en (zo goed als) correct op minder goede manier
+* 0.75pt: ingeleverd en helemaal correct op de manier zoals geleerd in het hoofdstuk
 </details>
 
 ---
