@@ -5,7 +5,7 @@ Wat Python echt opmerkelijk maakt, is zijn veelzijdigheid. Of je nu geïnteresse
 
 Kortom, Python is de ideale springplank om je eerste stappen te zetten in de programmeerwereld. Of je nu technologie wilt verkennen, je creativiteit wilt uiten of je denkvermogen wilt versterken, Python staat klaar om je reis boeiend en lonend te maken. Dus ga aan de slag en ontdek hoe Python deuren opent naar een wereld van mogelijkheden! Spelletjes, apps, automatisering, robots.. alles kan!
 
-## Een eenvoudige start: rekenen met hele getallen
+## Een eenvoudige start: rekenen met `ints`: hele getallen
 We beginnen klein en gaan de mogelijkheden de komende weken steeds verder uitbreiden. In een notendop is een programmeertaal een _heel_ erg sterke en slimme (grafische) rekenmachine - zoals eigenlijk de hele computer een GR is, gebaseerd op nullen en enen. Maar wees gerust: dit wordt geen wiskunde-blok. Er komt hier en daar een sommetje als voorbeeld, maar die mag je de computer laten uitvoeren; je hoeft het niet zelf te doen.
 
 Python staat alvast geïnstalleerd op de schoolcomputers. Als je dit programma (eigenlijk is het een _console_) opent, komt het volgende in beeld:
@@ -90,7 +90,7 @@ Als het goed is hebben `x` en `y` nog steeds de waarden 4110 en 12345. Bereken d
 <<Insert table>>
 
 
-## Rekenen met kommagetallen
+## Rekenen met `floats`: kommagetallen
 Om te werken met kommagetallen, wordt het helaas wennen: ongeveer elke programmeertaal gebruikt de 'normale' Engelse notatie: een `.` in plaats van de `,`. Hieronder een voorbeeld:
 ```python
 >>> 3*0.5

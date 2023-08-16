@@ -1,360 +1,228 @@
-# Week 4.1
-We laten de grafieken achter ons! Volgende halte: Turtle; we gaan een schildpad laten tekenen door te programmeren!
+## Week 5.1
+Het tekenen met een schildpad zit er op. Volgende halte: TKinter; we gaan een simpele 'app' bouwen!
 
-Turtle is standaard geïnstalleerd, dus hoef je dat niet te doen zoals bij de andere packages tot nu toe. 
-
-Importeren:
+Tkinter is ook standaard geïnstalleerd, dus kun je het direct importeren:
 ```python
-import turtle
+import tkinter as tk
+from tkinter import ttk
 ```
-Deze keer geen afkorting: we hebben de naam `turtle` weinig nodig.
+Die tweede regel zullen we ook nodig hebben!
 
-## REPL
-Waar we tot nu toe elke keer scripts hebben gebruikt, gaan we dit hoofdstuk grotendeels aan de slag in de REPL. REPL staat voor *Read-Evaluate-Print Loop*, oftewel: elk regeltje wordt gelezen, uitgevoerd en het resultaat (als dat er is) direct geprint. 
+We gaan dit hoofdstuk weer met gewone scripts werken in plaats van in de REPL.
+
+### Een window maken
+We starten met een kale *window*; praktisch een soort canvas waar allemaal dingen op geplaatst kunnen worden.
+```python
+root = tk.Tk()
+```
+
+Deze `root` (de wortel van de boom waar alles van afhangt), heeft een aantal handige of grappige instellingen. Hieronder een aantal als voorbeeld:
+```python
+root.title("Test")          # de titel in de bovenbalk
+root.geometry("800x600")    # de breedte en hoogte van de window in pixels
+root.resizable(0, 0)        # de breedte en hoogte zijn nu niet schaalbaar
+root.resizable(1, 0)        # alleen de breedte is schaalbaar
+root.attributes('-alpha', 0.7)  # de window is 70% opaque oftewel 30% doorzichtig
+```
+
+**Let op**: de laatste regel in je script moet (net als bij turtle) altijd zijn:
+```python
+root.mainloop()
+```
 
 ---
 
 <details>
 <summary>Opdracht</summary>
 
-Ga naar de Terminal en typ:
+Maak een window en test bovenstaande instellingen uit! Op internet zijn er trouwens nog wel meer te vinden.
+
+</details>
+
+---
+
+### Tekstvelden
+Om tekst te plaatsen op de window hebben we een *label* nodig. Een label wordt eigenlijk altijd afgekort tot `lbl`. Zie het voorbeeld:
+```python
+lbl = ttk.Label(root, text = "Lang leve informatica!")
+```
+
+**Let op**: we maken gebruik van `ttk.Label`. Er is ook een `tk.Label`, maar dat is een oudere versie die minder opties heeft.
+
+In de label zetten we als eerste neer dat de label op de `root` moet komen. Als tweede specificeren we de tekst die in de label moet komen staan.
+
+Om de label nu te zien, moeten we hem nog plaatsen:
+```python
+lbl.place(x = 0, y = 0, width = 400, height = 200)
+```
+
+`x` en `y` zijn de positie in de window. Daarbij is het punt (0, 0) helemaal *linksboven*: de y-as loopt van boven naar beneden toe (de x-as loopt wel gewoon van links naar rechts). De `width` en `height` zijn het aantal pixels dat de label hoog en breed is. Als die te klein is, valt de tekst er deels af.
+
+---
+
+<details>
+<summary>Opdracht</summary>
+
+Plaats een label op je window! Of eventueel twee of meer (maar geef ze dan wel een extra nummer zoals `lbl2` en `lbl3`).
+
+</details>
+
+---
+
+Mocht je een label weer willen verwijderen van je window, kan dat zo:
+```python
+lbl.place_forget()
+```
+
+Je label blijft nog wel 'onzichtbaar' bestaan: je kunt hem gewoon direct weer plaatsen met `lbl.place()` zonder dat je opnieuw dat label moet maken.
+
+### Knoppen
+Uiteraard is een app zonder knoppen vrij waardeloos. Tijd voor een *button*, eigenlijk altijd afgekort tot `btn`.
+```python
+btn = ttk.Button(root, text = "Klik op mij")
+```
+
+Zoals het er nu staat, is een button nog niet veel anders dan een label: behalve dat de `root` is aangegeven, is er alleen een tekst. Maar: het ziet er al wel uit als een knop!
+
+---
+
+<details>
+<summary>Opdracht</summary>
+
+Plaats een button op je window! Of eventueel twee of meer (maar geef ze dan wel een extra nummer zoals `btn2` en `btn3`).
+
+</details>
+
+---
+
+Om goed van een knop gebruik te kunnen maken gaan we eerst iets anders bekijken.
+
+## Week 5.2
+
+### Functies
+Een functie is een stuk code dat je via een naam kunt activeren of aanroepen. Als je het niet aanroept wordt het dus niet uitgevoerd, maar als je het meerdere keren achter elkaar aanroept wordt het meerdere keren uitgevoerd.
+
+Een erg simpel voorbeeld:
+```python
+def voorbeeldfunctie():
+    print("De voorbeeldfunctie zegt hallo")
+```
+
+Een functie start je met het woord `def` en vervolgens de naam van de functie. Je kunt dat hetzelfde beschouwen als een variabele-naam: je kunt zelf gewoon een naam kiezen. De haakjes openen en sluiten `()` zijn ook verplicht, en worden straks nuttig. De dubbele punt werkt hetzelfde als bij een `if`, `for` etc. Alle regels die bij de functie horen, krijgen een Tab.
+
+Vervolgens kun je de functie uitvoeren op de volgende manier:
+```python
+voorbeeldfunctie()
+```
+
+---
+
+<details>
+<summary>Opdracht</summary>
+
+Test het volgende script:
+```python
+def voorbeeldfunctie():
+    print("De voorbeeldfunctie zegt hallo")
+
+print("Hoi")
+voorbeeldfunctie()
+```
+
+Pas het script (maar niet de voorbeeldfunctie) door te kopiëren / plakken zo aan dat je in de console het volgende te zien krijgt:
 ```powershell
-py
+De voorbeeldfunctie zegt hallo
+Hoi
+De voorbeeldfunctie zegt hallo
+De voorbeeldfunctie zegt hallo
+Hoi
 ```
 
-Hiermee open je de REPL. Er komen twee regeltjes tekst in beeld en vervolgens staat eronder:
+</details>
+
+---
+
+Je kunt functies ook een stuk nuttiger gebruiken door met variabelen te werken. Zie het volgende voorbeeld:
+```python
+def printfunctie(tekst):
+    print(tekst)
+
+printfunctie("Dit is een test")
+```
+
+De functie wordt aangeroepen met een stuk tekst tussen de haakjes. Die tekst wordt doorgegeven aan de functie, en opgeslagen onder de naam `tekst`. Vervolgens wordt die `tekst` geprint.
+
+---
+
+<details>
+<summary>Opdracht</summary>
+
+Gebruik `printfunctie` om het volgende resultaat te produceren:
 ```powershell
->>> 
+>>> Test 1
+>>> Test 2
+>>> Test 3
+>>> Nog een laatste test
 ```
-
-Test de werking van de REPL:
-```python
->>> print(5 + 3)
-```
-
-**Let op**: de `>>>` moet je niet mee-kopieren; ze geven aan dat het in de REPL uitgevoerd wordt. De symbolen staan er nog een paar keer voor de duidelijkheid bij, daarna worden ze voor het gemak weggelaten.
-
-Test vervolgens deze regel:
-```python
->>> 5 + 3
-```
-
-Dit print ook een resultaat, zonder dat `print()` is gebruikt! Dat komt vanwege de P in REPL: alles wat een resultaat produceert wordt automatisch geprint. Ideaal :)
 
 </details>
 
 ---
 
-## De basisomgeving
-Werken met `turtle` is eigenlijk tekenen met een pen op papier. Met de volgende regel komen we aan 'papier':
+Je kunt zoveel variabelen maken als je wilt:
 ```python
->>> s = turtle.getscreen()
+def printuitgebreid(var1, var2, var3):
+    print(var1, var2, var3)
+    print(var1 + var2 + var3)
 ```
 
-Het papier zit opgeslagen onder de variabele `s` van *screen*. Let op: er opent een extra scherm (in de achtergrond).
-
-Met de volgende regel komen we aan een pen:
-```python
->>> t = turtle.Turtle()
-```
-
-De pen zit nu opgeslagen onder de variabele `t` van *turtle*.
+`var#` is hier een eenvoudige afkorting voor variabele 1, 2 en 3.
 
 ---
 
 <details>
 <summary>Opdracht</summary>
 
-Ga aan de slag in de REPL: importeer turtle en open een scherm onder de variabele `s`. Maak vervolgens een pen met de naam `t`.
+Test de uitgebreide printfunctie met de volgende regels:
+```python
+printuitgebreid(1, 2, 3)
+printuitgebreid(0.5, 0.5, 3.1)
+printuitgebreid("Dit", "is een", "test")
+printuitgebreid("Dit ", "is een", " test")
+printuitgebreid("Dit", "is", "een", "test")
+```
+Waarom werkt de laatste functie niet?
 
-Tip: gebruik splitscreen om VS Code, de opdrachten en het Turtle scherm allemaal in beeld te houden.
+Test ook nog de volgende regel:
+```python
+printuitgebreid("Ik ben", 16, "jaar oud")
+```
+Waarom gaat één van de twee `print()`s mis?
 
 </details>
 
 ---
 
-Nu kunnen we gaan tekenen!
-
-## Simpele tekenfuncties: lijnen
-Een lijstje van eenvoudige commando's om te gaan tekenen:
+Normaal gesproken komen de variabelen gewoon op volgorde binnen, zoals je in de opdrachten tot nu toe hebt gezien. Maar je kunt ook specifiek een andere volgorde opgeven:
 ```python
-t.forward(100)  # 100 units vooruit
-t.forward(-25)  # 25 units achteruit
-t.backward(50)  # 50 units achteruit
-t.left(90)      # 90 graden naar links draaien
-t.left(-45)     # 45 graden naar rechts draaien
-t.right(180)    # 180 graden naar rechts draaien
+printuitgebreid(var3 = 7, var1 = 5, var2 = 6)
 ```
 
-Makkelijke afkortingen:
-```python
-t.fd()
-t.bk()
-t.lt()
-t.rt()
-```
-
-Als je fouten hebt gemaakt kun je de volgende commando's gebruiken:
-```python
-t.undo()        # laatste actie ongedaan maken
-t.clear()       # alle strepen verwijderen
-t.reset()       # helemaal opnieuw beginnen
-```
+**Let op**: de namen van de variabelen moeten matchen met de namen in de functie.
 
 ---
 
 <details>
 <summary>Opdracht</summary>
 
-Maak een rechthoek van het formaat 100 bij 250 units. Probeer daarbij ook negatieve getallen uit.
-
-</details>
-
----
-
-<details>
-<summary>Opdracht</summary>
-
-Maak een huisje zoals je die als kind altijd tekent: een rechthoek of vierkant met een driehoek er bovenop. Maak ook een deur midden onderin.
-
-</details>
-
----
-
-Om naar een specifieke plek op het scherm te gaan, is de volgende functie beschikbaar:
+Test de uitgebreide printfunctie met de volgende regels:
 ```python
-t.goto(x, y)        # ga naar het punt (x, y)
-t.goto(-50, 10)     # ga naar het punt (-50, 10)
-t.home()            # ga naar het punt (0, 0)
+printuitgebreid(var1 = 1, var2 = 2, var3 = 3)
+printuitgebreid(var3 = 3, var1 = 1, var2 = 2)
+printuitgebreid(var2 = 2, var3 = 3, var1 = 1)
+printuitgebreid(var2 = "Dit ", var3 = "is ", var1 = "een test ")
 ```
-
-Zolang je pen op het papier staat, wordt er ook een lijn naar die plek getekend. Als je wilt voorkomen dat er een lijn komt te staan, kun je de pen optillen en later weer neerzetten:
-```python
-t.up()
-t.down()
-```
-
-En dan is er nog een verzameling aan (minder) handige functies:
-```python
-t.position()        # huidige (x, y)-coordinaten weergeven
-t.pos()             # korte alias van .position()
-t.hideturtle()      # turtle onzichtbaar maken
-t.showturtle()      # turtle zichtbaar maken
-t.stamp()           # een stempel op de huidige plek van de turtle
-
-turtle.hideturtle() # de start-turtle onzichtbaar maken
-```
-
-En een verzameling aan verschillende looks voor je turtle:
-```python
-t.shape("turtle")
-t.shape("arrow")
-t.shape("circle")
-t.shape("square")
-t.shape("triangle")
-t.shape("classic")
-```
-
-Een aantal opties voor kleuren en titels:
-```python
-turtle.title(title)     # de titel in de balk bovenin instellen
-turtle.title("Test")
-turtle.title("Mijn tekening")
-
-turtle.bgcolor(color)   # de achtergrondkleur van het scherm instellen
-turtle.bgcolor("red")
-turtle.bgcolor("green")
-turtle.bgcolor("magenta")
-```
-
-**Let op**: als je `turtle` in een script wilt gebruiken in plaats van via de REPL, moet je altijd aan het einde van je script zetten:
-```python
-turtle.mainloop()
-```
-
----
-
-<details>
-<summary>Opdracht</summary>
-
-Test bovenstaande commando's uit; ga alle verschillende langs!
-
-</details>
-
----
-
-## Punten en cirkels
-Een punt maak je zo:
-```python
-t.dot(radius, color)
-t.dot(10)           # een punt met straal 10
-t.dot(20, "blue")   # een blauwe punt met straal 20
-t.dot(5, "#15F204") # een (hexadecimaal) groene punt met straal 5
-```
-
-Voor een cirkel zijn er de volgende opties:
-```python
-t.circle(radius, extent, steps)
-t.circle(50)                # cirkel met r = 50
-t.circle(30.5, 180)         # halve cirkel met r = 30.5
-t.circle(100, steps = 5)    # cirkel met r = 100 en 5 lijnstukken
-t.circle(40, 270, 50)       # driekwart cirkel met r = 40 en 50 lijnstukken
-```
-
-**Let op**! Het startpunt van de cirkel is de huidige positie, waarna de pen linksom de cirkel maakt. Je kunt de cirkel ook rechtsom maken door een negatieve straal in te vullen, bijvoorbeeld `t.circle(-20)`.
-
----
-
-<details>
-<summary>Opdracht</summary>
-
-Maak het logo van Audi.
-
-Tip: maak gebruik van `.up()`, `.down()` en `.goto()` om naar andere plekken op het scherm te gaan zonder lijnen te tekenen.
-
-</details>
-
----
-
-<details>
-<summary>Opdracht</summary>
-
-Maak een hartje! De makkelijkste manier: begin met de turtle op 45 graden, dan een lijnstuk, vervolgens twee halve cirkels, en dan weer een lijnstuk. Vogel zelf uit hoe het precies moet! (Maak zo nodig gebruik van `t.undo()`.)
-
-</details>
-
----
-
-
-# Week 4.2
-## Lijndiktes
-Voor het wijzigen van de lijndikte kan de `pensize` aangepast worden:
-```python
-t.pensize(width)        # default is 1
-t.width(width)          # alias van .pensize()
-```
-
-Je kunt de pendikte wijzigen tussen elk lijnstuk.
-
----
-
-<details>
-<summary>Opdracht</summary>
-
-Maak een vierkant met een dikke buitenrand. Voeg vervolgens de twee diagonalen toe, maar maak die lijnen veel dunner. Zet vervolgens vier verschillend gekleurde stippen in de vier delen tussen de diagonalen.
-
-</details>
-
----
-
-## Kleuren met de schildpad
-Het tekenen van een punt kon al met een kleur, maar tot nu toe is de rest saai zwart. Maar natuurlijk kan dat zwart ook veranderd worden.
-
-Om de penkleur te wijzigen, kan het volgende gebruikt worden:
-```python
-t.pencolor('brown')     # string
-t.pencolor(0.8, 0, 0.2) # RGB 0..1
-t.pencolor(0, 100, 255) # RGB 0..255
-t.pencolor('##8F438F')  # hexadecimaal
-t.pencolor()            # geeft de huidige kleur weer
-```
-
-Ook de penkleur kun je tussen elk lijnstuk wijzigen, en zo dus elke volgende lijn of cirkel in een andere kleur maken.
-
----
-
-<details>
-<summary>Opdracht</summary>
-
-Maak het logo van de Olympische spelen.
-
-</details>
-
----
-
-Naast lijnen kleuren is het ook mogelijk om vlakken te vullen met een kleur. Zie de volgende regels:
-```python
-t.fillcolor(color)  # string, RGB 0..1, RGB 0..255, hex
-t.begin_fill()
-t.circle(50)
-t.end_fill()
-```
-
-`pencolor` en `fillcolor` zijn ook allebei in een keer in te stellen of op te vragen:
-```python
-t.color()           # geeft huidige kleuren weer
-t.color(color)      # pen- en vulkleur allebei hetzelfde
-t.color(pencolor, fillcolor)    # pen- en vulkleur apart instellen
-```
-
----
-
-<details>
-<summary>Opdracht</summary>
-
-Kies een van de twee (of allebei):
-
-* Maak een smiley. Start met een gele cirkel met zwarte rand met daarin twee zwarte of andersgekleurde ogen, en maak een mond of ander soort smiley.
-* Maak het logo van Mitsubishi maar gebruik een gouden rand en vul de drie ruiten met verschillende kleuren. Tip: gebruik hoeken van 45 graden en 135 graden.
-
-</details>
-
----
-
-# Week 4.3
-## `turtle` en loops
-Waar er tot nu toe veel handwerk nodig was om iets moois te maken, kunnen we uiteraard ook hier weer automatisering toepassen.
-
-Vergelijk de volgende twee methoden om een vierkant te maken:
-```python
-t.fd(100)
-t.rt(90)
-t.fd(100)
-t.rt(90)
-t.fd(100)
-t.rt(90)
-t.fd(100)
-t.rt(90)
-```
-```python
-for i in range(4):  # i = 0, 1, 2, 3
-    t.fd(100)
-    t.rt(90)
-```
-
-Of in een keer een paar cirkels van verschillend formaat:
-```python
-for i in range(10, 50, 10): # i = 10, 20, 30, 40
-    t.circle(i)             # cirkel met straal i
-```
-
-Een ander leuk voorbeeld:
-```python
-for i in range(10, 250, 5): # i = 10, 15, 20 .. 240, 245
-    t.fd(i)
-    t.lt(90)
-```
-
-**Herinnering**: als je `turtle` in een script wilt gebruiken in plaats van via de REPL, moet je altijd aan het einde van je script zetten:
-```python
-turtle.mainloop()
-```
-
----
-
-<details>
-<summary>Opdracht</summary>
-
-Maak met behulp van een aantal `for`-loops een driehoek, vierhoek, zeshoek en achthoek. Hint: als je *n* hoeken gebruikt, moet je de turtle met *360/n* graden draaien.
-
-</details>
-
----
-
-<details>
-<summary>Opdracht</summary>
-
-Maak een vijfpuntige ster uit één lijn door een `for`-loop te gebruiken.
+Bekijk het resultaat. Van wie zou de laatste regel afkomstig kunnen zijn? ;)
 
 </details>
 
@@ -365,24 +233,144 @@ Maak een vijfpuntige ster uit één lijn door een `for`-loop te gebruiken.
 
 *Maak deze opdracht als je het leuk vindt; sla hem over als je achterloopt.*
 
-Maak met behulp van een `for`-loop een dartbord na. Een dartbord heeft ringen in bepaalde kleuren: die horen er natuurlijk ook bij! Een kleine hint daarvoor:
+Soms weet je niet hoeveel variabelen je kunt verwachten. Dan kun je gebruik maken van het volgende trucje:
 ```python
-colors = ["red", "white", "blue"]
-for i in range(len(colors)):    # i = 0, 1, 2 (want len(colors) = 3)
-    t.fillcolor(colors[i])      # gebruik colors[i] als vulkleur
+def printeindeloos(*args):
+    som = 0
+    for arg in args:
+        print(arg)
+        som = som + arg
+    print("Eindresultaat: " + str(som))
 ```
+`*args` kan een willekeurig aantal *argumenten* of variabelen zijn: alles van nul tot en met praktisch oneindig. Vervolgens wordt in dit voorbeeld een `for`-loop gebruikt om al die argumenten te printen en bij elkaar op te tellen, en het eindresultaat wordt geprint.
+
+Test `printeindeloos` met de volgende regels:
+```python
+printeindeloos(1, 2, 3)
+printeindeloos(0.5, 0.5, 3.1)
+printeindeloos(1, 2, 3, 4, 5, 6, 7, 8, 9)
+printeindeloos(2/10, 3 + 5, 4 - 8, -1, 3**2)
+printeindeloos("Dit ", "is ", "een ", "test")
+```
+
+Waarom werkt de laatste regel niet? Verander de functie zodanig dat die wel werkt! Maar: dan werken de anderen helaas weer niet. Gebruik eventueel internet.
+
+Je mag als uitdaging op internet een methode opzoeken waarmee je zowel getallen als tekst kunt opgeven als argumenten (een mix hoeft niet). Het is niet verplicht.
+</details>
+
+---
+
+## Week 5.3
+### Buttons revisited
+We kijken nu opnieuw naar knoppen: we kunnen ze nu een actie laten uitvoeren.
+```python
+btn = ttk.Button(root, text = "Klik op mij", command = lambda : printfunctie())
+
+# onderstaande methode mag ook (en hoor officieel), maar kan soms snel fout gaan:
+btn = ttk.Button(root, text = "Klik op mij", command = printfunctie)    # let op: er staan geen haakjes () achter printfunctie
+```
+
+**Let op**: je ziet hier het vreemde woord `lambda` staan dat je niet kent en ook niet altijd bij voorbeelden op internet ziet staan. Het is echter om bepaalde redenen wel erg handig om te gebruiken! Je hoeft niet te weten wat het doet, maar je mag er altijd naar zoeken of om vragen.
+
+---
+
+<details>
+<summary>Opdracht</summary>
+
+Zorg dat je een printfunctie in je script hebt, plaats de knop met `btn.place()` en test de knop!.
+
+</details>
+
+---
+
+### Invoervelden
+Vaak heb je gegevens of informatie van gebruikers nodig. Die kunnen ze invullen in een `Entry`: een invoerveld. Een entry heeft een bijzonder type string nodig: een `tk.StringVar()`. Die helpt erbij om de tekst van een entry uit te lezen.
+
+Er bestaat geen officiele of officieuze afkorting voor een entry zoals dat bij een label en button is, maar we gebruiken hier `ety`. Bekijk het volgende voorbeeld voor het maken van een `StringVar` en `Entry`:
+```python
+tekst = tk.StringVar()
+ety = ttk.Entry(root, textvariable = tekst)
+ety.place(x = 0, y = 300, width = 400, height = 200)
+```
+
+---
+
+<details>
+<summary>Opdracht</summary>
+
+Voeg het invoerveld toe aan je script en test of je invoerveld te gebruiken is. Je kunt de invoer nog niet verwerken, maar dat komt als volgende onderdeel.
+
+</details>
+
+---
+
+### Items aanpassen
+
+Je kunt van veel TKinter items (labels, buttons, entries e.d.) opvragen wat er in aanwezig is via `.cget(..)` en via een index `[..]`. Het meest nuttige is de tekst:
+```python
+labeltekst = lbl['text']
+labeltekst = lbl.cget('text')
+buttontekst = btn['text']
+buttontekst = btn.cget('text')
+```
+
+Het opvragen van de invoer in een entry gaat zo:
+```
+entrytekst = ety.get()
+```
+
+Mocht je het fijn vinden: je kunt veel TKinter items ook aanpassen via `.configure(..)`. Je hoeft daar nu verder niets mee te doen. Een paar voorbeelden:
+```python
+lbl.configure(text = "Dit is nieuwe tekst")
+btn.configure(text = "Knop v2")
+btn.configure(command = lambda : nieuwefunctie())
+btn.configure(text = "Knop v3", command = lambda : functie3())
+```
+
+---
+
+<details>
+<summary>Opdracht</summary>
+
+Maak een functie die het volgende doet:
+* Opvragen welke tekst er in de entry is ingevoerd
+* De tekst in de label aanpassen naar de nieuwe tekst
+
+De structuur ziet er dan als volgt uit (vul op de ___ zelf de benodigde dingen/namen in):
+```python
+def ___():
+    invoer = ___
+    ___.configure(text = invoer)
+```
+Geef vervolgens een button het commando om bovenstaande functie uit te voeren.
 
 </details>
 
 ---
 
 <details>
-<summary>Bonusopdracht</summary>
+<summary>Slotopdracht</summary>
 
-Maak het Ichthuslogo zo goed mogelijk na. Een website zal gebruikt worden om de plaatjes te vergelijken: hoe beter de match, hoe hoger het cijfer. Maak je script zo netjes mogelijk met alle dingen die je geleerd hebt (of online kunt vinden)! Denk hierbij ook zeker aan de lijst functies in het eerste deel van het hoofdstuk.
+Maak een app die de BMI van een gebruiker kan berekenen. Daarvoor zijn de volgende dingen nodig:
+
+* Een label met de tekst "Gewicht (kg)" en entry waar de gebruiker het gewicht kan invoeren.
+* Een label met de tekst "Lengte (cm)" en entry waar de gebruiker de lengte kan invullen.
+* Een button waarmee de BMI berekent wordt en een label waarin de berekende BMI weergegeven wordt.
+* Een label waar na het berekenen in komt te staan of dat ondergewicht, goed gewicht of overgewicht betekent. Geef deze label eventueel afhankelijk van het type gewicht een oranje of groene achtergrondkleur, maar dat is niet verplicht.
+
+*Tip*: de tekst uit een invoerveld is van het type `str`. Om ermee te kunnen rekenen heb je een `int` nodig, dus zorg ervoor dat je daar wat mee doet! Zie eventueel week 1.
+
+*Tip*: zoek op internet de formule op om de BMI te berekenen.
+
+*Tip*: als commando bij de knop gebruik je een functie. Voor die functie kun je het voorbeeld uit de bovenstaande opdracht gebruiken, behalve dat je nu _twee_ invoeren moet uitlezen en in de functie ook de BMI moet uitrekenen.
+
+*Tip*: vergeet niet `root.mainloop()` onderaan je script te zetten.
 
 **Beoordeling:**
-* Cijfer tussen de 0 en 1pt: hoe beter de match, hoe hoger het cijfer.
+* 0.00pt: niet ingeleverd / werkt totaal niet
+* 0.5pt: ingeleverd maar geen correct resultaat / simpele oplossing om werkend te krijgen
+* 1.0pt: ingeleverd en (zo goed als) correct op minder goede manier
+* 1.5pt: ingeleverd en helemaal correct op de manier zoals geleerd in het hoofdstuk
 </details>
 
 ---

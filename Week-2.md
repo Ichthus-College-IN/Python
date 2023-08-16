@@ -27,7 +27,7 @@ Een groot verschil tussen de terminal en een script, is dat je bij een script ni
 'bns'
 ```
 
-De regels met een 'antwoord' zie je niet als je een script 'uitvoert'. Je moet dan specifiek het resultaat _printen_.
+De regels met een 'antwoord' zie je niet als je een script 'uitvoert' (_runnen -> runt_). Je moet dan specifiek het resultaat _printen_.
 
 Het makkelijkste Python script dat een zichtbaar resultaat geeft is het volgende:
 ```python
@@ -51,7 +51,7 @@ Pas `"Hello world!"` aan naar bijvoorbeeld je eigen naam en controleer of het we
 
 
 ## Commentaar in Python
-Als je zelf een script schrijft weet je vaak best goed wat er gebeurt. Maar het kan zijn dat je soms je script naar een ander stuurt, of kopieert vanaf internet. Daarbij komt commentaar heel erg van pas: tekst in je script die aangeeft wat er bedoeld wordt. Een voorbeeld:
+Als je zelf een script schrijft weet je vaak best goed wat er gebeurt. Maar het kan zijn dat je soms je script naar een ander stuurt, of kopieert vanaf internet. Daarbij komt commentaar heel erg van pas: tekst in je script die aangeeft wat er bedoeld wordt. Ter herinnering:
 ```python
 print(1 - 2 + 3*4**5) # dit is 3071
 ```
@@ -74,7 +74,7 @@ Stijlpuntje: als je onder elkaar regels hebt van verschillende lengtes, gebruik 
 
 
 ## Vergelijkingen
-Je kunt in Python variabelen (en getallen) vergelijken. Een vergelijking heeft slechts twee mogelijke uitkomsten: `True` of `False`.
+Je kunt in Python variabelen (en getallen en strings) vergelijken. Een vergelijking heeft slechts twee mogelijke uitkomsten: `True` of `False`.
 ```python
 a = 5
 b = 3
@@ -93,7 +93,9 @@ Kleiner dan (<) en groter dan (>) spreken voor zich; bij kleiner dan of gelijk a
 <details>
 <summary>Opdracht</summary>
 
-Test de volgende code:
+Je wilt de twee variabelen `k` en `l` vergelijken: hebben ze dezelfde waarde? Het antwoord moet `True` of `False` zijn.
+
+Test daarvoor de volgende code:
 ```python
 k = 34
 l = 27
@@ -108,30 +110,36 @@ Zorg dat de vergelijking werkt.
 
 
 ## `if`-statement
-Vaak zijn er stukken van je script die je alleen wilt uitvoeren als er aan een bepaalde voorwaarde wordt voldaan. Denk aan bijvoorbeeld worteltrekken: je kunt niet de wortel trekken van een negatief getal. Voordat je dus worteltrekt, moet je controleren of je getal positief of negatief is. Bekijk het voorbeeld:
-```python
-getal = 3
-if getal >= 0:
-    print(getal**0.5) # getal is groter dan 0, dus wordt 1.7... geprint
-```
-We maken hier gebruik van een `if`-statement: *als* de voorwaarde `True` is, *dan* wordt de code uitgevoerd. Let op: na de voorwaarde **moet** een `:`, en alles wat bij de if-statement hoort **moet** vervolgens een tab aan het begin van de regel krijgen. Vaak gebeurt dat automatisch zodra je op Enter drukt na de dubbele punt. Ben je klaar met de regels die bij de if-statement horen, moet de tab ook weer weg. Zie bijvoorbeeld:
-```python
-getal = 3
-if getal >= 0:
-    print(getal**0.5)
+Je kunt op basis van een vergelijking keuzes maken. Bijvoorbeeld: als je legaal een biertje wilt kopen, moet je wel minimaal 18 jaar zijn. Je moet dus vergelijken of de leeftijd van iemand minimaal 18 is of lager, en op basis van de uitkomst mag je het kopen of niet.
 
-print("Hoi")
+In codetaal:
+```python
+age = 16
+if age >= 18:
+    print("Akkoord")
 ```
-Voor de netheid staat er vaak een extra Enter om de scheiding te benadrukken.
+We zien hier weer nieuwe dingen:
+* De voorwaarde start met `if`. Als er aan de voorwaarde wordt voldaan (`True`), wordt de code die erbij hoort uitgevoerd, anders niet.
+* Aan het einde van de voorwaarde staat een `:`. Die dubbele punt betekent eigenlijk "dan". (_Als_ leeftijd minimaal 18, _dan_...)
+* Vóór de code die uitgevoerd moet worden, staat een <kbd>Tab</kbd>. Elke regel die erbij hoort, moet een Tab aan het begin hebben.
+* Ben je klaar met de regels die bij de `if`-statement horen, moet de tab ook weer weg. Zie bijvoorbeeld:
+```python
+age = 16
+if age >= 18:
+    print("Akkoord")
+
+print("Afrekenen a.u.b.")
+```
+Voor de netheid staat er vaak een extra <kbd>Enter</kbd> achter om de scheiding te benadrukken.
 
 ---
 
 <details>
 <summary>Opdracht</summary>
 
-Maak een variabele `T` en geef die een bepaalde waarde (temperatuur in graden Celsius).
+Maak een variabele `t` en geef die een bepaalde waarde (temperatuur in graden Celsius).
 
-Als je `T` een getal kleiner dan 15 maakt, moet je script `"Het is koud!"` printen, maar als `T` groter is dan 15, hoeft er niets te gebeuren.
+Als je `t` een getal kleiner dan 15 maakt, moet je script `"Het is koud!"` printen, maar als `t` groter is dan 15, hoeft er niets te gebeuren.
 </details>
 
 ---
@@ -140,55 +148,78 @@ Als je `T` een getal kleiner dan 15 maakt, moet je script `"Het is koud!"` print
 ## `if-else`-statement
 Vaak is een if alleen niet genoeg, en wil je ook iets doen als er *niet* aan de voorwaarde wordt voldaan. In het geval van worteltrekken bijvoorbeeld een waarschuwing printen: "let op, negatief getal!". Dat kan zo:
 ```python
-getal = -3
-if getal >= 0:
-    print(getal**0.5)   # getal >= 0 is niet waar, dus dit gebeurt niet
+age = 16
+if age >= 18:
+    print("Akkoord")
 else:
-    print("Let op, negatief getal!")    # dit wordt dus wel uitgevoerd
+    print("Je bent niet oud genoeg")
 ```
-Een `else` heeft geen voorwaarde: het wordt uitgevoerd in alle andere gevallen (als het getal dus kleiner is dan 0). Vergeet uiteraard de dubbele punt en tab niet.
+Een `else` heeft geen voorwaarde: het wordt uitgevoerd in alle andere gevallen (als de leeftijd dus lager is dan 18). Vergeet uiteraard de dubbele punt en tab niet.
 
 ---
 
 <details>
 <summary>Opdracht</summary>
 
-Breid het script van de vorige opdracht uit: als `T` gelijk aan of groter is dan 15 moet er geprint worden: `"Het is warm."`.
+Breid het script van de vorige opdracht uit: als `t` gelijk aan of groter is dan 15 moet er geprint worden: `"Het is warm."`.
 </details>
 
 ---
 
 ## `if-elif-else` statement
-Je kunt heel veel extra voorwaarden toevoegen. In het geval van worteltrekken hoef je bijvoorbeeld geen wortel te trekken als het getal gelijk is aan 0, want wortel(0) = 0. Check de uitbreiding:
+Je kunt heel veel extra voorwaarden toevoegen. Cassièries moeten bijvoorbeeld tot grofweg 25 jaar je ID controleren, daarboven krijg je het automatisch mee. Check het voorbeeld:
 ```python
-getal = 0
-if getal > 0:
-    print(getal**0.5)   # getal > 0 is niet waar, dus dit gebeurt niet
-elif getal == 0:
-    print(0)            # dit is waar, dus kunnen we gewoon 0 printen
+if age_guess < 15:
+    print("Je moet minimaal 18 zijn.")
+elif age_guess <= 25:
+    print("ID-kaart tonen a.u.b.")
 else:
-    print("Let op, negatief getal!")    # dit wordt niet meer uitgevoerd
+    print("Akkoord!")
 ```
-De `elif` staat eigenlijk voor `else if`, en heeft uiteraard ook een voorwaarde nodig: "als .. dan ..". Ook hier is de dubbele punt natuurlijk weer nodig, net als de tab.
+De `elif` staat eigenlijk voor `else if`, en heeft uiteraard ook een voorwaarde nodig: "als .. dan ..". Ook hier is de dubbele punt natuurlijk weer nodig, net als de Tab.
 
-Je kunt er in principe eindeloos veel onder elkaar zetten: `if-elif-elif-elif-elif-elif-elif....else`. Je kunt ook de `else` achterwege laten en het gewoon houden bij `if-elif` (en eventueel extra `elif`'s).
+Je kunt er in principe eindeloos veel onder elkaar zetten: `if-elif-elif-elif-elif-elif-elif....else`. Of alleen `if-elif` (en eventueel extra `elif`'s).
 
 ---
 
 <details>
 <summary>Opdracht</summary>
 
-Breid het script van de afgelopen twee opdrachten nog verder uit: als `T` kleiner is dan 0 graden moet het script printen: `"Het vriest!"`. Zorg dat je gebruik maakt van de `if-elif-else`-constructie. Let goed op dat het juiste resultaat wordt geprint voor temperaturen onder nul!
+Breid het script van de afgelopen twee opdrachten nog verder uit: als `t` kleiner is dan 0 graden moet het script printen: `"Het vriest!"`. Zorg dat je gebruik maakt van de `if-elif-else`-constructie. Let goed op dat het juiste resultaat wordt geprint voor temperaturen onder nul! Je zult meerdere dingen moeten aanpassen.
 </details>
 
 ---
 
+<details>
+<summary>Opdracht</summary>
+
+Stel dat je rooster voor een dag er zo uit ziet:
+```
+3: nederlands
+4: biologie
+5: informatica
+6: informatica
+7: wiskunde
+```
+De andere uren ben je vrij. Maak het onderstaande programma zo af dat je aan de hand van het uur print welk vak je hebt. Vergeet niet het 8e en 9e (en alles daarna) toe te voegen: dan ben je ook vrij.
+```python
+uur = 1
+
+if uur <= 2:
+    print("je bent vrij")
+# voeg hier de rest van de dag toe!
+```
+</details>
+
+---
+
+
 ## integers, floats en strings
 Voordat we door kunnen gaan naar het volgende onderdeel kijken we naar het verschil tussen tekst en getallen.
 
-Getallen zijn er in twee soorten: `int`, de afkorting van integer, en `float`, wat meestal gewoon een float wordt genoemd. Een integer is een geheel getal; een float een kommagetal.
+Getallen zijn er in twee soorten: `int`, de afkorting van integer, en `float`, wat gewoon een float wordt genoemd. Een integer is een geheel getal; een float een kommagetal.
 
-Een string is een stuk tekst zoals we eerder gezien hebben bij `"Hello world"`, en daar staan **altijd** apostrofs voor en achter. Je kunt uiteraard ook getallen in een stuk tekst tegenkomen: `"Ik ben 20 jaar"`. De 20 die hier staat is niet echt een getal, maar een string, omdat er apostrofs voor en achter staan. `"20"` is dus **niet** hetzelfde als `20`! Of, als je het echt op de Python manier bekijkt:
+Een string is een stuk tekst zoals we eerder gezien hebben bij `"Hello world"`, en daar staan **altijd** apostrofs voor en achter. Je kunt uiteraard ook getallen in een stuk tekst tegenkomen: `"Ik ben 20 jaar"`. De 20 die hier staat is niet écht een getal, maar een string, omdat er apostrofs voor en achter staan. `"20"` is dus **niet** hetzelfde als `20`! Of, als je het op de Python manier bekijkt:
 ```python
 print("20" == 20)       # dit print False!
 ```
@@ -218,6 +249,7 @@ geheelgetal2 = int(kommagetal2) # resultaat: 3
 
 **Let op**! Als je een float omzet in een int, wordt alles na de punt **weggegooid**. Dat is dus niet hetzelfde als afronden!
 
+
 ## `input()` van een gebruiker
 Soms wil je de gebruiker van je programma om input vragen. Of je wilt makkelijk een paar dingen testen. Daarvoor is invoer van een gebruiker best praktisch. Hoe werkt dat?
 ```python
@@ -225,13 +257,14 @@ invoer = input("Voer iets in:" )
 print(invoer)
 ```
 
-In de console komt dan een mogelijkheid om te typen. Zodra je op Enter drukt eindigt de invoer, en wordt de input opgeslagen in de variabele `invoer`. 
+In de console komt de mogelijkheid om te typen: klik achter de tekst `Voer iets in: `. Zodra je op Enter drukt eindigt de invoer, en wordt de input opgeslagen in de variabele `invoer`. 
 
 **Let op**: `input()` maakt van je invoer een `string`, dus als je een getal invoert moet je die nog omzetten naar een integer of float! Voorbeeld:
 
 ```python
 invoer = input("Voer een getal in: ")
 x = int(invoer) / 2
+print("U hebt het dubbele ingevoerd van: ")
 print(x)
 ```
 
@@ -240,12 +273,11 @@ print(x)
 <details>
 <summary>Opdracht</summary>
 
-Test bovenstaand voorbeeld. Probeer hele getallen, kommagetallen, letters en combinaties van cijfers en letters. Wat gaat wel goed, en wat gaat niet goed?
+Test bovenstaand voorbeeld meerdere keren. Probeer hele getallen, kommagetallen, letters en combinaties van cijfers en letters. Wat gaat wel goed, en wat gaat niet goed?
 </details>
 
 ---
 
-# Week 1.3
 
 ## `While`-loop
 Eerder is de `if-else`-constructie aan de orde geweest. Daarbij wordt eenmalig gekeken of er aan een voorwaarde voldaan wordt. Andere keren doe je het liefst iets *zolang* een voorwaarde geldt. Je kunt bijvoorbeeld alle getallen van 0 tot en met 10 printen met de volgende code:
@@ -261,10 +293,21 @@ while x < 10:   # zolang x kleiner is dan 10...
 <details>
 <summary>Opdracht</summary>
 
-Test de code hierboven uit. Als je goed kijkt, zie je dat het getal 10 helaas toch niet geprint wordt. Vind twee (of met een beetje creativiteit drie of vier) manieren om alle getallen van 0 tot en **met** 10 te printen waarbij je gebruik maakt van (een variant van) bovenstaande `while`-loop.
+Test de code hierboven uit. Als je goed kijkt naar de uitvoer, zie je dat het getal 10 helaas toch niet geprint wordt. Vind twee (of met een beetje creativiteit drie of vier) manieren om alle getallen van 0 tot en **met** 10 te printen waarbij je gebruik maakt van (een variant van) bovenstaande `while`-loop.
 </details>
 
 ---
+
+<details>
+<summary>Opdracht</summary>
+
+Maak een programma dat de gebruiker eindeloos om `input()` vraagt. Bedenk een voorwaarde die _altijd_ waar is, zodat de _loop_ eindeloos doorgaat. Elke keer als de gebruiker iets invoert, moet je het eerste karakter printen.
+
+_Tip: de invoer van een gebruiker is een string, ofwel 'lijst' van karakters. Hoe kun je dan ook alweer het eerste karakter opvragen?_
+</details>
+
+---
+
 
 ## Combineren van statements
 
@@ -287,24 +330,20 @@ while y > 0:
 <details>
 <summary>Opdracht</summary>
 
-Het volgende script moet de getallen 0 tot 20 printen. Daarbij moet bij de getallen kleiner of gelijk aan 10 een extra regel geprint worden. Er is echter een fout waardoor het niet goed gaat. Voer het script uit en bedenk wat er fout gaat.
-```python
-z = 0
-while z != 20:
-    print(z)
-    if z <= 10:
-        print("Kleiner of gelijk aan 10")
-        z = z + 1
-```
-Tip: klik in de terminal onderin en druk op <kbd>Ctrl</kbd> <kbd>C</kbd> als het script te lang duurt en je wilt het stoppen.
+Eerder heb je een script gemaakt dat aangeeft welke les je hebt, maar dan zag je maar één les. Nu ga je ervoor zorgen dat je je rooster voor de hele dag ziet.
 
-Waarom gaat dit mis? Los het probleem op!
+Maak een variabele `uur` die begint op 1. Maak daarna een `while`-loop die alle uren tot het 10e uur langs gaat. Voeg als laatste de `if-else` stukken toe zoals in de eerdere opdracht; dat begon zo:
+```python
+if uur <= 2:
+    print("je bent vrij")
+```
 </details>
 
 ---
 
-## `list`: een lijst
-Wat we voor de basis van Python ook zeker nodig hebben is een `list`. Die is niet zo spannend: het is een lijst van waarden (of variabelen). Voorbeeld:
+
+## Throwback: `list`
+We hebben in de eerste week al gekeken naar lists. Nog een samenvatting om het even te herinneren:
 ```python
 x = [1, 2, 3, 4, 5]
 y = ["a", "b", "c", "d"]
@@ -322,13 +361,13 @@ len(y)  # 4
 len(z)  # 3
 ```
 
-Je kunt de elementen van een lijst ook los bekijken. Daarvoor maken we gebruik van een *index*, een getal dat gebruikt wordt om de waarde op een plek in een lijst te bekijken:
+Je kunt de elementen van een lijst ook los bekijken. Daarvoor maken we gebruik van een *index*, een getal dat gebruikt wordt om de waarde op een plek in een lijst te bekijken. Je herkent ze aan de vierkante haken `[..]`:
 ```python
-print(x[0])
-print(y[2])
+print(x[0])     # 1
+print(y[2])     # "c"
 ```
 
-Ja.. een computer begint bij index 0. Als voorbeelden: `x[0]` heeft als waarde `1`, `x[1]` heeft als waarde `2`, `y[2]` heeft als waarde `"c"`, en `z[1]` heeft als waarde `"hoi"`.
+Oja: een computer begint te tellen vanaf 0!
 
 ---
 
@@ -346,10 +385,38 @@ Denk goed na: hoe gebruik je `i` en `len(x)` zo goed mogelijk? Je mag het getal 
 
 ---
 
-## `for`-loop
-Als een-na-laatste ingrediënt: de `for`-loop. Een `for`-loop lijkt soms best veel op een `while`-loop, maar is vaak een stuk netter. Kijk maar naar dit voorbeeld:
+
+## `range()`: makkelijk een lijst maken
+Het kan best veel werk zijn om een lijst van getallen te maken van bijvoorbeeld 1 t/m 100. Daarvoor is een handige `range()`-functie. Tussen de haakjes kun je een paar dingen invullen: **op volgorde** de startwaarde, stopwaarde en eventueel de stapgrootte, die standaard +1 is. De stapgrootte moet een integer zijn. Voorbeelden:
+
+
 ```python
-for element in x:
+range(start, stop, step)    # <-- vul zelf de start, stop en step in
+
+a = range(0, 10)            # [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+b = range(3, 11)            # [3, 4, 5, 6, 7, 8, 9, 10]
+c = range(0, 100, 10)       # [0, 10, 20, 30, 40, 50, 60, 70, 80, 90]
+d = range(5, 0)             # [] (leeg, want met stapgrootte +1 kun je niet van 5 naar 0)
+e = range(8, -2, -1)        # [8, 7, 6, 5, 4, 3, 2, 1, 0, -1]
+```
+
+Zoals je ziet wordt het laatste getal niet meegenomen in de lijst. Daarnaast kun je ook achteruit tellen, maar dan moet je wel specifiek zeggen dat de stapgrootte -1 (of een ander getal) is. Anders is de lijst gewoon leeg.
+
+---
+
+<details>
+<summary>Opdracht</summary>
+
+Maak een lijst `l` die elk 7e getal bevat van 0 tot en **met** 70. Print elk getal in `l` door middel van een `while`-loop om het te controleren. Kijk daarvoor terug naar de vorige opdracht.
+</details>
+
+---
+
+
+## `for`-loop
+Als laatste ingrediënt: de `for`-loop. Een `for`-loop lijkt soms best veel op een `while`-loop, maar is vaak een stuk netter. Als je bijvoorbeeld elk element in `l` van de vorige opdracht wilt printen::
+```python
+for element in l:
     print(element)
 ```
 
@@ -364,37 +431,11 @@ Een `for`-loop is een van de meest nuttige dingen om te gebruiken tijdens het pr
 <details>
 <summary>Opdracht</summary>
 
-Print de inhoud van de lijsten `x`, `y` en `z` van een paar voorbeelden terug door middel van een `for`-loop voor elke lijst.
+Print de getallen -20 tot en met 100 met stappen van 10 door gebruik te maken van een `range()`-lijst en een `for`-loop.
 </details>
 
 ---
 
-## `range()`: makkelijk een lijst maken
-Het kan best veel werk zijn om een lijst van getallen te maken van bijvoorbeeld 1 t/m 100. Daarvoor is een handige `range()`-functie. Tussen de haakjes kun je een paar dingen invullen: **op volgorde** de startwaarde, stopwaarde en eventueel de stapgrootte, die standaard +1 is. De stapgrootte moet een integer zijn. Voorbeelden:
-
-
-```python
-range(start, stop, step)
-
-a = range(0, 10)            # [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
-b = range(3, 11)            # [3, 4, 5, 6, 7, 8, 9, 10]
-c = range(0, 100, 10)       # [0, 10, 20, 30, 40, 50, 60, 70, 80, 90]
-d = range(5, 0)             # [] (leeg, want met stapgrootte +1 kun je niet van 5 naar 0)
-e = range(8, -2, -1)        # [8, 7, 6, 5, 4, 3, 2, 1, 0, -1]
-f = range(8, -4, -2)        # [8, 6, 4, 2, 0, -2]
-```
-
-Zoals je ziet wordt het laatste getal niet meegenomen in de lijst. Daarnaast kun je ook achteruit tellen, maar dan moet je wel specifiek zeggen dat de stapgrootte -1 is. Anders is de lijst gewoon leeg.
-
----
-
-<details>
-<summary>Opdracht</summary>
-
-Maak een lijst `l` die elk 7e getal bevat van 0 tot en **met** 70. Print elk getal in `l` door middel van een `for`-loop om het te controleren.
-</details>
-
----
 
 <details>
 <summary>Slotopdracht 1</summary>
