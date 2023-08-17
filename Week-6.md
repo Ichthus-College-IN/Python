@@ -3,7 +3,7 @@
 Om te werken met grote hoeveelheden getallen gaan we kijken naar het werken met losse bestanden. We gaan ook gebruik maken van een *library* die goed overweg kan met getallen: `numpy` (numerical python).
 
 ## Bestanden importeren (getallen) / NumPy
-In Python kun je naast gewone bestanden importeren ook Python bestanden importeren die je helpen. Zo'n *library* moet je eerst installeren, en kun je vervolgens in al je scripts gebruiken. Daarvoor moet je het volgende commando invoeren in de *terminal* onderin je scherm:
+In Python kun je naast gewone bestanden importeren ook Python bestanden importeren die je helpen. Sommige zijn voorgeïnstalleerd, zoals `turtle`, maar andere *libraries* moet je eerst installeren, en kun je vervolgens in al je scripts gebruiken. Daarvoor moet je het volgende commando invoeren in de *terminal* onderin je scherm:
 ```powershell
 py -m pip install numpy
 ```

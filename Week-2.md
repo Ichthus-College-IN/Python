@@ -434,45 +434,37 @@ Een `for`-loop is een van de meest nuttige dingen om te gebruiken tijdens het pr
 Print de getallen -20 tot en met 100 met stappen van 10 door gebruik te maken van een `range()`-lijst en een `for`-loop.
 </details>
 
----
-
-
-<details>
-<summary>Slotopdracht 1</summary>
-
-Schrijf een script dat aan jou als gebruiker om input vraagt en vervolgens wel of niet een wortel trekt. Dat herhaalt zich tot je het getal nul invoert: dan stopt het script.
-
-Vraag hiervoor als eerste om input van de gebruiker. Gebruik vervolgens een `while`-loop. Je moet dan testen of de invoer gelijk is aan 0 (dan stopt de loop), en daarna controleren of het getal positief of negatief is. Als het getal negatief is, print dan `"Dombo, geen negatief getal"`. Print anders de wortel van het getal. Vraag als laatste weer opnieuw om input, waarna je weer vooraan in de loop komt.
-
-**Beoordeling:**
-* 0.00pt: niet ingeleverd / werkt totaal niet
-* 0.25pt: ingeleverd maar geen correct resultaat / simpele oplossing om werkend te krijgen
-* 0.50pt: ingeleverd en (zo goed als) correct op minder goede manier
-* 0.75pt: ingeleverd en helemaal correct op de manier zoals geleerd in het hoofdstuk
-</details>
 
 ---
-
 <details>
-<summary>Slotopdracht 2</summary>
+<summary> Slotopdracht ⭐⭐⭐</summary>
 
-Schrijf een script dat voor de temperaturen van -10 tot en **met** 100 Fahrenheit met stappen van 5 Fahrenheit de temperatuur in graden Celsius berekent. 
+Het spel Dungeons & Dragons gebruikt dobbelstenen met soms tot wel 20 zijden - veel meer dan de 6 die we normaal gewend zijn. Een klassieke vraag bij een dobbelsteen is: wat is de som van alle zijden? Dat wordt wel een vervelende som als je dat tot en met 20 gaat uitrekenen. We gaan daarom een programmaatje bouwen waarbij een gebruiker een getal kan invullen (het aantal zijden van de dobbelsteen), en het programma geeft als antwoord wat het aantal ogen is op zo'n dobbelsteen.
 
-Print voor elke stap
+Het programma stopt zodra de gebruiker een getal kleiner dan of gelijk aan 1 invoert (dat is namelijk geen dobbelsteen).
 
-* de temperatuur in Fahrenheit, 
-* de berekende temperatuur in Celsius, 
-* en de conclusie of het wel of niet vriest. 
+Je moet daarvoor twee _loops_ gebruiken: een `while`-loop die zich herhaalt zolang de invoer groter is dan 1, en daar 'binnen' een `for`-loop die de som van alle zijden berekent. 
 
-(Hint: controleer dus of de temperatuur in graden Celsius kleiner of groter is dan 0!)
+De meeste onderdelen ben je al eerder tegengekomen:
+* Hoe je een `while`-loop maakt.
+* Hoe je een gebruiker om `input` vraagt, en hiervan een geheel getal maakt.
+* Hoe je een `for`-loop maakt..
+* Hoe je een `range` maakt (die je gebruikt in de `for`-loop).
 
-De formule om Fahrenheit om te rekenen naar Celsius: $C=\frac{5}{9}(F-32)$.
+Wel een hint voor het berekenen van het aantal ogen:
+
+```python
+ogen = 0
+# (schrijf deze regel zelf:) voor alle zijden van de dobbelsteen...
+    ogen = ogen + zijde   # 'zijde' is het aantal ogen op deze zijde, die tellen we op bij het totaal
+print(ogen)
+```
 
 **Beoordeling:**
-* 0.00pt: niet ingeleverd / werkt totaal niet
-* 0.25pt: ingeleverd maar geen correct resultaat / simpele oplossing om werkend te krijgen
-* 0.50pt: ingeleverd en (zo goed als) correct op minder goede manier
-* 0.75pt: ingeleverd en helemaal correct op de manier zoals geleerd in het hoofdstuk
+* : niet ingeleverd / werkt totaal niet
+* ⭐: ingeleverd maar geen correct resultaat / simpele oplossing om werkend te krijgen
+* ⭐⭐: ingeleverd en (zo goed als) correct op minder goede manier
+* ⭐⭐⭐: ingeleverd en helemaal correct op de manier zoals geleerd in het hoofdstuk
 </details>
 
 ---
