@@ -436,6 +436,7 @@ Print de getallen -20 tot en met 100 met stappen van 10 door gebruik te maken va
 
 
 ---
+
 <details>
 <summary> Slotopdracht ⭐⭐⭐</summary>
 

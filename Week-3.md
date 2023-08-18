@@ -254,4 +254,114 @@ Je ziet nieuwe dingen:
 * Tussen de haakjes achter de functienaam kun je zetten welke _argumenten_ je wilt ontvangen. Ook deze kun je elke naam geven die je wilt. Je mag zoveel argumenten invoeren als je wilt (nul, één, drieduizend), maar als je de functie _aanroept_, moet je wel alle argumenten meegeven die de functie verwacht.
 * Als laatste roepen we de functie aan, met als argument `"Ichthus!"`. Dit komt bij de functie binnen onder de naam `text`: die print vervolgens drie keer aan elkaar je tekst.
 
+---
+
+<details>
+<summary>Opdracht</summary>
+
+Maak een functie met de naam `keer4`. Deze functie krijgt één _argument_ met de naam `getal`, en doet het volgende: hij print het getal keer 4.
+
+Test je functie met de volgende regels:
+```python
+keer4(3)        # dit moet 12 printen
+keer4(10)       # dit moet 40 printen
+keer4("Hoi")    # wat print dit?
+```
+
+</details>
+
+---
+
+Een functie kan ook meer dan één argument krijgen:
+```python
+def hele_naam(voor, achter):
+    print("Jouw naam is:")
+    print(voor + achter)
+```
+
+---
+
+<details>
+<summary>Opdracht</summary>
+
+Maak een functie met de naam `vermenigvuldig`. Deze functie krijgt twee argumenten: `a` en `b`.Hij moet het volgende doen: hij print _a×b_.
+
+Test je functie met de volgende regels:
+```python
+vermenigvuldig(3, 2)            # dit moet 6 printen
+vermenigvuldig(10, 10)          # dit moet 100 printen
+vermenigvuldig("Hallo", 3)      # wat print dit?
+vermenigvuldig("Hallo", "Hoi")  # wat print dit?
+```
+
+</details>
+
+---
+
+## Letters als getal(?)
+De computer kent eigenlijk helemaal geen letters - alleen getallen. Elke letter is dus stiekem ook een getal. Er is een tabel die aangeeft welk getal voor welk karakter staat: ook wel de ASCII-tabel. (ASCII staat voor _American Standard Code for Information Interchange_.)
+
+In Python kunnen we ook 'rekenen' met letters, door het bijbehorende getal te bekijken.
+
+```python
+ord('a')        # de 'ordinaal' van de letter 'a'
+print(ord('2')) # de cijferwaarde van het karakter '1' is 49
+```
+
+---
+
+<details>
+<summary>Opdracht</summary>
+
+Wat is de waarde van de letters 'X', 'Y' en 'Z' (hoofdletters)? En die van de 'a' en 'b'?
+
+</details>
+
+---
+
+Je ziet dat er tussen de hoofdletters en de kleine letters nog wat andere karakters zitten. Laten we eens bekijken welke dat zijn: met de functie `chr()` (_character_). `chr()` is het 'omgekeerde' van `ord()`: je gebruikt `chr()` om van een getal het bijbehorende karakter te maken.
+
+```python
+print(chr(91))      # het omgekeerde van ord()
+```
+
+---
+
+<details>
+<summary>Opdracht</summary>
+
+Welke andere karakters zitten er tussen de 'Z' en de 'a'?
+
+</details>
+
+---
+
+## Letters (de)coderen / het Caesar schrift
+In de oudheid werden teksten som op een simpele maar tijdrovende manier gecodeerd: als je een tekst wilde versleutelen, schoof je alle letters een aantal plekken op; als je een verschuiving van 2 gebruikt, wordt de 'a' een 'c', de 'b' wordt een 'd' enzovoorts. De 'z' wordt dan een 'b': het alfabet gaat rond. Dit wordt ook wel _Caesar_-versleuteling genoemd.
+
+---
+
+<details>
+<summary>Opdracht</summary>
+
+Maak een functie `letter_schuiven`. Deze functie gebruikt twee argumenten: `letter` en `verschuiving`. De functie doet het volgende: hij print de letter, maar dan het aantal posities verschoven dat je invult.
+
+Je moet daarvoor de volgende dingen doen:
+* De 'ordinaal' berekenen van de ingevulde letter (welk getal erbij hoort).
+* Berekenen wat het nieuwe getal wordt.
+* Het karakter printen dat bij het nieuwe getal hoort.
+
+Test je functie met de volgende regels (bedenk zelf wat je zou moeten zien als resultaat):
+```python
+letter_schuiven('a', 2)
+letter_schuiven('F', 4)
+letter_schuiven('d', -3)
+letter_schuiven('X', 5)
+```
+</details>
+
+---
+
+
+
 De rest van dit hoofdstuk wordt geparafraseerd vanaf [deze link](https://learn.microsoft.com/nl-nl/training/modules/secret-message/).
