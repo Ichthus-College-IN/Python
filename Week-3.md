@@ -356,12 +356,121 @@ Test je functie met de volgende regels (bedenk zelf wat je zou moeten zien als r
 letter_schuiven('a', 2)
 letter_schuiven('F', 4)
 letter_schuiven('d', -3)
-letter_schuiven('X', 5)
+letter_schuiven('x', 5)     # wat is hiervan het resultaat?
 ```
 </details>
 
 ---
 
+## De modulus
+Als je functie goed werkt en je hebt de laatste test uit de opdracht uitgevoerd, dan zie je een probleem: je moet na de 'z' terug naar de 'a', en van de 'a' terug naar de 'z' als je achteruit gaat.
 
+We weten ondertussen dat `ord('a') = 97`, en `ord('z') = 122`. Op een of andere manier moeten we er dan voor zorgen dat je van 123 weer naar 97 gaat. We kunnen daarvoor gebruik maken van de _operator_ `%`, ookwel _mod_ (van modulus). De modulus deelt de twee getallen die je aangeeft, en geeft terug wat de 'rest' is. Een paar voorbeelden:
+```python
+3 % 2   #  3/2 = 1 rest 1   => 1
+5 % 2   #  5/2 = 2 rest 1   => 1
+11 % 4  # 11/4 = 2 rest 3   => 3
+8 % 26  # 8/26 = 0 rest 8   => 8
+```
 
-De rest van dit hoofdstuk wordt geparafraseerd vanaf [deze link](https://learn.microsoft.com/nl-nl/training/modules/secret-message/).
+---
+
+<details>
+<summary>Opdracht</summary>
+
+Maak een variabele `begin = ord('a')`: dit is de waarde van de eerste letter 'a', ofwel 97. Maak ook een variabele `letter = 'd'`, en `totaal = 26`. Bereken het volgende: de hoeveelste letter in het alfabet is `letter`?
+
+Tip: gebruik een formule die eruit ziet als `getal = (x - y) % z`. Bedenk zelf welke variabele op de plekken `x`, `y`, en `z` moeten komen. Print je resultaat om het te controleren!
+
+Tip: je verwacht dat het antwoord 4 is: de 'd' is de vierde letter. Maar vergeet niet dat de computer begint te tellen bij 0, dus is het goede antwoord inderdaad 3.
+
+</details>
+
+---
+
+<details>
+<summary>Opdracht</summary>
+
+Maak een variabele `verschuiving = -4`. We gaan nu uitrekenen wat de nieuwe verschoven letter moet zijn: we verschuiven de `d` met -4 plekken: het moet een `z` worden.
+
+Pas de formule van de vorige opdracht aan: we moeten nu uitrekenen wat het getal is na de verschuiving. Je moet de verschuiving dus op de goede plek in de formule erbij optellen. Als je het goed doet, zie je nu dat je het alfabet rond gaat!
+
+Tip: de 'z' is de hoeveelste letter? Want de computer begint met tellen bij 0.
+
+</details>
+
+---
+
+We hebben nu bijna alle ingrediënten om een Caesar-gecodeerde tekst de ontcijferen! De formule die je gemaakt hebt moet terug in de functie van eerder, en dan kunnen we de functie gebruiken voor alle letters in een boodschap.
+
+---
+
+<details>
+<summary>Opdracht</summary>
+
+Je hebt eerder de functie gemaakt `letter_schuiven` gemaakt. Die functie deed het nog niet goed: je kon het alfabet nog niet rond. Nu kunnen we dat wel! We gaan daarom de functie aanpassen. Verwijder eerst wat er in de functie stond.
+
+Je functie moet nu het volgende doen:
+* Bereken het `getal` van de verschoven letter. Die formule kun je kopiëren van de vorige opdracht!
+* Print vervolgens de nieuwe letter: dat is 97 (van de 'a') plus het nieuwe getal.
+
+Test je functie met de volgende regels:
+```python
+letter_schuiven('a', 2)
+letter_schuiven('k', -4)
+letter_schuiven('c', -3)
+letter_schuiven('x', 5)
+```
+Je functie moet nu het alfabet rond kunnen, dus zorg dat dat werkt!
+</details>
+
+---
+
+Tijd om een woord te gaan ontcijferen!
+```python
+tekst = "eydpdqo"
+
+for letter in tekst:
+    letter_verschuiven(letter, 4)
+```
+
+In je functie print je de nieuwe letter. Automatisch komt er dan een <kbd>Enter</kbd> achter. Dat is onhandig: je wilt alle letters achter elkaar omdat het één woord is. Daarvoor is een trucje:
+```python
+print(nieuwe_letter, end = "")
+```
+Het kan zijn dat jij `nieuwe_letter` een andere naam hebt gegeven, maar het deel vanaf de komma moet je wel zo overnemen. Dat zegt dat er aan het einde 'niks' moet komen, dus ook geen Enter.
+
+---
+
+<details>
+<summary>Opdracht</summary>
+
+Pas de `print()`-regel in je functie aan zodat er geen Enter geprint wordt. Voer vervolgens de bovenstaande code uit: wat is het ontcijferde woord? 
+
+Wat betekent "chzilguncwu"? De verschuiving is -20.
+
+</details>
+
+---
+
+Om een tekst met meer dan één woord te ontcijferen moeten we nog één aanpassing doen:
+```python
+for letter in tekst:
+    if letter.isalpha():
+        letter_verschuiven(letter, 4)
+    else:
+        print(letter, end = "")
+```
+
+---
+
+<details>
+<summary>Opdracht</summary>
+
+Wat betekent "xofob qyxxk qsfo iye ez, xofob qyxxk vod iye nygx"? De verschuiving is -10.
+
+</details>
+
+---
+
+(Inspiratie van [deze](https://youtu.be/VH_mU42lQkQ?t=883) video en bijbehorende [course](https://learn.microsoft.com/nl-nl/training/modules/secret-message/).)

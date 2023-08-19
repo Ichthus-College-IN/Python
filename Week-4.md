@@ -1,5 +1,5 @@
 # Week 4.1
-We laten de grafieken achter ons! Volgende halte: terug naar de schildpad!
+Na een poos bezig geweest te zijn met letters en teksten, gaan we nog even terug naar het tekenen met de schildpad. We hebben meer dingen geleerd waardoor het makkelijker wordt om figuurtjes te tekenen.
 
 Importeren:
 ```python
@@ -22,7 +22,7 @@ t = turtle.Turtle()
 
 De pen zit nu opgeslagen onder de variabele `t` van *turtle*. Nu kunnen we gaan tekenen!
 
-## Simpele tekenfuncties: lijnen
+## Overzicht van basis-tekenfuncties
 Een lijstje van eenvoudige commando's om te gaan tekenen:
 ```python
 t.forward(100)  # 100 units vooruit
@@ -68,11 +68,9 @@ t.pos()             # korte alias van .position()
 t.hideturtle()      # turtle onzichtbaar maken
 t.showturtle()      # turtle zichtbaar maken
 t.stamp()           # een stempel op de huidige plek van de turtle
-
-turtle.hideturtle() # de start-turtle onzichtbaar maken
 ```
 
-En een verzameling aan verschillende looks voor je turtle:
+En een aantal verschillende looks voor je turtle:
 ```python
 t.shape("turtle")
 t.shape("arrow")
@@ -82,12 +80,8 @@ t.shape("triangle")
 t.shape("classic")
 ```
 
-Een aantal opties voor kleuren en titels:
+Je kunt ook achtergrondkleuren instellen:
 ```python
-turtle.title(title)     # de titel in de balk bovenin instellen
-turtle.title("Test")
-turtle.title("Mijn tekening")
-
 turtle.bgcolor(color)   # de achtergrondkleur van het scherm instellen
 turtle.bgcolor("red")
 turtle.bgcolor("green")
@@ -120,12 +114,23 @@ t.circle(40, 270, 50)       # driekwart cirkel met r = 40 en 50 lijnstukken
 
 **Let op**! Het startpunt van de cirkel is de huidige positie, waarna de pen linksom de cirkel maakt. Je kunt de cirkel ook rechtsom maken door een negatieve straal in te vullen, bijvoorbeeld `t.circle(-20)`.
 
+---
+
+<details>
+<summary>Opdracht</summary>
+
+Maak een smiley: een grote cirkel, met twee dots voor ogen. De mond moet een deel van een cirkel zijn.
+
+</details>
+
+---
+
 
 ## Lijndiktes
 Voor het wijzigen van de lijndikte kan de `pensize` aangepast worden:
 ```python
 t.pensize(width)        # default is 1
-t.width(width)          # alias van .pensize()
+t.width(width)          # alias voor .pensize(), kun je dus ook gebruiken
 ```
 
 Je kunt de pendikte wijzigen tussen elk lijnstuk.
@@ -170,14 +175,13 @@ Maak het logo van de Olympische spelen.
 Naast lijnen kleuren is het ook mogelijk om vlakken te vullen met een kleur. Zie de volgende regels:
 ```python
 t.fillcolor(color)  # string, RGB 0..1, RGB 0..255, hex
-t.begin_fill()
+t.begin_fill()  	# alles wat tussen begin_fill en end_fill staat, wordt opgevuld
 t.circle(50)
-t.end_fill()
+t.end_fill()        # de cirkel vullen met een kleur
 ```
 
 `pencolor` en `fillcolor` zijn ook allebei in een keer in te stellen of op te vragen:
 ```python
-t.color()           # geeft huidige kleuren weer
 t.color(color)      # pen- en vulkleur allebei hetzelfde
 t.color(pencolor, fillcolor)    # pen- en vulkleur apart instellen
 ```
@@ -187,16 +191,13 @@ t.color(pencolor, fillcolor)    # pen- en vulkleur apart instellen
 <details>
 <summary>Opdracht</summary>
 
-Kies een van de twee (of allebei):
-
-* Maak een smiley. Start met een gele cirkel met zwarte rand met daarin twee zwarte of andersgekleurde ogen, en maak een mond of ander soort smiley.
-* Maak het logo van Mitsubishi maar gebruik een gouden rand en vul de drie ruiten met verschillende kleuren. Tip: gebruik hoeken van 45 graden en 135 graden.
+Maak het logo van Mitsubishi maar gebruik een gouden rand en vul de drie ruiten met verschillende kleuren. Tip: gebruik hoeken van 45 graden en 135 graden.
 
 </details>
 
 ---
 
-# Week 4.3
+
 ## `turtle` en loops
 Waar er tot nu toe veel handwerk nodig was om iets moois te maken, kunnen we uiteraard ook hier weer automatisering toepassen.
 
@@ -211,6 +212,7 @@ t.rt(90)
 t.fd(100)
 t.rt(90)
 ```
+of:
 ```python
 for i in range(4):  # i = 0, 1, 2, 3
     t.fd(100)
@@ -230,7 +232,7 @@ for i in range(10, 250, 5): # i = 10, 15, 20 .. 240, 245
     t.lt(90)
 ```
 
-**Herinnering**: als je `turtle` in een script wilt gebruiken in plaats van via de REPL, moet je altijd aan het einde van je script zetten:
+**Herinnering**: als je `turtle` in een script gebruikt, moet je altijd aan het einde van je script zetten:
 ```python
 turtle.mainloop()
 ```
@@ -255,27 +257,136 @@ Maak een vijfpuntige ster uit één lijn door een `for`-loop te gebruiken.
 
 ---
 
+## Een bestand inlezen
+Stel: iemand heeft een tekening opgeslagen als commando's in een bestand. Je kunt dan met de hand alle commando's gaan overtypen, maar dat duurt natuurlijk uren als het een grote tekening is. Daarom gaan we kijken hoe Python een bestand kan inlezen, waarna we alle commando's automatisch laten gebeuren.
+
+```python
+# open het bestand 'tekening.txt' in 'r'(ead) modus
+file = open("tekening.txt", "r")
+
+# ..iets doen met de inhoud van het bestand
+
+# sluit het bestand
+file.close()
+```
+
+---
+
 <details>
 <summary>Opdracht</summary>
 
-Maak met behulp van een `for`-loop een dartbord na. Een dartbord heeft ringen in bepaalde kleuren: die horen er natuurlijk ook bij! Een kleine hint daarvoor:
-```python
-colors = ["red", "white", "blue"]
-for i in range(len(colors)):    # i = 0, 1, 2 (want len(colors) = 3)
-    t.fillcolor(colors[i])      # gebruik colors[i] als vulkleur
-```
+Maak in je map van deze week een nieuw bestand met de naam `tekening.txt`. Op GitHub staat een bestand met dezelfde naam bij de lesstof. Kopieer de inhoud van dat bestand naar je eigen computer. Test vervolgens bovenstaand stukje script. Je kunt het beste in een leeg script (nieuw Python bestand) beginnen **in dezelfde map als het tekstbestand**.
+
+Tip: als je een error krijgt bij bovenstaande code, doe dan het volgende: ga in Visual Studio Code naar `File > Open Folder` en open dan specifiek de map waarin je Python script én tekstbestand zijn opgeslagen.
 
 </details>
 
 ---
 
+We kunnen alle regels in het bestand uitlezen:
+```python
+# .. open het bestand zoals eerder
+regels = file.readlines()
+# .. sluit het bestand zoals eerder
+```
+
+Alle regels worden als een _list_ ingelezen: elke regel is een item in de lijst.
+
+---
+
 <details>
-<summary>Bonusopdracht</summary>
+<summary>Opdracht</summary>
 
-Maak het Ichthuslogo zo goed mogelijk na. Een website zal gebruikt worden om de plaatjes te vergelijken: hoe beter de match, hoe hoger het cijfer. Maak je script zo netjes mogelijk met alle dingen die je geleerd hebt (of online kunt vinden)! Denk hierbij ook zeker aan de lijst functies in het eerste deel van het hoofdstuk.
+Print de eerste regel. Reminder: de computer begint met tellen bij 0.
 
-**Beoordeling:**
-* Cijfer tussen de 0 en 1pt: hoe beter de match, hoe hoger het cijfer.
+</details>
+
+---
+
+We kunnen door alle regels heen met een `for`-loop.
+
+---
+
+<details>
+<summary>Opdracht</summary>
+
+Print elke regel in `regels`, door middel van een `for`-loop. Weet je niet meer hoe? Zoek dan terug in het einde van week 2.
+
+</details>
+
+---
+
+De eerste letter van elke regel is het commando dat uitgevoerd moet worden. De mogelijke opties:
+|Afkorting|Commando|
+|:--|:----------|
+|`f`|`forward`  |
+|`b`|`backward` |
+|`l`|`left`     |
+|`r`|`right`    |
+|`u`|`up`       |
+|`d`|`down`     |
+|`g`|`goto`     |
+|`c`|`color`    |
+
+
+## Match-case
+Python heeft ingebouwd een mooi trucje om met opties overweg te kunnen: de `match-case` constructie.
+
+```python
+stoplicht = "groen"
+
+match stoplicht:
+    case "rood":
+        print("Stilstaan")
+    case "oranje":
+        print("Afremmen")
+    case "groen":
+        print("Rijden")
+    case _:
+        print("Dat kan niet")
+```
+
+In dit voorbeeld gaan we een stuk code _matchen_ op de variabele `stoplicht`. In het geval (in `case`) dat de waarde `"rood"` is, dan print de code dat je moet stilstaan; bij `"oranje"` dat je moet afremmen, en bij `"groen"` dat je mag rijden. In alle andere gevallen (`_`) wordt geprint dat een stoplicht die kleur niet kan hebben.
+
+---
+
+<details>
+<summary>Opdracht</summary>
+
+Maak een functie `uitvoeren`, met één argument: `regel`. Zet de volgende twee regels bovenaan in de functie:
+```python
+commando = regel[0]
+argument = regel[1:]
+```
+Bouw in de functie een `match-case` constructie. Match op `commando`, met een `case` voor alle opties in de tabel met commando's. Voor nu print je in elke case het commando dat straks uitgevoerd moet worden. Vergeet niet de laatste case, voor alle andere opties.
+
+Tip: let op alle dubbele punten en tabs die je moet gebruiken!
+</details>
+
+---
+
+Een paar cases krijg je cadeau - de andere schrijf je zometeen zelf.
+```python
+case 'u':
+    t.up()
+case 'd':
+    t.down()
+case 'g':
+    (x, y) = argument.split(',')
+    t.goto(int(x), int(y))
+case 'c':
+    t.color(argument)
+```
+
+---
+
+<details>
+<summary>Opdracht</summary>
+
+Kopieer bovenstaande cases, en maak de andere cases compleet! Stel dat een regel `"f100"` is, dan is het commando `"f"` en het argument `"100"`. Je turtle moet dan met 100 vooruit.
+
+Tip: je moet het argument nog omzetten van een string in een int (geheel getal). Dat kan met `int(argument)`.
+
 </details>
 
 ---

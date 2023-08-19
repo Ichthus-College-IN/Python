@@ -41,7 +41,7 @@ Maak een window en test bovenstaande instellingen uit! Op internet zijn er trouw
 
 ---
 
-### Tekstvelden
+## Tekstvelden
 Om tekst te plaatsen op de window hebben we een *label* nodig. Een label wordt eigenlijk altijd afgekort tot `lbl`. Zie het voorbeeld:
 ```python
 lbl = ttk.Label(root, text = "Lang leve informatica!")
@@ -95,195 +95,37 @@ Plaats een button op je window! Of eventueel twee of meer (maar geef ze dan wel 
 
 ---
 
-Om goed van een knop gebruik te kunnen maken gaan we eerst iets anders bekijken.
 
-## Week 5.2
-
-### Functies
-Een functie is een stuk code dat je via een naam kunt activeren of aanroepen. Als je het niet aanroept wordt het dus niet uitgevoerd, maar als je het meerdere keren achter elkaar aanroept wordt het meerdere keren uitgevoerd.
-
-Een erg simpel voorbeeld:
-```python
-def voorbeeldfunctie():
-    print("De voorbeeldfunctie zegt hallo")
-```
-
-Een functie start je met het woord `def` en vervolgens de naam van de functie. Je kunt dat hetzelfde beschouwen als een variabele-naam: je kunt zelf gewoon een naam kiezen. De haakjes openen en sluiten `()` zijn ook verplicht, en worden straks nuttig. De dubbele punt werkt hetzelfde als bij een `if`, `for` etc. Alle regels die bij de functie horen, krijgen een Tab.
-
-Vervolgens kun je de functie uitvoeren op de volgende manier:
-```python
-voorbeeldfunctie()
-```
-
----
-
-<details>
-<summary>Opdracht</summary>
-
-Test het volgende script:
-```python
-def voorbeeldfunctie():
-    print("De voorbeeldfunctie zegt hallo")
-
-print("Hoi")
-voorbeeldfunctie()
-```
-
-Pas het script (maar niet de voorbeeldfunctie) door te kopiëren / plakken zo aan dat je in de console het volgende te zien krijgt:
-```powershell
-De voorbeeldfunctie zegt hallo
-Hoi
-De voorbeeldfunctie zegt hallo
-De voorbeeldfunctie zegt hallo
-Hoi
-```
-
-</details>
-
----
-
-Je kunt functies ook een stuk nuttiger gebruiken door met variabelen te werken. Zie het volgende voorbeeld:
-```python
-def printfunctie(tekst):
-    print(tekst)
-
-printfunctie("Dit is een test")
-```
-
-De functie wordt aangeroepen met een stuk tekst tussen de haakjes. Die tekst wordt doorgegeven aan de functie, en opgeslagen onder de naam `tekst`. Vervolgens wordt die `tekst` geprint.
-
----
-
-<details>
-<summary>Opdracht</summary>
-
-Gebruik `printfunctie` om het volgende resultaat te produceren:
-```powershell
->>> Test 1
->>> Test 2
->>> Test 3
->>> Nog een laatste test
-```
-
-</details>
-
----
+Om goed van een knop gebruik te kunnen maken gaan we eerst een functie maken.
 
 Je kunt zoveel variabelen maken als je wilt:
 ```python
-def printuitgebreid(var1, var2, var3):
-    print(var1, var2, var3)
-    print(var1 + var2 + var3)
+def press(naam):
+    print(f"Je hebt de knop [ {naam} ] ingedrukt")
+```
+Je ziet hier een wat gekke notatie: een `f` voor de apostrofs, en vervolgens tussen accolades (`{ }`) de variabele. Dit betekent dat je de inhoud van de variabele middenin het stuk tekst wilt printen. Kost niet zoveel moeite.
+
+
+We gaan de knoppen nu een actie laten uitvoeren.
+```python
+btn = ttk.Button(root, text = "Klik op mij", command = lambda : press("Knop 1"))
 ```
 
-`var#` is hier een eenvoudige afkorting voor variabele 1, 2 en 3.
+**Let op**: je ziet hier het vreemde stuk `lambda : ` staan dat je niet kent. Voor nu ook niet al te belangrijk, maar het is wel nodig om altijd bij het commando van een knop te zetten.
 
 ---
 
 <details>
 <summary>Opdracht</summary>
 
-Test de uitgebreide printfunctie met de volgende regels:
-```python
-printuitgebreid(1, 2, 3)
-printuitgebreid(0.5, 0.5, 3.1)
-printuitgebreid("Dit", "is een", "test")
-printuitgebreid("Dit ", "is een", " test")
-printuitgebreid("Dit", "is", "een", "test")
-```
-Waarom werkt de laatste functie niet?
-
-Test ook nog de volgende regel:
-```python
-printuitgebreid("Ik ben", 16, "jaar oud")
-```
-Waarom gaat één van de twee `print()`s mis?
+Voeg de `press()` functie in, pas je knop aan en test hem uit! Voeg je functie ook toe aan de andere knoppen die je gemaakt hebt, maar gebruik dan een andere naam dan `Knop 1`, zodat je het verschil ziet.
 
 </details>
 
 ---
 
-Normaal gesproken komen de variabelen gewoon op volgorde binnen, zoals je in de opdrachten tot nu toe hebt gezien. Maar je kunt ook specifiek een andere volgorde opgeven:
-```python
-printuitgebreid(var3 = 7, var1 = 5, var2 = 6)
-```
 
-**Let op**: de namen van de variabelen moeten matchen met de namen in de functie.
-
----
-
-<details>
-<summary>Opdracht</summary>
-
-Test de uitgebreide printfunctie met de volgende regels:
-```python
-printuitgebreid(var1 = 1, var2 = 2, var3 = 3)
-printuitgebreid(var3 = 3, var1 = 1, var2 = 2)
-printuitgebreid(var2 = 2, var3 = 3, var1 = 1)
-printuitgebreid(var2 = "Dit ", var3 = "is ", var1 = "een test ")
-```
-Bekijk het resultaat. Van wie zou de laatste regel afkomstig kunnen zijn? ;)
-
-</details>
-
----
-
-<details>
-<summary>Opdracht</summary>
-
-*Maak deze opdracht als je het leuk vindt; sla hem over als je achterloopt.*
-
-Soms weet je niet hoeveel variabelen je kunt verwachten. Dan kun je gebruik maken van het volgende trucje:
-```python
-def printeindeloos(*args):
-    som = 0
-    for arg in args:
-        print(arg)
-        som = som + arg
-    print("Eindresultaat: " + str(som))
-```
-`*args` kan een willekeurig aantal *argumenten* of variabelen zijn: alles van nul tot en met praktisch oneindig. Vervolgens wordt in dit voorbeeld een `for`-loop gebruikt om al die argumenten te printen en bij elkaar op te tellen, en het eindresultaat wordt geprint.
-
-Test `printeindeloos` met de volgende regels:
-```python
-printeindeloos(1, 2, 3)
-printeindeloos(0.5, 0.5, 3.1)
-printeindeloos(1, 2, 3, 4, 5, 6, 7, 8, 9)
-printeindeloos(2/10, 3 + 5, 4 - 8, -1, 3**2)
-printeindeloos("Dit ", "is ", "een ", "test")
-```
-
-Waarom werkt de laatste regel niet? Verander de functie zodanig dat die wel werkt! Maar: dan werken de anderen helaas weer niet. Gebruik eventueel internet.
-
-Je mag als uitdaging op internet een methode opzoeken waarmee je zowel getallen als tekst kunt opgeven als argumenten (een mix hoeft niet). Het is niet verplicht.
-</details>
-
----
-
-## Week 5.3
-### Buttons revisited
-We kijken nu opnieuw naar knoppen: we kunnen ze nu een actie laten uitvoeren.
-```python
-btn = ttk.Button(root, text = "Klik op mij", command = lambda : printfunctie())
-
-# onderstaande methode mag ook (en hoor officieel), maar kan soms snel fout gaan:
-btn = ttk.Button(root, text = "Klik op mij", command = printfunctie)    # let op: er staan geen haakjes () achter printfunctie
-```
-
-**Let op**: je ziet hier het vreemde woord `lambda` staan dat je niet kent en ook niet altijd bij voorbeelden op internet ziet staan. Het is echter om bepaalde redenen wel erg handig om te gebruiken! Je hoeft niet te weten wat het doet, maar je mag er altijd naar zoeken of om vragen.
-
----
-
-<details>
-<summary>Opdracht</summary>
-
-Zorg dat je een printfunctie in je script hebt, plaats de knop met `btn.place()` en test de knop!.
-
-</details>
-
----
-
-### Invoervelden
+## Invoervelden
 Vaak heb je gegevens of informatie van gebruikers nodig. Die kunnen ze invullen in een `Entry`: een invoerveld. Een entry heeft een bijzonder type string nodig: een `tk.StringVar()`. Die helpt erbij om de tekst van een entry uit te lezen.
 
 Er bestaat geen officiele of officieuze afkorting voor een entry zoals dat bij een label en button is, maar we gebruiken hier `ety`. Bekijk het volgende voorbeeld voor het maken van een `StringVar` en `Entry`:
@@ -304,7 +146,7 @@ Voeg het invoerveld toe aan je script en test of je invoerveld te gebruiken is. 
 
 ---
 
-### Items aanpassen
+## Items aanpassen
 
 Je kunt van veel TKinter items (labels, buttons, entries e.d.) opvragen wat er in aanwezig is via `.cget(..)` en via een index `[..]`. Het meest nuttige is de tekst:
 ```python
