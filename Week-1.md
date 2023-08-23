@@ -1,4 +1,6 @@
-# Week 1.1
+# Week 1
+
+## Deel 1: de allereerste basis
 Welkom in de boeiende wereld van programmeren als middelbare scholier! Als je op zoek bent naar een toegankelijke en waardevolle programmeertaal om te leren, dan is Python de perfecte keuze. Python heeft zich bewezen als een uitstekende taal voor beginners vanwege zijn leesbaarheid en eenvoudige syntaxis. Dit betekent dat je snel resultaten kunt behalen en je vaardigheden kunt opbouwen zonder overweldigd te raken door complexe regels.
 
 Wat Python echt opmerkelijk maakt, is zijn veelzijdigheid. Of je nu geïnteresseerd bent in het maken van websites, games, apps of zelfs het verkennen van datascience en kunstmatige intelligentie, Python biedt de benodigde hulpmiddelen en bibliotheken. Bovendien gaat het leren van Python verder dan alleen coderen; het bevordert ook logisch denken en probleemoplossende vaardigheden die waardevol zijn in diverse domeinen.
@@ -260,18 +262,27 @@ Deze functies doen het volgende:
 <details>
 <summary>Opdracht</summary>
 
-Maak de volgende variabele:
+Stel: je hebt een slimme koelkast. Er zijn tegenwoordig varianten die automatisch een boodschappenlijstje kunnen presenteren, omdat ze weten wat er uit de koelkast verdwenen is.
+
+Na het bijvullen van de boodschappen, is het boodschappenlijstje leeg:
+```python
+lijstje = []
 ```
->>> vak = "Infromatik"
-```
-Los de fouten op zodat er komt te staan: `Informatica`. Gebruik daarvoor de functies die hierboven staan.
+
+Werk de volgende gebeurtenissen af door gebruik te maken van `lijstje.append(..)`, `lijstje.insert(..)` en `lijstje.pop(..)`.
+* Na verloop van tijd blijkt dat de melk en boter op zijn. Voeg deze toe aan het lijstje, zodat de melk vooraan staat en de boter erachter. 
+* Na een tijdje blijkt dat de appels ook op zijn. Deze liggen vooraan in de winkel, dus voeg ze voorin het lijstje toe. 
+* Nog wat later is ook de kipfilet op. Voeg deze toe aan het einde van het lijstje.
+* Bij de lokale kippenboer haal je eieren. Dit specifieke item moet dus weer van het lijstje verwijderd worden.
+
+Hoe ziet de uiteindelijke lijst eruit?
 
 </details>
 
 ---
 
 
-## Week 1.2
+## Deel 2: tekenen met een schildpad
 
 De allereerste basis is nu klaar! Tijd voor wat anders: we gaan plaatjes tekenen met een schildpad. Ja, echt.
 
