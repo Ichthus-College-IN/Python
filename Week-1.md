@@ -245,7 +245,7 @@ Ook lists hebben een paar ingebouwde functies, waaronder:
 ```
 >>> lst1.append(100)
 >>> lst1
->>> lst2.insert("hallo", 0)
+>>> lst2.insert(0, "hallo")
 >>> lst2
 >>> lst2.pop(0)
 >>> lst2
