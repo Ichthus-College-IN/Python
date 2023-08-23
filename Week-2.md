@@ -438,7 +438,7 @@ Print de getallen -20 tot en met 100 met stappen van 10 door gebruik te maken va
 ---
 
 <details>
-<summary> Slotopdracht ⭐⭐⭐</summary>
+<summary> Slotopdracht ⭐⭐</summary>
 
 Het spel Dungeons & Dragons gebruikt dobbelstenen met soms tot wel 20 zijden - veel meer dan de 6 die we normaal gewend zijn. Een klassieke vraag bij een dobbelsteen is: wat is de som van alle zijden? Dat wordt wel een vervelende som als je dat tot en met 20 gaat uitrekenen. We gaan daarom een programmaatje bouwen waarbij een gebruiker een getal kan invullen (het aantal zijden van de dobbelsteen), en het programma geeft als antwoord wat het aantal ogen is op zo'n dobbelsteen.
 
@@ -463,9 +463,8 @@ print(ogen)
 
 **Beoordeling:**
 * : niet ingeleverd / werkt totaal niet
-* ⭐: ingeleverd maar geen correct resultaat / simpele oplossing om werkend te krijgen
-* ⭐⭐: ingeleverd en (zo goed als) correct op minder goede manier
-* ⭐⭐⭐: ingeleverd en helemaal correct op de manier zoals geleerd in het hoofdstuk
+* ⭐: ingeleverd, maar het werkt niet (helemaal); het doet wel een deel van het goede antwoord
+* ⭐⭐: ingeleverd en (zo goed als) correct
 </details>
 
 ---
