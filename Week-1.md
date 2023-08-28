@@ -25,6 +25,15 @@ De drie pijltjes (`>>>`) geven een regel aan waarin jij kunt typen.
 <details>
 <summary>Opdracht</summary>
 
+Open Python op de computer: via `Start` kun je zoeken naar `Python`.
+
+</details>
+
+---
+
+<details>
+<summary>Opdracht</summary>
+
 Reken de volgende som uit: `137 * 6` door op de regel met de `>>>` te gaan typen en vervolgens op <kbd>Enter</kbd> te drukken. Wat is het resultaat?
 
 </details>
