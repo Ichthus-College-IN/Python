@@ -27,7 +27,7 @@ Een groot verschil tussen de terminal en een script, is dat je bij een script ni
 'bns'
 ```
 
-De regels met een 'antwoord' zie je niet als je een script 'uitvoert' (_runnen -> runt_). Je moet dan specifiek het resultaat _printen_.
+De 'antwoorden' hierboven zie je niet als je een script 'uitvoert' (_runnen -> runt_). Je moet dan specifiek het resultaat _printen_.
 
 Het makkelijkste Python script dat een zichtbaar resultaat geeft is het volgende:
 ```python

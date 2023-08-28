@@ -191,7 +191,7 @@ Geef vervolgens een button het commando om bovenstaande functie uit te voeren.
 ---
 
 <details>
-<summary>Slotopdracht</summary>
+<summary>Slotopdracht ⭐⭐⭐</summary>
 
 Maak een app die de BMI van een gebruiker kan berekenen. Daarvoor zijn de volgende dingen nodig:
 
@@ -209,10 +209,10 @@ Maak een app die de BMI van een gebruiker kan berekenen. Daarvoor zijn de volgen
 *Tip*: vergeet niet `root.mainloop()` onderaan je script te zetten.
 
 **Beoordeling:**
-* 0.00pt: niet ingeleverd / werkt totaal niet
-* 0.5pt: ingeleverd maar geen correct resultaat / simpele oplossing om werkend te krijgen
-* 1.0pt: ingeleverd en (zo goed als) correct op minder goede manier
-* 1.5pt: ingeleverd en helemaal correct op de manier zoals geleerd in het hoofdstuk
+* : niet ingeleverd / werkt totaal niet
+* ⭐: ingeleverd maar geen correct resultaat / simpele oplossing om werkend te krijgen
+* ⭐⭐: ingeleverd en (zo goed als) correct op minder goede manier
+* ⭐⭐⭐: ingeleverd en helemaal correct op de manier zoals geleerd in het hoofdstuk
 </details>
 
 ---

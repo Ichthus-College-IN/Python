@@ -318,15 +318,20 @@ Print elke regel in `regels`, door middel van een `for`-loop. Weet je niet meer 
 
 De eerste letter van elke regel is het commando dat uitgevoerd moet worden. De mogelijke opties:
 |Afkorting|Commando|
-|:--|:----------|
-|`f`|`forward`  |
-|`b`|`backward` |
-|`l`|`left`     |
-|`r`|`right`    |
-|`u`|`up`       |
-|`d`|`down`     |
-|`g`|`goto`     |
-|`c`|`color`    |
+|:--|:-----------|
+|`f`|`forward`   |
+|`b`|`backward`  |
+|`l`|`left`      |
+|`r`|`right`     |
+|`o`|`dot`       |
+|`s`|`start_fill`|
+|`e`|`end_fill`  |
+|`p`|`pencolor`  |
+|`i`|`fillcolor` |
+|`c`|`circle`    |
+|`u`|`up`        |
+|`d`|`down`      |
+|`g`|`goto`      |
 
 
 ## Match-case
@@ -367,6 +372,11 @@ Tip: let op alle dubbele punten en tabs die je moet gebruiken!
 
 Een paar cases krijg je cadeau - de andere schrijf je zometeen zelf.
 ```python
+case 'i':
+    t.fillcolor(argument)
+case 'c':
+    (rad, deg) = argument.split(',')
+    t.circle(int(rad), int(deg))
 case 'u':
     t.up()
 case 'd':
@@ -374,8 +384,6 @@ case 'd':
 case 'g':
     (x, y) = argument.split(',')
     t.goto(int(x), int(y))
-case 'c':
-    t.color(argument)
 ```
 
 ---
@@ -390,3 +398,17 @@ Tip: je moet het argument nog omzetten van een string in een int (geheel getal).
 </details>
 
 ---
+
+<details>
+<summary>Opdracht</summary>
+
+Op GitHub staat een bestand genaamd `tekening.txt`. Maak in de map met je script een bestand met dezelfde naam. Kopieer de inhoud van het GitHub bestand en sla het op in je eigen bestand.
+
+Open vervolgens in het script het bestand, en voer voor elke regel in het bestand de functie `uitvoeren` uit. Als je alles goed hebt gedaan krijg je een plaatje in beeld. Lukt het niet? Kijk dan of je een error ziet die je begrijpt. Werkt je script / zie je een goed plaatje? Probeer dan ook `tekening2.txt`. 
+
+Tip: stel vóór het tekenen de snelheid van je turtle in op maximaal: `t.speed(10)`. Anders ben je (zeker met het laatste bestand) lang aan het wachten...
+
+</details>
+
+---
+

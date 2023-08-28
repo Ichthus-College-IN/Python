@@ -81,15 +81,11 @@ Python is dan wel weer zo aardig om in de laatste regel de suggestie te geven da
 <details>
 <summary>Opdracht</summary>
 
-Als het goed is hebben `x` en `y` nog steeds de waarden 4110 en 12345. Bereken de volgende som: x^y. *Let op!* In Python is het 'tot de macht'-teken _niet_ `^`, maar `**`. Schrik niet: het antwoord is een heul er groot getal: je moet een flink stuk naar boven scrollen om het helemaal te zien.
+Bereken de volgende som: x^3. *Let op!* In Python is het 'tot de macht'-teken _niet_ `^`, maar `**`.
 
 </details>
 
 ---
-
-**Kort samengevat**
-
-<<Insert table>>
 
 
 ## Rekenen met `floats`: kommagetallen

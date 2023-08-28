@@ -56,7 +56,7 @@ Doe een gok of zoek op internet op hoe je de waarde van $\pi$ kunt printen. Tip:
 
 ---
 
-Rekenen met NumPy bewaren we voor straks; voor nu kijken we naar het uitlezen van bestanden met getallen. Daarvoor komt de volgende functie erg goed van pas:
+NumPy is heel goed in rekenen, maar daar gaan we niet echt mee aan de slag; voor nu kijken we naar het uitlezen van bestanden gevuld met getallen. Daarvoor komt de volgende functie erg goed van pas:
 ```python
 data = np.genfromtxt("voorbeeld_getallen_1d.txt")
 ```
@@ -68,9 +68,9 @@ Het resultaat van deze functie is een (soort van) lijst met alle getallen in het
 <details>
 <summary>Opdracht</summary>
 
-Download het voorbeeldbestand en sla deze weer op in dezelfde map als je script. Maak gebruik van `np.genfromtxt()` om het bestand uit te lezen. Print vervolgens met een `for`-loop alle getallen die in het bestand staan. Controleer natuurlijk of het resultaat klopt door het bestand te openen en te vergelijken.
+Op GitHub staat het bestand met bovenstaande naam in de map `txt`. Maak een bestand met dezelfde naam in je map voor deze week, en kopieer de inhoud van GitHub naar het bestand (en sla het op). Maak vervolgens gebruik van `np.genfromtxt()` om het bestand uit te lezen. Print vervolgens met een `for`-loop alle getallen die in het bestand staan. Controleer natuurlijk of het resultaat klopt door het bestand te openen en te vergelijken.
 
-Zoals je waarschijnlijk opgevallen zal zijn: `genfromtxt()` negeert de regels met een <kbd>#</kbd> ervoor, net zoals Python de tekst na <kbd>#</kbd> als commentaar beschouwt. Ideaal!
+Zoals je waarschijnlijk opgevallen zal zijn: `genfromtxt()` negeert de regels met een `#` ervoor, net zoals Python de tekst na `#` als commentaar beschouwt. Ideaal!
 
 </details>
 
@@ -140,33 +140,25 @@ Maak een array `a` van 0 tot en met 5 en een array `b` van 0 tot en met 10. Tel 
 <details>
 <summary>Opdracht</summary>
 
-Maak een array `c` van 0 tot en met 10. Bereken het resultaat van $c^c$. Wat gebeurt er? Zoek op internet een oplossing op en/of vraag het aan de docent.
+Maak een array `c` met hele getallen van 0 tot en met 10. Bereken het resultaat van $c^c$. Wat gebeurt er? Zoek op internet een oplossing op en/of vraag het aan de docent.
 
 </details>
-
----
-
-Je kunt ook in een keer bijvoorbeeld de sinus of cosinus van een heel array berekenen:
-```python
-data = np.genfromtxt("voorbeeld_getallen_1d.txt")
-l = np.sin(data)
-print(l)
-```
-
 
 ---
 
 <details>
 <summary>Opdracht</summary>
 
-Maak een array van 0 tot 2 $\pi$ met stapjes van 0.1. Bereken de sinus, cosinus en tangens van de array. Print uiteraard elke keer het resultaat.
+Je maakt bij natuurkunde een opdracht waarbij je meerdere keren per dag meet hoeveel water er is gevallen. Je begint om 9 uur 's ochtends en met tot en met 4 uur 's middags, waarbij je elk half uur meet. Maak een array `d`: deze moet de meetmomenten bevatten (dus 9 uur, halverwege 9 uur, 10 uur...). 
+
+Tip: net als de `range` functie kun je bij de `arange` functie ook een _stapgrootte_ aangeven.
 
 </details>
 
 ---
 
 ## NumPy in twee dimensies
-Het gebeurt eigenlijk nooit dat je maar een enkele kolom met gegevens hebt. Als je bijvoorbeeld de temperatuur meet, meet je vaak ook de luchtdruk, luchtvochtigheid of andere gerelateerde zaken. Je hebt dus heel vaak meer dan een kolom. 
+Het gebeurt eigenlijk nooit dat je maar één enkele kolom met gegevens hebt. Als je bijvoorbeeld de temperatuur meet, meet je vaak ook de luchtdruk, luchtvochtigheid of andere gerelateerde zaken. Je hebt dus heel vaak meer dan een kolom. 
 
 Tussen verschillende kolommen staat een *scheidingsteken* om de kolommen uit elkaar te houden. Vaak is dat een komma (`','`), tab (`'\t'`) of spatie (`' '`). Natuurlijk niet de punt, want die wordt gebruikt voor decimalen. Bij het uitlezen van een bestand met `np.genfromtxt()` kun je ook aangeven welk scheidingsteken of *delimiter* er nodig is:
 ```python
@@ -203,7 +195,7 @@ data = np.genfromtxt("voorbeeld_getallen_2d.txt", delimiter = ',')
 kolom0 = data[:, 0]
 kolom1 = data[:, 1]
 ```
-De <kbd>:</kbd> betekent hier dat je de *hele x-as* selecteert. 
+De `:` betekent hier dat je de *hele x-as* selecteert. 
 
 ---
 
@@ -225,40 +217,9 @@ Print de temperatuur, luchtdruk en luchtvochtigheid uit het voorbeeldbestand.
 
 ---
 
-<details>
-
-<summary>Bonusopdracht</summary>
-
-Werk het volgende stappenplan af:
-
-* Voeg bovenaan je bestand de volgende regel in: `np.set_printoptions(threshold = np.inf, linewidth = np.inf)`
-* Importeer het bestand `"bonus_getallen.txt"`. Let op: dit is een vrij groot bestand.
-* Zoek op internet hoe je de hele array kunt *afronden*. Dat is dus niet hetzelfde als overal een integer van maken. (Want: `int(0.9) = 0`.) Als het goed is houd je alleen 0 en 1 over in de array.
-* Maak van de hele array nu een integer: zoek op internet hoe dat kan.
-* Maak van de hele array een string: `str(data)`.
-* Verwijder de `[` en `]`.
-* Maak een bestand, schrijf de string naar het bestand, en sluit het bestand.
-* Open het bestand en geniet van de creatie (tip: zoom een stuk uit)!
-
-**Beoordeling:**
-* 0.00pt: niet ingeleverd / werkt totaal niet
-* 0.50pt: ingeleverd maar geen correct resultaat / simpele oplossing om werkend te krijgen
-* 1.00pt: ingeleverd en (zo goed als) correct
-</details>
-
-Je kunt een bestand zelf maken vanuit Python. Een voorbeeld:
-```python
-file = open("test.txt", "w")    # open het bestand 'test.txt' met 'w'rite permissions
-file.write("Hello world!")      # schrijf een regel in het bestand
-file.write("")                  # schrijf een lege regel
-file.write("Dit is\neen test")  # schrijf twee regels in één keer
-file.close()                    # sluit het bestand
-```
----
-
 
 ## Grafieken maken
-Na een tijd lang alleen maar dingen te printen wordt het tijd dat er ook andere dingen op het scherm tevoorschijn getoverd worden: grafieken. Daarvoor moeten we eerst MATplotlib installeren en importeren, net zoals we dat bij NumPy doen.
+Een lijst met getallen is onoverzichtelijk en onhandig. Het is tijd dat er ook andere dingen op het scherm tevoorschijn getoverd worden: grafieken. Daarvoor moeten we eerst MATplotlib installeren en importeren, net zoals we dat bij NumPy doen.
 
 In de terminal:
 ```powershell
@@ -277,7 +238,7 @@ We gebruiken specifiek de `pyplot` package uit MATplotlib, maar daar hoef je ver
 <details>
 <summary>Opdracht</summary>
 
-Installeer MATplotlib via de terminal en test of de installatie geslaagd is door de `import` regel in een script te zetten en uit te voeren.
+Installeer MATplotlib via de terminal en test of de installatie geslaagd is door bovenstaande `import` regel in een script te zetten en uit te voeren.
 
 </details>
 
@@ -380,6 +341,11 @@ Plot ze vervolgens (op parametrische manier):
 ax.plot(x, y)
 ```
 Wat is het resultaat?
+
+Tips: 
+* $\pi$ kun je krijgen als `np.pi`. 
+* Als je een array hebt met de naam `t`, kun je in één keer de sinus van de hele array berekenen met `np.sin(t)`. Hetzelfde geldt voor de `np.cos(t)`.
+* Let op de keertekens e.d. die je nodig hebt: mis er geen een om een mooi plaatje te krijgen :)
 
 </details>
 
@@ -515,28 +481,22 @@ Bij de laatste truc moet je heel erg opletten: als bijvoorbeeld de totale lengte
 
 Maak gebruik van het bestand `mjlo-15_0.txt`. Hierin is voor elke sensor in een Meet je leefomgeving-kastje een kolom aanwezig met alle meetwaarden gedurende twee dagen.
 
-Maak voor elke sensor een mooi opgemaakte figuur. De x-as loopt van 0 tot 24 uur, dus dat betekent dat je voor elke figuur twee lijnen moet plotten: dag 1 en dag 2. Zorg uiteraard ook dat duidelijk is welke lijn bij welke dag hoort.
+Maak drie plots:
+* Een plot met de temperatuur en luchtvochtigheid
+* Een plot met PM2.5 en PM10
+* Een plot naar keuze
+
+De plots voldoen aan de volgende voorwaarde:
+* Je gebruikt een x-as van 0 tot 24 uur
+* Je plot de eerste helft en tweede helft 'op dezelfde plek': dat betekent dat je beide helften op de as van 0 tot 24 uur plot, zodat je duidelijk de verschillen ziet tussen de twee dagen
+* Je gebruikt verschillende kleuren, strepen en/of labels zodat duidelijk is welke lijn wat betekent
+* Andere opmaak die je geleerd hebt die het duidelijk maakt wat je ziet in de grafiek
 
 **Beoordeling:**
-* 0.0pt: niet ingeleverd / werkt totaal niet
-* 0.5pt: ingeleverd maar geen correct resultaat / simpele oplossing om werkend te krijgen
-* 1.0pt: ingeleverd en (zo goed als) correct op minder goede manier
-* 1.55pt: ingeleverd en helemaal correct op de manier zoals geleerd in het hoofdstuk
-</details>
-
----
-
-<details>
-<summary>Bonusopdracht</summary>
-
-Zorg dat alle grafieken niet in losse figuren staan, maar in een heel erg grote figuur door meerdere plots in één `plt.subplots()` te maken. Zoek op internet op hoe je daarmee aan de slag kunt! Regel dat de grafieken goed leesbaar zijn: groot genoeg met onderlinge ruimte, legenda's etc.
-
-**Let op**: dit is een pittige opdracht om netjes te maken.
-
-**Beoordeling:**
-* 0.0pt: niet ingeleverd / werkt totaal niet
-* 0.5pt: ingeleverd maar geen correct resultaat / simpele oplossing om werkend te krijgen
-* 1.0pt: ingeleverd en (zo goed als) correct
+* : niet ingeleverd / werkt totaal niet
+* ⭐: ingeleverd maar geen correct resultaat / simpele oplossing om werkend te krijgen
+* ⭐⭐: ingeleverd en (zo goed als) correct op minder goede manier
+* ⭐⭐⭐: ingeleverd en helemaal correct op de manier zoals geleerd in het hoofdstuk
 </details>
 
 ---
