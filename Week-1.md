@@ -276,7 +276,7 @@ lijstje = []
 
 Werk de volgende gebeurtenissen af door gebruik te maken van `lijstje.append(..)`, `lijstje.insert(..)` en `lijstje.pop(..)`.
 * Na verloop van tijd blijkt dat de melk en boter op zijn. Voeg deze toe aan het lijstje, zodat de melk vooraan staat en de boter erachter. 
-* Na een tijdje blijkt dat de appels ook op zijn. Deze liggen vooraan in de winkel, dus voeg ze voorin het lijstje toe. 
+* Na een tijdje blijkt dat de eieren ook op zijn. Deze liggen vooraan in de winkel, dus voeg ze voorin het lijstje toe. 
 * Nog wat later is ook de kipfilet op. Voeg deze toe aan het einde van het lijstje.
 * Bij de lokale kippenboer haal je eieren. Dit specifieke item moet dus weer van het lijstje verwijderd worden.
 
