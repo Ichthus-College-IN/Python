@@ -93,13 +93,13 @@ Kleiner dan (<) en groter dan (>) spreken voor zich; bij kleiner dan of gelijk a
 <details>
 <summary>Opdracht</summary>
 
-Je wilt de twee variabelen `k` en `l` vergelijken: hebben ze dezelfde waarde? Het antwoord moet `True` of `False` zijn.
+Je wilt de twee variabelen `k` en `m` vergelijken: hebben ze dezelfde waarde? Het antwoord moet `True` of `False` zijn.
 
 Test daarvoor de volgende code:
 ```python
 k = 34
-l = 27
-print(k = l)
+m = 27
+print(k = m)
 ```
 Wat is het resultaat? 
 
