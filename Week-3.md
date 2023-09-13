@@ -144,9 +144,9 @@ En God zag al wat Hij gemaakt had, en zie, het was zeer goed. Toen was het avond
 Zo zijn de hemel en de aarde voltooid, en heel hun legermacht.
 Toen God op de zevende dag Zijn werk, dat Hij gemaakt had, voltooid had, rustte Hij op de zevende dag van al Zijn werk, dat Hij gemaakt had.
 En God zegende de zevende dag en heiligde die, want daarop rustte Hij van al Zijn werk, dat God schiep door het te maken.
-Dit is wat uit de hemel en de aarde voortkwam, toen zij geschapen werden. Op de dag dat de HEERE God aarde en hemel maakte –
+Dit is wat uit de hemel en de aarde voortkwam, toen zij geschapen werden. Op de dag dat de HEERE God aarde en hemel maakte -
 er was nog geen enkele veldstruik op de aarde en er was nog geen enkel veldgewas opgekomen, want de HEERE God had het niet laten regenen op de aarde; en er was geen mens om de aardbodem te bewerken,
-maar een damp steeg uit de aarde op en bevochtigde heel de aardbodem –
+maar een damp steeg uit de aarde op en bevochtigde heel de aardbodem -
 toen vormde de HEERE God de mens uit het stof van de aardbodem en blies de levensadem in zijn neusgaten; zo werd de mens tot een levend wezen.
 Ook plantte de HEERE God een hof in Eden, in het oosten, en Hij plaatste daar de mens, die Hij gevormd had.
 En de HEERE God liet allerlei bomen uit de aardbodem opkomen, begerenswaardig om te zien en goed om van te eten; ook de boom des levens, in het midden van de hof, en de boom van de kennis van goed en kwaad.
@@ -214,7 +214,7 @@ Bereken ook de frequentie als je de hoofdletter `E` meetelt samen met `e`. Komt 
 
 Pak de tekst van Genesis 1 er weer bij. Maak gebruik van een `for`-loop over alle letters van het alfabet, om zo de frequentie voor elke letter te berekenen. Print elke keer de letter die je bekijkt, en welk percentage er bij hoort.
 
-Maar: let op. Bij het berekenen van het percentage gebruik je `len()`, maar `len()` rekent ook het aantal spaties en Enters mee. Dat zijn echter geen letters, dus moet je die moet je dan wel eerst verwijderen. Ter controle: als het goed is vind je daarmee een percentage van 19.4% voor de letter e/E. (Een stuk beter dus dan het percentage bij de vorige opdracht!)
+Maar: let op. Bij het berekenen van het percentage gebruik je `len()`, maar `len()` rekent ook het aantal spaties en Enters mee. Dat zijn echter geen letters, dus moet je die moet je dan wel eerst verwijderen. Ter controle: als het goed is vind je daarmee een percentage van 20.05% voor de letter e/E. (Een stuk beter dus dan het percentage bij de vorige opdracht!) Mocht je ook nog de letters `é` en `ë` meerekenen, kom je op 20.11% uit.
 
 Tip: als je voor een willekeurige kleine letter ook de hoofdletter wilt weten, kun je gebruik maken van dit voorbeeld:
 ```python
