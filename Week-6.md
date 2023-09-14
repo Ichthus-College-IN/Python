@@ -482,7 +482,7 @@ Bij de laatste truc moet je heel erg opletten: als bijvoorbeeld de totale lengte
 Maak gebruik van het bestand `Uplinks.csv` in de map `txt` op GitHub. Hierin is voor elke sensor in een Meet je leefomgeving-kastje een kolom aanwezig met alle meetwaarden gedurende twee dagen. Let op: de _delimiter_ in het bestand is de `;`.
 
 Maak twee plots:
-* Een plot met PM2.5 en PM10
+* Een plot van de temperatuur
 * Een plot naar keuze
 
 De plots voldoen aan de volgende voorwaarden:
