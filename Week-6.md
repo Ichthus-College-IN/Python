@@ -21,7 +21,7 @@ import numpy
 
 Installeer NumPy. 
 
-Test of de installatie is gelukt door in een (leeg) script NumPy te importeren met behulp van de regel hierboven, en het script uit te voeren. Bij succes gebeurt er 'niets'; anders komt er een error in de Terminal.
+Test of de installatie is gelukt door in een (verder leeg) script NumPy te importeren met behulp van de regel hierboven, en het script uit te voeren. Bij succes gebeurt er 'niets'; anders komt er een error in de Terminal.
 
 </details>
 
@@ -89,19 +89,19 @@ print(type(data))       # numpy.ndarray
 
 Het resultaat is een `np.ndarray`. Het komt eigenlijk neer op een `numpy`-lijst, die gemaakt is om te werken met getallen en NumPy. Je kunt van een Python lijst makkelijk een NumPy *array* (de officiele naam) maken:
 ```python
-python_lijst = [1, 2, 3, 4, 5, 6]
+python_lijst = [1, 2, 3, 4, 5, 6]   # handmatige lijst
 numpy_array = np.array(python_lijst)
 ```
 
 Uiteraard is dat hetzelfde als dit:
 ```python
-python_lijst = range(1, 7)
+python_lijst = range(1, 7)          # range in plaats van handmatige lijst
 numpy_array = np.array(python_lijst)
 ```
 
 Maar NumPy kan dat zelf ook:
 ```python
-numpy_array = np.arange(1, 7)
+numpy_array = np.arange(1, 7)       # numpy range functie
 ```
 
 ---
@@ -131,16 +131,9 @@ Het eerste getal uit `a` wordt opgeteld bij het eerste getal uit `a`, het tweede
 <details>
 <summary>Opdracht</summary>
 
-Maak een array `a` van 0 tot en met 5 en een array `b` van 0 tot en met 10. Tel deze bij elkaar op. Wat gebeurt er?
+Maak een array `a` van 0 tot en met 5 en een array `b` van 0 tot en met 10. Vermenigvuldig `a` met `b`. Wat gebeurt er? Verander `b` zodat je een stapgrootte van 2 gebruikt - dan zijn de arrays wél van dezelfde lengte.
 
-</details>
-
----
-
-<details>
-<summary>Opdracht</summary>
-
-Maak een array `c` met hele getallen van 0 tot en met 10. Bereken het resultaat van $c^c$. Wat gebeurt er? Zoek op internet een oplossing op en/of vraag het aan de docent.
+Tip: net als de `range` functie kun je bij de `arange` functie ook een _stapgrootte_ aangeven.
 
 </details>
 
@@ -150,8 +143,6 @@ Maak een array `c` met hele getallen van 0 tot en met 10. Bereken het resultaat 
 <summary>Opdracht</summary>
 
 Je maakt bij natuurkunde een opdracht waarbij je meerdere keren per dag meet hoeveel water er is gevallen. Je begint om 9 uur 's ochtends en met tot en met 4 uur 's middags, waarbij je elk half uur meet. Maak een array `d`: deze moet de meetmomenten bevatten (dus 9 uur, halverwege 9 uur, 10 uur...). 
-
-Tip: net als de `range` functie kun je bij de `arange` functie ook een _stapgrootte_ aangeven.
 
 </details>
 
@@ -269,7 +260,7 @@ ax.plot(temperatuur)
 
 De temperatuur is nu een lijn in de grafiek `ax` in het plaatje `fig`. Om het plaatje te bekijken, is het volgende nodig:
 ```python
-plt.show(block = True)
+plt.show()
 ```
 
 ---
@@ -286,7 +277,7 @@ Maak een grafiek van de temperatuur, door alle bovenstaande stappen te combinere
 <details>
 <summary>Opdracht</summary>
 
-In plaats van drie losse figuren te maken kun je ze ook combineren in één *plot*. Maak dit keer maar een figuur en gebruik drie keer `ax.plot()` om alle drie de lijnen bij elkaar te stoppen. Uiteraard ziet dit er wel minder handig uit.
+In plaats van drie losse figuren te maken kun je ze ook combineren in één *plot*. Maak dit keer maar één figuur en gebruik drie keer `ax.plot()` om alle drie de lijnen bij elkaar te stoppen. Uiteraard ziet dit er wel minder handig uit.
 
 </details>
 
@@ -374,7 +365,7 @@ Geef een van de drie de grafieken van de vorige opdracht een mooie opmaak. Gebru
 
 Probeer ook het domein en bereik van de assen van één grafiek in te stellen.
 
-**Let op**: voeg deze opmaak toe vóór de regel `plt.show(block = True)`. Want zodra je grafiekje zichtbaar wordt kun je de opmaak er niet meer van aanpassen.
+**Let op**: voeg deze opmaak toe vóór de regel `plt.show()`. Want zodra je grafiekje zichtbaar wordt kun je de opmaak er niet meer van aanpassen.
 
 </details>
 
@@ -432,7 +423,7 @@ trend = np.sqrt(jaren) - 1                            # trendlijn maken
 fig, ax = plt.subplots()              # figuur maken
 ax.plot(jaren, temp, 'k.')            # temperatuur plotten
 ax.plot(jaren, trend, 'r-')           # trendlijn plotten
-plt.show(block = True)
+plt.show()
 ```
 
 Maak de grafiek goed op.
@@ -465,14 +456,14 @@ Print los je voornaam en je achternaam door bovenstaande methode te gebruiken.
 
 </details>
 
-Nog twee extra trucs wat betreft het selecteren van elementen:
+Nog een extra trucje wat betreft het selecteren van elementen:
 ```python
-deel4 = start[:-3]          # selecteer alles behalve de laatste drie
 kwart = int(len(start) / 4) # bereken de lengte van een kwart (als integer)
 eerstekwart = start[:kwart] # selecteer alles tot een kwart van de totale lengte
+driekwart   = start[kwart:]   # selecteer alles na de eerste kwart
 ```
 
-Bij de laatste truc moet je heel erg opletten: als bijvoorbeeld de totale lengte 18 is, en je selecteert tot element $\frac{18}{4}$, komt er een error, want het element 4.5 bestaat niet. Daarom moet er een `int` van gemaakt worden.
+Let op: als bijvoorbeeld de totale lengte 18 is, en je selecteert tot element $\frac{18}{4}$, dan komt er een error, want het element 4.5 bestaat niet. Daarom moet er een `int` van gemaakt worden.
 
 ---
 
