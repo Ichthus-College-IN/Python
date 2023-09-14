@@ -440,26 +440,27 @@ Print de getallen -20 tot en met 100 met stappen van 10 door gebruik te maken va
 <details>
 <summary> Slotopdracht ⭐⭐</summary>
 
-Het spel Dungeons & Dragons gebruikt dobbelstenen met soms tot wel 20 zijden - veel meer dan de 6 die we normaal gewend zijn. Een klassieke vraag bij een dobbelsteen is: wat is de som van alle zijden? Dat wordt wel een vervelende som als je dat tot en met 20 gaat uitrekenen. We gaan daarom een programmaatje bouwen waarbij een gebruiker een getal kan invullen (het aantal zijden van de dobbelsteen), en het programma geeft als antwoord wat het aantal ogen is op zo'n dobbelsteen.
+Het spel Dungeons & Dragons gebruikt dobbelstenen met soms tot wel 20 zijden - veel meer dan de 6 die we normaal gewend zijn. Een klassieke vraag bij een dobbelsteen is: wat is de som van alle zijden? Dat wordt wel een vervelende som als je dat tot en met bijvoorbeeld 20 gaat uitrekenen. 
 
-Het programma stopt zodra de gebruiker een getal kleiner dan of gelijk aan 1 invoert (dat is namelijk geen dobbelsteen).
+We gaan daarom een programmaatje bouwen waarbij een gebruiker een getal kan invullen (het aantal zijden van de dobbelsteen), en het programma geeft als antwoord wat het aantal ogen is op zo'n dobbelsteen. Dus stel dat de gebruiker '11' invult, dan moet je programmaatje alle ogen op een 11-zijdige dobbelsteen optellen.
 
-Je moet daarvoor twee _loops_ gebruiken: een `while`-loop die zich herhaalt zolang de invoer groter is dan 1, en daar 'binnen' een `for`-loop die de som van alle zijden berekent. 
+Je kunt dit het beste als volgt aanpakken:
+- vraag als eerst aan de gebruiker om `input`: de hoeveelheid zijden op de dobbelsteen,
+- maak vervolgens een `range` waarin alle getallen zitten van 1 t/m het aantal zijden,
+- begin met een variabele `ogen = 0`,
+- tel vervolgens met een `for`-loop de ogen op alle zijden bij elkaar op (in de variabele `ogen`)
+- `print` het resultaat.
 
-De meeste onderdelen ben je al eerder tegengekomen:
-* Hoe je een `while`-loop maakt.
-* Hoe je een gebruiker om `input` vraagt, en hiervan een geheel getal maakt.
-* Hoe je een `for`-loop maakt..
-* Hoe je een `range` maakt (die je gebruikt in de `for`-loop).
+Is bovenstaande gelukt, dan is er nog één voorwaarde waar je programma aan moet voldoen:
+- na het printen van het resultaat vraag je de gebruiker elke keer opnieuw om invoer - dit stopt pas als de invoer kleiner of gelijk is aan 1 (een dobbelsteen met één zijde of minder is nogal nutteloos). Gebruik hiervoor een `while`-loop.
 
-Wel een hint voor het berekenen van het aantal ogen:
-
+Een hint voor het optellen van het aantal ogen:
 ```python
 ogen = 0
-# (schrijf deze regel zelf:) voor alle zijden van de dobbelsteen...
-    ogen = ogen + zijde   # 'zijde' is het aantal ogen op deze zijde, die tellen we op bij het totaal
-print(ogen)
+# (schrijf deze regel zelf:) voor alle zijden van de dobbelsteen:
+    ogen = ogen + zijde   # 'zijde' is het aantal ogen op deze zijde
 ```
+Let op: als je deze hint gebruikt moet je zelf de tweede regel bedenken/invullen. En met `zijde` wordt het aantal ogen op een zijde bedoeld.
 
 **Beoordeling:**
 * : niet ingeleverd / werkt totaal niet

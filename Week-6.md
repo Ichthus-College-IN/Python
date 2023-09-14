@@ -479,18 +479,17 @@ Bij de laatste truc moet je heel erg opletten: als bijvoorbeeld de totale lengte
 <details>
 <summary>Slotopdracht</summary>
 
-Maak gebruik van het bestand `mjlo-15_0.txt`. Hierin is voor elke sensor in een Meet je leefomgeving-kastje een kolom aanwezig met alle meetwaarden gedurende twee dagen.
+Maak gebruik van het bestand `Uplinks.csv` in de map `txt` op GitHub. Hierin is voor elke sensor in een Meet je leefomgeving-kastje een kolom aanwezig met alle meetwaarden gedurende twee dagen. Let op: de _delimiter_ in het bestand is de `;`.
 
-Maak drie plots:
-* Een plot met de temperatuur en luchtvochtigheid
+Maak twee plots:
 * Een plot met PM2.5 en PM10
 * Een plot naar keuze
 
-De plots voldoen aan de volgende voorwaarde:
-* Je gebruikt een x-as van 0 tot 24 uur
-* Je plot de eerste helft en tweede helft 'op dezelfde plek': dat betekent dat je beide helften op de as van 0 tot 24 uur plot, zodat je duidelijk de verschillen ziet tussen de twee dagen
-* Je gebruikt verschillende kleuren, strepen en/of labels zodat duidelijk is welke lijn wat betekent
-* Andere opmaak die je geleerd hebt die het duidelijk maakt wat je ziet in de grafiek
+De plots voldoen aan de volgende voorwaarden:
+* Je gebruikt een x-as van 0 tot 24 uur.
+* Je plot de eerste helft en tweede helft 'op dezelfde plek': dat betekent dat je beide helften op de as van 0 tot 24 uur plot, zodat je duidelijk de verschillen ziet tussen de twee dagen.
+* Je gebruikt verschillende kleuren, strepen, legenda en/of labels zodat duidelijk is welke lijn wat betekent.
+* Andere opmaak die je geleerd hebt die het duidelijk maakt wat je ziet in de grafiek.
 
 **Beoordeling:**
 * : niet ingeleverd / werkt totaal niet

@@ -40,7 +40,7 @@ Je kunt vier van de volgende sterren halen:
 * ⭐ er zijn knoppen om een paar standaardfiguren te maken: een driehoek, vierkant, zeshoek en achthoek.
 
 ## Opdracht B
-Je maakt een mooi overzicht van alle data van een sensorkastje van Meet je Leefomgeving. In de vorige opdracht maakte je een paar losse plaatjes met een enkele lijn erin, maar dat kan natuurlijk een stukje mooier: meerdere grafiekjes in één figuur, of meerdere lijnen in dezelfde grafiek, waardoor je goed verschillen of samenhang tussen sensoren kunt zien.
+Je maakt een mooi overzicht van alle data van een sensorkastje van Meet je Leefomgeving. In de vorige opdracht maakte je een twee losse plaatjes met een of twee lijnen erin, maar dat kan natuurlijk een stukje uitgebreider: meerdere grafiekjes in één figuur, waardoor je goed verschillen of samenhang tussen metingen kunt zien.
 
 ---
 

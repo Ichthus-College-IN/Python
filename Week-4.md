@@ -360,10 +360,10 @@ In dit voorbeeld gaan we een stuk code _matchen_ op de variabele `stoplicht`. In
 
 Maak een functie `uitvoeren`, met één argument: `regel`. Zet de volgende twee regels bovenaan in de functie:
 ```python
-commando = regel[0]
-argument = regel[1:]
+commando = regel[0]                 # de eerste letter van de regel
+argument = regel[1:].strip('\n')    # de rest, en strip de Enter
 ```
-Bouw in de functie een `match-case` constructie. Match op `commando`, met een `case` voor alle opties in de tabel met commando's. Voor nu print je in elke case het commando dat straks uitgevoerd moet worden. Vergeet niet de laatste case, voor alle andere opties.
+Bouw in de functie een `match-case` constructie. Match op `commando`, met een `case` voor alle opties in de tabel met commando's. Voor nu print je in elke case het commando dat straks uitgevoerd moet worden. Vergeet niet de laatste case: voor alle overige opties.
 
 Tip: let op alle dubbele punten en tabs die je moet gebruiken!
 </details>
@@ -393,7 +393,7 @@ case 'g':
 
 Kopieer bovenstaande cases, en maak de andere cases compleet! Stel dat een regel `"f100"` is, dan is het commando `"f"` en het argument `"100"`. Je turtle moet dan met 100 vooruit.
 
-Tip: je moet het argument nog omzetten van een string in een int (geheel getal). Dat kan met `int(argument)`.
+Tip: als het argument een getal moet zijn, moet je het nog omzetten van een string naar een float (kommagetal). Dat kan met `float(argument)`.
 
 </details>
 
