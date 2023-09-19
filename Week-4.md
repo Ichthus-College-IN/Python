@@ -395,6 +395,21 @@ Kopieer bovenstaande cases, en maak de andere cases compleet! Stel dat een regel
 
 Tip: als het argument een getal moet zijn, moet je het nog omzetten van een string naar een float (kommagetal). Dat kan met `float(argument)`.
 
+Test je functie met het volgende stukje code:
+```python
+import turtle
+t = turtle.Turtle()
+
+# zet hier jouw functie uitvoeren(regel) neer
+
+uitvoeren("f100")
+uitvoeren("l90")
+uitvoeren("c200,180")
+uitvoeren("r270")
+uitvoeren("b-100")
+
+turtle.mainloop()
+```
 </details>
 
 ---
@@ -404,7 +419,9 @@ Tip: als het argument een getal moet zijn, moet je het nog omzetten van een stri
 
 Op GitHub staat een bestand genaamd `tekening.txt`. Maak in de map met je script een bestand met dezelfde naam. Kopieer de inhoud van het GitHub bestand en sla het op in je eigen bestand.
 
-Open vervolgens in het script het bestand, en voer voor elke regel in het bestand de functie `uitvoeren` uit. Als je alles goed hebt gedaan krijg je een plaatje in beeld. Lukt het niet? Kijk dan of je een error ziet die je begrijpt. Werkt je script / zie je een goed plaatje? Probeer dan ook `tekening2.txt`. 
+Open vervolgens in het script het bestand, en voer voor elke regel in het bestand de functie `uitvoeren` uit. Hiervoor kun je terugkijken naar een paar opdrachten terug: gebruik een `for`-loop: voor elke regel in het bestand moet je jouw functie uitvoeren met die regel.
+
+Als je alles goed hebt gedaan krijg je een plaatje in beeld. Lukt het niet? Kijk dan of je een error ziet die je begrijpt. Werkt je script / zie je een goed plaatje? Probeer dan ook `tekening2.txt`. 
 
 Tip: stel vóór het tekenen de snelheid van je turtle in op maximaal: `t.speed(10)`. Anders ben je (zeker met het laatste bestand) lang aan het wachten...
 
