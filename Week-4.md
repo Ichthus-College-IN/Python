@@ -324,7 +324,7 @@ De eerste letter van elke regel is het commando dat uitgevoerd moet worden. De m
 |`l`|`left`      |
 |`r`|`right`     |
 |`o`|`dot`       |
-|`s`|`start_fill`|
+|`s`|`begin_fill`|
 |`e`|`end_fill`  |
 |`p`|`pencolor`  |
 |`i`|`fillcolor` |
@@ -376,14 +376,14 @@ case 'i':
     t.fillcolor(argument)
 case 'c':
     (rad, deg) = argument.split(',')
-    t.circle(int(rad), int(deg))
+    t.circle(float(rad), float(deg))
 case 'u':
     t.up()
 case 'd':
     t.down()
 case 'g':
     (x, y) = argument.split(',')
-    t.goto(int(x), int(y))
+    t.goto(float(x), float(y))
 ```
 
 ---
