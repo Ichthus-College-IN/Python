@@ -128,54 +128,16 @@ Je ziet hier een paar nieuwe dingen:
 * Een variabele mag langer zijn dan één letter (in theorie kun je een oneindig lange naam gebruiken).
 * Tekst moet je invoeren tussen enkele (`'`) of dubbele  (`"`) apostrofs - allebei mag!
 
-Je kunt strings aan elkaar plakken:
-```
-tekst2 = "Hello, " + "world!"
-tekst2 = "Hello" + ", " + "world" + "!"
-```
-
 ---
 
 <details>
 <summary>Opdracht</summary>
 
-Sla je voornaam en je achternaam allebei op in een variabele met passende naam. Maak vervolgens een variabele `naam` die bestaat uit je voor- en achternaam aan elkaar. Controleer of je naam klopt (eventueel moet je er een spatie bij plakken).
+Sla je voornaam en je achternaam allebei op in een variabele met passende naam. Maak vervolgens een variabele `naam`: dit is je voornaam plus je achternaam. (Plus? Ja: een `+`.) Controleer of je naam klopt (eventueel moet je er een spatie bij plakken).
 
 </details>
 
 ---
-
-Hoe lang is jouw naam?
-```
->>> len(naam)
-```
-Weer een paar nieuwe dingen
-* `len(...)` is een functie - net zoals in wiskunde `f(x)` een functie is.
-* Een functie herken je aan de _ronde_ haken die om de inhoud (officieel 'argumenten') heen staan.
-* De lengte van een string is het aantal karakters, inclusief spaties, leestekens of getallen die in de tekst kunnen staan.
-
-Je kunt ook mix-and-matchen:
-```
->>> klas = "H5F"
->>> "Ik zit in klas " + klas
-'Ik zit in klas H5F'
-```
-
-*Let op!* Je kunt alleen items van hetzelfde _type_ mixen. Het volgende werkt niet:
-```
->>> age = 16
->>> "I am " + age + " years old"
-Traceback (most recent call last):
-  File "<stdin>", line 1, in <module>
-TypeError: can only concatenate str (not "int") to str
-```
-Lees de error: `can only concatenate str (not "int") to str`. Vertaald is dit: je kunt alleen een string aan een string toevoegen (to concatenate), je kunt geen integer (getal) toevoegen.
-
-Je moet dan het getal specifiek omzetten in een string. Dat kan met de functie `str()`:
-```
->>> "I am " + str(age) + " years old"
-'I am 16 years old'
-```
 
 Je kunt een paar grappige functies uitvoeren op strings, zoals:
 ```
@@ -185,64 +147,92 @@ Je kunt een paar grappige functies uitvoeren op strings, zoals:
 >>> school.count('e')
 >>> school.find('t')
 ```
-Je ziet wat nieuws:
-* Een variabele kan functies hebben die specifiek zijn voor dat _type_. Dan gebruik je die functie door `<variabele>.<functie>(...)` te typen, met `<variabele>` de naam van jouw variabele, en `<functie>` de naam van je functie met eventuele argumenten tussen de haakjes.
 
 ---
 
 <details>
 <summary>Opdracht</summary>
 
-Test de bovenstaande functies op het voorbeeld, en/of op je eigen naam. Wat doen de functies `count()` en `find()`? 
+Test de bovenstaande functies op het voorbeeld of op je eigen naam. Wat doen de functies `count()` en `find()`? 
 
-Kun je vinden wat er 'fout' lijkt met de `find()` functie? Je leert straks waarom het wél klopt voor de computer. (Let op: zoek wel een letter die in de tekst staat.)
+Kun je vinden wat er 'fout' lijkt met de `find()` functie? Tel namelijk de letters maar eens goed. Je leert straks waarom het wél klopt voor de computer. (Let op: zoek wel een letter die in de tekst staat.)
+
+</details>
+
+---
+
+<details>
+<summary>Opdracht</summary>
+
+Hieronder zie je de inhoud van Johannes 3:16. Sla deze tekst op in een variabele. Tel vervolgens hoe vaak de letter 'e' voorkomt in deze tekst.
+
+```python
+"Want zo lief heeft God de wereld gehad, dat Hij Zijn eniggeboren Zoon gegeven heeft, opdat ieder die in Hem gelooft, niet verloren gaat, maar eeuwig leven heeft."
+```
+
+Deze tekst heeft een lengte van 130 letters. Bereken het percentage 'e's dat voorkomt in deze tekst. Op [deze website](https://onzetaal.nl/taalloket/letterfrequentie-in-het-nederlands) zie je de gemiddelde 'letterfrequentie' in het Nederlands. Hoe ver zit het er vanaf? Bereken ook nog twee andere letters.
 
 </details>
 
 ---
 
 ## Lijsten: een verzameling
-Je zult best vaak momenten tegenkomen waarbij je een lijst hebt van getallen (als je bijvoorbeeld een grafiek tekent) of een lijst van woorden / zinnen (als je een document opent - ja, dat kan ook!). Een lijst - _list_ - kun je herkennen aan de vierkante blokhaken:
+Je zult best vaak momenten tegenkomen waarbij je een lijst hebt van getallen (bijvoorbeeld de cijfers op een dobbelsteen) of een lijst van woorden of zinnen (als je een tekstdocument opent - ja, dat kan ook!). Een lijst - _list_ - kun je herkennen aan de vierkante blokhaken:
 ```python
->>> lst1 = [10, 11, 12, 13, 14, 15]
+>>> lst1 = [4, 6, 9, -2, 0, 3]
 >>> lst2 = ["a", "b", 'c', 'abc', "test"]
 ```
 
-Net als een string, heeft een list een lengte: het aantal items in de lijst.
+Je kunt bij een lijst een specifiek element opvragen met behulp van een _index_. Elke type met een lengte (zoals een _list_ en een _string_) kun je _indexen_. Je herkent een index aan de vierkante haken achter een variabele:
+```
+>>> lst1[0]
+4
+>>> lst1[5]
+3
+>>> lst2[1]
+'b'
+```
+
+> [!IMPORTANT]
+> Een computer begint met tellen bij 0! Om het eerste element te zien, met je dus `[0]` opvragen. Het tweede element krijg je dan met `[1]`, enzovoorts.
 
 ---
 
 <details>
 <summary>Opdracht</summary>
 
-Maak een variabele `totale_lengte`: deze heeft als waarde de lengte van beide lijsten opgeteld. Hint: `len(...)`. Controleer uiteraard of je antwoord klopt!
+Een dobbelsteen heeft de getallen 1 t/m 6. Maak daarvoor een lijst aan met de naam `dice` (Engels voor dobbelsteen). Tel alle items in de lijst bij elkaar op door gebruik te maken van de blokhaken. Een kleine tip:
+
+```python
+dice[0] + ...
+```
+
+Reken zelf na of je het goede antwoord krijgt.
 
 </details>
 
 ---
 
-Je kunt bij een lijst een specifiek element opvragen met behulp van een _index_. Elke type met een lengte (zoals een _list_ en een _string_) kun je _indexen_. Je herkent een index aan de vierkante haken achter een variabele:
-```
->>> lst1[0]
-10
->>> lst1[5]
-15
->>> lst2[1]
-'b'
->>> lst2[2:5]
-['c', 'abc', 'test']
+### Random keuzes
+Als je een dobbelsteen gooit, komt daar natuurlijk een willekeurig getal van 1 t/m 6 uit. In Python kunnen we ook een random item uit een lijst trekken:
+
+```python
+>>> import random
+>>> random.choice(dice)
 ```
 
-Er valt weer wat op:
-* Een computer begint met tellen bij 0! Om het eerste element te zien, met je dus `[0]` opvragen. Het tweede element krijg je dan met `[1]`, enzovoorts.
-* Je kunt meerdere elementen in één keer opvragen met `[start:end]`. Je krijgt dan de elementen _vanaf_ de start _tot_ (niet tot en met!) _end_. Wat je dus terugkrijgt is een deel van de lijst - de vierkante haken geven aan dat je een lijst krijgt.
+> [!NOTE]
+> `import` betekent eigenlijk dat je een plug-in toevoegt. Heel veel mensen hebben plug-ins geschreven voor Python die allerlei extra functies toevoegen. Zoals de optie om een `random` `choice` te doen uit een lijst.
 
 ---
 
 <details>
 <summary>Opdracht</summary>
 
-Sla je volledige naam weer op in de variabele `naam`. Vraag vervolgens alleen precies je voornaam op met behulp van de `[.. : ..]` methode, en vervolgens alleen precies je achternaam.
+Rol jouw dobbelsteen vijf keer door dezelfde regel te herhalen
+
+> [!TIP]
+> Met de toets 'Pijltje omhoog' kun je de vorige regel tevoorschijn halen zonder het nog een keer te hoeven typen. Zo kun je de dobbelsteen dus makkelijk een heel aantal keer rollen!
 
 </details>
 
@@ -251,62 +241,66 @@ Sla je volledige naam weer op in de variabele `naam`. Vraag vervolgens alleen pr
 Ook lists hebben een paar ingebouwde functies, waaronder:
 ```
 >>> lst1.append(100)
->>> lst1
->>> lst2.insert(0, "hallo")
->>> lst2
->>> lst2.pop(0)
->>> lst2
+>>> lst1.remove(3)
 ```
 Deze functies doen het volgende:
-* `append()` voegt een item toe aan het einde van de lijst
-* `insert()` voegt een item toe vóór de index die je aangeeft (in het voorbeeld is die index 0)
-* `pop()` verwijdert het item op de index die je aangeeft, en vertelt je wat er staat (in het voorbeeld is dat index 0)
+* `append()` voegt een item toe aan het einde van de lijst.
+* `remove()` verwijdert het item als die aanwezig is; als die niet aanwezig is krijg je een foutmelding.
 
 ---
 
 <details>
 <summary>Opdracht</summary>
 
-Stel: je hebt een slimme koelkast. Er zijn tegenwoordig varianten die automatisch een boodschappenlijstje kunnen presenteren, omdat ze weten wat er uit de koelkast verdwenen is.
-
-Na het bijvullen van de boodschappen, is het boodschappenlijstje leeg:
+In het spel Risk heeft de aanvallende speler drie dobbelstenen, de verdediger twee. Maak twee lege lijsten:
 ```python
-lijstje = []
+speler1 = []
+speler2 = []
 ```
+Er zit nog niets in deze lijst.
 
-Werk de volgende gebeurtenissen af door gebruik te maken van `lijstje.append(..)`, `lijstje.insert(..)` en `lijstje.pop(..)`.
-* Na verloop van tijd blijkt dat de melk en boter op zijn. Voeg deze toe aan het lijstje, zodat de melk vooraan staat en de boter erachter. 
-* Na een tijdje blijkt dat de eieren ook op zijn. Deze liggen vooraan in de winkel, dus voeg ze voorin het lijstje toe. 
-* Nog wat later is ook de kipfilet op. Voeg deze toe aan het einde van het lijstje.
-* Bij de lokale kippenboer haal je eieren. Dit specifieke item moet dus weer van het lijstje verwijderd worden.
-
-Hoe ziet de uiteindelijke lijst eruit?
+Gooi drie keer een dobbelsteen, en voeg het resultaat in in de lijst voor speler 1. Doe hetzelfde voor speler 2. 
 
 </details>
 
 ---
 
+<details>
+<summary>Opdracht</summary>
+
+De volgende spelregels gelden voor de dobbelstenen in Risk:
+
+* De beste dobbelsteen van de aanvaller wordt vergeleken met de beste dobbelsteen van de verdediger. 
+* Daarna de tweede dobbelsteen van de aanvaller met de tweede dobbelsteen van de verdediger. 
+* Telkens wint de speler met het hoogste aantal ogen. Wanneer dat aantal gelijk is, wint de verdediger.
+
+Verwijder bij beide spelers de geworpen dobbelstenen die niet meetellen. (In totaal moet je dus twee dobbelstenen verwijderen.)
+
+</details>
+
+---
 
 ## Deel 2: tekenen met een schildpad
 
-De allereerste basis is nu klaar! Tijd voor wat anders: we gaan plaatjes tekenen met een schildpad. Ja, echt.
+Tijd voor wat anders: we gaan plaatjes tekenen met een schildpad. Ja, echt.
 
-```
+```python
 import turtle
 t = turtle.Turtle()
 ```
 *Let op!* Vanaf nu staat er niet meer elke keer `>>>` aan het begin van de regel. Ondertussen snappen we wel dat dat er staat.
 
-Je ziet nieuwe dingen:
-* `import` betekent dat we dingen toevoegen aan de Python sessie die niet écht standaard in Python zitten. Andere mensen hebben dan een soort 'plugin' gemaakt voor Python die jij makkelijk kunt toevoegen. (Je kunt ze ook zelf maken, maar dat bespreken we niet.)
-* We voeren uit de 'plugin' `turtle` de functie `Turtle` uit. Die functie maakt een schildpad, die we opslaan in de variabele `t`.
+> [!NOTE]
+> Je importeert weer een soort van plug-in, namelijk eentje om mee te tekenen.
+
+We voeren van `turtle` de functie `Turtle` uit. Die functie maakt een schildpad, die we opslaan in de variabele `t`.
 
 ---
 
 <details>
 <summary>Opdracht</summary>
 
-Voer bovenstaande twee regels uit. Bij de tweede regel zie je in de taakbalk onderin een nieuw icoon tevoorschijn komen. Maak je scherm splitscreen zodat je alles in beeld krijgt. Pro-tip: de opdrachten op de ene helft, het _turtle_ scherm boven op de andere helft, de Python _terminal_ onder op die helft.
+Voer bovenstaande twee regels uit. Bij de tweede regel zie je in de taakbalk onderin een nieuw icoon tevoorschijn komen. Maak je scherm splitscreen zodat je alles in beeld krijgt. Pro-tip: de opdrachten op de ene helft, het _turtle_ scherm bovenin de andere helft, de Python _terminal_ onder in die helft.
 
 </details>
 
@@ -348,10 +342,11 @@ t.left(90)      # 90 graden naar links draaien
 t.left(-45)     # 45 graden naar rechts draaien
 t.right(180)    # 180 graden naar rechts draaien
 ```
-Je ziet iets nieuws:
-* Commentaar (ofwel _comments_)! Je herkent ze aan de `#` - alles achter de `#` wordt genegeerd door Python: je kunt dit gebruiken om uitleg te geven bij een regel. Mocht je het wel 'per ongeluk' invoeren, gaat er niks mis!
-* Je hoeft commentaar echt niet te kopiëren of in te voeren nu, maar we gebruiken ze vanaf nu geregeld voor uitleg bij de code zelf. Later zul je je eigen code ook hier en daar moeten uitleggen met behulp van _comments_.
 
+> [!TIP]
+> Je ziet iets nieuws:
+> * Commentaar (ofwel _comments_)! Je herkent ze aan de `#` - alles achter de `#` wordt genegeerd door Python: je kunt dit gebruiken om uitleg te geven bij een regel. Mocht je het wel 'per ongeluk' invoeren, gaat er niks mis!
+> * Je hoeft commentaar echt niet te kopiëren of in te voeren nu, maar we gebruiken ze vanaf nu geregeld voor uitleg bij de code zelf. Je kunt ze ook zelf gebruiken als geheugensteuntje bij je eigen code.
 
 Makkelijke afkortingen:
 ```python
@@ -367,6 +362,9 @@ t.undo()        # laatste actie ongedaan maken
 t.clear()       # alle strepen verwijderen, maar de turtle laten staan
 t.reset()       # helemaal opnieuw beginnen
 ```
+
+> [!CAUTION]
+> Vergeet niet de haakjes elke keer toe te voegen. Je voert namelijk een _functie_ uit (later leer je daar meer over) - net als bij wiskunde heeft een functie altijd haakjes (zoals bij `y = f(x)`).
 
 ---
 
@@ -388,15 +386,36 @@ Maak een huisje zoals je die als kind altijd tekent: een rechthoek of vierkant m
 
 ---
 
+<details>
+<summary>Opdracht</summary>
 
-Om naar een specifieke plek op het scherm te gaan, is de volgende functie beschikbaar:
+Maak een vijfpuntige ster. (Tip: gebruik hoeken van 145 graden.)
+
+</details>
+
+---
+
+
+## Cirkels
+Je kunt ook cirkels (of delen van cirkels maken):
 ```python
-t.goto(x, y)        # ga naar het punt (x, y)
-t.goto(-50, 10)     # ga naar het punt (-50, 10)
-t.home()            # ga naar het punt (0, 0)
-t.position()        # huidige (x, y)-coordinaten weergeven
-t.pos()             # korte alias van .position()
+t.circle(radius, extent)
+t.circle(50)                # cirkel met r = 50
+t.circle(30.5, 180)         # halve cirkel (180 graden) met r = 30.5
 ```
+
+**Let op**! Het startpunt van de cirkel is de huidige positie, waarna de pen linksom de cirkel maakt. Je kunt de cirkel ook rechtsom maken door een negatieve straal in te vullen, bijvoorbeeld `t.circle(-20)`.
+
+--- 
+
+<details>
+<summary>Opdracht</summary>
+
+Maak een hartje! De makkelijkste manier: begin met de turtle op 45 graden, dan een lijnstuk, vervolgens twee halve cirkels, en dan weer een lijnstuk. Vogel zelf uit hoe het precies moet!
+
+</details>
+
+---
 
 Zolang je pen op het papier staat, wordt er ook een lijn naar die plek getekend. Als je wilt voorkomen dat er een lijn komt te staan, kun je de pen optillen en later weer neerzetten:
 ```python
@@ -404,55 +423,21 @@ t.up()
 t.down()
 ```
 
----
+Daarnaast kun je ook met kleurtjes tekenen. De makkelijkste manier is met standaardnamen:
 
-<details>
-<summary>Opdracht</summary>
-
-Maak de Joodse ster na.
-
-</details>
-
----
-
-
-## Punten en cirkels
-Een punt maak je zo:
 ```python
-t.dot(radius, color)
-t.dot(10)           # een punt met straal 10
-t.dot(20, "blue")   # een blauwe punt met straal 20
-t.dot(5, "#15F204") # een (hexadecimaal) groene punt met straal 5
+t.color("orange")
+t.color("magenta")
 ```
 
-Voor een cirkel zijn er de volgende opties:
-```python
-t.circle(radius, extent, steps)
-t.circle(50)                # cirkel met r = 50
-t.circle(30.5, 180)         # halve cirkel met r = 30.5
-t.circle(100, steps = 5)    # cirkel met r = 100 en 5 lijnstukken
-t.circle(40, 270, 50)       # driekwart cirkel met r = 40 en 50 lijnstukken
-```
-
-**Let op**! Het startpunt van de cirkel is de huidige positie, waarna de pen linksom de cirkel maakt. Je kunt de cirkel ook rechtsom maken door een negatieve straal in te vullen, bijvoorbeeld `t.circle(-20)`.
-
 ---
 
 <details>
-<summary>Opdracht</summary>
+<summary>Slotopdracht</summary>
 
-Maak het logo van Audi.
+Maak het logo van de Olympische Spelen (of doe een zo goed mogelijke poging -  de ringen van de Olympische Spelen overlappen elkaar op een manier die je niet makkelijk kunt namaken, dat mag je laten zitten).
 
-Tip: maak gebruik van `.up()`, `.down()` en `.goto()` om naar andere plekken op het scherm te gaan zonder lijnen te tekenen. En gebruik `.undo()` als je een fout maakt.
-
-</details>
-
----
-
-<details>
-<summary>Slotopdracht ⭐</summary>
-
-Maak een hartje! De makkelijkste manier: begin met de turtle op 45 graden, dan een lijnstuk, vervolgens twee halve cirkels, en dan weer een lijnstuk. Vogel zelf uit hoe het precies moet!
+Tip: maak gebruik van `.up()` en `.down()` om naar andere plekken op het scherm te gaan zonder lijnen te tekenen. En gebruik `.undo()` als je een fout maakt.
 
 Laat je resultaat aan de docent zien.
 
