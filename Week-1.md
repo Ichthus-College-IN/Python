@@ -350,10 +350,10 @@ t.right(180)    # 180 graden naar rechts draaien
 
 Makkelijke afkortingen:
 ```python
-t.fd(..)        # tussen de haakjes uiteraard nog wel een getal invullen
-t.bk(..)
-t.lt(..)
-t.rt(..)
+t.fd(_)        # tussen de haakjes uiteraard nog wel een getal invullen
+t.bk(_)
+t.lt(_)
+t.rt(_)
 ```
 
 Als je fouten hebt gemaakt kun je de volgende commando's gebruiken:
@@ -399,7 +399,6 @@ Maak een vijfpuntige ster. (Tip: gebruik hoeken van 145 graden.)
 ## Cirkels
 Je kunt ook cirkels (of delen van cirkels maken):
 ```python
-t.circle(radius, extent)
 t.circle(50)                # cirkel met r = 50
 t.circle(30.5, 180)         # halve cirkel (180 graden) met r = 30.5
 ```
