@@ -265,7 +265,7 @@ m = 2.78
 z = [k, l, m]
 ```
 
-> ![NOTE]
+> [!NOTE]
 > De laatste variant hadden we nog niet besproken: je kunt een lijst maken met daarin variabelen.
 
 
