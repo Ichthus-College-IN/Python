@@ -1,4 +1,103 @@
 # Week 4.1
+
+
+Straks gaan we werken met data-bestanden. Je werkt namelijk meestal niet met losse getallen, letters of woorden, maar met een hele bak aan data. Denk aan meetwaarden of lappen tekst, of als je een app bouwt aan alle gebruikers of posts. Daarvoor zijn eerst nog wat andere onderdelen handig.
+
+## Werken met tekst
+We gaan aan de slag met strings: stukken tekst. Het eerste voorbeeld was `"Hello world"`. Maar er zijn ook veel langere stukken tekst. De standaard opvultekst die eigenlijk nergens op slaat is *Lorem ipsum*:
+```python
+lorem = """Lorem ipsum dolor sit amet. Non itaque architecto qui expedita voluptas eum natus totam. Est mollitia voluptatem aut deleniti labore hic dolore vero aut suscipit vitae aut animi officiis aut possimus nobis. Rem dignissimos repellat id internos quis et voluptatem cupiditate non rerum nulla qui tenetur quaerat et officiis molestiae.
+Et dolores temporibus a voluptatum autem ut autem impedit. Eum iste assumenda in reprehenderit consequatur est minima iusto aut quod perferendis aut dolorum culpa.
+Vel atque dicta est exercitationem recusandae et dolor voluptatibus. Ea alias placeat non sint molestias est amet dolores  adipisci sunt et quis veniam et voluptatibus pariatur non voluptas quia."""
+```
+
+**Let op**: tot nu toe ken je de driedubbele apostrof als commentaar. Dat is inderdaad hoe je meerdere regels commentaar kunt maken, maar je kunt het ook opslaan in een variabele!
+
+---
+
+<details>
+<summary>Opdracht</summary>
+
+Print `lorem`.
+</details>
+
+---
+
+Je kunt de lengte van een string opvragen: Python telt dan hoeveel karakters (letters / spaties / cijfers / symbolen) er in je string zitten.
+```python
+print(len(lorem))       # lorem is 692 karakters lang
+```
+
+Er zijn een aantal handige dingen die je kunt doen met strings. Een daarvan is het splitsen op bepaalde karakters:
+```python
+gesplitst = lorem.split(' ')
+```
+
+De tekst wordt gesplitst op het karakter `' '`: een spatie.
+
+---
+
+<details>
+<summary>Opdracht</summary>
+
+Print `gesplitst`. Wat is `gesplitst` voor iets (welk *datatype* heeft het)? Maak gebruik van een `for`-loop om elk element in `gesplitst` te printen.
+</details>
+
+---
+
+<details>
+<summary>Opdracht</summary>
+
+Splits `lorem` op het karakter `'\n'`. Print het resultaat van het splitsen en kijk goed: waarop is er gesplitst? Wat betekent `\n` dus?
+</details>
+
+---
+
+Een ander geintje is `replace()`:
+```python
+vervangen = lorem.replace('o', '0') # vervang alle letters o door het cijfer 0
+vervangen2 = lorem.replace(' ', '') # vervang alle spaties door niets (verwijder dus alle spaties)
+```
+
+De eerste regel laat zien hoe je losse karakters kunt vervangen. De tweede regel is eigenlijk een soort verwijderen: we vervangen de spatie door een leeg karakter. 
+
+Tip: achter `.replace()` kun je gewoon nog een keer `.replace()` zetten om ook een ander karakter te vervangen.
+
+---
+
+<details>
+<summary>Opdracht</summary>
+
+Maak gebruik van de volgende tekst:
+```python
+tekst = "HET VAK INFORMATICA IS HET LEUKSTE VAK DAT OP HET ICHTHUS GEGEVEN WORDT (DAT IS EEN FEIT). DAT KOMT NATUURLIJK OOK DOOR DE LEERLINGEN: ZE ZIJN IJVERIG AAN HET PROGRAMMEREN EN MAKEN HET ALTIJD GEZELLIG."
+```
+Vervang zoveel mogelijk letters door cijfers, waarna de tekst toch nog te lezen is (gebruik minimaal de 1, 2, 3 en 4). Of je schrijft zelf een tekst die je aan je buren laat lezen nadat je letters vervangen hebt door cijfers.
+
+</details>
+
+---
+
+Je kunt ook stukken tekst 'aan elkaar lijmen'. Een stukje terug werd `lorem` gesplitst op de spaties. Je kunt dat vervolgens weer op deze manier weer een normale tekst maken:
+```python
+gelijmd = ' '.join(gesplitst)
+```
+
+Alle elementen in `gesplitst` worden ge`join`ed met een spatie (`' '`).
+
+---
+
+<details>
+<summary>Opdracht</summary>
+
+Pak de tekst waarbij je gesplitst hebt op het teken `\n` (dat is een *newline*) van een enkele opdracht terug. `join` de losse zinnen met een dubbele Enter zodat het echt losse alinea's worden. (Hint: je kunt `\n\n` gebruiken om twee Enters te maken.)
+
+</details>
+
+---
+
+
+## Terug naar de schildpad
 Na een poos bezig geweest te zijn met letters en teksten, gaan we nog even terug naar het tekenen met de schildpad. We hebben meer dingen geleerd waardoor het makkelijker wordt om figuurtjes te tekenen.
 
 Importeren:
