@@ -17,7 +17,7 @@ Wanneer je dit stukje code uitvoert, zal de computer de gebruiker om een naam vr
 ---
 
 <details>
-<summary>Opdracht</summary>
+<summary>Opdracht 3.1</summary>
 
 Vraag de gebruiker naar zijn of haar favoriete eten en sla dit op in een variabele. Toon dit daarna op het scherm met een zin zoals "Je favoriete eten is ...".
 
@@ -33,7 +33,7 @@ Vul op de plek van de underscores `_` de goede dingen.
 ---
 
 <details>
-<summary>Opdracht</summary>
+<summary>Opdracht 3.2</summary>
 
 Vraag de gebruiker achtereenvolgens om twee getallen: de kolom en een rij waarin ze een vakje willen plaatsen voor boter-kaas-en-eieren.
 
@@ -65,7 +65,7 @@ print("Volgend jaar ben je " + str(volgend_jaar) + " jaar!")
 ---
 
 <details>
-<summary>Opdracht</summary>
+<summary>Opdracht 3.3</summary>
 
 Vraag de gebruiker achtereenvolgens om twee getallen: de kolom en een rij waarin ze een vakje willen plaatsen voor boter-kaas-en-eieren. Bereken de volgende _index_: `kolom * 3 + rij`. Print het resultaat hiervan. Je kunt de vorige oefenopdracht hergebruiken en aanpassen. Dit getal zal straks van pas komen.
 
@@ -91,7 +91,7 @@ print(bord)
 ---
 
 <details>
-<summary>Opdracht</summary>
+<summary>Opdracht 3.4</summary>
 
 Vraag de gebruiker weer om de kolom en de rij. Bereken vervolgens de _index_ zoals in de vorige opdracht, en zet op die plek een "X": speler 1 noteert daar een kruis. Gebruik een `for`-loop, zodat speler 1 drie keer een kruisje opschrijft. Nog niet een heel eerlijk spel; dat komt zometeen.
 
@@ -123,48 +123,126 @@ voorstellen()
 ```
 > [!NOTE]
 > * Een functie herken je aan het woord `def`.
-> * Je kunt de functie elke naam geven die je wilt, net als een variabele. Let wel op dat je hem niet de naam geeft van een ingebouwde functie als `len`: dan snapt Python het niet meer.
+> * Je kunt de functie elke naam geven die je wilt, net als een variabele.
 
 ---
 
 <details>
-<summary>Opdracht</summary>
+<summary>Opdracht 3.5</summary>
 
-Maak een functie met de naam `keer4`. Deze functie krijgt één _argument_ met de naam `getal`, en doet het volgende: hij print het getal keer 4.
+Je komt op een uiterst traditionele kringverjaardag waar de familie van een vriend aanwezig is. Tijd voor een voorstelrondje: elke keer als iemand zich voorstelt, stel jij je voor met behulp van de functie `voorstellen`:
 
-Test je functie met de volgende regels:
 ```python
-keer4(3)        # dit moet 12 printen
-keer4(10)       # dit moet 40 printen
-keer4("Hoi")    # wat print dit?
+print("Hoi, ik ben Daphne")
+_
+print("Hoi, ik ben Fleur")
+_
+print("Hoi, ik ben Daan")
+_
+print("Hoi, ik ben Ezra")
+_
 ```
 
 </details>
 
 ---
 
-Een functie kan ook meer dan één argument krijgen:
+Om de groet iets persoonlijker te maken, kunnen we de functie _argumenten_ meegeven. Zie het voorbeeld:
+
 ```python
-def hele_naam(voor, achter):
-    print("Jouw naam is:")
-    print(voor + achter)
+def persoonlijke_groet(ander, ik, leeftijd):
+    print("Hey", ander)
+    print("Mijn naam is", ik)
+    print("Ik ben", leeftijd, "jaar oud")
+```
+
+Je ziet hier twee _argumenten_: `ander` en `ik`. Ook dit zijn variabelen waarvan je de naam zelf mag kiezen. Deze variabelen bestaan alleen _binnen_ de functie, dus alles 'onder' de `def` waar een inspringing/tab voor staat.
+
+Je kunt de functie dan bijvoorbeeld als volgt gebruiken:
+```python
+persoonlijke_groet("Jip", "Janneke", 15)
 ```
 
 ---
 
 <details>
-<summary>Opdracht</summary>
+<summary>Opdracht 3.6</summary>
 
-Maak een functie met de naam `vermenigvuldig`. Deze functie krijgt twee argumenten: `a` en `b`.Hij moet het volgende doen: hij print _a×b_.
-
-Test je functie met de volgende regels:
+Er komen nog wat opa's en oma's binnen op het feestje. Je groet ze wat persoonlijker:
 ```python
-vermenigvuldig(3, 2)            # dit moet 6 printen
-vermenigvuldig(10, 10)          # dit moet 100 printen
-vermenigvuldig("Hallo", 3)      # wat print dit?
-vermenigvuldig("Hallo", "Hoi")  # wat print dit?
+print("Ha, dit is oma")
+_
+print("Goedenavond, opa hier")
+_
 ```
 
 </details>
 
 ---
+
+## Onderweg naar de slotopdracht
+Tijd om een functie te bekijken voor de slotopdracht van dit hoofdstuk.
+
+```python
+def teken_bord(bord):
+    print(bord[0] + " | " + bord[1] + " | " + bord[2])
+    print("---------")
+    print(bord[3] + " | " + bord[4] + " | " + bord[5])
+    print("---------")
+    print(bord[6] + " | " + bord[7] + " | " + bord[8])
+
+bord = [" ", " ", " ", " ", " ", " ", " ", " ", " "]
+teken_bord(bord)
+```
+
+---
+
+<details>
+<summary>Opdracht 3.7</summary>
+
+Teken het spelbord door het voorbeeld hierboven uit te voeren.  
+Pas vervolgens het spelbord aan: plaats drie kruisjes op de middelste kolom (dus van boven naar beneden). Let goed op welke vakjes van het bord je daarvoor moet gebruiken! Teken het spelbord om jezelf te controleren.
+
+</details>
+
+---
+
+## De slotopdracht 3
+Maak boter-kaas-en-eieren!
+
+1. Begin met een nieuw bestand, en sla deze alvast op als `slotopdracht3.py`.
+1. In opdracht 3.4 heb je geoefend om een speler drie keer een zet te laten maken. Pak deze code erbij als basis, vul hem weer aan waar nodig en test het.
+1. Teken het bord op de manier zoals je in opdracht 3.7 hebt geoefend, in plaats van het 'oude' `print(bord)`.
+1. Voeg code toe voor een tweede speler, zodanig dat ze allebei omstebeurt een zet maken (dus in de volgorde 1-2 - 1-2 - 1-2). Zorg er uiteraard voor dat de tweede speler een ander symbool op het bord zet dan de eerste!
+1. Hoe vaak moet je de `for`-loop herhalen voor het geval dat alle hokjes getekend moeten worden?
+
+## Bonus 3-I
+In dit spel kun je best een beetje cheaten: niemand verhindert je om een hokje te overschrijven als daar al iets stond van de tegenstander. Dat kun je voorkomen! Als de speler een keuze heeft gemaakt voor een rij en een kolom, moet je eerst checken of er al iets op het bord staat. Dat kan zo:
+```python
+bord[_] != " "  # vergelijk of er op een plek op het bord iets anders staat dan 'niks'
+```
+
+Bouw deze check in in je programma. Aangezien het best een flauwe move is als je dat probeert, moet die speler gewoon z'n beurt overslaan. Er gebeurt dan dus niets voor die speler.
+
+## Bonus 3-II
+Je moet nu zelf kijken of je gewonnen hebt. Uiteraard kun je ook de computer laten uitrekenen of er iemand gewonnen heeft. Niet zo makkelijk, maar je hebt bijna alle tools al geleerd, en je krijgt een opstapje.
+
+Maak een nieuwe functie:
+```python
+def speler1_gewonnen(bord):
+    if bord[_] == _ and bord[_] == _ and bord[_] == _:
+        return True
+    else if _:
+        return True
+    else:
+        return False
+```
+Je ziet hier twee nieuwe dingen:
+1. Je kunt meerdere voorwaarden combineren met het woordje `and`.
+1. Een functie kan een `return`-waarde hebben. Die kun je als volgt gebruiken:
+```python
+if speler1_gewonnen(bord):
+    print("Speler 1 heeft gewonnen")
+```
+
+Kun jij de rest uitvogelen?

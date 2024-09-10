@@ -98,7 +98,7 @@ Pak de tekst waarbij je gesplitst hebt op het teken `\n` (dat is een *newline*) 
 
 
 ## Terug naar de schildpad
-Na een poos bezig geweest te zijn met letters en teksten, gaan we nog even terug naar het tekenen met de schildpad. We hebben meer dingen geleerd waardoor het makkelijker wordt om figuurtjes te tekenen.
+Na een poos bezig geweest te zijn met boter-kaas-en-eieren en teksten, gaan we nog even terug naar het tekenen met de schildpad. We hebben meer dingen geleerd waardoor het makkelijker wordt om figuurtjes te tekenen.
 
 Importeren:
 ```python
