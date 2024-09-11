@@ -1,22 +1,23 @@
 # Week 4.1
 
 
-Straks gaan we werken met data-bestanden. Je werkt namelijk meestal niet met losse getallen, letters of woorden, maar met een hele bak aan data. Denk aan meetwaarden of lappen tekst, of als je een app bouwt aan alle gebruikers of posts. Daarvoor zijn eerst nog wat andere onderdelen handig.
+Straks gaan we werken met tekst-bestanden. Je werkt namelijk meestal niet met losse getallen, letters of woorden, maar met een hele bak aan data. Denk aan meetwaarden of lappen tekst, of als je een app bouwt: aan alle gebruikers of posts.
 
 ## Werken met tekst
-We gaan aan de slag met strings: stukken tekst. Het eerste voorbeeld was `"Hello world"`. Maar er zijn ook veel langere stukken tekst. De standaard opvultekst die eigenlijk nergens op slaat is *Lorem ipsum*:
+We gaan aan de slag met strings: stukken tekst. Het eerste voorbeeld was `"Hello world"`. Maar uiteraard zijn er ook veel langere stukken tekst. De standaard opvultekst die eigenlijk nergens op slaat is *Lorem ipsum*:
 ```python
 lorem = """Lorem ipsum dolor sit amet. Non itaque architecto qui expedita voluptas eum natus totam. Est mollitia voluptatem aut deleniti labore hic dolore vero aut suscipit vitae aut animi officiis aut possimus nobis. Rem dignissimos repellat id internos quis et voluptatem cupiditate non rerum nulla qui tenetur quaerat et officiis molestiae.
 Et dolores temporibus a voluptatum autem ut autem impedit. Eum iste assumenda in reprehenderit consequatur est minima iusto aut quod perferendis aut dolorum culpa.
 Vel atque dicta est exercitationem recusandae et dolor voluptatibus. Ea alias placeat non sint molestias est amet dolores  adipisci sunt et quis veniam et voluptatibus pariatur non voluptas quia."""
 ```
 
-**Let op**: tot nu toe ken je de driedubbele apostrof als commentaar. Dat is inderdaad hoe je meerdere regels commentaar kunt maken, maar je kunt het ook opslaan in een variabele!
+> [!NOTE]
+> Je hebt een _driedubbele_ apostrof nodig als er Enters in je tekst staan - zoals bij de tekst hierboven.
 
 ---
 
 <details>
-<summary>Opdracht</summary>
+<summary>Opdracht 4.1</summary>
 
 Print `lorem`.
 </details>
@@ -28,6 +29,9 @@ Je kunt de lengte van een string opvragen: Python telt dan hoeveel karakters (le
 print(len(lorem))       # lorem is 692 karakters lang
 ```
 
+> [!TIP]
+> `len()` is een ingebouwde functie in Python: net als de functies die je zelf hebt gemaakt in het vorige hoofdstuk, kun je hier een _argument_ gebruiken: namelijk het 'item' waarvan je de lengte wilt weten.
+
 Er zijn een aantal handige dingen die je kunt doen met strings. Een daarvan is het splitsen op bepaalde karakters:
 ```python
 gesplitst = lorem.split(' ')
@@ -38,17 +42,28 @@ De tekst wordt gesplitst op het karakter `' '`: een spatie.
 ---
 
 <details>
-<summary>Opdracht</summary>
+<summary>Opdracht 4.2</summary>
 
 Print `gesplitst`. Wat is `gesplitst` voor iets (welk *datatype* heeft het)? Maak gebruik van een `for`-loop om elk element in `gesplitst` te printen.
+
+Opfrisser:
+```python
+for _ in _:
+    print(_)
+```
 </details>
 
 ---
 
 <details>
-<summary>Opdracht</summary>
+<summary>Opdracht 4.3</summary>
 
-Splits `lorem` op het karakter `'\n'`. Print het resultaat van het splitsen en kijk goed: waarop is er gesplitst? Wat betekent `\n` dus?
+Splits `lorem` op het karakter `'\n'` en sla dit weer op in de variabele `gesplitst`.
+
+Voer het volgende uit en kijk goed: waarop is er gesplitst? Wat betekent `\n`?
+```python
+print(gesplitst)
+```
 </details>
 
 ---
@@ -66,7 +81,7 @@ Tip: achter `.replace()` kun je gewoon nog een keer `.replace()` zetten om ook e
 ---
 
 <details>
-<summary>Opdracht</summary>
+<summary>Opdracht 4.4</summary>
 
 Maak gebruik van de volgende tekst:
 ```python
@@ -85,26 +100,21 @@ gelijmd = ' '.join(gesplitst)
 
 Alle elementen in `gesplitst` worden ge`join`ed met een spatie (`' '`).
 
----
-
-<details>
-<summary>Opdracht</summary>
-
-Pak de tekst waarbij je gesplitst hebt op het teken `\n` (dat is een *newline*) van een enkele opdracht terug. `join` de losse zinnen met een dubbele Enter zodat het echt losse alinea's worden. (Hint: je kunt `\n\n` gebruiken om twee Enters te maken.)
-
-</details>
-
----
-
 
 ## Terug naar de schildpad
 Na een poos bezig geweest te zijn met boter-kaas-en-eieren en teksten, gaan we nog even terug naar het tekenen met de schildpad. We hebben meer dingen geleerd waardoor het makkelijker wordt om figuurtjes te tekenen.
 
-Importeren:
+Importeren (_eerste_ regel van je script):
 ```python
 import turtle
 ```
 
+> [!IMPORTANT]
+> Wanneer je `turtle` in een script wilt gebruiken, **moet** je altijd aan het einde van je script zetten:
+> ```python
+> turtle.mainloop()
+> ```
+> Dit is dus altijd de _laatste_ regel van je script
 
 ## De basisomgeving
 Werken met `turtle` is eigenlijk tekenen met een pen op papier. Met de volgende regel komen we aan 'papier':
@@ -122,7 +132,7 @@ t = turtle.Turtle()
 De pen zit nu opgeslagen onder de variabele `t` van *turtle*. Nu kunnen we gaan tekenen!
 
 ## Overzicht van basis-tekenfuncties
-Een lijstje van eenvoudige commando's om te gaan tekenen:
+Een lijstje van de bekende teken-commando's:
 ```python
 t.forward(100)  # 100 units vooruit
 t.forward(-25)  # 25 units achteruit
@@ -147,7 +157,7 @@ t.clear()       # alle strepen verwijderen
 t.reset()       # helemaal opnieuw beginnen
 ```
 
-Om naar een specifieke plek op het scherm te gaan, is de volgende functie beschikbaar:
+Om naar een specifieke plek op het scherm te gaan, zijn de volgende functies beschikbaar:
 ```python
 t.goto(x, y)        # ga naar het punt (x, y)
 t.goto(-50, 10)     # ga naar het punt (-50, 10)
@@ -169,7 +179,7 @@ t.showturtle()      # turtle zichtbaar maken
 t.stamp()           # een stempel op de huidige plek van de turtle
 ```
 
-En een aantal verschillende looks voor je turtle:
+En een aantal verschillende 'skins' voor je schildpad:
 ```python
 t.shape("turtle")
 t.shape("arrow")
@@ -179,21 +189,6 @@ t.shape("triangle")
 t.shape("classic")
 ```
 
-Je kunt ook achtergrondkleuren instellen:
-```python
-turtle.bgcolor(color)   # de achtergrondkleur van het scherm instellen
-turtle.bgcolor("red")
-turtle.bgcolor("green")
-turtle.bgcolor("magenta")
-```
-
-**Let op**: als je `turtle` in een script wilt gebruiken in plaats van via de REPL, moet je altijd aan het einde van je script zetten:
-```python
-turtle.mainloop()
-```
-
-
-## Punten en cirkels
 Een punt maak je zo:
 ```python
 t.dot(radius, color)
@@ -207,47 +202,22 @@ Voor een cirkel zijn er de volgende opties:
 t.circle(radius, extent, steps)
 t.circle(50)                # cirkel met r = 50
 t.circle(30.5, 180)         # halve cirkel met r = 30.5
-t.circle(100, steps = 5)    # cirkel met r = 100 en 5 lijnstukken
-t.circle(40, 270, 50)       # driekwart cirkel met r = 40 en 50 lijnstukken
 ```
 
-**Let op**! Het startpunt van de cirkel is de huidige positie, waarna de pen linksom de cirkel maakt. Je kunt de cirkel ook rechtsom maken door een negatieve straal in te vullen, bijvoorbeeld `t.circle(-20)`.
+## Een paar nieuwe commando's
 
----
+Je kunt ook achtergrondkleuren instellen:
+```python
+s.bgcolor(color)   # de achtergrondkleur van het papier instellen
+s.bgcolor("red")
+s.bgcolor("green")
+s.bgcolor("magenta")
+```
 
-<details>
-<summary>Opdracht</summary>
-
-Maak een smiley: een grote cirkel, met twee dots voor ogen. De mond moet een deel van een cirkel zijn.
-
-</details>
-
----
-
-
-## Lijndiktes
 Voor het wijzigen van de lijndikte kan de `pensize` aangepast worden:
 ```python
-t.pensize(width)        # default is 1
-t.width(width)          # alias voor .pensize(), kun je dus ook gebruiken
+t.pensize(2)            # default is 1
 ```
-
-Je kunt de pendikte wijzigen tussen elk lijnstuk.
-
----
-
-<details>
-<summary>Opdracht</summary>
-
-Maak een vierkant met een dikke buitenrand. Voeg vervolgens de twee diagonalen toe, maar maak die lijnen veel dunner. Zet vervolgens vier verschillend gekleurde stippen in de vier delen tussen de diagonalen.
-
-</details>
-
----
-
-
-## Kleuren met de schildpad
-Het tekenen van een punt kon al met een kleur, maar tot nu toe is de rest saai zwart. Maar natuurlijk kan dat zwart ook veranderd worden.
 
 Om de penkleur te wijzigen, kan het volgende gebruikt worden:
 ```python
@@ -258,39 +228,35 @@ t.pencolor('##8F438F')  # hexadecimaal
 t.pencolor()            # geeft de huidige kleur weer
 ```
 
-Ook de penkleur kun je tussen elk lijnstuk wijzigen, en zo dus elke volgende lijn of cirkel in een andere kleur maken.
-
----
-
-<details>
-<summary>Opdracht</summary>
-
-Maak het logo van de Olympische spelen.
-
-</details>
-
----
-
-Naast lijnen kleuren is het ook mogelijk om vlakken te vullen met een kleur. Zie de volgende regels:
+Naast lijnen kleuren is het ook mogelijk om vlakken te vullen met een kleur. De vulkleur stel je in op dezelfde manier als de penkleur hierboven:
 ```python
 t.fillcolor(color)  # string, RGB 0..1, RGB 0..255, hex
+```
+
+Een vlak vullen moet je specifiek zelf doen door gebruik te maken van `begin_fill()` en `end_fill()`!
+```python
 t.begin_fill()  	# alles wat tussen begin_fill en end_fill staat, wordt opgevuld
 t.circle(50)
 t.end_fill()        # de cirkel vullen met een kleur
 ```
 
-`pencolor` en `fillcolor` zijn ook allebei in een keer in te stellen of op te vragen:
-```python
-t.color(color)      # pen- en vulkleur allebei hetzelfde
-t.color(pencolor, fillcolor)    # pen- en vulkleur apart instellen
-```
+---
+
+<details>
+<summary>Opdracht</summary>
+
+Maak een smiley: een grote cirkel, met twee dots voor ogen. De mond moet een deel van een cirkel zijn. 
+
+</details>
 
 ---
 
 <details>
 <summary>Opdracht</summary>
 
-Maak het logo van Mitsubishi maar gebruik een gouden rand en vul de drie ruiten met verschillende kleuren. Tip: gebruik hoeken van 45 graden en 135 graden.
+Maak een schietschijf die bestaat uit uit vier schijven: van buiten naar binnen een zwarte, blauwe, rode en gele. Er zijn meerdere manieren mogelijk: kies wat je de handigste vindt. 
+
+Eventueel kun je met `t.stamp()` een paar random plekken markeren waar je 'geschoten' hebt.
 
 </details>
 
@@ -350,14 +316,65 @@ Maak met behulp van een aantal `for`-loops een driehoek, vierhoek, zeshoek en ac
 <details>
 <summary>Opdracht</summary>
 
-Maak een vijfpuntige ster uit één lijn door een `for`-loop te gebruiken.
+Maak een vijfpuntige ster uit één lijn door een `for`-loop te gebruiken. 
+
+Tip: de schildpad moet _twee_ keer helemaal rond, dus 720 graden. Bereken zelf welke hoek je dan moet maken voor elke punt.
+
+</details>
+
+---
+
+## Zolang als...
+De `for`-loop doet de code die je erbij zet precies _x_ aantal keren. Maar soms weet je van tevoren niet hoe vaak iets moet gebeuren. Of wil je wachten tot een bepaald moment. Bijvoorbeeld: _zolang als_ de docent aan het woord is, ben ik stil. Of _zolang als_ we nog niet gaan eten, lees ik nog in m'n boek of ga ik nog een potje gamen. De Engelse vertaling hiervan is uiteraard `while`. We gaan dit gebruiken om zometeen een bestand in te lezen: _zolang als_ het bestand nog niet 'uit' is, lezen we er elke keer nog een regel uit. Totdat we aan het einde van het bestand zijn gekomen.
+
+Eerst een voorbeeld en tweetal oefeningen:
+```python
+x = 0           # startwaarde 0
+while x < 10:   # zolang x kleiner is dan 10...
+    print(x)    # print de waarde van x
+    x = x + 1   # en tel 1 op bij x
+```
+
+---
+
+<details>
+<summary>Opdracht</summary>
+
+Test de code hierboven uit. Als je goed kijkt naar de uitvoer, zie je dat het getal 10 helaas toch niet geprint wordt. Vind twee (of met een beetje creativiteit drie of vier) manieren om alle getallen van 0 tot en met 10 te printen waarbij je gebruik maakt van (een variant van) bovenstaande `while`-loop.
+
+</details>
+
+---
+
+<details>
+<summary>Opdracht</summary>
+
+In hoofdstuk 2 heb je regelmatig dobbelstenen gegooid. Als je (Kolonisten van) Catan speelt, heb je twee dobbelstenen. Als je die gooit en je gooit 7, dan heb je regelmatig pech. De ene keer gebeurt dat heel snel, de andere keer kan het lang duren voordat er 7 wordt gegooid. Schrijf een klein programmaatje dat elke keer opnieuw twee dobbelstenen gooit, totdat ze samen optellen tot 7.
+
+Het opstapje voor deze opdracht:
+```python
+import random
+
+dice = [_]
+throw1 = 0  # nog geen dobbelsteen gegooid
+throw2 = 0  # nog geen dobbelsteen gegooid
+
+while _:    # zolang beide geworpen dobbelstenen samen niet optellen tot 7...
+    throw1 = random.choice(_)
+    throw2 = _
+    print("Je hebt gegooid:", _)    # print de optelling
+
+print("Einde van het programma")
+```
 
 </details>
 
 ---
 
 ## Een bestand inlezen
-Stel: iemand heeft een tekening opgeslagen als commando's in een bestand. Je kunt dan met de hand alle commando's gaan overtypen, maar dat duurt natuurlijk uren als het een grote tekening is. Daarom gaan we kijken hoe Python een bestand kan inlezen, waarna we alle commando's automatisch laten gebeuren.
+Vanaf nu tot en met het einde van het blok gaan we aan de slag om een tekenprogramma te schrijven waarbij we `turtle` gebruiken. Tekenprogramma's zoals Adobe Illustrator werken eigenlijk altijd met _vectortekeningen_, of simpeler gezegd _lijntekeningen_ (in tegenstelling tot _pixels_ in een foto). Het voordeel van lijntekeningen is dat ze eindeloos accuraat zijn en niet bestaan uit pixels.  
+Bij `turtle` maken we ook gebruik van zulke lijnstukken in tegenstelling tot pixels. Goed, je scherm heeft alleen pixels dus uiteindelijk ziet het er altijd uit als pixels. Maar je hoeft gelukkig niet met de hand pixels te kleuren, je zegt alleen dat je een 'lijnstuk' wilt tekenen (bijvoorbeeld: `forward(100)`).  
+Lijntekeningen als .svg zijn eigenlijk een lange rij commando's die vertellen welke lijnstukken er getekend zijn. Als jij dat bestand opent hoef je gelukkig niet zelf al die lijnstukken te tekenen: dat wordt automatisch voor je gedaan. In Python gaan we dat ook doen voor de `turtle`! Daarom gaan we kijken hoe Python een bestand kan inlezen, waarna we alle commando's automatisch laten uitvoeren.
 
 ```python
 # open het bestand 'tekening.txt' in 'r'(ead) modus
@@ -369,53 +386,47 @@ file = open("tekening.txt", "r")
 file.close()
 ```
 
+> [!WARNING]
+> De laatste regel is net zo belangrijk als de eerste: als je een bestand niet sluit gaat Windows vaak raar doen. Hij denkt dan namelijk nog dat het bestand geopend is met een rij errors tot gevolg (of stevig vastlopen).
+
 ---
 
 <details>
 <summary>Opdracht</summary>
 
-Maak in je map van deze week een nieuw bestand met de naam `tekening.txt`. Op GitHub staat een bestand met dezelfde naam bij de lesstof. Kopieer de inhoud van dat bestand naar je eigen computer. Test vervolgens bovenstaand stukje script. Je kunt het beste in een leeg script (nieuw Python bestand) beginnen **in dezelfde map als het tekstbestand**.
+Maak in je map met Python bestanden een nieuw bestand met de naam `tekening.txt`. Op GitHub staat een bestand met dezelfde naam bij de lesstof. Kopieer de inhoud van dat bestand naar je eigen computer. Test vervolgens bovenstaand stukje script. Je kunt het beste in een leeg script (nieuw Python bestand) beginnen **in dezelfde map als het tekstbestand**. 
 
-Tip: als je een error krijgt bij bovenstaande code, doe dan het volgende: ga in Visual Studio Code naar `File > Open Folder` en open dan specifiek de map waarin je Python script én tekstbestand zijn opgeslagen.
+Als je _geen_ error krijgt bij het uitvoeren van bovenstaande code, dan is alles in orde. Als je _wel_ een error krijgt bij bovenstaande code, doe dan het volgende: ga in Visual Studio Code naar `File > Open Folder` en open dan specifiek de map waarin je Python script én tekstbestand zijn opgeslagen (ze moeten in dezelfde map staan).
 
 </details>
 
 ---
 
-We kunnen alle regels in het bestand uitlezen:
+We kunnen alle regels in het bestand uitlezen en printen:
 ```python
 # .. open het bestand zoals eerder
-regels = file.readlines()
+while regel := file.readline():
+    print(regel)
 # .. sluit het bestand zoals eerder
 ```
 
-Alle regels worden als een _list_ ingelezen: elke regel is een item in de lijst.
+> [!NOTE]
+> Je ziet een vrij gekke _operator_ staan: `:=`. Deze hoef je niet te kennen, maar hij heet de _walrus_-operator (_"because the := syntax resembles the eyes and tusks of a walrus lying on its side"_).  
+> Wat deze operator doet, is het volgende: `regel` krijgt de waarde van `file.readline()` (ofwel: de volgende regel uit het bestand), maar tegelijkertijd wordt ook gecheckt of er nog wel een regel is in het bestand. Je kunt het dus als volgt lezen:  
+> "Zolang er nog een _line_ in het bestand is, sla je deze _line_ op in `regel` en voer je de volgende code uit: ..."
 
 ---
 
 <details>
 <summary>Opdracht</summary>
 
-Print de eerste regel. Reminder: de computer begint met tellen bij 0.
+Voer bovenstaande code uit en check of de regels goed geprint worden!
 
 </details>
 
 ---
 
-We kunnen door alle regels heen met een `for`-loop.
-
----
-
-<details>
-<summary>Opdracht</summary>
-
-Print elke regel in `regels`, door middel van een `for`-loop. Weet je niet meer hoe? Zoek dan terug in het einde van week 2.
-
-</details>
-
----
-
-De eerste letter van elke regel is het commando dat uitgevoerd moet worden. De mogelijke opties:
+De eerste letter van elke regel is het commando dat door je schildpad uitgevoerd moet worden. De mogelijke opties zijn:
 |Afkorting|Commando|
 |:--|:-----------|
 |`f`|`forward`   |
@@ -464,7 +475,16 @@ argument = regel[1:].strip('\n')    # de rest, en strip de Enter
 ```
 Bouw in de functie een `match-case` constructie. Match op `commando`, met een `case` voor alle opties in de tabel met commando's. Voor nu print je in elke case het commando dat straks uitgevoerd moet worden. Vergeet niet de laatste case: voor alle overige opties.
 
-Tip: let op alle dubbele punten en tabs die je moet gebruiken!
+Een opstapje:
+```python
+def _(_):
+    commando = _
+    argument = _
+    match _:
+        case _:
+            print(_)
+```
+Let goed op alle tabs/inspringingen.
 </details>
 
 ---
@@ -514,15 +534,15 @@ turtle.mainloop()
 ---
 
 <details>
-<summary>Opdracht</summary>
+<summary>Slotopdracht</summary>
 
 Op GitHub staat een bestand genaamd `tekening.txt`. Maak in de map met je script een bestand met dezelfde naam. Kopieer de inhoud van het GitHub bestand en sla het op in je eigen bestand.
 
 Open vervolgens in het script het bestand, en voer voor elke regel in het bestand de functie `uitvoeren` uit. Hiervoor kun je terugkijken naar een paar opdrachten terug: gebruik een `for`-loop: voor elke regel in het bestand moet je jouw functie uitvoeren met die regel.
 
-Als je alles goed hebt gedaan krijg je een plaatje in beeld. Lukt het niet? Kijk dan of je een error ziet die je begrijpt. Werkt je script / zie je een goed plaatje? Probeer dan ook `tekening2.txt`. 
+Als je alles goed hebt gedaan krijg je een plaatje in beeld. Lukt het niet? Kijk dan of je een error ziet die je begrijpt. Werkt je script / zie je een goed plaatje? Ga dan door naar `tekening2.txt`. 
 
-Tip: stel vóór het tekenen de snelheid van je turtle in op maximaal: `t.speed(10)`. Anders ben je (zeker met het laatste bestand) lang aan het wachten...
+Tip: stel vóór het tekenen de snelheid van je turtle in op maximaal: `t.speed(10)`. Of als je helemaal geen animatie wilt: `t.speed(0)`. Anders ben je (zeker met het laatste bestand) lang aan het wachten...
 
 </details>
 
