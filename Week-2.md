@@ -7,7 +7,7 @@ We gaan hiermee aan de slag in het programma Visual Studio Code. Dat is een prog
 ---
 
 <details>
-<summary>Opdracht</summary>
+<summary>Opdracht 2.1</summary>
 
 Open Visual Studio Code. Je kunt hier gewoon op zoeken in het startmenu, of naartoe klikken via `Alle vakken > Informatica > Programmeren > Visual Studio Code`. Navigeer zodra het programma geopend is naar `View > Extensions` of gebruik de shortcut <kbd>Ctrl</kbd> <kbd>Shift</kbd> <kbd>X</kbd>. Zoek vervolgens naar de extensie Python en installeer die. **Let op**: waarschijnlijk moet je dit elke keer dat je inlogt op een schoolcomputer opnieuw uitvoeren; daar is helaas niets aan te doen.
 </details>
@@ -39,7 +39,7 @@ print("Hello world!")
 ---
 
 <details>
-<summary>Opdracht</summary>
+<summary>Opdracht 2.2</summary>
 
 Kopieer bovenstaande code (dat kan heel erg makkelijk door met de muis op het vak te staan en dan op het kopieersymbool rechtsbovenin het vak te klikken). Plak het in een nieuw Pythonbestand in VSCode. Klik vervolgens rechtsboven op het pijltje (Run Python file). Als het goed is zie je in de terminal onderin het scherm het resultaat van je script tevoorschijn komen.
 
@@ -96,7 +96,7 @@ print(b == c) # True
 ---
 
 <details>
-<summary>Opdracht</summary>
+<summary>Opdracht 2.3</summary>
 
 Zoek uit wat het antwoord is op de volgende vragen:
 1. Is `3` gelijk aan `3.0`?
@@ -135,7 +135,7 @@ Voor de netheid staat er vaak een extra <kbd>Enter</kbd> achter om de scheiding 
 ---
 
 <details>
-<summary>Opdracht</summary>
+<summary>Opdracht 2.4</summary>
 
 Maak een variabele `t` en geef die een bepaalde waarde (temperatuur in graden Celsius).
 
@@ -162,7 +162,7 @@ Een `else` heeft geen voorwaarde: het wordt uitgevoerd in alle andere gevallen (
 ---
 
 <details>
-<summary>Opdracht</summary>
+<summary>Opdracht 2.5</summary>
 
 Breid het script van de vorige opdracht uit: als `t` gelijk aan of groter is dan 15 moet er geprint worden: `"Het is warm."`.
 </details>
@@ -186,7 +186,7 @@ Je kunt er in principe eindeloos veel onder elkaar zetten: `if-elif-elif-elif-el
 ---
 
 <details>
-<summary>Opdracht</summary>
+<summary>Opdracht 2.6</summary>
 
 Breid het script van de afgelopen twee opdrachten nog verder uit: als `t` kleiner is dan 0 graden moet het script printen: `"Het vriest!"`. Zorg dat je gebruik maakt van de `if-elif-else`-constructie. Let goed op dat het juiste resultaat wordt geprint voor temperaturen onder nul! Je zult meerdere dingen moeten aanpassen.
 </details>
@@ -194,7 +194,7 @@ Breid het script van de afgelopen twee opdrachten nog verder uit: als `t` kleine
 ---
 
 <details>
-<summary>Opdracht</summary>
+<summary>Opdracht 2.7</summary>
 
 Hieronder staat een stuk code waarbij het 'inspringen' met Tabs is weggelaten. Fix de code zodat het toch goed werkt.
 
@@ -220,7 +220,7 @@ Test uiteraard of je het goed hebt gedaan door je code uit te voeren.
 ---
 
 <details>
-<summary>Opdracht</summary>
+<summary>Opdracht 2.8</summary>
 
 Misschien was het je al opgevallen, maar in de vorige opdracht zit een foutje in de _logica_: stel de tijd maar eens in op 10 uur. Los de fout op!
 </details>
@@ -228,7 +228,7 @@ Misschien was het je al opgevallen, maar in de vorige opdracht zit een foutje in
 ---
 
 <details>
-<summary>Opdracht</summary>
+<summary>Opdracht 2.9</summary>
 
 In het vorige hoofdstuk heb je gekeken naar lijsten en random selecteren uit een lijst. Als we dat combineren met de `if-else` constructie, kunnen we beginnen om een spelletje te maken. In het vorige hoofdstuk keken we bijvoorbeeld naar Risk: als de aanvaller een hogere score gooit met een dobbelsteen wint de aanvaller, anders de verdediger.
 
@@ -291,7 +291,7 @@ Snap je niet helemaal wat er gebeurt? Vertaal dan de twee regels die er staan en
 ---
 
 <details>
-<summary>Opdracht</summary>
+<summary>Opdracht 2.10</summary>
 
 Maak een lijst van alle vakken die je vandaag hebt. Gebruik vervolgens een `for`-loop zodat op volgorde jouw vakken geprint worden. Om je op weg te helpen:
 ```python
@@ -325,7 +325,7 @@ c = range(5, 0)             # [] (leeg, je kunt niet van 5 naar 0)
 ---
 
 <details>
-<summary>Opdracht</summary>
+<summary>Opdracht 2.11</summary>
 
 Maak een `range()` voor alle getallen op een normale dobbelsteen. Print elk getal in die range door middel van een `for`-loop om het te controleren.
 
@@ -371,7 +371,7 @@ t.color("magenta")
 --- 
 
 <details>
-<summary>Opdracht</summary>
+<summary>Opdracht 2.12</summary>
 
 Maak een vierkante spiraal door de volgende code compleet te maken:
 
@@ -403,7 +403,7 @@ c = range(25, 55, 5)        # [25, 30, 35, 40, 45, 50]
 --- 
 
 <details>
-<summary>Opdracht</summary>
+<summary>Opdracht 2.13</summary>
 
 Maak de vierkante spiraal van de vorige opdracht heel groot. Je hoeft nu alleen niet zelf een enorme lijst te typen, maar kunt gebruik maken van de `range`-functie. Wijzig de volgende regel in je script:
 
@@ -416,7 +416,7 @@ for _ in range(_, _, _):
 ---
 
 <details>
-<summary>Opdracht</summary>
+<summary>Opdracht 2.14</summary>
 
 Maak de vierkante spiraal nu een (zo goed als) ronde spiraal. Je moet daarvoor de hoek heel klein maken, zodat je nauwelijks ziet dat de turtle draait. 
 

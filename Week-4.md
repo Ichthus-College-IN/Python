@@ -87,7 +87,7 @@ Maak gebruik van de volgende tekst:
 ```python
 tekst = "HET VAK INFORMATICA IS HET LEUKSTE VAK DAT OP HET ICHTHUS GEGEVEN WORDT (DAT IS EEN FEIT). DAT KOMT NATUURLIJK OOK DOOR DE LEERLINGEN: ZE ZIJN IJVERIG AAN HET PROGRAMMEREN EN MAKEN HET ALTIJD GEZELLIG."
 ```
-Vervang zoveel mogelijk letters door cijfers, waarna de tekst toch nog te lezen is (gebruik minimaal de 1, 2, 3 en 4). Of je schrijft zelf een tekst die je aan je buren laat lezen nadat je letters vervangen hebt door cijfers.
+Vervang minstens vier letters door cijfers, waarna de tekst toch nog te lezen is (gebruik minimaal de 1, 2, 3 en 4). Of je schrijft zelf een tekst die je aan je buren laat lezen nadat je letters vervangen hebt door cijfers.
 
 </details>
 
@@ -240,10 +240,12 @@ t.circle(50)
 t.end_fill()        # de cirkel vullen met een kleur
 ```
 
+Maak een van onderstaande opdrachten:
+
 ---
 
 <details>
-<summary>Opdracht</summary>
+<summary>Opdracht 4.5</summary>
 
 Maak een smiley: een grote cirkel, met twee dots voor ogen. De mond moet een deel van een cirkel zijn. 
 
@@ -252,9 +254,9 @@ Maak een smiley: een grote cirkel, met twee dots voor ogen. De mond moet een dee
 ---
 
 <details>
-<summary>Opdracht</summary>
+<summary>Opdracht 4.6</summary>
 
-Maak een schietschijf die bestaat uit uit vier schijven: van buiten naar binnen een zwarte, blauwe, rode en gele. Er zijn meerdere manieren mogelijk: kies wat je de handigste vindt. 
+Maak een schietschijf die bestaat uit uit vier schijven: van buiten naar binnen een zwarte, blauwe, rode en gele. Er zijn meerdere manieren mogelijk om dit te tekenen.
 
 Eventueel kun je met `t.stamp()` een paar random plekken markeren waar je 'geschoten' hebt.
 
@@ -305,7 +307,7 @@ turtle.mainloop()
 ---
 
 <details>
-<summary>Opdracht</summary>
+<summary>Opdracht 4.7</summary>
 
 Maak met behulp van een aantal `for`-loops een driehoek, vierhoek, zeshoek en achthoek. Hint: als je *n* hoeken gebruikt, moet je de turtle met *360/n* graden draaien.
 
@@ -314,7 +316,7 @@ Maak met behulp van een aantal `for`-loops een driehoek, vierhoek, zeshoek en ac
 ---
 
 <details>
-<summary>Opdracht</summary>
+<summary>Opdracht 4.8</summary>
 
 Maak een vijfpuntige ster uit één lijn door een `for`-loop te gebruiken. 
 
@@ -338,7 +340,7 @@ while x < 10:   # zolang x kleiner is dan 10...
 ---
 
 <details>
-<summary>Opdracht</summary>
+<summary>Opdracht 4.9</summary>
 
 Test de code hierboven uit. Als je goed kijkt naar de uitvoer, zie je dat het getal 10 helaas toch niet geprint wordt. Vind twee (of met een beetje creativiteit drie of vier) manieren om alle getallen van 0 tot en met 10 te printen waarbij je gebruik maakt van (een variant van) bovenstaande `while`-loop.
 
@@ -347,7 +349,7 @@ Test de code hierboven uit. Als je goed kijkt naar de uitvoer, zie je dat het ge
 ---
 
 <details>
-<summary>Opdracht</summary>
+<summary>Opdracht 4.10</summary>
 
 In hoofdstuk 2 heb je regelmatig dobbelstenen gegooid. Als je (Kolonisten van) Catan speelt, heb je twee dobbelstenen. Als je die gooit en je gooit 7, dan heb je regelmatig pech. De ene keer gebeurt dat heel snel, de andere keer kan het lang duren voordat er 7 wordt gegooid. Schrijf een klein programmaatje dat elke keer opnieuw twee dobbelstenen gooit, totdat ze samen optellen tot 7.
 
@@ -392,7 +394,7 @@ file.close()
 ---
 
 <details>
-<summary>Opdracht</summary>
+<summary>Opdracht 4.11</summary>
 
 Maak in je map met Python bestanden een nieuw bestand met de naam `tekening.txt`. Op GitHub staat een bestand met dezelfde naam bij de lesstof. Kopieer de inhoud van dat bestand naar je eigen computer. Test vervolgens bovenstaand stukje script. Je kunt het beste in een leeg script (nieuw Python bestand) beginnen **in dezelfde map als het tekstbestand**. 
 
@@ -418,7 +420,7 @@ while regel := file.readline():
 ---
 
 <details>
-<summary>Opdracht</summary>
+<summary>Opdracht 4.12</summary>
 
 Voer bovenstaande code uit en check of de regels goed geprint worden!
 
@@ -466,7 +468,7 @@ In dit voorbeeld gaan we een stuk code _matchen_ op de variabele `stoplicht`. In
 ---
 
 <details>
-<summary>Opdracht</summary>
+<summary>Opdracht 4.13</summary>
 
 Maak een functie `uitvoeren`, met één argument: `regel`. Zet de volgende twee regels bovenaan in de functie:
 ```python
@@ -508,7 +510,7 @@ case 'g':
 ---
 
 <details>
-<summary>Opdracht</summary>
+<summary>Opdracht 4.14</summary>
 
 Kopieer bovenstaande cases, en maak de andere cases compleet! Stel dat een regel `"f100"` is, dan is het commando `"f"` en het argument `"100"`. Je turtle moet dan met 100 vooruit.
 

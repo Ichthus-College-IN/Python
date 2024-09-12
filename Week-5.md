@@ -1,5 +1,5 @@
 ## Week 5.1
-Het tekenen met een schildpad zit er op. Volgende halte: TKinter; we gaan een simpele 'app' bouwen!
+Deze week even niet tekenen met de schildpad. Volgende halte: TKinter; we gaan een simpele 'app' bouwen! (Die je in de laatste week gaat combineren met Turtle).
 
 Tkinter is ook standaard geïnstalleerd, dus kun je het direct importeren:
 ```python
@@ -33,7 +33,7 @@ root.mainloop()
 ---
 
 <details>
-<summary>Opdracht</summary>
+<summary>Opdracht 5.1</summary>
 
 Maak een window en test bovenstaande instellingen uit! Op internet zijn er trouwens nog wel meer te vinden.
 
@@ -61,7 +61,7 @@ lbl.place(x = 0, y = 0, width = 400, height = 200)
 ---
 
 <details>
-<summary>Opdracht</summary>
+<summary>Opdracht 5.2</summary>
 
 Plaats een label op je window! Of eventueel twee of meer (maar geef ze dan wel een extra nummer zoals `lbl2` en `lbl3`).
 
@@ -87,7 +87,7 @@ Zoals het er nu staat, is een button nog niet veel anders dan een label: behalve
 ---
 
 <details>
-<summary>Opdracht</summary>
+<summary>Opdracht 5.3</summary>
 
 Plaats een button op je window! Of eventueel twee of meer (maar geef ze dan wel een extra nummer zoals `btn2` en `btn3`).
 
@@ -116,7 +116,7 @@ btn = ttk.Button(root, text = "Klik op mij", command = lambda : press("Knop 1"))
 ---
 
 <details>
-<summary>Opdracht</summary>
+<summary>Opdracht 5.4</summary>
 
 Voeg de `press()` functie in, pas je knop aan en test hem uit! Voeg je functie ook toe aan de andere knoppen die je gemaakt hebt, maar gebruik dan een andere naam dan `Knop 1`, zodat je het verschil ziet.
 
@@ -128,17 +128,17 @@ Voeg de `press()` functie in, pas je knop aan en test hem uit! Voeg je functie o
 ## Invoervelden
 Vaak heb je gegevens of informatie van gebruikers nodig. Die kunnen ze invullen in een `Entry`: een invoerveld. Een entry heeft een bijzonder type string nodig: een `tk.StringVar()`. Die helpt erbij om de tekst van een entry uit te lezen.
 
-Er bestaat geen officiele of officieuze afkorting voor een entry zoals dat bij een label en button is, maar we gebruiken hier `ety`. Bekijk het volgende voorbeeld voor het maken van een `StringVar` en `Entry`:
+Er bestaat geen officiele of officieuze afkorting voor een entry zoals dat bij een label en button is, dus we gebruiken gewoon `entry`. Bekijk het volgende voorbeeld voor het maken van een `StringVar` en `Entry`:
 ```python
 tekst = tk.StringVar()
-ety = ttk.Entry(root, textvariable = tekst)
-ety.place(x = 0, y = 300, width = 400, height = 200)
+entry = ttk.Entry(root, textvariable = tekst)
+entry.place(x = 0, y = 300, width = 400, height = 200)
 ```
 
 ---
 
 <details>
-<summary>Opdracht</summary>
+<summary>Opdracht 5.5</summary>
 
 Voeg het invoerveld toe aan je script en test of je invoerveld te gebruiken is. Je kunt de invoer nog niet verwerken, maar dat komt als volgende onderdeel.
 
@@ -158,7 +158,7 @@ buttontekst = btn.cget('text')
 
 Het opvragen van de invoer in een entry gaat zo:
 ```
-entrytekst = ety.get()
+entrytekst = entry.get()
 ```
 
 Mocht je het fijn vinden: je kunt veel TKinter items ook aanpassen via `.configure(..)`. Je hoeft daar nu verder niets mee te doen. Een paar voorbeelden:
@@ -172,7 +172,7 @@ btn.configure(text = "Knop v3", command = lambda : functie3())
 ---
 
 <details>
-<summary>Opdracht</summary>
+<summary>Opdracht 5.6</summary>
 
 Maak een functie die het volgende doet:
 * Opvragen welke tekst er in de entry is ingevoerd
@@ -190,8 +190,7 @@ Geef vervolgens een button het commando om bovenstaande functie uit te voeren.
 
 ---
 
-<details>
-<summary>Slotopdracht ⭐⭐⭐</summary>
+## Slotopdracht ⭐
 
 Maak een app die de BMI van een gebruiker kan berekenen. Daarvoor zijn de volgende dingen nodig:
 
@@ -207,12 +206,3 @@ Maak een app die de BMI van een gebruiker kan berekenen. Daarvoor zijn de volgen
 *Tip*: als commando bij de knop gebruik je een functie. Voor die functie kun je het voorbeeld uit de bovenstaande opdracht gebruiken, behalve dat je nu _twee_ invoeren moet uitlezen en in de functie ook de BMI moet uitrekenen.
 
 *Tip*: vergeet niet `root.mainloop()` onderaan je script te zetten.
-
-**Beoordeling:**
-* : niet ingeleverd / werkt totaal niet
-* ⭐: ingeleverd maar geen correct resultaat / simpele oplossing om werkend te krijgen
-* ⭐⭐: ingeleverd en (zo goed als) correct op minder goede manier
-* ⭐⭐⭐: ingeleverd en helemaal correct op de manier zoals geleerd in het hoofdstuk
-</details>
-
----
