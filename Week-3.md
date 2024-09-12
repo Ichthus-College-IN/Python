@@ -207,7 +207,7 @@ Pas vervolgens het spelbord aan: plaats drie kruisjes op de middelste kolom (dus
 
 ---
 
-## De slotopdracht 3
+## De slotopdracht 3 ⭐⭐
 Maak boter-kaas-en-eieren!
 
 1. Begin met een nieuw bestand, en sla deze alvast op als `slotopdracht3.py`.
@@ -216,7 +216,7 @@ Maak boter-kaas-en-eieren!
 1. Voeg code toe voor een tweede speler, zodanig dat ze allebei omstebeurt een zet maken (dus in de volgorde 1-2 - 1-2 - 1-2). Zorg er uiteraard voor dat de tweede speler een ander symbool op het bord zet dan de eerste!
 1. Hoe vaak moet je de `for`-loop herhalen voor het geval dat alle hokjes getekend moeten worden?
 
-## Bonus 3-I
+## Bonus 3-I ⭐
 In dit spel kun je best een beetje cheaten: niemand verhindert je om een hokje te overschrijven als daar al iets stond van de tegenstander. Dat kun je voorkomen! Als de speler een keuze heeft gemaakt voor een rij en een kolom, moet je eerst checken of er al iets op het bord staat. Dat kan zo:
 ```python
 bord[_] != " "  # vergelijk of er op een plek op het bord iets anders staat dan 'niks'
@@ -224,7 +224,7 @@ bord[_] != " "  # vergelijk of er op een plek op het bord iets anders staat dan 
 
 Bouw deze check in in je programma. Aangezien het best een flauwe move is als je dat probeert, moet die speler gewoon z'n beurt overslaan. Er gebeurt dan dus niets voor die speler.
 
-## Bonus 3-II
+## Bonus 3-II ⭐
 Je moet nu zelf kijken of je gewonnen hebt. Uiteraard kun je ook de computer laten uitrekenen of er iemand gewonnen heeft. Niet zo makkelijk, maar je hebt bijna alle tools al geleerd, en je krijgt een opstapje.
 
 Maak een nieuwe functie:
