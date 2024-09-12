@@ -533,8 +533,7 @@ turtle.mainloop()
 
 ---
 
-<details>
-<summary>Slotopdracht</summary>
+## Slotopdracht ⭐
 
 Op GitHub staat een bestand genaamd `tekening.txt`. Maak in de map met je script een bestand met dezelfde naam. Kopieer de inhoud van het GitHub bestand en sla het op in je eigen bestand.
 
@@ -543,8 +542,3 @@ Open vervolgens in het script het bestand, en voer voor elke regel in het bestan
 Als je alles goed hebt gedaan krijg je een plaatje in beeld. Lukt het niet? Kijk dan of je een error ziet die je begrijpt. Werkt je script / zie je een goed plaatje? Ga dan door naar `tekening2.txt`. 
 
 Tip: stel vóór het tekenen de snelheid van je turtle in op maximaal: `t.speed(10)`. Of als je helemaal geen animatie wilt: `t.speed(0)`. Anders ben je (zeker met het laatste bestand) lang aan het wachten...
-
-</details>
-
----
-
