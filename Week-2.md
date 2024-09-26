@@ -368,6 +368,13 @@ t.color(_)      # penkleur instellen
 t.color("magenta")
 ```
 
+> [!CAUTION]
+> Als je `turtle` gebruikt, zorg dan dat de allerlaatste regel van je script _altijd_ de volgende is:
+> ```python
+> turtle.mainloop()
+> ```
+> Anders sluit je tekening direct nadat de schildpad klaar is met tekenen (en zie je dus eigenlijk niets).
+
 --- 
 
 <details>
