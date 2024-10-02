@@ -68,38 +68,6 @@ print(gesplitst)
 
 ---
 
-Een ander geintje is `replace()`:
-```python
-vervangen = lorem.replace('o', '0') # vervang alle letters o door het cijfer 0
-vervangen2 = lorem.replace(' ', '') # vervang alle spaties door niets (verwijder dus alle spaties)
-```
-
-De eerste regel laat zien hoe je losse karakters kunt vervangen. De tweede regel is eigenlijk een soort verwijderen: we vervangen de spatie door een leeg karakter. 
-
-Tip: achter `.replace()` kun je gewoon nog een keer `.replace()` zetten om ook een ander karakter te vervangen.
-
----
-
-<details>
-<summary>Opdracht 4.4</summary>
-
-Maak gebruik van de volgende tekst:
-```python
-tekst = "HET VAK INFORMATICA IS HET LEUKSTE VAK DAT OP HET ICHTHUS GEGEVEN WORDT (DAT IS EEN FEIT). DAT KOMT NATUURLIJK OOK DOOR DE LEERLINGEN: ZE ZIJN IJVERIG AAN HET PROGRAMMEREN EN MAKEN HET ALTIJD GEZELLIG."
-```
-Vervang minstens vier letters door cijfers, waarna de tekst toch nog te lezen is (gebruik minimaal de 1, 2, 3 en 4). Of je schrijft zelf een tekst die je aan je buren laat lezen nadat je letters vervangen hebt door cijfers.
-
-</details>
-
----
-
-Je kunt ook stukken tekst 'aan elkaar lijmen'. Een stukje terug werd `lorem` gesplitst op de spaties. Je kunt dat vervolgens weer op deze manier weer een normale tekst maken:
-```python
-gelijmd = ' '.join(gesplitst)
-```
-
-Alle elementen in `gesplitst` worden ge`join`ed met een spatie (`' '`).
-
 
 ## Terug naar de schildpad
 Na een poos bezig geweest te zijn met boter-kaas-en-eieren en teksten, gaan we nog even terug naar het tekenen met de schildpad. We hebben meer dingen geleerd waardoor het makkelijker wordt om figuurtjes te tekenen.
@@ -245,7 +213,7 @@ Maak een van onderstaande opdrachten:
 ---
 
 <details>
-<summary>Opdracht 4.5</summary>
+<summary>Opdracht 4.4</summary>
 
 Maak een smiley: een grote cirkel, met twee dots voor ogen. De mond moet een deel van een cirkel zijn. 
 
@@ -254,7 +222,7 @@ Maak een smiley: een grote cirkel, met twee dots voor ogen. De mond moet een dee
 ---
 
 <details>
-<summary>Opdracht 4.6</summary>
+<summary>Opdracht 4.5</summary>
 
 Maak een schietschijf die bestaat uit uit vier schijven: van buiten naar binnen een zwarte, blauwe, rode en gele. Er zijn meerdere manieren mogelijk om dit te tekenen.
 
@@ -264,67 +232,6 @@ Eventueel kun je met `t.stamp()` een paar random plekken markeren waar je 'gesch
 
 ---
 
-
-## `turtle` en loops
-Waar er tot nu toe veel handwerk nodig was om iets moois te maken, kunnen we uiteraard ook hier weer automatisering toepassen.
-
-Vergelijk de volgende twee methoden om een vierkant te maken:
-```python
-t.fd(100)
-t.rt(90)
-t.fd(100)
-t.rt(90)
-t.fd(100)
-t.rt(90)
-t.fd(100)
-t.rt(90)
-```
-of:
-```python
-for i in range(4):  # i = 0, 1, 2, 3
-    t.fd(100)
-    t.rt(90)
-```
-
-Of in een keer een paar cirkels van verschillend formaat:
-```python
-for i in range(10, 50, 10): # i = 10, 20, 30, 40
-    t.circle(i)             # cirkel met straal i
-```
-
-Een ander leuk voorbeeld:
-```python
-for i in range(10, 250, 5): # i = 10, 15, 20 .. 240, 245
-    t.fd(i)
-    t.lt(90)
-```
-
-**Herinnering**: als je `turtle` in een script gebruikt, moet je altijd aan het einde van je script zetten:
-```python
-turtle.mainloop()
-```
-
----
-
-<details>
-<summary>Opdracht 4.7</summary>
-
-Maak met behulp van een aantal `for`-loops een driehoek, vierhoek, zeshoek en achthoek. Hint: als je *n* hoeken gebruikt, moet je de turtle met *360/n* graden draaien.
-
-</details>
-
----
-
-<details>
-<summary>Opdracht 4.8</summary>
-
-Maak een vijfpuntige ster uit één lijn door een `for`-loop te gebruiken. 
-
-Tip: de schildpad moet _twee_ keer helemaal rond, dus 720 graden. Bereken zelf welke hoek je dan moet maken voor elke punt.
-
-</details>
-
----
 
 ## Zolang als...
 De `for`-loop doet de code die je erbij zet precies _x_ aantal keren. Maar soms weet je van tevoren niet hoe vaak iets moet gebeuren. Of wil je wachten tot een bepaald moment. Bijvoorbeeld: _zolang als_ de docent aan het woord is, ben ik stil. Of _zolang als_ we nog niet gaan eten, lees ik nog in m'n boek of ga ik nog een potje gamen. De Engelse vertaling hiervan is uiteraard `while`. We gaan dit gebruiken om zometeen een bestand in te lezen: _zolang als_ het bestand nog niet 'uit' is, lezen we er elke keer nog een regel uit. Totdat we aan het einde van het bestand zijn gekomen.
@@ -340,7 +247,7 @@ while x < 10:   # zolang x kleiner is dan 10...
 ---
 
 <details>
-<summary>Opdracht 4.9</summary>
+<summary>Opdracht 4.6</summary>
 
 Test de code hierboven uit. Als je goed kijkt naar de uitvoer, zie je dat het getal 10 helaas toch niet geprint wordt. Vind twee (of met een beetje creativiteit drie of vier) manieren om alle getallen van 0 tot en met 10 te printen waarbij je gebruik maakt van (een variant van) bovenstaande `while`-loop.
 
@@ -349,7 +256,7 @@ Test de code hierboven uit. Als je goed kijkt naar de uitvoer, zie je dat het ge
 ---
 
 <details>
-<summary>Opdracht 4.10</summary>
+<summary>Opdracht 4.7</summary>
 
 In hoofdstuk 2 heb je regelmatig dobbelstenen gegooid. Als je (Kolonisten van) Catan speelt, heb je twee dobbelstenen. Als je die gooit en je gooit 7, dan heb je regelmatig pech. De ene keer gebeurt dat heel snel, de andere keer kan het lang duren voordat er 7 wordt gegooid. Schrijf een klein programmaatje dat elke keer opnieuw twee dobbelstenen gooit, totdat ze samen optellen tot 7.
 
@@ -373,6 +280,7 @@ print("Einde van het programma")
 
 ---
 
+
 ## Een bestand inlezen
 Vanaf nu tot en met het einde van het blok gaan we aan de slag om een tekenprogramma te schrijven waarbij we `turtle` gebruiken. Tekenprogramma's zoals Adobe Illustrator werken eigenlijk altijd met _vectortekeningen_, of simpeler gezegd _lijntekeningen_ (in tegenstelling tot _pixels_ in een foto). Het voordeel van lijntekeningen is dat ze eindeloos accuraat zijn en niet bestaan uit pixels.  
 Bij `turtle` maken we ook gebruik van zulke lijnstukken in tegenstelling tot pixels. Goed, je scherm heeft alleen pixels dus uiteindelijk ziet het er altijd uit als pixels. Maar je hoeft gelukkig niet met de hand pixels te kleuren, je zegt alleen dat je een 'lijnstuk' wilt tekenen (bijvoorbeeld: `forward(100)`).  
@@ -394,7 +302,7 @@ file.close()
 ---
 
 <details>
-<summary>Opdracht 4.11</summary>
+<summary>Opdracht 4.8</summary>
 
 Maak in je map met Python bestanden een nieuw bestand met de naam `tekening.txt`. Op GitHub staat een bestand met dezelfde naam bij de lesstof. Kopieer de inhoud van dat bestand naar je eigen computer. Test vervolgens bovenstaand stukje script. Je kunt het beste in een leeg script (nieuw Python bestand) beginnen **in dezelfde map als het tekstbestand**. 
 
@@ -420,7 +328,7 @@ while regel := file.readline():
 ---
 
 <details>
-<summary>Opdracht 4.12</summary>
+<summary>Opdracht 4.9</summary>
 
 Voer bovenstaande code uit en check of de regels goed geprint worden!
 
@@ -468,7 +376,7 @@ In dit voorbeeld gaan we een stuk code _matchen_ op de variabele `stoplicht`. In
 ---
 
 <details>
-<summary>Opdracht 4.13</summary>
+<summary>Opdracht 4.10</summary>
 
 Maak een functie `uitvoeren`, met één argument: `regel`. Zet de volgende twee regels bovenaan in de functie:
 ```python
@@ -510,7 +418,7 @@ case 'g':
 ---
 
 <details>
-<summary>Opdracht 4.14</summary>
+<summary>Opdracht 4.11</summary>
 
 Kopieer bovenstaande cases, en maak de andere cases compleet! Stel dat een regel `"f100"` is, dan is het commando `"f"` en het argument `"100"`. Je turtle moet dan met 100 vooruit.
 
