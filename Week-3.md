@@ -62,12 +62,47 @@ print("Volgend jaar ben je " + str(volgend_jaar) + " jaar!")
 > [!CAUTION]
 > In de `print()` functie in het voorbeeld zie je dat de tekst nu 'aan elkaar geplakt' wordt met behulp van het `+`-teken. Op die manier wordt er géén spatie tussen de stukken tekst gezet. Dit in tegenstelling tot de volgende regel: `print("Volgend jaar ben je", str(volgend_jaar), "jaar!")`. Daar worden de spaties automatisch ingevoegd. Het ligt aan de situatie wat beter uitkomt.
 
+
+---
+
+## Het speelbord
+Het bord van boter-kaas-en-eieren is een raster van 3 rijen en 3 kolommen. In Python zouden we een 3x3 matrix kunnen maken, maar dat laten we even zitten. In plaats daarvan kiezen we er nu voor om de vakjes in het bord te 'tellen' en achter elkaar te zetten. Die nummering is als volgt:
+```
+0 | 1 | 2
+---------
+3 | 4 | 5
+---------
+6 | 7 | 8
+```
+Op deze manier is het bord eigenlijk één lijst van negen velden in plaats van drie bij drie.
+
+> [!NOTE]
+> We beginnen te tellen bij 0, omdat de computer dat ook doet.
+
+Voor de gebruiker is het echter een beetje onhandig als ze het nummer van het vakje in moeten vullen: ze moeten eerst de nummers leren voordat ze het spel kunnen spelen. De speler willen we gewoon om de rij en kolom vragen, dan berekent het programma wel het nummer op het bord. De rijen en kolommen voor de speler zien er als volgt uit:
+```
+    1   2   3 kolom
+    ↓   ↓   ↓
+1 → 0 | 1 | 2
+    ---------
+2 → 3 | 4 | 5
+    ---------
+3 → 6 | 7 | 8
+rij
+```
+
+Als we de getallen uit de eerste rij willen vinden, dan hoeven we alleen te kijken naar wat de gebruiker invult voor `kolom`, maar dan moet je wel opletten: de computer begint te tellen bij 0 in plaats van 1. Je moet dus van de waarde voor `kolom` 1 aftrekken. Als de gebruiker een veld uit de tweede rij wil selecteren, moeten we bij de waarde voor `kolom` elke keer 3 optellen, en voor de derde rij moeten we er 6 bij optellen. Dit kun je samenvatten als: je telt bij de kolom drie op per rij die de gebruiker selecteert (maar ook hier begint de computer weer te tellen bij 0!).
+
+De basisformule is dus `kolom + 3 * rij`, maar dan moet je nog rekening houden met de `-1` voor rij en kolom.
+
 ---
 
 <details>
 <summary>Opdracht 3.3</summary>
 
-Vraag de gebruiker achtereenvolgens om twee getallen: de kolom en een rij waarin ze een vakje willen plaatsen voor boter-kaas-en-eieren. Bereken de volgende _index_: `kolom * 3 + rij`. Print het resultaat hiervan. Je kunt de vorige oefenopdracht hergebruiken en aanpassen. Dit getal zal straks van pas komen.
+Vraag de gebruiker achtereenvolgens om twee getallen: de kolom en een rij waarin ze een vakje willen plaatsen voor boter-kaas-en-eieren. Bereken de _index_ zoals hierboven uitgelegd. Print het resultaat hiervan. Dit getal zal straks van pas komen. 
+
+Om de invoer van de gebruiker om te zetten in getallen (zodat je er mee kunt rekenen) moet je terug naar de uitleg bij de vorige opdracht! Let goed op of test hoe je de nodige haakjes gebruikt.
 
 </details>
 
