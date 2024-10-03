@@ -337,21 +337,21 @@ Voer bovenstaande code uit en check of de regels goed geprint worden!
 ---
 
 De eerste letter van elke regel is het commando dat door je schildpad uitgevoerd moet worden. De mogelijke opties zijn:
-|Afkorting|Commando|
-|:--|:-----------|
-|`f`|`forward`   |
-|`b`|`backward`  |
-|`l`|`left`      |
-|`r`|`right`     |
-|`o`|`dot`       |
-|`s`|`begin_fill`|
-|`e`|`end_fill`  |
-|`p`|`pencolor`  |
-|`i`|`fillcolor` |
-|`c`|`circle`    |
-|`u`|`up`        |
-|`d`|`down`      |
-|`g`|`goto`      |
+|Afkorting|Commando|Argumenten
+|:--|:-----------|:----------|
+|`f`|`forward`   |lengte |
+|`b`|`backward`  |lengte |
+|`l`|`left`      |graden |
+|`r`|`right`     |graden |
+|`o`|`dot`       |radius, kleur |
+|`s`|`begin_fill`|N/A |
+|`e`|`end_fill`  |N/A |
+|`p`|`pencolor`  |kleur |
+|`i`|`fillcolor` |kleur |
+|`c`|`circle`    |radius, graden |
+|`u`|`up`        |N/A |
+|`d`|`down`      |N/A |
+|`g`|`goto`      |x, y |
 
 
 ## Match-case
@@ -420,7 +420,7 @@ case 'g':
 <details>
 <summary>Opdracht 4.11</summary>
 
-Kopieer bovenstaande cases, en maak de andere cases compleet! Stel dat een regel `"f100"` is, dan is het commando `"f"` en het argument `"100"`. Je turtle moet dan met 100 vooruit.
+Kopieer bovenstaande cases, en maak de andere cases compleet! Stel dat een regel `"f100"` is, dan is het commando `"f"` en het argument `"100"`. Je turtle moet dan met 100 vooruit. Een stukje hierboven staat de complete lijst van commando's die je moet afwerken.
 
 Tip: als het argument een getal moet zijn, moet je het nog omzetten van een string naar een float (kommagetal). Dat kan met `float(argument)`.
 
@@ -447,7 +447,7 @@ turtle.mainloop()
 
 Op GitHub staat een bestand genaamd `tekening.txt`. Maak in de map met je script een bestand met dezelfde naam. Kopieer de inhoud van het GitHub bestand en sla het op in je eigen bestand.
 
-Open vervolgens in het script het bestand, en voer voor elke regel in het bestand de functie `uitvoeren` uit. Hiervoor kun je terugkijken naar een paar opdrachten terug: gebruik een `for`-loop: voor elke regel in het bestand moet je jouw functie uitvoeren met die regel.
+Open vervolgens in het script het bestand, en voer voor elke regel in het bestand de functie `uitvoeren` uit. Hiervoor kun je terugkijken naar een paar opdrachten terug: gebruik een `while`-loop: zolang er regels in het bestand staan moet je jouw functie uitvoeren met die regel.
 
 Als je alles goed hebt gedaan krijg je een plaatje in beeld. Lukt het niet? Kijk dan of je een error ziet die je begrijpt. Werkt je script / zie je een goed plaatje? Ga dan door naar `tekening2.txt`. 
 

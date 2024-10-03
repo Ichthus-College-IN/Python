@@ -6,12 +6,12 @@ Tkinter is ook standaard geïnstalleerd, dus kun je het direct importeren:
 import tkinter as tk
 from tkinter import ttk
 ```
-Die tweede regel zullen we ook nodig hebben!
 
-We gaan dit hoofdstuk weer met gewone scripts werken in plaats van in de REPL.
+> [!NOTE]
+> Tkinter is een vrij lange naam, dus importeren we die library (plugin) `as tk`: oftewel, onder de afkorting `tk`. Daarnaast heeft Tkinter een 'vernieuwde' versie onder de naam `tkinter.ttk`. Aangezien dat een beetje lang is om te typen, importeren we die specifiek met de naam `ttk`. De ontwikkelaars hebben die zelf al de afkorting `ttk` toegekend.
 
 ### Een window maken
-We starten met een kale *window*; praktisch een soort canvas waar allemaal dingen op geplaatst kunnen worden.
+We starten met een kale *window*; praktisch een soort canvas waar allemaal dingen op geplaatst kunnen worden, net als bij turtle.
 ```python
 root = tk.Tk()
 ```
