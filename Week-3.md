@@ -267,7 +267,7 @@ Maak een nieuwe functie:
 def speler1_gewonnen(bord):
     if bord[_] == _ and bord[_] == _ and bord[_] == _:
         return True
-    else if _:
+    elif _:
         return True
     else:
         return False
