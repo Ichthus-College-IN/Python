@@ -1,69 +1,5 @@
 # Week 2
-
-Tijdens week 1 hebben we rechtstreeks in de Python terminal geprogrammeerd: één regeltje per keer. Maar vaak wil je meer dingen in één keer doen, of vaker opnieuw uitvoeren. Dan is het fijner om een heel bestand in één keer uit te voeren.
-
-We gaan hiermee aan de slag in het programma Visual Studio Code. Dat is een programma waarin je standaard alleen teksten kan maken/bewerken, maar door de eindeloze hoeveelheid *extensies* ook heel veel programmeertalen kunt gebruiken. Om te werken met Python moet er dan ook een extensie voor Python geinstalleerd worden. Zie hiervoor de opdracht.
-
----
-
-<details>
-<summary>Opdracht 2.1</summary>
-
-Open Visual Studio Code. Je kunt hier gewoon op zoeken in het startmenu, of naartoe klikken via `Alle vakken > Informatica > Programmeren > Visual Studio Code`. Navigeer zodra het programma geopend is naar `View > Extensions` of gebruik de shortcut <kbd>Ctrl</kbd> <kbd>Shift</kbd> <kbd>X</kbd>. Zoek vervolgens naar de extensie Python en installeer die. **Let op**: waarschijnlijk moet je dit elke keer dat je inlogt op een schoolcomputer opnieuw uitvoeren; daar is helaas niets aan te doen.
-</details>
-
----
-
-
-## Werken met een script
-Een Python-document wordt eigenlijk altijd (en dus ook in de lessen) een *script* genoemd. Een script wordt standaard van boven naar beneden, regel voor regel uitgevoerd tot de laatste is bereikt.
-
-Een groot verschil tussen de terminal en een script, is dat je bij een script niet zomaar een antwoord of resultaat ziet. Tot nu toe zag het er bijvoorbeeld zo uit:
-```
->>> 5 + 3
-8
->>> naam = "bns"
->>> naam
-'bns'
-```
-
-De 'antwoorden' hierboven zie je niet als je een script 'uitvoert' (_runnen -> runt_). Je moet dan specifiek het resultaat _printen_.
-
-Het makkelijkste Python script dat een zichtbaar resultaat geeft is het volgende:
-```python
-print("Hello world!")
-```
-
-`print()` betekent hier dat in de *console* een zinnetje of bijv. getal wordt geprint. Zie de opdracht. Wat in dit voorbeeld tussen de ()-haakjes staat is datgene wat je wilt zien. 
-
----
-
-<details>
-<summary>Opdracht 2.2</summary>
-
-Kopieer bovenstaande code (dat kan heel erg makkelijk door met de muis op het vak te staan en dan op het kopieersymbool rechtsbovenin het vak te klikken). Plak het in een nieuw Pythonbestand in VSCode. Klik vervolgens rechtsboven op het pijltje (Run Python file). Als het goed is zie je in de terminal onderin het scherm het resultaat van je script tevoorschijn komen.
-
-Pas `"Hello world!"` aan naar bijvoorbeeld je eigen naam en controleer of het werkt.
-
-</details>
-
----
-
-
-## Commentaar in Python
-Als je zelf een script schrijft weet je vaak best goed wat er gebeurt. Maar het kan zijn dat je soms je script naar een ander stuurt, of kopieert vanaf internet. Daarbij komt commentaar heel erg van pas: tekst in je script die aangeeft wat er bedoeld wordt. Ter herinnering:
-```python
-print(1 - 2 + 3*4**5) # dit is 3071
-```
-
-Je ziet dat de tekst vanaf het `#`-teken automatisch een donkere of onopvallende kleur krijgt (afhankelijk van je thema-instellingen). Dat is namelijk commentaar: Python doet er niks mee en negeert het gewoon. Commentaar lijnen we zo veel als mogelijk netjes uit zodat het er overzichtelijk uitziet.
-```python
-1 + 1                       # = 2
-3*4 + (0.5**6 - 5)          # = 7.015625
-5*(1 + 4**(0.5 + 6.37))     # = 35026131.0081...
-3.141592 / 2                # = 1.570796
-```
-
+In de eerste week heb je gekeken naar eenvoudige 'losse' regels. Elke regel doet één ding. Maar deze week gaan we daar _logica_ aan toevoegen. Bijvoorbeeld het maken van keuzes, of dingen herhaaldelijk uitvoeren. We beginnen met vergelijkingen. 
 
 ## Vergelijkingen
 Je kunt in Python variabelen (zoals getallen en strings) vergelijken. Een vergelijking heeft slechts twee mogelijke uitkomsten: `True` of `False`. Python kent zes mogelijke vergelijkingen:
@@ -230,7 +166,11 @@ Misschien was het je al opgevallen, maar in de vorige opdracht zit een foutje in
 <details>
 <summary>Opdracht 2.9</summary>
 
-In het vorige hoofdstuk heb je gekeken naar lijsten en random selecteren uit een lijst. Als we dat combineren met de `if-else` constructie, kunnen we beginnen om een spelletje te maken. In het vorige hoofdstuk keken we bijvoorbeeld naar Risk: als de aanvaller een hogere score gooit met een dobbelsteen wint de aanvaller, anders de verdediger.
+In het vorige hoofdstuk heb je gekeken naar lijsten en random selecteren uit een lijst. Als we dat combineren met de `if-else` constructie, kunnen we beginnen om een spelletje te maken. In het vorige hoofdstuk keken we bijvoorbeeld naar Risk. De volgende spelregels gelden voor de dobbelstenen in Risk:
+
+* De beste dobbelsteen van de aanvaller wordt vergeleken met de beste dobbelsteen van de verdediger. 
+* Daarna de tweede dobbelsteen van de aanvaller met de tweede dobbelsteen van de verdediger. 
+* Telkens wint de speler met het hoogste aantal ogen. Wanneer dat aantal gelijk is, wint de verdediger.
 
 Maak een code die het volgende doet:
 1. Gooi een dobbelsteen voor de aanvaller.
@@ -268,6 +208,17 @@ z = [k, l, m]
 > [!NOTE]
 > De laatste variant hadden we nog niet besproken: je kunt een lijst maken met daarin variabelen.
 
+---
+
+<details>
+<summary>Opdracht</summary>
+
+Gooi voor de aanvaller drie dobbelstenen, en voeg deze toe aan een lijst voor `speler1`. Gooi vervolgens twee keer de dobbelsteen voor speler 2: als de verdediger hoger gooit dan een van de drie dobbelstenen van `speler1`, verwijder dan die dobbelsteen van `speler1` en voeg deze worp toe aan de lijst van `speler2`. In elk ander geval verliest `speler2` en wordt de dobbelsteen niet toegevoegd aan zijn lijst, en houdt `speler1` al zijn dobbelstenen.
+
+Print de uiteindelijke dobbelstenen: er blijven altijd drie dobbelstenen over.
+</details>
+
+---
 
 ## `for`-loop
 Het idee van programmeren is dat je iets gaat _automatiseren_. Bijvoorbeeld: als je jarig bent stuur je je vrienden niet helemaal hetzelfde appje, maar zet je bij ieder persoon zijn of haar eigen naam in het berichtje. Maar je hebt geen zin om het appje de hele tijd opnieuw te sturen. Dat kunnen we oplossen:
@@ -392,6 +343,8 @@ lengtes = [10, 20, 30, 40, 50, 60, 70, 80]
 for _ in _:
     t.fd(_)     # ga vooruit
     t.lt(_)     # maak een bocht
+
+turtle.mainloop()
 ```
 
 </details>
