@@ -169,13 +169,13 @@ Misschien was het je al opgevallen, maar in de vorige opdracht zit een foutje in
 In het vorige hoofdstuk heb je gekeken naar lijsten en random selecteren uit een lijst. Als we dat combineren met de `if-else` constructie, kunnen we beginnen om een spelletje te maken. In het vorige hoofdstuk keken we bijvoorbeeld naar Risk. De volgende spelregels gelden voor de dobbelstenen in Risk:
 
 * De beste dobbelsteen van de aanvaller wordt vergeleken met de beste dobbelsteen van de verdediger. 
-* Daarna de tweede dobbelsteen van de aanvaller met de tweede dobbelsteen van de verdediger. 
-* Telkens wint de speler met het hoogste aantal ogen. Wanneer dat aantal gelijk is, wint de verdediger.
+* De speler met het hoogste aantal ogen wint. Wanneer dat aantal gelijk is, wint de verdediger.
+* Daarna wordt de tweede dobbelsteen van de aanvaller vergeleken met de tweede dobbelsteen van de verdediger. (Maar daar kijken we nu niet naar.)
 
 Maak een code die het volgende doet:
 1. Gooi een dobbelsteen voor de aanvaller.
 1. Gooi een dobbelsteen voor de verdediger.
-1. _Als_ de aanvaller wint, _dan_ print je "Gewonnen", _anders_ print je "Verloren".
+1. _Als_ de aanvaller wint print je "Gewonnen", _anders_ print je "Verloren".
 
 De code voor een willekeurige keuze was als volgt:
 ```python
@@ -186,7 +186,7 @@ throw = random.choice(dice) # een worp is een random keuze van de dobbelsteen
 ```
 
 Als bovenstaande werkt, pas dan de laatste stap aan:
-1. _Als_ de aanvaller wint, _dan_ print je "Gewonnen", _anders als_ de worp van de verdediger gelijk is aan de aanvaller, _dan_ print je "Dat is pech!", _anders_ print je "Verloren".
+1. _Als_ de aanvaller wint print je "Gewonnen", _anders als_ de worp van de verdediger gelijk is aan de aanvaller, _dan_ print je "Dat is pech!", _anders_ print je "Verloren".
 
 </details>
 
@@ -213,9 +213,8 @@ z = [k, l, m]
 <details>
 <summary>Opdracht</summary>
 
-Gooi voor de aanvaller drie dobbelstenen, en voeg deze toe aan een lijst voor `speler1`. Gooi vervolgens twee keer de dobbelsteen voor speler 2: als de verdediger hoger gooit dan een van de drie dobbelstenen van `speler1`, verwijder dan die dobbelsteen van `speler1` en voeg deze worp toe aan de lijst van `speler2`. In elk ander geval verliest `speler2` en wordt de dobbelsteen niet toegevoegd aan zijn lijst, en houdt `speler1` al zijn dobbelstenen.
+Maak een lege lijst voor speler 1 en voor speler 2. Gooi voor de aanvaller drie dobbelstenen, en voeg deze toe aan een lijst voor `speler1`. Gooi vervolgens twee keer de dobbelsteen voor speler 2. Zoek de hoogste dobbelsteen op van de aanvaller en de hoogste van de verliezer. Vergelijk vervolgens die twee dobbelstenen om te bepalen wie er wint. Maak gebruik van `.append()` en `if/elif/else`.
 
-Print de uiteindelijke dobbelstenen: er blijven altijd drie dobbelstenen over.
 </details>
 
 ---
