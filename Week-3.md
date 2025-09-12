@@ -281,3 +281,4 @@ if speler1_gewonnen(bord):
 ```
 
 Kun jij de rest uitvogelen?
+Let op: het kan ook gelijkspel worden!
